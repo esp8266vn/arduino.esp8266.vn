@@ -1,1 +1,11 @@
 language: python
+
+sudo: false
+env:
+  global:
+    - secure: ""
+
+script:
+  - pip install requirements.txt
+  - make html
+  - git checkout --orphan gh-pagess
