@@ -40,7 +40,7 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
    OLED <eclipse-setup>
 
 .. toctree::
-   :caption: Tham khảo phần cứng
+   :caption: Tài liệu ESP8266
 
    Technical Reference Manual (PDF) <http://espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf>
    Pin List and Functions (PDF) <http://espressif.com/sites/default/files/documentation/esp32_chip_pin_list_en.pdf>

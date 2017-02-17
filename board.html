@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Board mạch IoT WiFi Uno &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Phần cứng mở IoT WiFi Uno &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -88,15 +88,13 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Cài đặt Arduino IDE</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Board IoT WiFi Uno</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#board-mach">Board mạch</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nguyen-ly">Nguyên lý</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pcb">PCB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fritzing">Fritzing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pinout">Pinout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mach-nguyen-ly">Mạch nguyên lý</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fritzing">Fritzing</a></li>
 </ul>
 </li>
 </ul>
-<p class="caption"><span class="caption-text">Tham khảo phần cứng</span></p>
+<p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf">Technical Reference Manual (PDF)</a></li>
 <li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_chip_pin_list_en.pdf">Pin List and Functions (PDF)</a></li>
@@ -141,7 +139,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Board mạch IoT WiFi Uno</li>
+    <li>Phần cứng mở IoT WiFi Uno</li>
       <li class="wy-breadcrumbs-aside">
         
           
@@ -155,22 +153,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="board-mach-iot-wifi-uno">
-<h1>Board mạch IoT WiFi Uno<a class="headerlink" href="#board-mach-iot-wifi-uno" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="board-mach">
-<h2>Board mạch<a class="headerlink" href="#board-mach" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="phan-cung-mo-iot-wifi-uno">
+<h1>Phần cứng mở IoT WiFi Uno<a class="headerlink" href="#phan-cung-mo-iot-wifi-uno" title="Permalink to this headline">¶</a></h1>
+<p>Sử dụng ESP8266 làm bộ điều khiển, tương thích chân với Arduino Uno và mạnh mẽ hơn nhiều:</p>
+<ul class="simple">
+<li>Sử đụng 2 nguồn cấp DC từ 5.5V đến 28VDC (1.2A/5V) và nguồn 5V USB</li>
+<li>Tự động vào chế độ nạp qua cổng <strong>Serial</strong></li>
+<li>Sử dụng với ESP8266 Arduino và các thư viện Arduino</li>
+<li>Hỗ trợ tài liệu từ <a class="reference external" href="https://esp8266.vn">https://esp8266.vn</a></li>
+<li>Có thêm 1 Nút nhấn và một đèn LED tương tự <strong>NodeMCU</strong>.</li>
+<li>Phần cứng mở với giấy phép <strong>CC-BY-SA</strong></li>
+<li>Thiết kế với phần mềm <strong>Kicad</strong></li>
+</ul>
+<p><a class="reference external" href="https://github.com/iotmakervn/iot-wifi-uno-hw">https://github.com/iotmakervn/iot-wifi-uno-hw</a></p>
+<div class="section" id="pinout">
+<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="_static/Iot-wifi-uno-hw-pinout.png"><img alt="_images/Iot-wifi-uno-hw-pinout.png" src="_images/Iot-wifi-uno-hw-pinout.png" /></a>
 </div>
-<div class="section" id="nguyen-ly">
-<h2>Nguyên lý<a class="headerlink" href="#nguyen-ly" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="pcb">
-<h2>PCB<a class="headerlink" href="#pcb" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mach-nguyen-ly">
+<h2>Mạch nguyên lý<a class="headerlink" href="#mach-nguyen-ly" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="_static/schematic.svg"><img alt="_images/schematic.svg" src="_images/schematic.svg" /></a>
 </div>
 <div class="section" id="fritzing">
 <h2>Fritzing<a class="headerlink" href="#fritzing" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="pinout">
-<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
