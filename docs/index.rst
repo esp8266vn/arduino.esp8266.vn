@@ -19,9 +19,9 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
    :caption: Cơ bản
    :maxdepth: 1
 
-   Bật tắt LED <make-project>
-   Nút nhấn <eclipse-setup>
-   OLED <eclipse-setup>
+   Bật tắt LED <basic/led>
+   Nút nhấn <basic/button>
+   OLED <basic/oled>
 
 .. toctree::
    :caption: WiFi
@@ -38,6 +38,9 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
    Bật tắt LED <make-project>
    Nút nhấn <eclipse-setup>
    OLED <eclipse-setup>
+.. toctree::
+   :caption: API
+   :maxdepth: 1
 
 .. toctree::
    :caption: Tài liệu ESP8266
