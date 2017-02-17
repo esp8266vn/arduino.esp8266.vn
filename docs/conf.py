@@ -53,7 +53,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Arduino for esp8266'
+project = u'Lập trình IoT với ESP8266 Arduino'
 copyright = u'2017, TuanPM'
 author = u'TuanPM'
 
