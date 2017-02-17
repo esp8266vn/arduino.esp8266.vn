@@ -34,7 +34,7 @@
               href="genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="index.html"/>
-        <link rel="next" title="Espressif IoT Development Framework Style Guide" href="style-guide.html"/>
+        <link rel="next" title="LED" href="basic/led.html"/>
         <link rel="prev" title="Arduino cơ bản" href="install.html"/> 
 
   
@@ -89,10 +89,18 @@
 <li class="toctree-l1"><a class="reference internal" href="install.html">Cài đặt Arduino IDE</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Board IoT WiFi Uno</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pinout">Pinout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#thuc-te">Thực tế</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#mach-nguyen-ly">Mạch nguyên lý</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fritzing">Fritzing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fritzing-part">Fritzing part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mua-hang">Mua hàng</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption"><span class="caption-text">Cơ bản</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic/led.html">Bật tắt LED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic/button.html">Nút nhấn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic/oled.html">OLED</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
 <ul>
@@ -162,6 +170,7 @@
 <li>Sử dụng với ESP8266 Arduino và các thư viện Arduino</li>
 <li>Hỗ trợ tài liệu từ <a class="reference external" href="https://esp8266.vn">https://esp8266.vn</a></li>
 <li>Có thêm 1 Nút nhấn và một đèn LED tương tự <strong>NodeMCU</strong>.</li>
+<li>Có thêm 1 header hỗ trợ <strong>OLED</strong></li>
 <li>Phần cứng mở với giấy phép <strong>CC-BY-SA</strong></li>
 <li>Thiết kế với phần mềm <strong>Kicad</strong></li>
 </ul>
@@ -170,12 +179,35 @@
 <h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
 <a class="reference external image-reference" href="_static/Iot-wifi-uno-hw-pinout.png"><img alt="_images/Iot-wifi-uno-hw-pinout.png" src="_images/Iot-wifi-uno-hw-pinout.png" /></a>
 </div>
+<div class="section" id="thuc-te">
+<h2>Thực tế<a class="headerlink" href="#thuc-te" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="_static/wifi-uno.jpg"><img alt="_images/wifi-uno.jpg" src="_images/wifi-uno.jpg" /></a>
+</div>
 <div class="section" id="mach-nguyen-ly">
 <h2>Mạch nguyên lý<a class="headerlink" href="#mach-nguyen-ly" title="Permalink to this headline">¶</a></h2>
 <a class="reference external image-reference" href="_static/schematic.svg"><img alt="_images/schematic.svg" src="_images/schematic.svg" /></a>
 </div>
-<div class="section" id="fritzing">
-<h2>Fritzing<a class="headerlink" href="#fritzing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fritzing-part">
+<h2>Fritzing part<a class="headerlink" href="#fritzing-part" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="_static/iot-wifi-uno.fzpz"><img alt="_images/fritzing.png" src="_images/fritzing.png" /></a>
+</div>
+<div class="section" id="mua-hang">
+<h2>Mua hàng<a class="headerlink" href="#mua-hang" title="Permalink to this headline">¶</a></h2>
+<p class="rubric" id="you">Các đơn vị cung cấp</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="29%" />
+<col width="71%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Đơn vị</strong></td>
+<td><strong>Link</strong></td>
+</tr>
+<tr class="row-even"><td>IoT Maker Việt Nam</td>
+<td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
@@ -186,7 +218,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="style-guide.html" class="btn btn-neutral float-right" title="Espressif IoT Development Framework Style Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="basic/led.html" class="btn btn-neutral float-right" title="LED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="install.html" class="btn btn-neutral" title="Arduino cơ bản" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
