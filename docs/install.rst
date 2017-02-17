@@ -17,15 +17,15 @@ Chuẩn bị
 Hướng dẫn
 ---------
 
-- Mở chương trình Arduino và cửa sổ Preferences.
-- Enter ``http://arduino.esp8266.com/stable/package_esp8266com_index.json`` vào *Additional Board Manager URLs*. Bạn có thể thêm nhiều URL, cách nhau bằng dấu phẩy.
-- Mở Boards Manager từ Tools > Board menu và tìm *esp8266* platform.
-- Chọn phiên bản bạn cần từ cửa sổ Drop-down.
-- Click nút *install*.
-- Đừng quên chọn loại ESP8266 board từ Tools > Board menu sau khi cài đặt.
+* Mở chương trình Arduino và cửa sổ Preferences.
+* Enter ``http://arduino.esp8266.com/stable/package_esp8266com_index.json`` vào **Additional Board Manager URLs**. Bạn có thể thêm nhiều URL, cách nhau bằng dấu phẩy.
+* Mở Boards Manager từ Tools > Board menu và tìm **esp8266** platform.
+* Chọn phiên bản bạn cần từ cửa sổ Drop-down.
+* Click nút **install**.
+* Đừng quên chọn loại ESP8266 board từ Tools > Board menu sau khi cài đặt.
 
-Bạn có 1 lựa chọn khác cài đặt bản *staging* boards manager từ link:
-`http://arduino.esp8266.com/staging/package_esp8266com_index.json`. Phiên bản này có những tính năng mới hơn, tuy nhiên chưa thật sự được kiểm tra kỹ.
+Bạn có 1 lựa chọn khác cài đặt bản **staging** boards manager từ link:
+``http://arduino.esp8266.com/staging/package_esp8266com_index.json``. Phiên bản này có những tính năng mới hơn, tuy nhiên chưa thật sự được kiểm tra kỹ.
 
 Sử dụng git version
 ==========================
@@ -45,8 +45,8 @@ Chuẩn bị
 Hướng dẫn
 ---------
 
-- Mở `console` và cd đến thư mục Arduino. Nó có thể là thư mục *sketchbook* (thường là `<Documents>/Arduino`), hay thư mục của Ứng dụng Arduino, tùy bạn chọn.
-- Clone repository này đến thư mục `hardware/esp8266com/esp8266`. Hoặc bạn có thể clone vào nơi nào đó và tạo symlink bằng `ln -s`, nếu Hệ điều hành hỗ trợ::
+- Mở ``console`` và cd đến thư mục Arduino. Nó có thể là thư mục *sketchbook* (thường là ``<Documents>/Arduino``), hay thư mục của Ứng dụng Arduino, tùy bạn chọn.
+- Clone repository này đến thư mục ``hardware/esp8266com/esp8266``. Hoặc bạn có thể clone vào nơi nào đó và tạo symlink bằng ``ln -s``, nếu Hệ điều hành hỗ trợ::
 
     cd hardware
     mkdir esp8266com
