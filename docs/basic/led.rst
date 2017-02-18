@@ -3,6 +3,10 @@ LED
 
 Chúng ta sẽ thực hiện việc chớp tắt đèn LED của board **IoT WiFi Uno** mỗi giây, được nối tới pin ``GPIO16``.
 
+Xem video hướng dẫn và kết quả:
+
+.. youtube:: https://www.youtube.com/watch?v=8jM-JTFeAlg
+
 Đèn LED
 -------
 .. code:: cpp
