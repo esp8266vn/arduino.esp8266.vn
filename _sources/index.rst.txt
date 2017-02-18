@@ -28,17 +28,18 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
    :caption: WiFi
    :maxdepth: 1
 
-   Bật tắt LED <make-project>
-   Nút nhấn <eclipse-setup>
-   OLED <eclipse-setup>
+   Bật tắt LED
+   Nút nhấn
+   OLED
 
 .. toctree::
    :caption: Network/Protocol
    :maxdepth: 1
 
-   Bật tắt LED <make-project>
-   Nút nhấn <eclipse-setup>
-   OLED <eclipse-setup>
+   Bật tắt LED
+   Nút nhấn
+   OLED
+
 .. toctree::
    :caption: API
    :maxdepth: 1
@@ -46,25 +47,16 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
 .. toctree::
    :caption: Tài liệu ESP8266
 
-   Technical Reference Manual (PDF) <http://espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf>
-   Pin List and Functions (PDF) <http://espressif.com/sites/default/files/documentation/esp32_chip_pin_list_en.pdf>
-   Chip Pinout (PDF) <http://espressif.com/sites/default/files/documentation/esp32_pinout_v1_0.pdf>
-   Silicon Errata (PDF) <http://espressif.com/sites/default/files/documentation/eco_and_workarounds_for_bugs_in_esp32_en.pdf>
+   Technical Reference Manual (PDF) <https://espressif.com/sites/default/files/documentation/esp8266-technical_reference_en.pdf>
+   Pin List and Functions (XLSX) <https://espressif.com/sites/default/files/documentation/0d-esp8266_pin_list_release_15-11-2014.xlsx>
+   Tài nguyên chính thống <https://espressif.com/en/products/hardware/esp8266ex/resources>
 
 .. toctree::
-   :caption: Đóng góp
+   :caption: Đóng góp và bản quyền
    :maxdepth: 1
 
-   Huowsgn dẫn đóng góp <contributing>
-   Style Guide <style-guide>
-   Documenting Code <documenting-code>
-   Contributor Agreement <contributor-agreement>
+   Hướng dẫn đóng góp <contributing>
 
-.. toctree::
-   :caption: Legal
-   :maxdepth: 1
-
-   COPYRIGHT
 
 
 Indices

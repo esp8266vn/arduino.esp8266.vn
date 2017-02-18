@@ -27,7 +27,7 @@ Thực tế
 
 
 Mạch nguyên lý
----------
+--------------
 
 .. image:: _static/schematic.svg
     :target: _static/schematic.svg

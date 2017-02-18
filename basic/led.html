@@ -92,25 +92,23 @@
 </ul>
 <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Bật tắt LED</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Bật tắt LED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#den-led">Đèn LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#digital-io">Digital IO</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="button.html">Nút nhấn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf">Technical Reference Manual (PDF)</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_chip_pin_list_en.pdf">Pin List and Functions (PDF)</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_pinout_v1_0.pdf">Chip Pinout (PDF)</a></li>
-<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/eco_and_workarounds_for_bugs_in_esp32_en.pdf">Silicon Errata (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/esp8266-technical_reference_en.pdf">Technical Reference Manual (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/0d-esp8266_pin_list_release_15-11-2014.xlsx">Pin List and Functions (XLSX)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/en/products/hardware/esp8266ex/resources">Tài nguyên chính thống</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Đóng góp</span></p>
+<p class="caption"><span class="caption-text">Đóng góp và bản quyền</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../style-guide.html">Style Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../documenting-code.html">Documenting Code</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Legal</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../COPYRIGHT.html">Copyrights and Licenses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Hướng dẫn đóng góp</a></li>
 </ul>
 
             
@@ -157,6 +155,46 @@
             
   <div class="section" id="led">
 <h1>LED<a class="headerlink" href="#led" title="Permalink to this headline">¶</a></h1>
+<p>Chúng ta sẽ thực hiện việc chớp tắt đèn LED của board <strong>IoT WiFi Uno</strong> mỗi giây, được nối tới pin <code class="docutils literal"><span class="pre">GPIO16</span></code>.</p>
+<div class="section" id="den-led">
+<h2>Đèn LED<a class="headerlink" href="#den-led" title="Permalink to this headline">¶</a></h2>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>                 <span class="o">//</span> <span class="n">LED</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">digital</span> <span class="n">pin</span> <span class="mi">16</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>      <span class="o">//</span> <span class="n">sets</span> <span class="n">the</span> <span class="n">digital</span> <span class="n">pin</span> <span class="k">as</span> <span class="n">output</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>   <span class="o">//</span> <span class="n">sets</span> <span class="n">the</span> <span class="n">LED</span> <span class="n">on</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>                  <span class="o">//</span> <span class="n">waits</span> <span class="k">for</span> <span class="n">a</span> <span class="n">second</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>    <span class="o">//</span> <span class="n">sets</span> <span class="n">the</span> <span class="n">LED</span> <span class="n">off</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>                  <span class="o">//</span> <span class="n">waits</span> <span class="k">for</span> <span class="n">a</span> <span class="n">second</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="digital-io">
+<h2>Digital IO<a class="headerlink" href="#digital-io" title="Permalink to this headline">¶</a></h2>
+<p>Tên chân trong Arduino (Pin number) giống với thứ tự chân của ESP8266.
+<code class="docutils literal"><span class="pre">pinMode</span></code>, <code class="docutils literal"><span class="pre">digitalRead</span></code>, và <code class="docutils literal"><span class="pre">digitalWrite</span></code> đều sử dụng Pin Number
+như nhau, ví dụ như đọc GPIO2, gọi hàm <code class="docutils literal"><span class="pre">digitalRead(2)</span></code>.</p>
+<p>Chân GPIO0..15 có thể là <code class="docutils literal"><span class="pre">INPUT</span></code>, <code class="docutils literal"><span class="pre">OUTPUT</span></code>, hay <code class="docutils literal"><span class="pre">INPUT_PULLUP</span></code>.
+Chân GPIO16 có thể là <code class="docutils literal"><span class="pre">INPUT</span></code>, <code class="docutils literal"><span class="pre">OUTPUT</span></code> hay <code class="docutils literal"><span class="pre">INPUT_PULLDOWN_16</span></code>.
+Khi khởi động, tất cả các chân sẽ được cấu hình là <code class="docutils literal"><span class="pre">INPUT</span></code>.</p>
+<p>Mỗi chân có thể phục vụ cho một tính năng nào đó, ví dụ <code class="docutils literal"><span class="pre">Serial</span></code>,
+<code class="docutils literal"><span class="pre">I2C</span></code>, <code class="docutils literal"><span class="pre">SPI</span></code>. Và tính năng đó sẽ được cấu hình đúng khi sử dụng thư
+viện. Hình bên dưới thẻ hiện sơ đồ chân đối với module ESP-12 phổ biến.</p>
+<p>GPIO6 và GPIO11 không được thể hiện bởi vì nó được sử dụng cho việc kết
+nối với Flash. Việc sử dụng 2 chân này có thể gây lỗi chương trình.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Một số board và module khác (ví dụ ESP-12ED, NodeMCU 1.0) không có GPIO9 và GPIO11, họ sử dụng với chế độ <code class="docutils literal"><span class="pre">DIO</span></code> cho Flash, trong khi ESP12 chúng ta nói bên trên sử dụng chế độ <code class="docutils literal"><span class="pre">QIO</span></code></p>
+</div>
+<p>Ngắt GPIO hỗ trợ thông qua các hàm <code class="docutils literal"><span class="pre">attachInterrupt</span></code>, <code class="docutils literal"><span class="pre">detachInterrupt</span></code>
+Ngắt GPIO có thể gán cho bất kỳ GPIO nào, ngoại trừ <code class="docutils literal"><span class="pre">GPIO16</span></code>. Đều hỗ trợ các ngắt tiêu chuẩn của Arduino như: <code class="docutils literal"><span class="pre">CHANGE</span></code>, <code class="docutils literal"><span class="pre">RISING</span></code>, <code class="docutils literal"><span class="pre">FALLING</span></code>.</p>
+</div>
 </div>
 
 
