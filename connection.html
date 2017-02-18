@@ -1,0 +1,313 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Kết nối phần cứng và cài đặt &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Tìm Kiếm" href="search.html"/>
+    <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="index.html"/>
+        <link rel="next" title="LED" href="basic/led.html"/>
+        <link rel="prev" title="Phần cứng mở IoT WiFi Uno" href="board.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Lập trình IoT với ESP8266 Arduino
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Cài đặt</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install.html">Cài đặt Arduino IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="board.html">Board IoT WiFi Uno</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kết nối máy tính</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ket-noi-phan-cung">Kết nối phần cứng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-usb-driver">Cài đặt USB Driver</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mac-os">Mac OS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cai-dat-moi">Cài đặt mới</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac-os-sierra">Mac OS Sierra</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#linux">Linux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Cơ bản</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="basic/led.html">Bật tắt LED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic/button.html">Nút nhấn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="basic/oled.html">OLED</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_technical_reference_manual_en.pdf">Technical Reference Manual (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_chip_pin_list_en.pdf">Pin List and Functions (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/esp32_pinout_v1_0.pdf">Chip Pinout (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="http://espressif.com/sites/default/files/documentation/eco_and_workarounds_for_bugs_in_esp32_en.pdf">Silicon Errata (PDF)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Đóng góp</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="style-guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documenting-code.html">Documenting Code</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="COPYRIGHT.html">Copyrights and Licenses</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Lập trình IoT với ESP8266 Arduino</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>Kết nối phần cứng và cài đặt</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/connection.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ket-noi-phan-cung-va-cai-dat">
+<h1>Kết nối phần cứng và cài đặt<a class="headerlink" href="#ket-noi-phan-cung-va-cai-dat" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ket-noi-phan-cung">
+<h2>Kết nối phần cứng<a class="headerlink" href="#ket-noi-phan-cung" title="Permalink to this headline">¶</a></h2>
+<p>Kết nối USB với Board mạch <strong>IoT WiFi Uno</strong> như hình bên dưới, đảm bảo đèn LED (khoanh tròn) sáng</p>
+<a class="reference external image-reference" href="_static/connect.jpg"><img alt="_images/connect.jpg" src="_images/connect.jpg" /></a>
+</div>
+<div class="section" id="cai-dat-usb-driver">
+<h2>Cài đặt USB Driver<a class="headerlink" href="#cai-dat-usb-driver" title="Permalink to this headline">¶</a></h2>
+<p>Tùy thuộc từng hệ điều hành, làm theo các hướng dẫn bên dưới</p>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Tải bản cài đặt <a class="reference external" href="http://www.wch.cn/download/CH341SER_ZIP.html">CH341SER_ZIP</a> rồi cài đặt theo hướng dẫn</li>
+</ul>
+</div>
+<div class="section" id="mac-os">
+<h3>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cai-dat-moi">
+<h4>Cài đặt mới<a class="headerlink" href="#cai-dat-moi" title="Permalink to this headline">¶</a></h4>
+<p>Đơn giản chỉ cần tài về vài cài đặt: <a class="reference external" href="_static/download/CH34x_Install_V1.3.pkg">CH34x_Install_V1.3.pkg</a></p>
+</div>
+<div class="section" id="mac-os-sierra">
+<h4>Mac OS Sierra<a class="headerlink" href="#mac-os-sierra" title="Permalink to this headline">¶</a></h4>
+<p>Một số trường hợp đã cài đặt driver phiên bản cũ, tuy nhiên sau khi nâng cấp lên <strong>Sierra</strong> sẽ bị reset ngay khi cắm USB vào. Để xử lý vấn đề này như sau:</p>
+<ul>
+<li><p class="first">Mở ứng dụng &#8220;Terminal&#8221; <code class="docutils literal"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">space</span></code> &#8211;&gt; Enter Terminal</p>
+</li>
+<li><p class="first">Thực hiện command sau để xóa driver:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Extensions</span><span class="o">/</span><span class="n">usb</span><span class="o">.</span><span class="n">kext</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Nhập mật khẩu</p>
+</li>
+<li><p class="first">Với một số máy tính, có thể bạn phải thực thi:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Extensions</span><span class="o">/</span><span class="n">usbserial</span><span class="o">.</span><span class="n">kext</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Nếu không thể thực hiện được lệnh trên, bạn cần phải thay đổi &#8220;Security and Privacy&#8221; trong phần System Preference. Chọn &#8220;Allow Apps Downloaded From&#8221; từ &#8220;Mac App Store and Identified Developers&#8221; sang &#8220;Anywhere&#8221; - Và tải <a class="reference external" href="_static/download/CH34x_Install_V1.3.pkg">CH34x_Install_V1.3.pkg</a> về cài đặt lại</p>
+</li>
+</ul>
+<a class="reference external image-reference" href="_static/mac.png"><img alt="_images/mac.png" src="_images/mac.png" /></a>
+</div>
+</div>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Tải và cài đặt bản cài đặt tại <a class="reference external" href="http://www.wch.cn/download/CH341PAR_LINUX_ZIP.html">CH341PAR_LINUX_ZIP</a></p>
+</div>
+</div>
+<div class="section" id="cau-hinh-ket-noi">
+<h2>Cấu hình kết nối<a class="headerlink" href="#cau-hinh-ket-noi" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Sau khi kết nối và cài đặt xong, sẽ xuất hiện cổng COM ảo trên máy tính (Tùy từng loại hệ điều hành mà có những tên cổng như: <code class="docutils literal"><span class="pre">COM1,</span> <span class="pre">COM2</span> <span class="pre">...</span></code> đối với Windows, <code class="docutils literal"><span class="pre">/dev/tty.wchusbserial1420</span></code> trên Mac OS)</p>
+</li>
+<li><p class="first">Mở Arduino IDE và lựa chọn (tham khảo cấu hình kết nối như hình dưới):</p>
+<blockquote>
+<div><ul class="simple">
+<li>Board: <code class="docutils literal"><span class="pre">Generic</span> <span class="pre">ESP8266</span> <span class="pre">Module</span></code></li>
+<li>Flash Size: <code class="docutils literal"><span class="pre">4M</span> <span class="pre">(3M</span> <span class="pre">SPIFFS)</span></code></li>
+<li>Port: chọn cổng khi gắn thiết bị vào sẽ thấy xuất hiện</li>
+<li>Upload speed: Chọn cao nhất, nếu nạp không được chọn thấp dần</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<a class="reference external image-reference" href="_static/port-setup.png"><img alt="_images/port-setup.png" src="_images/port-setup.png" /></a>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="basic/led.html" class="btn btn-neutral float-right" title="LED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="board.html" class="btn btn-neutral" title="Phần cứng mở IoT WiFi Uno" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, TuanPM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
