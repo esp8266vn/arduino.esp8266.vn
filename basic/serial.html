@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Serial &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Tìm Kiếm" href="../search.html"/>
+    <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
+        <link rel="next" title="OLED" href="oled.html"/>
+        <link rel="prev" title="Nút nhấn" href="button.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Lập trình IoT với ESP8266 Arduino
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Cài đặt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Cài đặt Arduino IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../board.html">Board IoT WiFi Uno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connection.html">Kết nối máy tính</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Cơ bản</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="led.html">Bật tắt LED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="button.html">Nút nhấn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Serial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#software-serial">Software Serial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/esp8266-technical_reference_en.pdf">Technical Reference Manual (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/0d-esp8266_pin_list_release_15-11-2014.xlsx">Pin List and Functions (XLSX)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/en/products/hardware/esp8266ex/resources">Tài nguyên chính thống</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Đóng góp và bản quyền</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Hướng dẫn đóng góp</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Lập trình IoT với ESP8266 Arduino</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Serial</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/basic/serial.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="serial">
+<h1>Serial<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h1>
+<p>Đối tượng <code class="docutils literal"><span class="pre">Serial</span></code> làm việc giống nhiều với Arduino bình thường. Ngoại trừ việc phần cứng của ESP8266 có thêm 128 bytes RAM FIFO và 256 bytes RX-TX Buffer. Cả TX và RX đều truyền nhận dựa vào interrupt. Việc đọc và ghi dữ liệu chỉ bị block lại khi FIFO/buffer đầy/rỗng.</p>
+<p><code class="docutils literal"><span class="pre">Serial</span></code> sử dụng là UART0, được map thằng vào chân GPIO1 (TX) và GPIO3 (RX). Serial có thể REMAP lại vào GPIO15 (TX) và GPIO13 (RX) bởi việc gọi hàm <code class="docutils literal"><span class="pre">Serial.swap()</span></code> sau khi gọi <code class="docutils literal"><span class="pre">Serial.begin</span></code>. Gọi <code class="docutils literal"><span class="pre">swap</span></code> lại sẽ MAP UART0 trở lại GPIO1 và GPIO3.</p>
+<p><code class="docutils literal"><span class="pre">Serial1</span></code> sử dụng UART1, TX pin là chân GPIO2. UART1 không thể sử dụng để nhận dữ liệu bởi vì bình thường nó được sử dụng để kết nối với Flash. Để sử dụng <code class="docutils literal"><span class="pre">Serial1</span></code>, gọi <code class="docutils literal"><span class="pre">Serial1.begin(baudrate)</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Nếu <code class="docutils literal"><span class="pre">Serial1</span></code> không được sử dụng và <code class="docutils literal"><span class="pre">Serial</span></code> không bị REMAP - TX cho UART0 có thể MAP sang GPIO2 bởi gọi hàm <code class="docutils literal"><span class="pre">Serial.set_tx(2)</span></code> sau <code class="docutils literal"><span class="pre">Serial.begin</span></code> hay trực tiếp với <code class="docutils literal"><span class="pre">Serial.begin(baud,</span> <span class="pre">config,</span> <span class="pre">mode,</span> <span class="pre">2)</span></code>.</p>
+</div>
+<p>Mặc định, tất cả thông tin chuẩn đoán hệ thống và thư viện sẽ bị bỏ qua nếu gọi hàm <code class="docutils literal"><span class="pre">Serial.begin</span></code>. Để cho phép những thông tin đó, có thể gọi <code class="docutils literal"><span class="pre">Serial.setDebugOutput(true)</span></code>. Để chuyển thông tin đó ra <code class="docutils literal"><span class="pre">Serial1</span></code>, gọi hàm <code class="docutils literal"><span class="pre">Serial1.setDebugOutput(true)</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Bạn cũng cần phải gọi <code class="docutils literal"><span class="pre">Serial.setDebugOutput(true)</span></code> để cho phép hàm <code class="docutils literal"><span class="pre">printf()</span></code>.</p>
+</div>
+<p>Cả đối tượng <code class="docutils literal"><span class="pre">Serial</span></code> và <code class="docutils literal"><span class="pre">Serial1</span></code> hỗ trợ 5, 6, 7, 8 bits dữ liệu, odd (O), even (E), và no (N) parity, và 1 hay 2 bits stop. Để cấu hình
+các mode trên, gọi <code class="docutils literal"><span class="pre">Serial.begin(baudrate,</span> <span class="pre">SERIAL_8N1)</span></code>, <code class="docutils literal"><span class="pre">Serial.begin(baudrate,</span> <span class="pre">SERIAL_6E2)</span></code>, v.v..</p>
+<p>Một phương thức được hiện thực trên cả 2 <code class="docutils literal"><span class="pre">Serial</span></code> và <code class="docutils literal"><span class="pre">Serial1</span></code> để lấy baud rate hiện tại như sau: <code class="docutils literal"><span class="pre">Serial.baudRate()</span></code>, <code class="docutils literal"><span class="pre">Serial1.baudRate()</span></code> trả về một số <code class="docutils literal"><span class="pre">int</span></code> của tốc độ Baud hiện tại.</p>
+<p>Ví dụ</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">Set</span> <span class="n">Baud</span> <span class="n">rate</span> <span class="mi">57600</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">57600</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Kiểm</span> <span class="n">tra</span> <span class="n">baud</span> <span class="n">rate</span> <span class="n">hiện</span> <span class="n">tại</span>
+<span class="nb">int</span> <span class="n">br</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">baudRate</span><span class="p">();</span>
+
+<span class="o">//</span> <span class="n">sẽ</span> <span class="n">xuất</span> <span class="n">ra</span> <span class="s2">&quot;Serial is 57600 bps&quot;</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Serial is </span><span class="si">%d</span><span class="s2"> bps&quot;</span><span class="p">,</span> <span class="n">br</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="software-serial">
+<h1>Software Serial<a class="headerlink" href="#software-serial" title="Permalink to this headline">¶</a></h1>
+<p>Ngoài ra, các Contributor Team ESP8266 Arduino cũng hoàn thiện thư viện
+<a class="reference external" href="https://github.com/esp8266/Arduino/blob/master/doc/libraries.md#softwareserial">Software Serial</a> cho ESP8266, xem <a class="reference external" href="https://github.com/plerup/espsoftwareserial/pull/22">pull request</a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Cảnh báo</p>
+<p class="last">Thư viện này được thực hiện chỉ <strong>duy nhất cho ESP8266 boards</strong>, và sẽ không làm việc với các thư viện Arduino khác.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="oled.html" class="btn btn-neutral float-right" title="OLED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="button.html" class="btn btn-neutral" title="Nút nhấn" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, TuanPM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

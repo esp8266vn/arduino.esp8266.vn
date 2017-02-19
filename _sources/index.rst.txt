@@ -22,23 +22,33 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
 
    Bật tắt LED <basic/led>
    Nút nhấn <basic/button>
+   Serial <basic/serial>
    OLED <basic/oled>
 
 .. toctree::
    :caption: WiFi
    :maxdepth: 1
 
-   Bật tắt LED
-   Nút nhấn
-   OLED
+   Kết nối WiFi
+   Chế độ Access Point
+   Smartconfig
+   WPS
 
 .. toctree::
    :caption: Network/Protocol
    :maxdepth: 1
 
-   Bật tắt LED
-   Nút nhấn
-   OLED
+   HTTP Client
+   HTTP Server
+   MQTT
+   CoAP
+   mDNS
+
+.. toctree::
+   :caption: Nâng cao
+   :maxdepth: 1
+
+   OTA
 
 .. toctree::
    :caption: API
