@@ -35,7 +35,7 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
         <link rel="next" title="OLED" href="oled.html"/>
-        <link rel="prev" title="Nút nhấn" href="button.html"/> 
+        <link rel="prev" title="Thời gian và Delay" href="timming.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -94,9 +94,15 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="led.html">Bật tắt LED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="button.html">Nút nhấn</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Serial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#software-serial">Software Serial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analog.html">Analog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="timming.html">Thời gian &amp; Delay</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Serial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#hardware-serial">Hardware Serial</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#software-serial">Software Serial</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="promem.html">Sử dụng Promem</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
 <ul>
@@ -153,6 +159,8 @@
             
   <div class="section" id="serial">
 <h1>Serial<a class="headerlink" href="#serial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hardware-serial">
+<h2>Hardware Serial<a class="headerlink" href="#hardware-serial" title="Permalink to this headline">¶</a></h2>
 <p>Đối tượng <code class="docutils literal"><span class="pre">Serial</span></code> làm việc giống nhiều với Arduino bình thường. Ngoại trừ việc phần cứng của ESP8266 có thêm 128 bytes RAM FIFO và 256 bytes RX-TX Buffer. Cả TX và RX đều truyền nhận dựa vào interrupt. Việc đọc và ghi dữ liệu chỉ bị block lại khi FIFO/buffer đầy/rỗng.</p>
 <p><code class="docutils literal"><span class="pre">Serial</span></code> sử dụng là UART0, được map thằng vào chân GPIO1 (TX) và GPIO3 (RX). Serial có thể REMAP lại vào GPIO15 (TX) và GPIO13 (RX) bởi việc gọi hàm <code class="docutils literal"><span class="pre">Serial.swap()</span></code> sau khi gọi <code class="docutils literal"><span class="pre">Serial.begin</span></code>. Gọi <code class="docutils literal"><span class="pre">swap</span></code> lại sẽ MAP UART0 trở lại GPIO1 và GPIO3.</p>
 <p><code class="docutils literal"><span class="pre">Serial1</span></code> sử dụng UART1, TX pin là chân GPIO2. UART1 không thể sử dụng để nhận dữ liệu bởi vì bình thường nó được sử dụng để kết nối với Flash. Để sử dụng <code class="docutils literal"><span class="pre">Serial1</span></code>, gọi <code class="docutils literal"><span class="pre">Serial1.begin(baudrate)</span></code>.</p>
@@ -181,12 +189,13 @@ các mode trên, gọi <code class="docutils literal"><span class="pre">Serial.b
 </div>
 </div>
 <div class="section" id="software-serial">
-<h1>Software Serial<a class="headerlink" href="#software-serial" title="Permalink to this headline">¶</a></h1>
+<h2>Software Serial<a class="headerlink" href="#software-serial" title="Permalink to this headline">¶</a></h2>
 <p>Ngoài ra, các Contributor Team ESP8266 Arduino cũng hoàn thiện thư viện
 <a class="reference external" href="https://github.com/esp8266/Arduino/blob/master/doc/libraries.md#softwareserial">Software Serial</a> cho ESP8266, xem <a class="reference external" href="https://github.com/plerup/espsoftwareserial/pull/22">pull request</a>.</p>
 <div class="admonition warning">
 <p class="first admonition-title">Cảnh báo</p>
 <p class="last">Thư viện này được thực hiện chỉ <strong>duy nhất cho ESP8266 boards</strong>, và sẽ không làm việc với các thư viện Arduino khác.</p>
+</div>
 </div>
 </div>
 
@@ -200,7 +209,7 @@ các mode trên, gọi <code class="docutils literal"><span class="pre">Serial.b
         <a href="oled.html" class="btn btn-neutral float-right" title="OLED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="button.html" class="btn btn-neutral" title="Nút nhấn" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="timming.html" class="btn btn-neutral" title="Thời gian và Delay" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

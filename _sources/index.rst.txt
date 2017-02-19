@@ -22,8 +22,11 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
 
    Bật tắt LED <basic/led>
    Nút nhấn <basic/button>
+   Analog <basic/analog>
+   Thời gian & Delay <basic/timming>
    Serial <basic/serial>
    OLED <basic/oled>
+   Sử dụng Promem <basic/promem>
 
 .. toctree::
    :caption: WiFi

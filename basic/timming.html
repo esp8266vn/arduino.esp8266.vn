@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Thời gian và Delay &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -34,8 +34,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Progmem" href="promem.html"/>
-        <link rel="prev" title="Serial" href="serial.html"/> 
+        <link rel="next" title="Serial" href="serial.html"/>
+        <link rel="prev" title="Đọc Analog" href="analog.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -95,9 +95,12 @@
 <li class="toctree-l1"><a class="reference internal" href="led.html">Bật tắt LED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="button.html">Nút nhấn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="analog.html">Analog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="timming.html">Thời gian &amp; Delay</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Thời gian &amp; Delay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ticker">Ticker</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="serial.html">Serial</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="promem.html">Sử dụng Promem</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
@@ -139,11 +142,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>OLED</li>
+    <li>Thời gian và Delay</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/basic/oled.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/basic/timming.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -153,8 +156,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="oled">
-<h1>OLED<a class="headerlink" href="#oled" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="thoi-gian-va-delay">
+<h1>Thời gian và Delay<a class="headerlink" href="#thoi-gian-va-delay" title="Permalink to this headline">¶</a></h1>
+<p><code class="docutils literal"><span class="pre">millis()</span></code> và <code class="docutils literal"><span class="pre">micros()</span></code> trả về mili giây và micro giây tính từ thời
+điểm reset.</p>
+<p><code class="docutils literal"><span class="pre">delay(ms)</span></code> sẽ dừng sketch cho <code class="docutils literal"><span class="pre">ms</span></code> micro giây, vẫn cho phép WiFi và TCP/IP hoạt động.</p>
+<p>Tương tự với <code class="docutils literal"><span class="pre">delayMicroseconds(us)</span></code> sẽ dừng chương trình với <code class="docutils literal"><span class="pre">us</span></code> micro giây.</p>
+<p>Hãy ghi nhớ rằng có rất nhiều thứ đang cần hoạt động bên dưới sketch của bạn. Khi WiFi đã kết nối, thư viện WiFi và TCP/IP sẽ cần thời gian để thực hiện bất kỳ sự kiện nào. Việc gọi gọi hàm <code class="docutils literal"><span class="pre">loop()</span></code>, hay thực thi <code class="docutils literal"><span class="pre">delay</span></code> sẽ thực hiện điều đó. Cho nên, nếu bạn có bất kỳ vòng lặp nào chiếm nhiều thời gian (&gt;50ms) mà không gọi hàm <code class="docutils literal"><span class="pre">delay</span></code>, bạn nên đặt hàm <code class="docutils literal"><span class="pre">delay</span></code> vào trong hàm đó, để đảm bảo WiFi stack hoạt động trơn tru.</p>
+<p>Chúng ta cũng có hàm <code class="docutils literal"><span class="pre">yield()</span></code> tương đương với <code class="docutils literal"><span class="pre">delay(0)</span></code>. Hàm <code class="docutils literal"><span class="pre">delayMicroseconds</span></code> thì lại không thực hiện việc chuyển task, đơn giản nó chỉ dùng để delay và nếu nhiều hơn 20 mili giây thì không được khuyến khích.</p>
+<div class="section" id="ticker">
+<h2>Ticker<a class="headerlink" href="#ticker" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -164,10 +176,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="promem.html" class="btn btn-neutral float-right" title="Progmem" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="serial.html" class="btn btn-neutral float-right" title="Serial" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="serial.html" class="btn btn-neutral" title="Serial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="analog.html" class="btn btn-neutral" title="Đọc Analog" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
