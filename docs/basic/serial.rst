@@ -1,7 +1,8 @@
 
 Serial
 ------
-
+Hardware Serial
+===============
 Đối tượng ``Serial`` làm việc giống nhiều với Arduino bình thường. Ngoại trừ việc phần cứng của ESP8266 có thêm 128 bytes RAM FIFO và 256 bytes RX-TX Buffer. Cả TX và RX đều truyền nhận dựa vào interrupt. Việc đọc và ghi dữ liệu chỉ bị block lại khi FIFO/buffer đầy/rỗng.
 
 ``Serial`` sử dụng là UART0, được map thằng vào chân GPIO1 (TX) và GPIO3 (RX). Serial có thể REMAP lại vào GPIO15 (TX) và GPIO13 (RX) bởi việc gọi hàm ``Serial.swap()`` sau khi gọi ``Serial.begin``. Gọi ``swap`` lại sẽ MAP UART0 trở lại GPIO1 và GPIO3.
@@ -37,7 +38,7 @@ Ví dụ
     Serial.printf("Serial is %d bps", br);
 
 Software Serial
----------------
+===============
 
 Ngoài ra, các Contributor Team ESP8266 Arduino cũng hoàn thiện thư viện
 `Software Serial`_ cho ESP8266, xem `pull request`_.

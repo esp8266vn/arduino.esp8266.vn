@@ -1,5 +1,5 @@
 LED
-===
+---
 
 Chúng ta sẽ thực hiện việc chớp tắt đèn LED của board **IoT WiFi Uno** mỗi giây, được nối tới pin ``GPIO16``.
 
@@ -8,7 +8,7 @@ Xem video hướng dẫn và kết quả:
 .. youtube:: https://www.youtube.com/watch?v=8jM-JTFeAlg
 
 Đèn LED
--------
+=======
 .. code:: cpp
 
     int ledPin = 16;                 // LED connected to digital pin 16
@@ -28,7 +28,7 @@ Xem video hướng dẫn và kết quả:
 
 
 Digital IO
--------
+==========
 
 Tên chân trong Arduino (Pin number) giống với thứ tự chân của ESP8266.
 ``pinMode``, ``digitalRead``, và ``digitalWrite`` đều sử dụng Pin Number
@@ -51,8 +51,6 @@ nối với Flash. Việc sử dụng 2 chân này có thể gây lỗi chương
 
 Ngắt GPIO hỗ trợ thông qua các hàm ``attachInterrupt``, ``detachInterrupt``
 Ngắt GPIO có thể gán cho bất kỳ GPIO nào, ngoại trừ ``GPIO16``. Đều hỗ trợ các ngắt tiêu chuẩn của Arduino như: ``CHANGE``, ``RISING``, ``FALLING``.
-
-
 
 
 
