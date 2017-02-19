@@ -32,20 +32,22 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
    :caption: WiFi
    :maxdepth: 1
 
-   Kết nối WiFi
-   Chế độ Access Point
-   Smartconfig
-   WPS
+   WiFi API <wifi/wifi-api>
+   WiFi Station <wifi/station>
+   WiFi Access Point <wifi/access-point>
+   Smartconfig <wifi/smartconfig>
+   WPS <wifi/wps>
 
 .. toctree::
    :caption: Network/Protocol
    :maxdepth: 1
 
-   HTTP Client
-   HTTP Server
-   MQTT
-   CoAP
-   mDNS
+   HTTP Client <network/http-client>
+   HTTP Server <network/http-server>
+   MQTT <network/mqtt>
+   Websocket <network/websocket>
+   mDNS <network/mdns>
+   CoAP <network/coap>
 
 .. toctree::
    :caption: Nâng cao

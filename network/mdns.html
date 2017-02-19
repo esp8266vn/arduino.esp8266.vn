@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Progmem &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>mDNS &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -34,8 +34,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Thư viện ESP8266WiFi" href="../wifi/wifi-api.html"/>
-        <link rel="prev" title="OLED" href="oled.html"/> 
+        <link rel="next" title="CoAP" href="coap.html"/>
+        <link rel="prev" title="Websocket" href="websocket.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,17 +91,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../connection.html">Kết nối máy tính</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Cơ bản</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="led.html">Bật tắt LED</a></li>
-<li class="toctree-l1"><a class="reference internal" href="button.html">Nút nhấn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="analog.html">Analog</a></li>
-<li class="toctree-l1"><a class="reference internal" href="timming.html">Thời gian &amp; Delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="serial.html">Serial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Sử dụng Promem</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#vi-du">Ví dụ</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic/led.html">Bật tắt LED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/button.html">Nút nhấn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/analog.html">Analog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/timming.html">Thời gian &amp; Delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/serial.html">Serial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/promem.html">Sử dụng Promem</a></li>
 </ul>
 <p class="caption"><span class="caption-text">WiFi</span></p>
 <ul>
@@ -112,13 +109,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../wifi/wps.html">WPS</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Network/Protocol</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../network/http-client.html">HTTP Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/http-server.html">HTTP Server</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/mqtt.html">MQTT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/websocket.html">Websocket</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/mdns.html">mDNS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../network/coap.html">CoAP</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="http-client.html">HTTP Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="http-server.html">HTTP Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="websocket.html">Websocket</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">mDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coap.html">CoAP</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
 <ul>
@@ -159,11 +156,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Progmem</li>
+    <li>mDNS</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/basic/promem.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/network/mdns.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -173,37 +170,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="progmem">
-<h1>Progmem<a class="headerlink" href="#progmem" title="Permalink to this headline">¶</a></h1>
-<p>Bộ nhớ chỉ đọc lưu trong vùng nhớ Flash có cùng cách hoạt động với Arduino thông thường. Đặt chuỗi dữ liệu hay string vào vùng nhớ chỉ đọc giúp tiết kiệm bộ nhớ RAM của chương trình.</p>
-<div class="admonition note">
-<p class="first admonition-title">Ghi chú</p>
-<p class="last">Điều khác biệt nhất là chuỗi dữ liệu định nghĩa sẵn này không được không được gộp chung. Nếu bạn đặt chuỗi trong <code class="docutils literal"><span class="pre">F(&quot;&quot;)</span></code> và/hoặc trong <code class="docutils literal"><span class="pre">PSTR(&quot;&quot;)</span></code> sẽ chiếm dụng bộ nhớ cho mỗi instance của mã. Cho nên bạn cần tự quản lý những chuỗi string trùng.</p>
-</div>
-<p>Một số macro hỗ trợ có thể dễ dàng sử dụng <code class="docutils literal"><span class="pre">const</span> <span class="pre">PROGMEM</span></code> để có thể
-gọi từ <code class="docutils literal"><span class="pre">__FlashStringHelper</span></code> hàm <code class="docutils literal"><span class="pre">FPSTR()</span></code>.</p>
-<div class="section" id="vi-du">
-<h2>Ví dụ<a class="headerlink" href="#vi-du" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="n">response1</span><span class="p">;</span>
-<span class="n">response1</span> <span class="o">+=</span> <span class="n">F</span><span class="p">(</span><span class="s2">&quot;http:&quot;</span><span class="p">);</span>
-<span class="o">...</span>
-<span class="n">String</span> <span class="n">response2</span><span class="p">;</span>
-<span class="n">response2</span> <span class="o">+=</span> <span class="n">F</span><span class="p">(</span><span class="s2">&quot;http:&quot;</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>using FPSTR would become…</p>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">const</span> <span class="n">char</span> <span class="n">HTTP</span><span class="p">[]</span> <span class="n">PROGMEM</span> <span class="o">=</span> <span class="s2">&quot;http:&quot;</span><span class="p">;</span>
-<span class="o">...</span>
-<span class="p">{</span>
-    <span class="n">String</span> <span class="n">response1</span><span class="p">;</span>
-    <span class="n">response1</span> <span class="o">+=</span> <span class="n">FPSTR</span><span class="p">(</span><span class="n">HTTP</span><span class="p">);</span>
-    <span class="o">...</span>
-    <span class="n">String</span> <span class="n">response2</span><span class="p">;</span>
-    <span class="n">response2</span> <span class="o">+=</span> <span class="n">FPSTR</span><span class="p">(</span><span class="n">HTTP</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
+  <div class="section" id="mdns">
+<h1>mDNS<a class="headerlink" href="#mdns" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -213,10 +181,10 @@ gọi từ <code class="docutils literal"><span class="pre">__FlashStringHelper<
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../wifi/wifi-api.html" class="btn btn-neutral float-right" title="Thư viện ESP8266WiFi" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="coap.html" class="btn btn-neutral float-right" title="CoAP" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="oled.html" class="btn btn-neutral" title="OLED" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="websocket.html" class="btn btn-neutral" title="Websocket" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -1,14 +1,14 @@
 Kết nối phần cứng và cài đặt
-=======
+----------------------------
 Kết nối phần cứng
-------------------
+=================
 Kết nối USB với Board mạch **IoT WiFi Uno** như hình bên dưới, đảm bảo đèn LED (khoanh tròn) sáng
 
 .. image:: _static/connect.jpg
     :target: _static/connect.jpg
 
 Cài đặt USB Driver
-------------------
+=================
 Tùy thuộc từng hệ điều hành, làm theo các hướng dẫn bên dưới
 
 Windows
@@ -49,7 +49,7 @@ Linux
 Tải và cài đặt bản cài đặt tại `CH341PAR_LINUX_ZIP`_
 
 Cấu hình kết nối
-----------------
+=================
 
 * Sau khi kết nối và cài đặt xong, sẽ xuất hiện cổng COM ảo trên máy tính (Tùy từng loại hệ điều hành mà có những tên cổng như: ``COM1, COM2 ...`` đối với Windows, ``/dev/tty.wchusbserial1420`` trên Mac OS)
 
