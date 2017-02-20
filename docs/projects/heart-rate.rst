@@ -36,7 +36,7 @@ Cài đặt thư viện
 Video Cài đặt
 =============
 
-.. youtube:: https://youtu.be/bkH-wATlyNU
+.. youtube:: https://www.youtube.com/watch?v=bkH-wATlyNU
 
 Lập trình
 =========
