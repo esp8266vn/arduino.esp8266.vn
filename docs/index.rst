@@ -18,7 +18,7 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
 
 .. toctree::
    :caption: Cơ bản
-   :maxdepth: 1
+   :maxdepth: 2
 
    Bật tắt LED <basic/led>
    Nút nhấn <basic/button>
@@ -48,12 +48,14 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
    Websocket <network/websocket>
    mDNS <network/mdns>
    CoAP <network/coap>
+   Cập nhật firmware <network/ota>
 
 .. toctree::
-   :caption: Nâng cao
+   :caption: Dự án
    :maxdepth: 1
 
-   OTA
+   Game Flappy Bird <projects/flappy-bird>
+   Đo nhịp tim <projects/heart-rate>
 
 .. toctree::
    :caption: API
