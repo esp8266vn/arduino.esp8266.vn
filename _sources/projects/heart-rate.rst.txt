@@ -32,6 +32,12 @@ Cài đặt thư viện
 * Thư viện OLED: https://github.com/squix78/esp8266-oled-ssd1306
 * Thư viện MAX30100: https://github.com/oxullo/Arduino-MAX30100
 
+
+Video Cài đặt
+=============
+
+.. youtube:: https://www.youtube.com/watch?v=bkH-wATlyNU
+
 Lập trình
 =========
 
