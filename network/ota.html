@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>mDNS &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Cập nhật firmware &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -34,8 +34,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="CoAP" href="coap.html"/>
-        <link rel="prev" title="Websocket" href="websocket.html"/> 
+        <link rel="next" title="ESP8266 Arduino Flappy bird" href="../projects/flappy-bird.html"/>
+        <link rel="prev" title="CoAP" href="coap.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -114,9 +114,16 @@
 <li class="toctree-l1"><a class="reference internal" href="http-server.html">HTTP Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mqtt.html">MQTT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="websocket.html">Websocket</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">mDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdns.html">mDNS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="coap.html">CoAP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ota.html">Cập nhật firmware</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cập nhật firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gioi-thieu-ota">Giới thiệu OTA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bao-mat">Bảo mật</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#an-toan">An toàn</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Dự án</span></p>
 <ul>
@@ -162,11 +169,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>mDNS</li>
+    <li>Cập nhật firmware</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/network/mdns.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/network/ota.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -176,8 +183,66 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mdns">
-<h1>mDNS<a class="headerlink" href="#mdns" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cap-nhat-firmware">
+<h1>Cập nhật firmware<a class="headerlink" href="#cap-nhat-firmware" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="gioi-thieu-ota">
+<h2>Giới thiệu OTA<a class="headerlink" href="#gioi-thieu-ota" title="Permalink to this headline">¶</a></h2>
+<p>Cập nhật firmware OTA (Over the Air) là tiến trình tải firmware mới vào
+ESP module thay vì sử dụng cổng Serial. Tính năng này thực sự rất hữu
+dụng trong nhiều trường hợp giới hạn về kết nối vật lý đến ESP Module.</p>
+<p>OTA có thể thực hiện với:</p>
+<ul class="simple">
+<li><a class="reference external" href="using-arduino-ide.md">Arduino IDE</a></li>
+<li><a class="reference external" href="using-web-browser.md">Web Browser</a></li>
+<li><a class="reference external" href="using-http-server.md">HTTP Server</a></li>
+</ul>
+<p>Sử dụng OTA với tùy chọn dùng <strong>Arduino IDE</strong> trong quá trình phát
+triển, thử nghiệm, 2 tùy chọn còn lại phù hợp cho việc triển khai ứng
+dụng thực tế, cung cấp tính năng cập nhật OTA thông qua web hay sử dụng
+HTTP Server.</p>
+<p>Trong tất cả các trường hợp, thì Firmware hỗ trợ OTA phải được nạp lần
+đầu tiên qua cổng Serial, nếu mọi thứ hoạt động trơn tru, logic ứng dụng
+OTA hoạt động đúng thì có thể thực hiện việc cập nhật firmware thông qua
+OTA.</p>
+<p>Sẽ không có đảm bảo an ninh đối với quá trình cập nhật OTA bị hack. Nó
+phụ thuộc vào nhà phát triển đảm bảo việc cập nhật được phép từ nguồn
+hợp pháp, đáng tin cậy. Khi cập nhật hoàn tấn, ESP8266 sẽ khởi động lại
+và thực thi code mới. Nhà phát triển phải đảm bảo ứng dụng thực trên
+module phải được tắt và khởi độn glaij 1 cách an toàn. Nội dung bên dưới
+cung cấp bổ sung các thông tin về an ninh, và an toàn cho tiến trình cập
+nhật OTA.</p>
+<div class="section" id="bao-mat">
+<h3>Bảo mật<a class="headerlink" href="#bao-mat" title="Permalink to this headline">¶</a></h3>
+<p>Khi ESP8266 được phép thực thi OTA, có nghĩa nó được kết nối mạng không
+dây và có khả năng được cập nhập Sketch mới. Cho nên khả năng ESP8266 bị
+tấn công sẽ nhiều hơn và bị nạp bởi mã thực thi khác là rất cao. Để giảm
+khả năng bị tấn công cần xem xét bảo vệ cập nhật của bạn với một mật
+khẩu, cổng sử dụng cố định khác biệt, v.v…</p>
+<p>Kiểm tra những tính năng được cung cấp bởi thư viện <a class="reference external" href="https://github.com/esp8266/Arduino/tree/master/libraries/ArduinoOTA">ArduinoOTA</a> thường
+xuyên, có thể được nâng cấp khả năng bảo vệ an toàn:</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">setPort</span><span class="p">(</span><span class="n">uint16_t</span> <span class="n">port</span><span class="p">);</span>
+<span class="n">void</span> <span class="n">setHostname</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">hostname</span><span class="p">);</span>
+<span class="n">void</span> <span class="n">setPassword</span><span class="p">(</span><span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">password</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Một số chức năng bảo vệ đã được xây dựng trong và không yêu cầu bất kỳ
+mã hóa nào cho nhà phát triển. <a class="reference external" href="https://github.com/esp8266/Arduino/tree/master/libraries/ArduinoOTA">ArduinoOTA</a> và <code class="docutils literal"><span class="pre">espota.py</span></code> sử dụng
+<a class="reference external" href="https://en.wikipedia.org/wiki/Digest_access_authentication">Digest-MD5</a> để chứng thực việc tải firmware lên. Đơn giản là đảm bảo
+tính toàn vẹn của firmware bằng việc tính <a class="reference external" href="https://en.wikipedia.org/wiki/MD5">MD5</a>.</p>
+<p>Hãy phân tích rủi ro cho riêng ứng dụng của bạn bạn và tùy thuộc vào ứng
+dụng mà quyết định những chức năng cũng như thư viện để thực hiện. Nếu
+cần thiết, có thẻ xem xét việc thực hiện các phương thức bảo vệ khỏi bị
+hack, ví dụ như cập nhật OTA chỉ cho tải lên chỉ theo lịch trình cụ thể,
+kích hoạt OTA chỉ được người dùng nhấn nút chuyên dụng “Cập nhật”, v.v…</p>
+</div>
+<div class="section" id="an-toan">
+<h3>An toàn<a class="headerlink" href="#an-toan" title="Permalink to this headline">¶</a></h3>
+<p>Quá trình OTA tiêu tốn nguồn tài nguyên và băng thông của ESP8266 khi
+tải lên. Sau đó, ESP8266 được khởi động lại và một Sketch mới được thực
+thi. Cần phải phân tích và kiểm tra để Sketch mới không ảnh hưởng tới
+các chức năng hiện có của Sketch hiện tại, cũng như việc cập n</p>
+</div>
+</div>
 </div>
 
 
@@ -187,10 +252,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="coap.html" class="btn btn-neutral float-right" title="CoAP" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../projects/flappy-bird.html" class="btn btn-neutral float-right" title="ESP8266 Arduino Flappy bird" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="websocket.html" class="btn btn-neutral" title="Websocket" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="coap.html" class="btn btn-neutral" title="CoAP" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

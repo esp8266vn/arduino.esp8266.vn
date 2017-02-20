@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Do nhịp tim và hiển thị trên OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Tìm Kiếm" href="../search.html"/>
+    <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
+        <link rel="next" title="Hướng dẫn tham gia đóng góp" href="../contributing.html"/>
+        <link rel="prev" title="ESP8266 Arduino Flappy bird" href="flappy-bird.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Lập trình IoT với ESP8266 Arduino
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Cài đặt</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Cài đặt Arduino IDE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../board.html">Board IoT WiFi Uno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../connection.html">Kết nối máy tính</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Cơ bản</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic/led.html">Bật tắt LED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/button.html">Nút nhấn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/analog.html">Analog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/timming.html">Thời gian &amp; Delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/serial.html">Serial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/oled.html">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/promem.html">Sử dụng Promem</a></li>
+</ul>
+<p class="caption"><span class="caption-text">WiFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../wifi/wifi-api.html">WiFi API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi/station.html">WiFi Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi/access-point.html">WiFi Access Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi/smartconfig.html">Smartconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../wifi/wps.html">WPS</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Network/Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../network/http-client.html">HTTP Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/http-server.html">HTTP Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/mqtt.html">MQTT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/websocket.html">Websocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/mdns.html">mDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/coap.html">CoAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/ota.html">Cập nhật firmware</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Dự án</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="flappy-bird.html">Game Flappy Bird</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Đo nhịp tim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/esp8266-technical_reference_en.pdf">Technical Reference Manual (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/0d-esp8266_pin_list_release_15-11-2014.xlsx">Pin List and Functions (XLSX)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/en/products/hardware/esp8266ex/resources">Tài nguyên chính thống</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Đóng góp và bản quyền</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Hướng dẫn đóng góp</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Lập trình IoT với ESP8266 Arduino</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Do nhịp tim và hiển thị trên OLED</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/projects/heart-rate.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="do-nhip-tim-va-hien-thi-tren-oled">
+<h1>Do nhịp tim và hiển thị trên OLED<a class="headerlink" href="#do-nhip-tim-va-hien-thi-tren-oled" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="demo">
+<h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
+<iframe width="640" height="360" src="//www.youtube.com/embed/KVyuZBbViIM?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<div class="section" id="chuan-bi">
+<h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Tên board mạch</strong></td>
+<td><strong>Link</strong></td>
+</tr>
+<tr class="row-even"><td>Board IoT Wifi Uno</td>
+<td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
+</tr>
+<tr class="row-odd"><td>OLED 128x64 SH1106
+hoặc SSD1306</td>
+<td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
+</tr>
+<tr class="row-even"><td>Cảm biến nhịp tim
+MAX30100</td>
+<td><a class="reference external" href="https://iotmaker.vn/cam-bien-nhip-tim-max30100.html">https://iotmaker.vn/cam-bien-nhip-tim-max30100.html</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dau-noi">
+<h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
+<a class="reference external image-reference" href="../_static/projects/iot-uno-heartrate.fzz"><img alt="../_images/iot-uno-heartrate_bb.png" src="../_images/iot-uno-heartrate_bb.png" /></a>
+</div>
+<div class="section" id="cai-dat-thu-vien">
+<h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Thư viện OLED: <a class="reference external" href="https://github.com/squix78/esp8266-oled-ssd1306">https://github.com/squix78/esp8266-oled-ssd1306</a></li>
+<li>Thư viện MAX30100: <a class="reference external" href="https://github.com/oxullo/Arduino-MAX30100">https://github.com/oxullo/Arduino-MAX30100</a></li>
+</ul>
+</div>
+<div class="section" id="lap-trinh">
+<h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;MAX30100_PulseOximeter.h&quot;</span>
+<span class="c1">#include &quot;SH1106.h&quot;</span>
+
+<span class="c1">#define REPORTING_PERIOD_MS     1000</span>
+
+<span class="o">//</span> <span class="n">PulseOximeter</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">higher</span> <span class="n">level</span> <span class="n">interface</span> <span class="n">to</span> <span class="n">the</span> <span class="n">sensor</span>
+<span class="o">//</span> <span class="n">it</span> <span class="n">offers</span><span class="p">:</span>
+<span class="o">//</span>  <span class="o">*</span> <span class="n">beat</span> <span class="n">detection</span> <span class="n">reporting</span>
+<span class="o">//</span>  <span class="o">*</span> <span class="n">heart</span> <span class="n">rate</span> <span class="n">calculation</span>
+<span class="o">//</span>  <span class="o">*</span> <span class="n">SpO2</span> <span class="p">(</span><span class="n">oxidation</span> <span class="n">level</span><span class="p">)</span> <span class="n">calculation</span>
+<span class="n">PulseOximeter</span> <span class="n">pox</span><span class="p">;</span>
+
+
+
+<span class="n">SH1106</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+
+<span class="n">uint32_t</span> <span class="n">tsLastReport</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">Callback</span> <span class="p">(</span><span class="n">registered</span> <span class="n">below</span><span class="p">)</span> <span class="n">fired</span> <span class="n">when</span> <span class="n">a</span> <span class="n">pulse</span> <span class="ow">is</span> <span class="n">detected</span>
+<span class="n">void</span> <span class="n">onBeatDetected</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Beat!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+    <span class="o">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">PulseOximeter</span> <span class="n">instance</span> <span class="ow">and</span> <span class="n">register</span> <span class="n">a</span> <span class="n">beat</span><span class="o">-</span><span class="n">detected</span> <span class="n">callback</span>
+    <span class="n">pox</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="n">pox</span><span class="o">.</span><span class="n">setOnBeatDetectedCallback</span><span class="p">(</span><span class="n">onBeatDetected</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_16</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="o">//</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">call</span> <span class="n">update</span> <span class="k">as</span> <span class="n">fast</span> <span class="k">as</span> <span class="n">possible</span>
+    <span class="n">pox</span><span class="o">.</span><span class="n">update</span><span class="p">();</span>
+
+    <span class="o">//</span> <span class="n">Asynchronously</span> <span class="n">dump</span> <span class="n">heart</span> <span class="n">rate</span> <span class="ow">and</span> <span class="n">oxidation</span> <span class="n">levels</span> <span class="n">to</span> <span class="n">the</span> <span class="n">serial</span>
+    <span class="o">//</span> <span class="n">For</span> <span class="n">both</span><span class="p">,</span> <span class="n">a</span> <span class="n">value</span> <span class="n">of</span> <span class="mi">0</span> <span class="n">means</span> <span class="s2">&quot;invalid&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">tsLastReport</span> <span class="o">&gt;</span> <span class="n">REPORTING_PERIOD_MS</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;HR: &quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getHeartRate</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; bpm&quot;</span><span class="p">);</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;SpO2: &quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getSpO2</span><span class="p">())</span> <span class="o">+</span><span class="s2">&quot; %&quot;</span><span class="p">);</span>
+        <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Heart rate:&quot;</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getHeartRate</span><span class="p">());</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;bpm / SpO2:&quot;</span><span class="p">);</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getSpO2</span><span class="p">());</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">);</span>
+
+        <span class="n">tsLastReport</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Hướng dẫn tham gia đóng góp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flappy-bird.html" class="btn btn-neutral" title="ESP8266 Arduino Flappy bird" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, TuanPM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
