@@ -96,6 +96,6 @@ Lập trình
 Lưu ý
 =====
 
-- Có thể xem hướng dẫn cài đặt thư viện tại đây
-- Có thể sử dụng OLED ``SS1306`` bằng cách thay đổi ``SSD1306  display(0x3c, 4, 5);``
+* Có thể xem hướng dẫn cài đặt thư viện tại `đây <https://www.arduino.cc/en/guide/libraries>`_
+* Có thể sử dụng OLED ``SS1306`` bằng cách thay đổi ``SSD1306  display(0x3c, 4, 5);``
 
