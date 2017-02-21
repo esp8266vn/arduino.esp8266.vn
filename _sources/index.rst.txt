@@ -56,6 +56,7 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
 
    Game Flappy Bird <projects/flappy-bird>
    Đo nhịp tim <projects/heart-rate>
+   Cảm biến nhiệt độ (onewire) <projects/onewire>
 
 .. toctree::
    :caption: API
