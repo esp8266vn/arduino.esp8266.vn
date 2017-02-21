@@ -105,7 +105,11 @@
 <li class="toctree-l1"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="station.html">WiFi Station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="access-point.html">WiFi Access Point</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Smartconfig</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Smartconfig</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#loi-ich-cua-smartconfig">Lợi ích của Smartconfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#esp-touch">ESP Touch</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="wps.html">WPS</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Network/Protocol</span></p>
@@ -178,6 +182,53 @@
             
   <div class="section" id="smartconfig">
 <h1>Smartconfig<a class="headerlink" href="#smartconfig" title="Permalink to this headline">¶</a></h1>
+<p>Smartconfig là một khái niệm được nhắc đến khi khi muốn cấu hình thông tin cho thiết bị WiFi kết nối nhanh chóng đến Internet nhất từ người dùng bằng chính thiết bị (điện thoại) của họ.</p>
+<img alt="../_images/smart-config.gif" src="../_images/smart-config.gif" />
+<p>Để hiểu một cách đơn giản thì Smart config nghĩa là chúng ta gửi thông tin mạng wifi (bao gồm tên wifi và password wifi) cho ESP thông qua smartphone thay cho cách thông thường là phải khai báo thông tin này trong chương trình và nạp firmware xuống.</p>
+<div class="section" id="loi-ich-cua-smartconfig">
+<h2>Lợi ích của Smartconfig<a class="headerlink" href="#loi-ich-cua-smartconfig" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Dễ dàng cấu hình wifi cho ESP8266 thông qua smartphone.</li>
+<li>Không cần phải nạp lại code để cấu hình</li>
+<li>Có thể dùng Smartconfig để cấu hình nhiều thiết bị một lúc</li>
+</ul>
+</div>
+<div class="section" id="esp-touch">
+<h2>ESP Touch<a class="headerlink" href="#esp-touch" title="Permalink to this headline">¶</a></h2>
+<p>ESP Touch là protocol được dùng trong Smart Config để người dùng có thể kết nối tới các phiên bản modul ESP8266 thông qua cấu hình đơn giản trên Smartphone.
+Ban đầu không thể kết nối với ESP8266, nhưng thông qua giao thức ESP-TOUCH thì Smartphone sẽ gửi gói UDP tới Access Point(AP) ở đây là ESP8266, mã hóa SSID và mật khẩu thành trường Length trong gói UDP, để ESP8266 có thể hiểu và giải mã được thông tin.</p>
+<p>Cấu trúc gói tin sẽ có dạng</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="19%" />
+<col width="12%" />
+<col width="14%" />
+<col width="24%" />
+<col width="12%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>6</td>
+<td>6</td>
+<td>2</td>
+<td>3</td>
+<td>5</td>
+<td>Variable</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td>DA</td>
+<td>SA</td>
+<td>Length</td>
+<td>LLC</td>
+<td>SNAP</td>
+<td>DATA</td>
+<td>FCS</td>
+</tr>
+</tbody>
+</table>
+<p>Length bao gồm SSID và thông tin key cho ESP8266</p>
+</div>
 </div>
 
 
