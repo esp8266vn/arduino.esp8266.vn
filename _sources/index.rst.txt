@@ -13,8 +13,7 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
    Cài đặt Arduino IDE<install>
    Board IoT WiFi Uno <board>
    Kết nối máy tính <connection>
-
-.. Connect - TBA
+   Cài đặt thư viện <library>
 
 .. toctree::
    :caption: Cơ bản

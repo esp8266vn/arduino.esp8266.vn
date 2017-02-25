@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Phần cứng mở IoT WiFi Uno &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Cài đặt thư viện &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -34,8 +34,8 @@
               href="genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="index.html"/>
-        <link rel="next" title="Kết nối phần cứng và cài đặt" href="connection.html"/>
-        <link rel="prev" title="Arduino cơ bản" href="install.html"/> 
+        <link rel="next" title="LED" href="basic/led.html"/>
+        <link rel="prev" title="Kết nối phần cứng và cài đặt" href="connection.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -87,16 +87,13 @@
                 <p class="caption"><span class="caption-text">Cài đặt</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="install.html">Cài đặt Arduino IDE</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Board IoT WiFi Uno</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#pinout">Pinout</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#thuc-te">Thực tế</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mach-nguyen-ly">Mạch nguyên lý</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#fritzing-part">Fritzing part</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#mua-hang">Mua hàng</a></li>
+<li class="toctree-l1"><a class="reference internal" href="board.html">Board IoT WiFi Uno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connection.html">Kết nối máy tính</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cài đặt thư viện</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cac-thuc-hien">Các thực hiện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#video-huong-dan">Video hướng dẫn</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="connection.html">Kết nối máy tính</a></li>
-<li class="toctree-l1"><a class="reference internal" href="library.html">Cài đặt thư viện</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul>
@@ -171,11 +168,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Phần cứng mở IoT WiFi Uno</li>
+    <li>Cài đặt thư viện</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/board.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/library.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -185,54 +182,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="phan-cung-mo-iot-wifi-uno">
-<h1>Phần cứng mở IoT WiFi Uno<a class="headerlink" href="#phan-cung-mo-iot-wifi-uno" title="Permalink to this headline">¶</a></h1>
-<p>Sử dụng ESP8266 làm bộ điều khiển, tương thích chân với Arduino Uno và mạnh mẽ hơn nhiều:</p>
+  <div class="section" id="cai-dat-thu-vien">
+<h1>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h1>
+<p>Một số thư viện do các nhà phát triển khác public có thể cài đặt trực tiếp bằng công cụ <code class="docutils literal"><span class="pre">Library</span> <span class="pre">Manager</span></code> của Arduino</p>
+<div class="section" id="cac-thuc-hien">
+<h2>Các thực hiện<a class="headerlink" href="#cac-thuc-hien" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Sử đụng 2 nguồn cấp DC từ 5.5V đến 28VDC (1.2A/5V) và nguồn 5V USB</li>
-<li>Tự động vào chế độ nạp qua cổng <strong>Serial</strong></li>
-<li>Sử dụng với ESP8266 Arduino và các thư viện Arduino</li>
-<li>Hỗ trợ tài liệu từ <a class="reference external" href="https://esp8266.vn">https://esp8266.vn</a></li>
-<li>Có thêm 1 Nút nhấn và một đèn LED tương tự <strong>NodeMCU</strong>.</li>
-<li>Có thêm 1 header hỗ trợ <strong>OLED</strong></li>
-<li>Phần cứng mở với giấy phép <strong>CC-BY-SA</strong></li>
-<li>Thiết kế với phần mềm <strong>Kicad</strong></li>
+<li>Vào menu <code class="docutils literal"><span class="pre">Sketch</span> <span class="pre">-&gt;</span> <span class="pre">Include</span> <span class="pre">Library</span> <span class="pre">-&gt;</span> <span class="pre">Manage</span> <span class="pre">Libraries</span></code></li>
+<li>Nhập tên thư viện cần cài đặt</li>
+<li>Chọn phiên bản thư viện cần cài đặt</li>
+<li>Nhấn install</li>
 </ul>
-<p><a class="reference external" href="https://github.com/iotmakervn/iot-wifi-uno-hw">https://github.com/iotmakervn/iot-wifi-uno-hw</a></p>
-<div class="section" id="pinout">
-<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="_static/Iot-wifi-uno-hw-pinout.png"><img alt="_images/Iot-wifi-uno-hw-pinout.png" src="_images/Iot-wifi-uno-hw-pinout.png" /></a>
+<img alt="_images/library.png" src="_images/library.png" />
 </div>
-<div class="section" id="thuc-te">
-<h2>Thực tế<a class="headerlink" href="#thuc-te" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="_static/wifi-uno.jpg"><img alt="_images/wifi-uno.jpg" src="_images/wifi-uno.jpg" /></a>
-</div>
-<div class="section" id="mach-nguyen-ly">
-<h2>Mạch nguyên lý<a class="headerlink" href="#mach-nguyen-ly" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="_static/schematic.svg"><img alt="_images/schematic.svg" src="_images/schematic.svg" /></a>
-</div>
-<div class="section" id="fritzing-part">
-<h2>Fritzing part<a class="headerlink" href="#fritzing-part" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="_static/iot-wifi-uno.fzpz"><img alt="_images/fritzing.png" src="_images/fritzing.png" /></a>
-</div>
-<div class="section" id="mua-hang">
-<h2>Mua hàng<a class="headerlink" href="#mua-hang" title="Permalink to this headline">¶</a></h2>
-<p class="rubric" id="you">Các đơn vị cung cấp</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="29%" />
-<col width="71%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><strong>Đơn vị</strong></td>
-<td><strong>Link</strong></td>
-</tr>
-<tr class="row-even"><td>IoT Maker Việt Nam</td>
-<td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="section" id="video-huong-dan">
+<h2>Video hướng dẫn<a class="headerlink" href="#video-huong-dan" title="Permalink to this headline">¶</a></h2>
+<iframe width="640" height="360" src="//www.youtube.com/embed/lSMQOWiKrxs?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 </div>
 
 
@@ -242,10 +207,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="connection.html" class="btn btn-neutral float-right" title="Kết nối phần cứng và cài đặt" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="basic/led.html" class="btn btn-neutral float-right" title="LED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install.html" class="btn btn-neutral" title="Arduino cơ bản" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="connection.html" class="btn btn-neutral" title="Kết nối phần cứng và cài đặt" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
