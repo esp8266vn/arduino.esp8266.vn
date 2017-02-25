@@ -7,8 +7,11 @@ Xem video hướng dẫn và kết quả:
 
 .. youtube:: https://www.youtube.com/watch?v=8jM-JTFeAlg
 
-Đèn LED
-=======
+Chớp tắt dùng Delay
+===================
+
+Với cách chớp tắt này sẽ làm CPU bị dừng tại thời điểm delay và không thực thi được code nào khác
+
 .. code:: cpp
 
     int ledPin = 16;                 // LED connected to digital pin 16
@@ -24,6 +27,35 @@ Xem video hướng dẫn và kết quả:
       delay(1000);                  // waits for a second
       digitalWrite(ledPin, LOW);    // sets the LED off
       delay(1000);                  // waits for a second
+    }
+
+
+
+Chớp tắt dùng định thời
+=======================
+
+.. code:: cpp
+
+    int ledPin = 16;                 // LED connected to digital pin 16
+    int ledState = LOW;
+    unsigned long previousMillis = 0;
+    const long interval = 1000;
+
+    void setup() {
+      pinMode(ledPin, OUTPUT);
+    }
+
+    void loop()
+    {
+      unsigned long currentMillis = millis();
+      if(currentMillis - previousMillis >= interval) {
+        previousMillis = currentMillis;
+        if (ledState == LOW)
+          ledState = HIGH;  // Note that this switches the LED *off*
+        else
+          ledState = LOW;   // Note that this switches the LED *on*
+        digitalWrite(ledPin, ledState);
+      }
     }
 
 
