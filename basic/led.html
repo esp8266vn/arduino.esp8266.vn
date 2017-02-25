@@ -93,7 +93,8 @@
 <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bật tắt LED</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#den-led">Đèn LED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chop-tat-dung-delay">Chớp tắt dùng Delay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chop-tat-dung-dinh-thoi">Chớp tắt dùng định thời</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#digital-io">Digital IO</a></li>
 </ul>
 </li>
@@ -185,8 +186,9 @@
 <h1>LED<a class="headerlink" href="#led" title="Permalink to this headline">¶</a></h1>
 <p>Chúng ta sẽ thực hiện việc chớp tắt đèn LED của board <strong>IoT WiFi Uno</strong> mỗi giây, được nối tới pin <code class="docutils literal"><span class="pre">GPIO16</span></code>.</p>
 <p>Xem video hướng dẫn và kết quả:</p>
-<iframe width="640" height="360" src="//www.youtube.com/embed/8jM-JTFeAlg?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe><div class="section" id="den-led">
-<h2>Đèn LED<a class="headerlink" href="#den-led" title="Permalink to this headline">¶</a></h2>
+<iframe width="640" height="360" src="//www.youtube.com/embed/8jM-JTFeAlg?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe><div class="section" id="chop-tat-dung-delay">
+<h2>Chớp tắt dùng Delay<a class="headerlink" href="#chop-tat-dung-delay" title="Permalink to this headline">¶</a></h2>
+<p>Với cách chớp tắt này sẽ làm CPU bị dừng tại thời điểm delay và không thực thi được code nào khác</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>                 <span class="o">//</span> <span class="n">LED</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">digital</span> <span class="n">pin</span> <span class="mi">16</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
@@ -200,6 +202,32 @@
   <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>                  <span class="o">//</span> <span class="n">waits</span> <span class="k">for</span> <span class="n">a</span> <span class="n">second</span>
   <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>    <span class="o">//</span> <span class="n">sets</span> <span class="n">the</span> <span class="n">LED</span> <span class="n">off</span>
   <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>                  <span class="o">//</span> <span class="n">waits</span> <span class="k">for</span> <span class="n">a</span> <span class="n">second</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chop-tat-dung-dinh-thoi">
+<h2>Chớp tắt dùng định thời<a class="headerlink" href="#chop-tat-dung-dinh-thoi" title="Permalink to this headline">¶</a></h2>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>                 <span class="o">//</span> <span class="n">LED</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">digital</span> <span class="n">pin</span> <span class="mi">16</span>
+<span class="nb">int</span> <span class="n">ledState</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+<span class="n">unsigned</span> <span class="n">long</span> <span class="n">previousMillis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">const</span> <span class="n">long</span> <span class="n">interval</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">unsigned</span> <span class="n">long</span> <span class="n">currentMillis</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+  <span class="k">if</span><span class="p">(</span><span class="n">currentMillis</span> <span class="o">-</span> <span class="n">previousMillis</span> <span class="o">&gt;=</span> <span class="n">interval</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">previousMillis</span> <span class="o">=</span> <span class="n">currentMillis</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">ledState</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span>
+      <span class="n">ledState</span> <span class="o">=</span> <span class="n">HIGH</span><span class="p">;</span>  <span class="o">//</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">this</span> <span class="n">switches</span> <span class="n">the</span> <span class="n">LED</span> <span class="o">*</span><span class="n">off</span><span class="o">*</span>
+    <span class="k">else</span>
+      <span class="n">ledState</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>   <span class="o">//</span> <span class="n">Note</span> <span class="n">that</span> <span class="n">this</span> <span class="n">switches</span> <span class="n">the</span> <span class="n">LED</span> <span class="o">*</span><span class="n">on</span><span class="o">*</span>
+    <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">ledState</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>

@@ -18,7 +18,7 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
 
 .. toctree::
    :caption: Cơ bản
-   :maxdepth: 2
+   :maxdepth: 1
 
    Bật tắt LED <basic/led>
    Nút nhấn <basic/button>
