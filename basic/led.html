@@ -94,6 +94,8 @@
 <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Bật tắt LED</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#chop-tat-dung-delay">Chớp tắt dùng Delay</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#chop-tat-dung-dinh-thoi">Chớp tắt dùng định thời</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#digital-io">Digital IO</a></li>
@@ -187,7 +189,29 @@
 <h1>LED<a class="headerlink" href="#led" title="Permalink to this headline">¶</a></h1>
 <p>Chúng ta sẽ thực hiện việc chớp tắt đèn LED của board <strong>IoT WiFi Uno</strong> mỗi giây, được nối tới pin <code class="docutils literal"><span class="pre">GPIO16</span></code>.</p>
 <p>Xem video hướng dẫn và kết quả:</p>
-<iframe width="640" height="360" src="//www.youtube.com/embed/8jM-JTFeAlg?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe><div class="section" id="chop-tat-dung-delay">
+<iframe width="640" height="360" src="//www.youtube.com/embed/8jM-JTFeAlg?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe><div class="section" id="chuan-bi">
+<h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>Tên board mạch</strong></td>
+<td><strong>Link</strong></td>
+</tr>
+<tr class="row-even"><td>Board IoT Wifi Uno</td>
+<td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dau-noi">
+<h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
+<p>Nút nhấn và LED board <code class="docutils literal"><span class="pre">IoT</span> <span class="pre">WiFi</span> <span class="pre">Uno</span></code> được khoanh tròn như trong hình</p>
+<a class="reference external image-reference" href="../_static/basic/button.png"><img alt="../_images/button.png" src="../_images/button.png" /></a>
+</div>
+<div class="section" id="chop-tat-dung-delay">
 <h2>Chớp tắt dùng Delay<a class="headerlink" href="#chop-tat-dung-delay" title="Permalink to this headline">¶</a></h2>
 <p>Với cách chớp tắt này sẽ làm CPU bị dừng tại thời điểm delay và không thực thi được code nào khác</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>                 <span class="o">//</span> <span class="n">LED</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">digital</span> <span class="n">pin</span> <span class="mi">16</span>

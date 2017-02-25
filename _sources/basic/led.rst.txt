@@ -7,6 +7,25 @@ Xem video hướng dẫn và kết quả:
 
 .. youtube:: https://www.youtube.com/watch?v=8jM-JTFeAlg
 
+
+Chuẩn bị
+========
+
++--------------------+----------------------------------------------------------+
+| **Tên board mạch** | **Link**                                                 |
++--------------------+----------------------------------------------------------+
+| Board IoT Wifi Uno | https://iotmaker.vn/esp8266-iot-wifi-uno.html            |
++--------------------+----------------------------------------------------------+
+
+
+Đấu nối
+=======
+
+Nút nhấn và LED board ``IoT WiFi Uno`` được khoanh tròn như trong hình
+
+.. image:: ../_static/basic/button.png
+    :target: ../_static/basic/button.png
+
 Chớp tắt dùng Delay
 ===================
 
