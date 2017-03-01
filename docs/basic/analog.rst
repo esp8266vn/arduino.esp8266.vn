@@ -3,7 +3,7 @@
 
 ESP8266 có duy nhất 1 chân ADC, chúng ta có thể dùng để đọc điện áp bên ngoài, hay đọc điện áp VCC.
 
-Để đọc điện áp bên ngoài bằng chân ADC, sử dụng hàm ``analogRead(A0)``. Điện áp chấp nhận ở mức ``0 — 1.0V``.
+Để đọc điện áp bên ngoài bằng chân ADC, sử dụng hàm ``analogRead(A0)``. Điện áp chấp nhận ở mức ``0 — 1.0V`` **trên chân CHIP** và ``0-3.3V`` trên board ``IoT WiFi Uno`` sau khi được chia áp.
 
 Để đọc điện áp cấp (VCC) cho module, sử dụng ``ESP.getVcc()`` và chân ADC bên ngoài phải để hở. Đồng thời phải cấu hình dòng lệnh sau trong sketch:
 

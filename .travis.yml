@@ -2,7 +2,7 @@ language: python
 python:
   - 2.7
 install:
-  - pip install sphinx sphinx_rtd_theme sphinxcontrib.youtube
+  - pip install sphinx sphinx_rtd_theme sphinxcontrib.youtube sphinxcontrib-googleanalytics
 script: make html
 after_success:
   - ./push.sh
