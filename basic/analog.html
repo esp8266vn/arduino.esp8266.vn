@@ -5,7 +5,18 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-60470603-9']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>Đọc Analog &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
@@ -185,7 +196,7 @@
   <div class="section" id="doc-analog">
 <h1>Đọc Analog<a class="headerlink" href="#doc-analog" title="Permalink to this headline">¶</a></h1>
 <p>ESP8266 có duy nhất 1 chân ADC, chúng ta có thể dùng để đọc điện áp bên ngoài, hay đọc điện áp VCC.</p>
-<p>Để đọc điện áp bên ngoài bằng chân ADC, sử dụng hàm <code class="docutils literal"><span class="pre">analogRead(A0)</span></code>. Điện áp chấp nhận ở mức <code class="docutils literal"><span class="pre">0</span> <span class="pre">—</span> <span class="pre">1.0V</span></code>.</p>
+<p>Để đọc điện áp bên ngoài bằng chân ADC, sử dụng hàm <code class="docutils literal"><span class="pre">analogRead(A0)</span></code>. Điện áp chấp nhận ở mức <code class="docutils literal"><span class="pre">0</span> <span class="pre">—</span> <span class="pre">1.0V</span></code> <strong>trên chân CHIP</strong> và <code class="docutils literal"><span class="pre">0-3.3V</span></code> trên board <code class="docutils literal"><span class="pre">IoT</span> <span class="pre">WiFi</span> <span class="pre">Uno</span></code> sau khi được chia áp.</p>
 <p>Để đọc điện áp cấp (VCC) cho module, sử dụng <code class="docutils literal"><span class="pre">ESP.getVcc()</span></code> và chân ADC bên ngoài phải để hở. Đồng thời phải cấu hình dòng lệnh sau trong sketch:</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">ADC_MODE</span><span class="p">(</span><span class="n">ADC_VCC</span><span class="p">);</span>
 </pre></div>
