@@ -5,6 +5,12 @@ Lập trình ESP8266 Arduino
 
 ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP, UDP và các ứng dụng HTTP, mDNS, SSDP, DNS Servers. Ngoài ra còn có thể thực hiện cập nhật OTA, sử dụng Filesystem dùng bộ nhớ Flash hay thẻ SD, điều khiển servos, ngoại vi SPI, I2C.
 
+.. image:: _static/Iot-wifi-uno-hw-pinout.png
+   :width: 500
+
+Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotmaker.vn>`_
+
+
 
 .. toctree::
    :caption: Cài đặt

@@ -43,6 +43,13 @@ extensions = ['sphinx.ext.autodoc',
     'sphinxcontrib.googleanalytics']
 
 googleanalytics_id = 'UA-60470603-9'
+
+html_theme_options = {
+    'collapse_navigation': False,
+    'display_version': False,
+    'navigation_depth': 3,
+}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

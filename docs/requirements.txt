@@ -1,4 +1,1 @@
-# pip requirements for docs generation
-# pip install -r docs/requirements.txt
-
-Sphinx
+sphinx sphinx_rtd_theme sphinxcontrib.youtube sphinxcontrib-googleanalytics
