@@ -62,6 +62,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Game Flappy Bird <projects/flappy-bird>
    Đo nhịp tim <projects/heart-rate>
    Cảm biến nhiệt độ (onewire) <projects/onewire>
+   Đo nhiệt độ độ ẩm và gởi lên Thingspeak <projects/dht11-thingspeak>
 
 .. toctree::
    :caption: API
