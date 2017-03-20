@@ -448,32 +448,21 @@ DHT11</td>
 <div class="section" id="luu-y">
 <h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Tạo tài khoản ThingSpeak và <a href="#id1"><span class="problematic" id="id2">`New Channel&lt;https://thingspeak.com/channels/new&gt;`_</span></a> để lấy <code class="docutils literal"><span class="pre">channelID</span></code> và <code class="docutils literal"><span class="pre">writeAPIKey</span></code></li>
+<li>Tạo tài khoản ThingSpeak và <a class="reference external" href="https://thingspeak.com/channels/new">New Channel</a> để lấy <code class="docutils literal"><span class="pre">channelID</span></code> và <code class="docutils literal"><span class="pre">writeAPIKey</span></code></li>
 </ul>
 <img alt="../_images/thingspeak-new_channel.jpg" src="../_images/thingspeak-new_channel.jpg" />
 <img alt="../_images/thingspeak-apikey.jpg" src="../_images/thingspeak-apikey.jpg" />
-<ul class="simple">
-<li>Đừng quên chỉnh sửa lại thông tin WiFi và ThingSpeak trong code.</li>
-<li><dl class="first docutils">
-<dt>Bạn có thể dùng module <code class="docutils literal"><span class="pre">DHT11</span></code>, <code class="docutils literal"><span class="pre">DHT21</span></code> hoặc <code class="docutils literal"><span class="pre">DHT22</span></code> đều được.</dt>
-<dd><ul class="first last">
+<ul>
+<li><p class="first">Đừng quên chỉnh sửa lại thông tin WiFi và ThingSpeak trong code.</p>
+</li>
+<li><p class="first">Bạn có thể dùng module <strong>DHT11</strong>, <strong>DHT21</strong> hoặc <strong>DHT22</strong> đều được.</p>
+<blockquote>
+<div><ul class="simple">
 <li>Chúng cơ bản khác nhau ở dải đo và... giá thành thôi.</li>
 <li>Chọn module bạn dùng ở dòng <code class="docutils literal"><span class="pre">#define</span> <span class="pre">DHTTYPE</span> <span class="pre">DHTxx</span></code></li>
 </ul>
-</dd>
-</dl>
+</div></blockquote>
 </li>
-<li><dl class="first docutils">
-<dt>…</dt>
-<dd><ul class="first last">
-<li><code class="docutils literal"><span class="pre">String(temp,</span> <span class="pre">1)</span></code> ép kiểu <code class="docutils literal"><span class="pre">float</span></code> của <code class="docutils literal"><span class="pre">temp</span></code> thành <code class="docutils literal"><span class="pre">String</span></code>, làm tròn 1 chữ số sau dấu thập phân.</li>
-<li>Lệnh in <code class="docutils literal"><span class="pre">%s</span></code> trong <code class="docutils literal"><span class="pre">Serial.printf</span></code> lại không hoạt động với <code class="docutils literal"><span class="pre">String</span></code> nên ta phải chuyển nó về thành con trỏ trỏ đến chuỗi chứa nội dung cần in <code class="docutils literal"><span class="pre">String::c_str()</span></code>.</li>
-<li>Đây chẳng qua là một cách phức tạp hóa vấn đề của mình thôi, các bạn không cần quan tâm cái này, hehe.</li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><a class="reference external" href="https://github.com/tackelua/dht11-thingspeak">Link project</a></li>
 </ul>
 </div>
 </div>
