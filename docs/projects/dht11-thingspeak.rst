@@ -3,7 +3,7 @@
 
 Demo
 ====
-.. image:: https://github.com/tackelua/dht11-thingspeak/raw/master/thingspeak-result.JPG
+.. image:: ../_static/projects/thingspeak-result.jpg
 
 Chuẩn bị
 ========
@@ -20,7 +20,7 @@ Chuẩn bị
 
 Đấu nối
 =======
-
+.. image:: ../_static/projects/dht11-thingspeak_bb.png
 
 Cài đặt thư viện
 ================
@@ -50,14 +50,14 @@ Lập trình
 	DHT dht(DHTPIN, DHTTYPE);
 
 	// Wi-Fi Settings
-	const char* ssid = "IoT Guest"; // your wireless network name (SSID)
-	const char* password = "mic@dtu12345678()"; // your Wi-Fi network password
+	const char* ssid = "YOUR-WIFI-SSID"; // your wireless network name (SSID)
+	const char* password = "YOUR-WIFI-PASS"; // your Wi-Fi network password
 
 	WiFiClient client;
 
 	// ThingSpeak Settings
-	const int channelID = 244377; //
-	String writeAPIKey = "CLLYNVID2R5J8CEP"; // write API key for your ThingSpeak Channel
+	const int channelID = YOUR-CHANNEL-ID; //
+	String writeAPIKey = "YOUR-API-KEY"; // write API key for your ThingSpeak Channel
 	const char* server = "api.thingspeak.com";
 	const int postingInterval = 2 * 1000; // post data every 2 seconds
 
@@ -107,17 +107,17 @@ Lưu ý
 =====
 
 * Tạo tài khoản ThingSpeak và `New Channel<https://thingspeak.com/channels/new>`_ để lấy ``channelID`` và ``writeAPIKey``
-.. image:: https://github.com/tackelua/dht11-thingspeak/raw/master/thingspeak-new_channel.JPG
-.. image:: https://github.com/tackelua/dht11-thingspeak/raw/master/thingspeak-apikey.JPG
+.. image:: ../_static/projects/thingspeak-new_channel.jpg
+.. image:: ../_static/projects/thingspeak-apikey.jpg
 
 * Đừng quên chỉnh sửa lại thông tin WiFi và ThingSpeak trong code.
 
 * Bạn có thể dùng module ``DHT11``, ``DHT21`` hoặc ``DHT22`` đều được.
-  * Chúng cơ bản khác nhau ở dải đo và... giá thành thôi.
+    * Chúng cơ bản khác nhau ở dải đo và... giá thành thôi.
     * Chọn module bạn dùng ở dòng ``#define DHTTYPE DHTxx``
 
 * …
-  * ``String(temp, 1)`` ép kiểu ``float`` của ``temp`` thành ``String``, làm tròn 1 chữ số sau dấu thập phân.
-  * Lệnh in ``%s`` trong ``Serial.printf`` lại không hoạt động với ``String`` nên ta phải chuyển nó về thành con trỏ trỏ đến chuỗi chứa nội dung cần in ``String::c_str()``.
-  * Đây chẳng qua là một cách phức tạp hóa vấn đề của mình thôi, các bạn không cần quan tâm cái này, hehe.
-* `Link project<https://github.com/tackelua/dht11-thingspeak>`_
+    * ``String(temp, 1)`` ép kiểu ``float`` của ``temp`` thành ``String``, làm tròn 1 chữ số sau dấu thập phân.
+    * Lệnh in ``%s`` trong ``Serial.printf`` lại không hoạt động với ``String`` nên ta phải chuyển nó về thành con trỏ trỏ đến chuỗi chứa nội dung cần in ``String::c_str()``.
+    * Đây chẳng qua là một cách phức tạp hóa vấn đề của mình thôi, các bạn không cần quan tâm cái này, hehe.
+* `Link project <https://github.com/tackelua/dht11-thingspeak>`_
