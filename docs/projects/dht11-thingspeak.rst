@@ -37,6 +37,7 @@ Cài đặt thư viện
 Lập trình
 =========
 
+
 .. code:: cpp
 
 	#include <DHT.h>
@@ -106,18 +107,19 @@ Lập trình
 Lưu ý
 =====
 
-* Tạo tài khoản ThingSpeak và `New Channel<https://thingspeak.com/channels/new>`_ để lấy ``channelID`` và ``writeAPIKey``
+* Tạo tài khoản ThingSpeak và `New Channel <https://thingspeak.com/channels/new>`_ để lấy ``channelID`` và ``writeAPIKey``
 .. image:: ../_static/projects/thingspeak-new_channel.jpg
 .. image:: ../_static/projects/thingspeak-apikey.jpg
 
 * Đừng quên chỉnh sửa lại thông tin WiFi và ThingSpeak trong code.
 
-* Bạn có thể dùng module ``DHT11``, ``DHT21`` hoặc ``DHT22`` đều được.
+* Bạn có thể dùng module ***DHT11***, ***DHT21*** hoặc ***DHT22*** đều được.
     * Chúng cơ bản khác nhau ở dải đo và... giá thành thôi.
     * Chọn module bạn dùng ở dòng ``#define DHTTYPE DHTxx``
 
 * …
-    * ``String(temp, 1)`` ép kiểu ``float`` của ``temp`` thành ``String``, làm tròn 1 chữ số sau dấu thập phân.
-    * Lệnh in ``%s`` trong ``Serial.printf`` lại không hoạt động với ``String`` nên ta phải chuyển nó về thành con trỏ trỏ đến chuỗi chứa nội dung cần in ``String::c_str()``.
-    * Đây chẳng qua là một cách phức tạp hóa vấn đề của mình thôi, các bạn không cần quan tâm cái này, hehe.
-* `Link project <https://github.com/tackelua/dht11-thingspeak>`_
+    * *String(temp, 1)* ép kiểu *float* của *temp* thành *String*, làm tròn 1 chữ số sau dấu thập phân.
+    * Lệnh in ***%s*** trong ``Serial.printf`` lại không hoạt động với *String* nên ta phải chuyển nó về thành con trỏ trỏ đến chuỗi chứa nội dung cần in ``String::c_str()``.
+    * Đây chẳng qua là một cách phức tạp hóa vấn đề của mình `mình <https://github.com/tackelua>`_ thôi, các bạn không cần quan tâm cái này, hehe.
+
+
