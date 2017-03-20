@@ -37,6 +37,7 @@ Cài đặt thư viện
 Lập trình
 =========
 
+
 .. code:: cpp
 
 	#include <DHT.h>
@@ -107,11 +108,14 @@ Lưu ý
 =====
 
 * Tạo tài khoản ThingSpeak và `New Channel <https://thingspeak.com/channels/new>`_ để lấy ``channelID`` và ``writeAPIKey``
+
 .. image:: ../_static/projects/thingspeak-new_channel.jpg
 .. image:: ../_static/projects/thingspeak-apikey.jpg
 
 * Đừng quên chỉnh sửa lại thông tin WiFi và ThingSpeak trong code.
 
+
 * Bạn có thể dùng module **DHT11**, **DHT21** hoặc **DHT22** đều được.
+
     * Chúng cơ bản khác nhau ở dải đo và... giá thành thôi.
     * Chọn module bạn dùng ở dòng ``#define DHTTYPE DHTxx``
