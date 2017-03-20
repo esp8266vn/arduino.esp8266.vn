@@ -37,7 +37,6 @@ Cài đặt thư viện
 Lập trình
 =========
 
-
 .. code:: cpp
 
 	#include <DHT.h>
