@@ -29,3 +29,4 @@ Một số lưu ý khác
 Danh sách các thành viên đã đóng góp
 ====================================
 * `@tuanpmt <https://github.com/tuanpmt>`_
+* `@tackelua <https://github.com/tackelua>`_
