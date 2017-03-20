@@ -327,6 +327,7 @@
 <h1>Đo nhiệt độ, đổ ẩm và gởi lên Thingspeak<a class="headerlink" href="#do-nhiet-do-do-am-va-goi-len-thingspeak" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/thingspeak-result.jpg" src="../_images/thingspeak-result.jpg" />
 </div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
@@ -344,14 +345,16 @@
 <tr class="row-even"><td>Board IoT Wifi Uno</td>
 <td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
 </tr>
-<tr class="row-odd"><td>...</td>
-<td>...</td>
+<tr class="row-odd"><td>Cảm biến nhiệt độ
+DHT11</td>
+<td><a class="reference external" href="https://iotmaker.vn/cam-bien-nhiet-do-do-am-dht11.htmlml">https://iotmaker.vn/cam-bien-nhiet-do-do-am-dht11.htmlml</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/dht11-thingspeak_bb.png" src="../_images/dht11-thingspeak_bb.png" />
 </div>
 <div class="section" id="cai-dat-thu-vien">
 <h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
@@ -366,20 +369,112 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>...</td>
-<td>...</td>
+<tr class="row-even"><td>DHT</td>
+<td><a class="reference external" href="https://github.com/adafruit/DHT-sensor-library">https://github.com/adafruit/DHT-sensor-library</a></td>
 </tr>
-<tr class="row-odd"><td>...</td>
-<td>...</td>
+<tr class="row-odd"><td>ThingSpeak</td>
+<td><a class="reference external" href="https://github.com/mathworks/thingspeak-arduino">https://github.com/mathworks/thingspeak-arduino</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;DHT.h&gt;</span>
+<span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+<span class="o">//</span><span class="n">DHT</span> <span class="n">config</span>
+<span class="c1">#define DHTPIN 4     // what digital pin we&#39;re connected to</span>
+<span class="o">//</span><span class="c1">#define DHTTYPE DHT11   // DHT 11</span>
+<span class="c1">#define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321</span>
+<span class="o">//</span><span class="c1">#define DHTTYPE DHT21   // DHT 21 (AM2301)</span>
+<span class="n">DHT</span> <span class="n">dht</span><span class="p">(</span><span class="n">DHTPIN</span><span class="p">,</span> <span class="n">DHTTYPE</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Wi</span><span class="o">-</span><span class="n">Fi</span> <span class="n">Settings</span>
+<span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">ssid</span> <span class="o">=</span> <span class="s2">&quot;YOUR-WIFI-SSID&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">your</span> <span class="n">wireless</span> <span class="n">network</span> <span class="n">name</span> <span class="p">(</span><span class="n">SSID</span><span class="p">)</span>
+<span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;YOUR-WIFI-PASS&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">your</span> <span class="n">Wi</span><span class="o">-</span><span class="n">Fi</span> <span class="n">network</span> <span class="n">password</span>
+
+<span class="n">WiFiClient</span> <span class="n">client</span><span class="p">;</span>
+
+<span class="o">//</span> <span class="n">ThingSpeak</span> <span class="n">Settings</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">channelID</span> <span class="o">=</span> <span class="n">YOUR</span><span class="o">-</span><span class="n">CHANNEL</span><span class="o">-</span><span class="n">ID</span><span class="p">;</span> <span class="o">//</span>
+<span class="n">String</span> <span class="n">writeAPIKey</span> <span class="o">=</span> <span class="s2">&quot;YOUR-API-KEY&quot;</span><span class="p">;</span> <span class="o">//</span> <span class="n">write</span> <span class="n">API</span> <span class="n">key</span> <span class="k">for</span> <span class="n">your</span> <span class="n">ThingSpeak</span> <span class="n">Channel</span>
+<span class="n">const</span> <span class="n">char</span><span class="o">*</span> <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;api.thingspeak.com&quot;</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">postingInterval</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">;</span> <span class="o">//</span> <span class="n">post</span> <span class="n">data</span> <span class="n">every</span> <span class="mi">2</span> <span class="n">seconds</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+        <span class="n">dht</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Connecting&quot;</span><span class="p">);</span>
+        <span class="n">WiFi</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">);</span>
+        <span class="k">while</span> <span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">!=</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
+                <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\r\n</span><span class="s2">WiFi connected&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+        <span class="o">//</span> <span class="n">wait</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">post</span> <span class="n">again</span>
+        <span class="n">delay</span><span class="p">(</span><span class="n">postingInterval</span><span class="p">);</span>
+
+        <span class="nb">float</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">readTemperature</span><span class="p">();</span>
+        <span class="nb">float</span> <span class="n">humi</span> <span class="o">=</span> <span class="n">dht</span><span class="o">.</span><span class="n">readHumidity</span><span class="p">();</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">isnan</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span> <span class="o">||</span> <span class="n">isnan</span><span class="p">(</span><span class="n">humi</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Failed to read from DHT sensor!&quot;</span><span class="p">);</span>
+                <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="mi">80</span><span class="p">))</span> <span class="p">{</span>
+                <span class="o">//</span> <span class="n">Construct</span> <span class="n">API</span> <span class="n">request</span> <span class="n">body</span>
+                <span class="n">String</span> <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;field1=&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&amp;field2=&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">humi</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;POST /update HTTP/1.1</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Host: api.thingspeak.com</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Connection: close</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;X-THINGSPEAKAPIKEY: &quot;</span> <span class="o">+</span> <span class="n">writeAPIKey</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Content-Type: application/x-www-form-urlencoded</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Content-Length: &quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">length</span><span class="p">());</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">body</span><span class="p">);</span>
+                <span class="n">client</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n\n</span><span class="s2">&quot;</span><span class="p">);</span>
+                <span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Nhiet do </span><span class="si">%s</span><span class="s2"> - Do am </span><span class="si">%s</span><span class="se">\r\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">String</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">(),</span> <span class="n">String</span><span class="p">(</span><span class="n">humi</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+        <span class="p">}</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">stop</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="luu-y">
 <h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Tạo tài khoản ThingSpeak và <a href="#id1"><span class="problematic" id="id2">`New Channel&lt;https://thingspeak.com/channels/new&gt;`_</span></a> để lấy <code class="docutils literal"><span class="pre">channelID</span></code> và <code class="docutils literal"><span class="pre">writeAPIKey</span></code></li>
+</ul>
+<img alt="../_images/thingspeak-new_channel.jpg" src="../_images/thingspeak-new_channel.jpg" />
+<img alt="../_images/thingspeak-apikey.jpg" src="../_images/thingspeak-apikey.jpg" />
+<ul class="simple">
+<li>Đừng quên chỉnh sửa lại thông tin WiFi và ThingSpeak trong code.</li>
+<li><dl class="first docutils">
+<dt>Bạn có thể dùng module <code class="docutils literal"><span class="pre">DHT11</span></code>, <code class="docutils literal"><span class="pre">DHT21</span></code> hoặc <code class="docutils literal"><span class="pre">DHT22</span></code> đều được.</dt>
+<dd><ul class="first last">
+<li>Chúng cơ bản khác nhau ở dải đo và... giá thành thôi.</li>
+<li>Chọn module bạn dùng ở dòng <code class="docutils literal"><span class="pre">#define</span> <span class="pre">DHTTYPE</span> <span class="pre">DHTxx</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>…</dt>
+<dd><ul class="first last">
+<li><code class="docutils literal"><span class="pre">String(temp,</span> <span class="pre">1)</span></code> ép kiểu <code class="docutils literal"><span class="pre">float</span></code> của <code class="docutils literal"><span class="pre">temp</span></code> thành <code class="docutils literal"><span class="pre">String</span></code>, làm tròn 1 chữ số sau dấu thập phân.</li>
+<li>Lệnh in <code class="docutils literal"><span class="pre">%s</span></code> trong <code class="docutils literal"><span class="pre">Serial.printf</span></code> lại không hoạt động với <code class="docutils literal"><span class="pre">String</span></code> nên ta phải chuyển nó về thành con trỏ trỏ đến chuỗi chứa nội dung cần in <code class="docutils literal"><span class="pre">String::c_str()</span></code>.</li>
+<li>Đây chẳng qua là một cách phức tạp hóa vấn đề của mình thôi, các bạn không cần quan tâm cái này, hehe.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><a class="reference external" href="https://github.com/tackelua/dht11-thingspeak">Link project</a></li>
+</ul>
 </div>
 </div>
 
