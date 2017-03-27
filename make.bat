@@ -7,11 +7,18 @@ REM Command file for Sphinx documentation
 if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
-set SOURCEDIR=source
+set SOURCEDIR=docs
 set BUILDDIR=build
 set SPHINXPROJ=arduinoforesp8266
 
 if "%1" == "" goto help
+
+if "%1" == "livehtml" (
+        %SPHINXBUILD% -b html %ALLSPHINXOPTS% %SOURCEDIR% %BUILDDIR%/html
+        sphinx-autobuild -b html %ALLSPHINXOPTS% %SOURCEDIR% %BUILDDIR%/html
+        if errorlevel 1 exit /b 1
+        goto end
+)
 
 %SPHINXBUILD% >NUL 2>NUL
 if errorlevel 9009 (
