@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Kết nối phần cứng và cài đặt &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Progmem" href="promem.html"/>
-        <link rel="prev" title="Serial" href="serial.html"/> 
+        <link rel="up" title="Cài đặt" href="index.html"/>
+        <link rel="next" title="Cài đặt thư viện" href="library.html"/>
+        <link rel="prev" title="Phần cứng mở IoT WiFi Uno" href="board.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,7 +92,7 @@
             
                 <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Cài đặt</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cài đặt</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">Cài đặt Arduino IDE</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="install.html#cai-dat-voi-boards-manager">Cài đặt với Boards Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html#su-dung-git-version">Sử dụng git version</a></li>
@@ -105,10 +106,10 @@
 <li class="toctree-l3"><a class="reference internal" href="board.html#mua-hang">Mua hàng</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="connection.html">Kết nối máy tính</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="connection.html#ket-noi-phan-cung">Kết nối phần cứng</a></li>
-<li class="toctree-l3"><a class="reference internal" href="connection.html#cai-dat-usb-driver">Cài đặt USB Driver</a></li>
-<li class="toctree-l3"><a class="reference internal" href="connection.html#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Kết nối máy tính</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ket-noi-phan-cung">Kết nối phần cứng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cai-dat-usb-driver">Cài đặt USB Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="library.html">Cài đặt thư viện</a><ul>
@@ -148,7 +149,7 @@
 <li class="toctree-l2"><a class="reference internal" href="serial.html#software-serial">Software Serial</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="promem.html">Sử dụng Promem</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="promem.html#vi-du">Ví dụ</a></li>
 </ul>
@@ -328,13 +329,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>OLED</li>
+          <li><a href="index.html">Cài đặt</a> &raquo;</li>
+        
+      <li>Kết nối phần cứng và cài đặt</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/basic/oled.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/basic/connection.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -347,8 +350,75 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="oled">
-<h1>OLED<a class="headerlink" href="#oled" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="ket-noi-phan-cung-va-cai-dat">
+<h1>Kết nối phần cứng và cài đặt<a class="headerlink" href="#ket-noi-phan-cung-va-cai-dat" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ket-noi-phan-cung">
+<h2>Kết nối phần cứng<a class="headerlink" href="#ket-noi-phan-cung" title="Permalink to this headline">¶</a></h2>
+<p>Kết nối USB với Board mạch <strong>IoT WiFi Uno</strong> như hình bên dưới, đảm bảo đèn LED (khoanh tròn) sáng</p>
+<a class="reference external image-reference" href="../_static/connect.jpg"><img alt="../_images/connect.jpg" src="../_images/connect.jpg" /></a>
+</div>
+<div class="section" id="cai-dat-usb-driver">
+<h2>Cài đặt USB Driver<a class="headerlink" href="#cai-dat-usb-driver" title="Permalink to this headline">¶</a></h2>
+<p>Tùy thuộc từng hệ điều hành, làm theo các hướng dẫn bên dưới</p>
+<div class="section" id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Tải bản cài đặt <a class="reference external" href="http://www.wch.cn/download/CH341SER_ZIP.html">CH341SER_ZIP</a> rồi cài đặt theo hướng dẫn</li>
+</ul>
+</div>
+<div class="section" id="mac-os">
+<h3>Mac OS<a class="headerlink" href="#mac-os" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="cai-dat-moi">
+<h4>Cài đặt mới<a class="headerlink" href="#cai-dat-moi" title="Permalink to this headline">¶</a></h4>
+<p>Đơn giản chỉ cần tài về vài cài đặt: <a class="reference external" href="../_static/download/CH34x_Install_V1.3.pkg">CH34x_Install_V1.3.pkg</a></p>
+</div>
+<div class="section" id="mac-os-sierra">
+<h4>Mac OS Sierra<a class="headerlink" href="#mac-os-sierra" title="Permalink to this headline">¶</a></h4>
+<p>Một số trường hợp đã cài đặt driver phiên bản cũ, tuy nhiên sau khi nâng cấp lên <strong>Sierra</strong> sẽ bị reset ngay khi cắm USB vào. Để xử lý vấn đề này như sau:</p>
+<ul>
+<li><p class="first">Mở ứng dụng &#8220;Terminal&#8221; <code class="docutils literal"><span class="pre">cmd</span> <span class="pre">+</span> <span class="pre">space</span></code> &#8211;&gt; Enter Terminal</p>
+</li>
+<li><p class="first">Thực hiện command sau để xóa driver:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">System</span><span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Extensions</span><span class="o">/</span><span class="n">usb</span><span class="o">.</span><span class="n">kext</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Nhập mật khẩu</p>
+</li>
+<li><p class="first">Với một số máy tính, có thể bạn phải thực thi:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">rm</span> <span class="o">-</span><span class="n">rf</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Extensions</span><span class="o">/</span><span class="n">usbserial</span><span class="o">.</span><span class="n">kext</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Nếu không thể thực hiện được lệnh trên, bạn cần phải thay đổi &#8220;Security and Privacy&#8221; trong phần System Preference. Chọn &#8220;Allow Apps Downloaded From&#8221; từ &#8220;Mac App Store and Identified Developers&#8221; sang &#8220;Anywhere&#8221; - Và tải <a class="reference external" href="../_static/download/CH34x_Install_V1.3.pkg">CH34x_Install_V1.3.pkg</a> về cài đặt lại</p>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_static/mac.png"><img alt="../_images/mac.png" src="../_images/mac.png" /></a>
+</div>
+</div>
+<div class="section" id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h3>
+<p>Tải và cài đặt bản cài đặt tại <a class="reference external" href="http://www.wch.cn/download/CH341PAR_LINUX_ZIP.html">CH341PAR_LINUX_ZIP</a></p>
+</div>
+</div>
+<div class="section" id="cau-hinh-ket-noi">
+<h2>Cấu hình kết nối<a class="headerlink" href="#cau-hinh-ket-noi" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">Sau khi kết nối và cài đặt xong, sẽ xuất hiện cổng COM ảo trên máy tính (Tùy từng loại hệ điều hành mà có những tên cổng như: <code class="docutils literal"><span class="pre">COM1,</span> <span class="pre">COM2</span> <span class="pre">...</span></code> đối với Windows, <code class="docutils literal"><span class="pre">/dev/tty.wchusbserial1420</span></code> trên Mac OS)</p>
+</li>
+<li><p class="first">Mở Arduino IDE và lựa chọn (tham khảo cấu hình kết nối như hình dưới):</p>
+<blockquote>
+<div><ul class="simple">
+<li>Board: <code class="docutils literal"><span class="pre">Generic</span> <span class="pre">ESP8266</span> <span class="pre">Module</span></code></li>
+<li>Flash Size: <code class="docutils literal"><span class="pre">4M</span> <span class="pre">(3M</span> <span class="pre">SPIFFS)</span></code></li>
+<li>Port: chọn cổng khi gắn thiết bị vào sẽ thấy xuất hiện</li>
+<li>Upload speed: Chọn cao nhất, nếu nạp không được chọn thấp dần</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<a class="reference external image-reference" href="../_static/port-setup.png"><img alt="../_images/port-setup.png" src="../_images/port-setup.png" /></a>
+</div>
 </div>
 
 
@@ -361,10 +431,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="promem.html" class="btn btn-neutral float-right" title="Progmem" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="library.html" class="btn btn-neutral float-right" title="Cài đặt thư viện" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="serial.html" class="btn btn-neutral" title="Serial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="board.html" class="btn btn-neutral" title="Phần cứng mở IoT WiFi Uno" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

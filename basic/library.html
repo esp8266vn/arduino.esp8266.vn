@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Cài đặt thư viện &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,9 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Progmem" href="promem.html"/>
-        <link rel="prev" title="Serial" href="serial.html"/> 
+        <link rel="up" title="Cài đặt" href="index.html"/>
+        <link rel="next" title="LED" href="led.html"/>
+        <link rel="prev" title="Kết nối phần cứng và cài đặt" href="connection.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -91,7 +92,7 @@
             
                 <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="index.html">Cài đặt</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cài đặt</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="install.html">Cài đặt Arduino IDE</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="install.html#cai-dat-voi-boards-manager">Cài đặt với Boards Manager</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install.html#su-dung-git-version">Sử dụng git version</a></li>
@@ -111,9 +112,9 @@
 <li class="toctree-l3"><a class="reference internal" href="connection.html#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="library.html">Cài đặt thư viện</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="library.html#cac-thuc-hien">Các thực hiện</a></li>
-<li class="toctree-l3"><a class="reference internal" href="library.html#video-huong-dan">Video hướng dẫn</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Cài đặt thư viện</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#cac-thuc-hien">Các thực hiện</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-huong-dan">Video hướng dẫn</a></li>
 </ul>
 </li>
 </ul>
@@ -148,7 +149,7 @@
 <li class="toctree-l2"><a class="reference internal" href="serial.html#software-serial">Software Serial</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">OLED</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oled.html">OLED</a></li>
 <li class="toctree-l1"><a class="reference internal" href="promem.html">Sử dụng Promem</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="promem.html#vi-du">Ví dụ</a></li>
 </ul>
@@ -328,13 +329,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>OLED</li>
+          <li><a href="index.html">Cài đặt</a> &raquo;</li>
+        
+      <li>Cài đặt thư viện</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/basic/oled.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/basic/library.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -347,8 +350,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="oled">
-<h1>OLED<a class="headerlink" href="#oled" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cai-dat-thu-vien">
+<h1>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h1>
+<p>Một số thư viện do các nhà phát triển khác public có thể cài đặt trực tiếp bằng công cụ <code class="docutils literal"><span class="pre">Library</span> <span class="pre">Manager</span></code> của Arduino</p>
+<div class="section" id="cac-thuc-hien">
+<h2>Các thực hiện<a class="headerlink" href="#cac-thuc-hien" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Vào menu <code class="docutils literal"><span class="pre">Sketch</span> <span class="pre">-&gt;</span> <span class="pre">Include</span> <span class="pre">Library</span> <span class="pre">-&gt;</span> <span class="pre">Manage</span> <span class="pre">Libraries</span></code></li>
+<li>Nhập tên thư viện cần cài đặt</li>
+<li>Chọn phiên bản thư viện cần cài đặt</li>
+<li>Nhấn install</li>
+</ul>
+<img alt="../_images/library.png" src="../_images/library.png" />
+</div>
+<div class="section" id="video-huong-dan">
+<h2>Video hướng dẫn<a class="headerlink" href="#video-huong-dan" title="Permalink to this headline">¶</a></h2>
+<iframe width="640" height="360" src="//www.youtube.com/embed/lSMQOWiKrxs?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 </div>
 
 
@@ -361,10 +378,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="promem.html" class="btn btn-neutral float-right" title="Progmem" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="led.html" class="btn btn-neutral float-right" title="LED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="serial.html" class="btn btn-neutral" title="Serial" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="connection.html" class="btn btn-neutral" title="Kết nối phần cứng và cài đặt" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
