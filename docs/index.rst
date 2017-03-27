@@ -13,18 +13,10 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
 
 
 .. toctree::
-   :caption: Cài đặt
-   :maxdepth: 1
-
-   Cài đặt Arduino IDE<install>
-   Board IoT WiFi Uno <board>
-   Kết nối máy tính <connection>
-   Cài đặt thư viện <library>
-
-.. toctree::
    :caption: Cơ bản
-   :maxdepth: 1
+   :maxdepth: 2
 
+   Cài đặt <basic/index>
    Bật tắt LED <basic/led>
    Nút nhấn <basic/button>
    Analog <basic/analog>

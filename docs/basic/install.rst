@@ -20,7 +20,7 @@ Hướng dẫn
 * Mở chương trình Arduino và cửa sổ Preferences.
 * Enter ``http://arduino.esp8266.com/stable/package_esp8266com_index.json`` vào **Additional Board Manager URLs**. Bạn có thể thêm nhiều URL, cách nhau bằng dấu phẩy.
 
-.. image:: _static/ide.png
+.. image:: ../_static/ide.png
     :target: _static/ide.png
     :width: 600
 

@@ -17,26 +17,26 @@ https://github.com/iotmakervn/iot-wifi-uno-hw
 Pinout
 ======
 
-.. image:: _static/Iot-wifi-uno-hw-pinout.png
-    :target: _static/Iot-wifi-uno-hw-pinout.png
+.. image:: ../_static/Iot-wifi-uno-hw-pinout.png
+    :target: ../_static/Iot-wifi-uno-hw-pinout.png
 
 Thực tế
 =======
-.. image:: _static/wifi-uno.jpg
-    :target: _static/wifi-uno.jpg
+.. image:: ../_static/wifi-uno.jpg
+    :target: ../_static/wifi-uno.jpg
 
 
 Mạch nguyên lý
 ==============
 
-.. image:: _static/schematic.svg
-    :target: _static/schematic.svg
+.. image:: ../_static/schematic.svg
+    :target: ../_static/schematic.svg
 
 Fritzing part
 =============
 
-.. image:: _static/fritzing.png
-    :target: _static/iot-wifi-uno.fzpz
+.. image:: ../_static/fritzing.png
+    :target: ../_static/iot-wifi-uno.fzpz
 
 Mua hàng
 ========
