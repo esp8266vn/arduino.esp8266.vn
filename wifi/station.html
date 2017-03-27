@@ -171,10 +171,41 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">WiFi Station</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#noi-dung">Nội dung</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quan-ly-ket-noi">Quản lý kết nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cau-hinh">Cấu hình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ket-noi-khac">Kết nối khác</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#muc-luc">Mục lục</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Kết nối</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">begin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">config</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Quản lý kết nối</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">reconnect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">disconnect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">isConnected</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">setAutoConnect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#getautoconnet">getAutoConnet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">setAutoReconnect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">waitForConnectResult</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">Cấu hình</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">macAddress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">localIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">subnetMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">gatewayIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">dnsIP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">hostname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id21">SSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">psk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">BSSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">RSSI</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id25">Kết nối khác</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id26">WPS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Smart Config</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="access-point.html">WiFi Access Point</a></li>
@@ -331,64 +362,76 @@
             
   <div class="section" id="wifi-station">
 <h1>WiFi Station<a class="headerlink" href="#wifi-station" title="Permalink to this headline">¶</a></h1>
-<p>Nội dung của lớp này được chia thành 4 phần:
-* Thứ nhất, các phương pháp để kết nối đến một điểm truy cập
-* Thứ hai, cung cấp các phương pháp để quản lý kết nối như <cite>reconnect</cite> hay <cite>isConnected</cite>.
-* Thứ ba, các hàm để lấy các thuộc tính về kết nối như MAC hay địa chỉ IP.
-* Thứ tư, cung cấp các cách để kết nối như WPS hay Smart Config.</p>
-<div class="section" id="noi-dung">
-<h2>Nội dung<a class="headerlink" href="#noi-dung" title="Permalink to this headline">¶</a></h2>
+<p>Nội dung của lớp này được chia thành 4 phần:</p>
 <ul class="simple">
-<li>Bắt đầu
-* begin
-* config</li>
-<li>Quản lý kết nối
-* reconnect
-* disconnect
-* isConnected
-* setAutoConnect
-* getAutoConnect
-* setAutoReconnect
-* waitForConnectResult</li>
+<li>Thứ nhất, các phương pháp để kết nối đến một điểm truy cập</li>
+<li>Thứ hai, cung cấp các phương pháp để quản lý kết nối như <code class="docutils literal"><span class="pre">reconnect</span></code> hay <code class="docutils literal"><span class="pre">isConnected</span></code>.</li>
+<li>Thứ ba, các hàm để lấy các thuộc tính về kết nối như MAC hay địa chỉ IP.</li>
+<li>Thứ tư, cung cấp các cách để kết nối như WPS hay Smart Config.</li>
 </ul>
-<blockquote>
-<div><ul class="simple">
-<li>Cấu hình
-* macAddress
-* localIP
-* subnetMask
-* gatewayIP
-* dnsIP
-* hostname
-* status
-* SSID
-* psk
-* BSSID
-* RSSI</li>
-<li>Kết nối khác
-* WPS
-* Smart Config</li>
+<div class="section" id="muc-luc">
+<h2>Mục lục<a class="headerlink" href="#muc-luc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="ket-noi">Kết nối</a><ul>
+<li><a class="reference external" href="#begin">begin</a></li>
+<li><a class="reference external" href="#config">config</a></li>
 </ul>
-</div></blockquote>
-<p><strong>begin</strong></p>
-<p>Để chuyển đối sang chế độ <em>station</em>, ta dùng hàm <cite>begin</cite>. Các tham số cần thiết sẽ là <em>SSID</em> và <em>password</em>, để module có thể kết nối đến một Access Point (AP) cụ thể.</p>
-<p><cite>WiFi.begin(ssid, password)</cite></p>
+</li>
+<li><a class="reference external" href="#quan-ly-ket-noi">Quản lý kết nối</a><ul>
+<li><a class="reference external" href="#reconnect">reconnect</a></li>
+<li><a class="reference external" href="#disconnect">disconnect</a></li>
+<li><a class="reference external" href="#isconnected">isConnected</a></li>
+<li><a class="reference external" href="#setautoconnect">setAutoConnect</a></li>
+<li><a class="reference external" href="#getautoconnect">getAutoConnect</a></li>
+<li><a class="reference external" href="#setautoreconnect">setAutoReconnect</a></li>
+<li><a class="reference external" href="#waitforconnectresult">waitForConnectResult</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#cau-hinh">Cấu hình</a><ul>
+<li><a class="reference external" href="#macaddress">macAddress</a></li>
+<li><a class="reference external" href="#localip">localIP</a></li>
+<li><a class="reference external" href="#subnetmask">subnetMask</a></li>
+<li><a class="reference external" href="#gatewayip">gatewayIP</a></li>
+<li><a class="reference external" href="#dnsip">dnsIP</a></li>
+<li><a class="reference external" href="#hostname">hostname</a></li>
+<li><a class="reference external" href="#status">status</a></li>
+<li><a class="reference external" href="#ssid">SSID</a></li>
+<li><a class="reference external" href="#psk">psk</a></li>
+<li><a class="reference external" href="#bssid">BSSID</a></li>
+<li><a class="reference external" href="#rssi">RSSI</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#ket-noi-khac">Kết nối khác</a><ul>
+<li><a class="reference external" href="#wps">WPS</a></li>
+<li><a class="reference external" href="#smart-config">Smart Config</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Kết nối<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id2">
+<h3>begin<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Để chuyển đối sang chế độ <em>station</em>, ta dùng hàm <code class="docutils literal"><span class="pre">begin</span></code>. Các tham số cần thiết sẽ là <em>SSID</em> và <em>password</em>, để module có thể kết nối đến một Access Point (AP) cụ thể.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.begin(ssid,</span> <span class="pre">password)</span></code></p>
 <p>Theo mặc định, ESP sẽ cố kết nối lại đến mạng WiFi sau khi bị <em>disconnect</em>. Do đó chúng ta không cần phải xử lý việc này trong code.</p>
-<p><cite>WiFi.begin()</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.begin()</span></code></p>
 <p>Gọi hàm này module sẽ chuyển sang chế độ station và kết nối với điểm truy cập cuối cùng được sử dụng dựa trên cấu hình được lưu trong bộ nhớ flash.
 Để thiết lập tất cả các thông số, ta có thể dùng lệnh:</p>
-<p><cite>WiFi.begin(ssid, password, channel, bssid, connect)</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.begin(ssid,</span> <span class="pre">password,</span> <span class="pre">channel,</span> <span class="pre">bssid,</span> <span class="pre">connect)</span></code></p>
 <p>Các thông số:</p>
 <ul class="simple">
-<li><cite>ssid</cite> - tên WiFi của điểm truy cập mà chúng ta muốn kết nối đến, có thể có tối đa lên đến 32 ký tự.</li>
-<li><cite>password</cite> - mật khẩu của điểm truy cập, có độ dài từ 8 đến 64 ký tự.</li>
-<li><cite>channel</cite> - thiết lập kênh cho WiFi, tham số này có thể bỏ qua.</li>
-<li><cite>bssid</cite> - địa chỉ MAC của AP</li>
-<li><cite>connect</cite> - nếu giá trị là <cite>false</cite>, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.</li>
+<li><code class="docutils literal"><span class="pre">ssid</span></code> - tên WiFi của điểm truy cập mà chúng ta muốn kết nối đến, có thể có tối đa lên đến 32 ký tự.</li>
+<li><code class="docutils literal"><span class="pre">password</span></code> - mật khẩu của điểm truy cập, có độ dài từ 8 đến 64 ký tự.</li>
+<li><code class="docutils literal"><span class="pre">channel</span></code> - thiết lập kênh cho WiFi, tham số này có thể bỏ qua.</li>
+<li><code class="docutils literal"><span class="pre">bssid</span></code> - địa chỉ MAC của AP</li>
+<li><code class="docutils literal"><span class="pre">connect</span></code> - nếu giá trị là <code class="docutils literal"><span class="pre">false</span></code>, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.</li>
 </ul>
-<p><strong>config</strong></p>
+</div>
+<div class="section" id="id3">
+<h3>config<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p>Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho <em>station</em>.</p>
-<p><cite>WiFi.config(local_ip, gateway, subnet, dns1, dns2)</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.config(local_ip,</span> <span class="pre">gateway,</span> <span class="pre">subnet,</span> <span class="pre">dns1,</span> <span class="pre">dns2)</span></code></p>
 <ul class="simple">
 <li>local_ip - IP tĩnh bạn muốn gán cho module</li>
 <li>gateway - IP của gateway (thường là router) để kết nối ra mạng bên ngoài</li>
@@ -426,21 +469,24 @@
 </pre></div>
 </div>
 <p><em>output</em></p>
-<blockquote>
-<div>Connecting to gith-wifi
-.
-Connected, IP address: 192.168.1.22</div></blockquote>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Connecting</span> <span class="n">to</span> <span class="n">gith</span><span class="o">-</span><span class="n">wifi</span>
+<span class="o">.</span>
+<span class="n">Connected</span><span class="p">,</span> <span class="n">IP</span> <span class="n">address</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.22</span>
+</pre></div>
 </div>
-<div class="section" id="quan-ly-ket-noi">
-<h2>Quản lý kết nối<a class="headerlink" href="#quan-ly-ket-noi" title="Permalink to this headline">¶</a></h2>
-<p><strong>reconnect</strong></p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Quản lý kết nối<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id5">
+<h3>reconnect<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
 <p>Điều này được thực hiện bằng cách ngắt kết nối sau đó thiết lập kết nối lại đến cùng một điểm truy cập.</p>
-<p><cite>WiFi.reconnect()</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.reconnect()</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
 <ul class="last simple">
-<li>Trạm phải được kết nối đến một điểm truy cập. Nếu không sẽ trả về <cite>false</cite> và không thực hiện bất kỳ hành động nào.</li>
-<li>Nếu trả về <cite>true</cite> có nghĩa là kết nối đã được thiết lập lại, bạn vẫn phải kiểm tra trạng thái kết nối, chờ đợi cho kết khi báo cáo <cite>WL_CONNECTED</cite></li>
+<li>Trạm phải được kết nối đến một điểm truy cập. Nếu không sẽ trả về <code class="docutils literal"><span class="pre">false</span></code> và không thực hiện bất kỳ hành động nào.</li>
+<li>Nếu trả về <code class="docutils literal"><span class="pre">true</span></code> có nghĩa là kết nối đã được thiết lập lại, bạn vẫn phải kiểm tra trạng thái kết nối, chờ đợi cho kết khi báo cáo <code class="docutils literal"><span class="pre">WL_CONNECTED</span></code></li>
 </ul>
 </div>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="o">.</span><span class="n">reconnect</span><span class="p">();</span>
@@ -451,46 +497,63 @@ Connected, IP address: 192.168.1.22</div></blockquote>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>disconnect</strong></p>
-<p>Thiết lập cấu hình <cite>ssid</cite> và <cite>password</cite> thành <cite>null</cite> và thực hiện ngắt kết nối đến điểm truy cập.</p>
-<p>WiFi.disconnect(wifioff)</p>
+</div>
+<div class="section" id="id6">
+<h3>disconnect<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Thiết lập cấu hình <code class="docutils literal"><span class="pre">ssid</span></code> và <code class="docutils literal"><span class="pre">password</span></code> thành <code class="docutils literal"><span class="pre">null</span></code> và thực hiện ngắt kết nối đến điểm truy cập.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.disconnect(wifioff)</span></code></p>
 <ul class="simple">
-<li>wifioff là tham số tùy chọn kiểu <em>boolean</em>, nếu là <cite>true</cite> thì chế độ trạm (station mode) sẽ bị tắt.</li>
+<li>wifioff là tham số tùy chọn kiểu <em>boolean</em>, nếu là <code class="docutils literal"><span class="pre">true</span></code> thì chế độ trạm (station mode) sẽ bị tắt.</li>
 </ul>
-<p><strong>setAutoConnect</strong></p>
+</div>
+<div class="section" id="id7">
+<h3>isConnected<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Trả về <code class="docutils literal"><span class="pre">true</span></code> nếu Station kết nối với một điểm truy cập hoặc <code class="docutils literal"><span class="pre">false</span></code> nếu không.</p>
+<p><a href="#id8"><span class="problematic" id="id9">``</span></a>WiFi.isConnected() ``</p>
+</div>
+<div class="section" id="id10">
+<h3>setAutoConnect<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p>Định cấu hình module để tự động kết nối khi cấp nguồn đến điểm truy cập cuối cùng được sử dụng.</p>
-<p><cite>WiFi.setAutoConnect(autoConnect)</cite></p>
-<p><cite>autoConnect</cite> đây là tham số tùy chọn. Nếu đặt là <cite>false</cite> thì chức năng kết nối tự động sẽ bị tắt, nếu là <cite>true</cite> hoặc bỏ qua thì kết nối tự động sẽ được kích hoạt.</p>
-<p><strong>getAutoConnet</strong></p>
-<p>Đây là chức năng đi đôi với <cite>setAutoConnect()</cite>. Nó trả về <cite>true</cite> nếu module được cấu hình để tự động kết nối với điểm truy cập được sử dụng lần cuối khi bật nguồn.</p>
-<p><cite>WiFi.getAutoConnect()</cite></p>
-<p>Trả về <cite>false</cite> nếu chức năng tự động kết nối bị vô hiệu.</p>
-<p><strong>setAutoReconnect</strong></p>
+<p><code class="docutils literal"><span class="pre">WiFi.setAutoConnect(autoConnect)</span></code></p>
+<p><code class="docutils literal"><span class="pre">autoConnect</span></code> đây là tham số tùy chọn. Nếu đặt là <code class="docutils literal"><span class="pre">false</span></code> thì chức năng kết nối tự động sẽ bị tắt, nếu là <code class="docutils literal"><span class="pre">true</span></code> hoặc bỏ qua thì kết nối tự động sẽ được kích hoạt.</p>
+</div>
+<div class="section" id="getautoconnet">
+<h3>getAutoConnet<a class="headerlink" href="#getautoconnet" title="Permalink to this headline">¶</a></h3>
+<p>Đây là chức năng đi đôi với <code class="docutils literal"><span class="pre">setAutoConnect()</span></code>. Nó trả về <code class="docutils literal"><span class="pre">true</span></code> nếu module được cấu hình để tự động kết nối với điểm truy cập được sử dụng lần cuối khi bật nguồn.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.getAutoConnect()</span></code></p>
+<p>Trả về <code class="docutils literal"><span class="pre">false</span></code> nếu chức năng tự động kết nối bị vô hiệu.</p>
+</div>
+<div class="section" id="id11">
+<h3>setAutoReconnect<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
 <p>Thiết đặt cho module tự động kết nối lại với một điểm truy cập trong trường hợp nó bị ngắt kết nối.</p>
-<p><cite>WiFi.setAutoReconnect(autoReconnect)</cite></p>
-<p>Nếu tham số <cite>autoReconnect</cite> được đặt thành <cite>true</cite>, thì module sẽ cố gắng thiết lập lại kết nối bị mất với AP. Nếu thiết lập để <cite>false</cite> module sẽ không thực hiện kết nối lại.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.setAutoReconnect(autoReconnect)</span></code></p>
+<p>Nếu tham số <code class="docutils literal"><span class="pre">autoReconnect</span></code> được đặt thành <code class="docutils literal"><span class="pre">true</span></code>, thì module sẽ cố gắng thiết lập lại kết nối bị mất với AP. Nếu thiết lập để <code class="docutils literal"><span class="pre">false</span></code> module sẽ không thực hiện kết nối lại.</p>
 <div class="admonition note">
 <p class="first admonition-title">Ghi chú</p>
-<p class="last">Chạy <cite>setAutoReconnect(true)</cite> khi module đã bị ngắt kết nối sẽ không kết nối lại với điểm truy cập. Thay vào đó <cite>reconnect()</cite> nên sử dụng.</p>
+<p class="last">Chạy <code class="docutils literal"><span class="pre">setAutoReconnect(true)</span></code> khi module đã bị ngắt kết nối sẽ không kết nối lại với điểm truy cập. Thay vào đó <code class="docutils literal"><span class="pre">reconnect()</span></code> nên sử dụng.</p>
 </div>
-<p><strong>waitForConnectResult</strong></p>
-<p>Chờ cho đến khi module kết nối với điểm truy cập. Chức năng này dành cho các module được cấu hình trong chế độ <cite>STA</cite> hoặc <cite>STA + AP</cite></p>
-<p><cite>WiFi.waitForConnectResult()</cite></p>
+</div>
+<div class="section" id="id12">
+<h3>waitForConnectResult<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>Chờ cho đến khi module kết nối với điểm truy cập. Chức năng này dành cho các module được cấu hình trong chế độ <code class="docutils literal"><span class="pre">STA</span></code> hoặc <code class="docutils literal"><span class="pre">STA</span> <span class="pre">+</span> <span class="pre">AP</span></code></p>
+<p><code class="docutils literal"><span class="pre">WiFi.waitForConnectResult()</span></code></p>
 <p>Chức năng trả về một trong các trạng thái kết nối sau đây:</p>
 <ul class="simple">
-<li><cite>WL_CONNECTED</cite> - Sau khi kết nối thành công được thiết lập</li>
-<li><cite>WL_NO_SSID_AVAIL</cite> - Trong trường hợp cấu hình SSID không thể đạt được</li>
-<li><cite>WL_CONNECT_FAILED</cite> - Nếu mật khẩu không chính xác</li>
-<li><cite>WL_IDLE_STATUS</cite> - Khi WiFi đang trong quá trình thay đổi giữa các trạng thái</li>
-<li><cite>WL_DISCONNECTED</cite> - Nếu module không được cấu hình trong chế độ station</li>
+<li><code class="docutils literal"><span class="pre">WL_CONNECTED</span></code> - Sau khi kết nối thành công được thiết lập</li>
+<li><code class="docutils literal"><span class="pre">WL_NO_SSID_AVAIL</span></code> - Trong trường hợp cấu hình SSID không thể đạt được</li>
+<li><code class="docutils literal"><span class="pre">WL_CONNECT_FAILED</span></code> - Nếu mật khẩu không chính xác</li>
+<li><code class="docutils literal"><span class="pre">WL_IDLE_STATUS</span></code> - Khi WiFi đang trong quá trình thay đổi giữa các trạng thái</li>
+<li><code class="docutils literal"><span class="pre">WL_DISCONNECTED</span></code> - Nếu module không được cấu hình trong chế độ station</li>
 </ul>
 </div>
-<div class="section" id="cau-hinh">
-<h2>Cấu hình<a class="headerlink" href="#cau-hinh" title="Permalink to this headline">¶</a></h2>
-<p><strong>macAddress</strong></p>
+</div>
+<div class="section" id="id13">
+<h2>Cấu hình<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>macAddress<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
 <p>Lấy địa chỉ MAC của ESP station</p>
-<p><cite>WiFi.macAddress(mac)</cite></p>
-<p>Với <cite>mac</cite> đó là một con trỏ đến vị trí bộ nhớ (một mảng uint8_t có 6 phần tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.macAddress(mac)</span></code></p>
+<p>Với <code class="docutils literal"><span class="pre">mac</span></code> đó là một con trỏ đến vị trí bộ nhớ (một mảng uint8_t có 6 phần tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="n">WL_CONNECTED</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">uint8_t</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
@@ -499,18 +562,20 @@ Connected, IP address: 192.168.1.22</div></blockquote>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh dưới, nó trả về một định dạng <cite>String</cite> chứa địa chỉ mac:</p>
-<p><cite>WiFi.macAddress()</cite></p>
+<p>Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh dưới, nó trả về một định dạng <code class="docutils literal"><span class="pre">String</span></code> chứa địa chỉ mac:</p>
+<p><code class="docutils literal"><span class="pre">WiFi.macAddress()</span></code></p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="n">WL_CONNECTED</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Connected, mac address: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">macAddress</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><strong>localIP</strong></p>
+</div>
+<div class="section" id="id15">
+<h3>localIP<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
 <p>Chức năng dùng để lấy địa chỉ IP của ESP station</p>
-<p><a href="#id1"><span class="problematic" id="id2">`</span></a>WiFi.localIP() `</p>
-<p>Kiểu trả về là <cite>IPAddress</cite>.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.localIP()</span></code></p>
+<p>Kiểu trả về là <code class="docutils literal"><span class="pre">IPAddress</span></code>.</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="n">WL_CONNECTED</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Connected, IP address: &quot;</span><span class="p">);</span>
@@ -519,11 +584,14 @@ Connected, IP address: 192.168.1.22</div></blockquote>
 </pre></div>
 </div>
 <p><em>output:</em></p>
-<blockquote>
-<div>Connected, IP address: 192.168.1.10</div></blockquote>
-<p><strong>subnetMask</strong></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Connected</span><span class="p">,</span> <span class="n">IP</span> <span class="n">address</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id16">
+<h3>subnetMask<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
 <p>Trả về subnet mask của ESP station</p>
-<p><cite>WiFi.subnetMask()</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.subnetMask()</span></code></p>
 <p>Module nên được kết nối với điểm truy cập. Nếu không sẽ trả về 0.0.0.0</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Subnet mask: &quot;</span><span class="p">);</span>
 <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">subnetMask</span><span class="p">());</span>
@@ -533,19 +601,24 @@ Connected, IP address: 192.168.1.22</div></blockquote>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Subnet</span> <span class="n">mask</span><span class="p">:</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
 </pre></div>
 </div>
-<p><strong>gatewayIP</strong></p>
+</div>
+<div class="section" id="id17">
+<h3>gatewayIP<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h3>
 <p>Lấy địa chỉ IP của gateway</p>
-<p><cite>WiFi.gatewayIP()</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.gatewayIP()</span></code></p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Gataway IP: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">gatewayIP</span><span class="p">()</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
 </pre></div>
 </div>
 <p><em>output:</em></p>
-<blockquote>
-<div>Gateway IP: 192.168.1.9</div></blockquote>
-<p><strong>dnsIP</strong></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Gateway</span> <span class="n">IP</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.9</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id18">
+<h3>dnsIP<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
 <p>Lấy địa chỉ IP của Máy chủ Tên miền (DNS).</p>
-<p><cite>WiFi.dnsIP(dns_no)</cite></p>
-<p>Với tham số đầu vào <cite>dns_no</cite> chúng ta có thể chỉ định địa chỉ IP của DNS mà chúng ta cần. Nếu không có tham số nào được cung cấp, thì IP của DNS #1 sẽ được trả về.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.dnsIP(dns_no)</span></code></p>
+<p>Với tham số đầu vào <code class="docutils literal"><span class="pre">dns_no</span></code> chúng ta có thể chỉ định địa chỉ IP của DNS mà chúng ta cần. Nếu không có tham số nào được cung cấp, thì IP của DNS #1 sẽ được trả về.</p>
 <blockquote>
 <div>Serial.print(&#8220;DNS #1, #2 IP: &#8221;);
 WiFi.dnsIP().printTo(Serial);
@@ -553,36 +626,43 @@ Serial.print(&#8221;, &#8221;);
 WiFi.dnsIP(1).printTo(Serial);
 Serial.println();</div></blockquote>
 <p><em>output:</em></p>
-<blockquote>
-<div>DNS #1, #2 IP: 62.179.1.60, 62.179.1.61</div></blockquote>
-<p><strong>hostname</strong></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">DNS</span> <span class="c1">#1, #2 IP: 62.179.1.60, 62.179.1.61</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id19">
+<h3>hostname<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
 <p>Lấy DHCP hostname được gán cho ESP station.</p>
-<p><cite>WiFi.hostname()</cite></p>
-<p>Trả về kiểu <cite>String</cite>. Tên máy chủ mặc định ở định dạng <strong>ESP_24xMAC</strong> với 24xMAC là 24 bit cuối cùng của địa chỉ MAC của module.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.hostname()</span></code></p>
+<p>Trả về kiểu <code class="docutils literal"><span class="pre">String</span></code>. Tên máy chủ mặc định ở định dạng <strong>ESP_24xMAC</strong> với 24xMAC là 24 bit cuối cùng của địa chỉ MAC của module.</p>
 <p>Tên máy chủ có thể được thay đổi bằng cách sử dụng chức năng sau:</p>
-<p><cite>WiFi.hostname(aHostname)</cite></p>
-<p>Tham số đầu vào <cite>aHostname</cite> có thể là một kiểu <cite>char*</cite>, <cite>const char*</cite> hoặc <cite>String</cite>. Chiều dài tối đa của tên máy chủ được chỉ định là 32 ký tự. Chức năng trả về <cite>true</cite> hoặc <cite>false</cite> phụ thuộc vào kết quả.</p>
-<p>Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả lại <cite>false</cite> mà không gán tên máy chủ mới.</p>
-<blockquote>
-<div>Serial.printf(&#8220;Default hostname: %sn&#8221;, WiFi.hostname().c_str());
-WiFi.hostname(&#8220;Station_Tester_02&#8221;);
-Serial.printf(&#8220;New hostname: %sn&#8221;, WiFi.hostname().c_str());</div></blockquote>
+<p><code class="docutils literal"><span class="pre">WiFi.hostname(aHostname)</span></code></p>
+<p>Tham số đầu vào <code class="docutils literal"><span class="pre">aHostname</span></code> có thể là một kiểu <code class="docutils literal"><span class="pre">char*</span></code>, <code class="docutils literal"><span class="pre">const</span> <span class="pre">char*</span></code> hoặc <code class="docutils literal"><span class="pre">String</span></code>. Chiều dài tối đa của tên máy chủ được chỉ định là 32 ký tự. Chức năng trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code> phụ thuộc vào kết quả.</p>
+<p>Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả lại <code class="docutils literal"><span class="pre">false</span></code> mà không gán tên máy chủ mới.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Default hostname: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">hostname</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">WiFi</span><span class="o">.</span><span class="n">hostname</span><span class="p">(</span><span class="s2">&quot;Station_Tester_02&quot;</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;New hostname: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">hostname</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+</pre></div>
+</div>
 <p><em>output:</em></p>
-<blockquote>
-<div>Default hostname: ESP_081117
-New hostname: Station_Tester_02</div></blockquote>
-<p><strong>status</strong></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Default</span> <span class="n">hostname</span><span class="p">:</span> <span class="n">ESP_081117</span>
+<span class="n">New</span> <span class="n">hostname</span><span class="p">:</span> <span class="n">Station_Tester_02</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id20">
+<h3>status<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
 <p>Trả về trạng thái kết nối Wi-Fi.</p>
-<p><cite>WiFi.status()</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.status()</span></code></p>
 <p>Chức năng trả về một trong các trạng thái kết nối sau đây:</p>
 <ul class="simple">
-<li><cite>WL_CONNECTED</cite> - Sau khi kết nối thành công được thiết lập</li>
-<li><cite>WL_NO_SSID_AVAIL</cite> - Trong trường hợp cấu hình SSID không thể đạt được</li>
-<li><cite>WL_CONNECT_FAILED</cite> - Nếu mật khẩu không chính xác</li>
-<li><cite>WL_IDLE_STATUS</cite> - Khi Wi-Fi đang trong quá trình thay đổi giữa các trạng thái</li>
-<li><cite>WL_DISCONNECTED</cite> - Nếu module không được cấu hình trong chế độ trạm</li>
+<li><code class="docutils literal"><span class="pre">WL_CONNECTED</span></code> - Sau khi kết nối thành công được thiết lập</li>
+<li><code class="docutils literal"><span class="pre">WL_NO_SSID_AVAIL</span></code> - Trong trường hợp cấu hình SSID không thể đạt được</li>
+<li><code class="docutils literal"><span class="pre">WL_CONNECT_FAILED</span></code> - Nếu mật khẩu không chính xác</li>
+<li><code class="docutils literal"><span class="pre">WL_IDLE_STATUS</span></code> - Khi Wi-Fi đang trong quá trình thay đổi giữa các trạng thái</li>
+<li><code class="docutils literal"><span class="pre">WL_DISCONNECTED</span></code> - Nếu module không được cấu hình trong chế độ trạm</li>
 </ul>
-<p>Giá trị trả lại kiểu <cite>wl_status_t</cite> được định nghĩa trong <em>wl_definitions.h</em></p>
+<p>Giá trị trả lại kiểu <code class="docutils literal"><span class="pre">wl_status_t</span></code> được định nghĩa trong <em>wl_definitions.h</em></p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
@@ -606,61 +686,77 @@ New hostname: Station_Tester_02</div></blockquote>
 </pre></div>
 </div>
 <p><em>output:</em></p>
-<blockquote>
-<div>Connection status: 6
-Connecting to sensor-net
-Connection status: 6
-......
-Connection status: 3
-Connected, IP address: 192.168.1.10</div></blockquote>
-<p>Các trạng thái kết nối đặc biệt 6 và 3 có thể được xem xét trong <em>wl_definitions.h</em> như sau:</p>
-<blockquote>
-<div>3 - WL_CONNECTED
-6 - WL_DISCONNECTED</div></blockquote>
-<p>Dựa trên ví dụ này, khi chạy trên mã, mô-đun ban đầu bị ngắt kết nối khỏi mạng và trả về trạng thái kết nối <em>6 - `WL_DISCONNECTED`</em>. Nó cũng bị ngắt kết nối ngay sau khi chạy <cite>WiFi.begin(ssid, password)</cite>. Sau đó, sau khoảng 3 giây (dựa trên số dấu chấm được hiển thị mỗi 500ms), cuối cùng nó sẽ được kết nối trở lại trạng thái <em>3 - `WL_CONNECTED`</em>.</p>
-<p><strong>SSID</strong></p>
-<p>Trả lại tên của mạng Wi-Fi đã kết nối.</p>
-<p><cite>WiFi.SSID()</cite></p>
-<p>Kiểu trả về <cite>String</cite></p>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
-
-<span class="n">SSID</span><span class="p">:</span> <span class="n">sensor</span><span class="o">-</span><span class="n">net</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Connection</span> <span class="n">status</span><span class="p">:</span> <span class="mi">6</span>
+<span class="n">Connecting</span> <span class="n">to</span> <span class="n">sensor</span><span class="o">-</span><span class="n">net</span>
+<span class="n">Connection</span> <span class="n">status</span><span class="p">:</span> <span class="mi">6</span>
+<span class="o">......</span>
+<span class="n">Connection</span> <span class="n">status</span><span class="p">:</span> <span class="mi">3</span>
+<span class="n">Connected</span><span class="p">,</span> <span class="n">IP</span> <span class="n">address</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.10</span>
 </pre></div>
 </div>
-<p><strong>psk</strong></p>
+<p>Các trạng thái kết nối đặc biệt 6 và 3 có thể được xem xét trong <em>wl_definitions.h</em> như sau:</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">-</span> <span class="n">WL_CONNECTED</span>
+<span class="mi">6</span> <span class="o">-</span> <span class="n">WL_DISCONNECTED</span>
+</pre></div>
+</div>
+<p>Dựa trên ví dụ này, khi chạy trên mã, mô-đun ban đầu bị ngắt kết nối khỏi mạng và trả về trạng thái kết nối 6 - <code class="docutils literal"><span class="pre">WL_DISCONNECTED</span></code>. Nó cũng bị ngắt kết nối ngay sau khi chạy <code class="docutils literal"><span class="pre">WiFi.begin(ssid,</span> <span class="pre">password)</span></code>. Sau đó, sau khoảng 3 giây (dựa trên số dấu chấm được hiển thị mỗi 500ms), cuối cùng nó sẽ được kết nối trở lại trạng thái 3 - <code class="docutils literal"><span class="pre">WL_CONNECTED</span></code>.</p>
+</div>
+<div class="section" id="id21">
+<h3>SSID<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h3>
+<p>Trả lại tên của mạng Wi-Fi đã kết nối.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.SSID()</span></code></p>
+<p>Kiểu trả về <code class="docutils literal"><span class="pre">String</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+</pre></div>
+</div>
+<p><em>output:</em></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">SSID</span><span class="p">:</span> <span class="n">sensor</span><span class="o">-</span><span class="n">net</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id22">
+<h3>psk<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
 <p>Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.</p>
-<p><cite>WiFi.psk()</cite></p>
-<p>Kiểu trả về <cite>String</cite></p>
-<p><strong>BSSID</strong></p>
+<p><code class="docutils literal"><span class="pre">WiFi.psk()</span></code></p>
+<p>Kiểu trả về <code class="docutils literal"><span class="pre">String</span></code></p>
+</div>
+<div class="section" id="id23">
+<h3>BSSID<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
 <p>Trả lại địa chỉ mac điểm truy cập mà ESP kết nối đến.</p>
-<p><cite>WiFi.BSSID()</cite></p>
-<p>Trả về một con trỏ đến vị trí nhớ (một mảng <cite>uint8_t</cite> với có kích thước là 6), nơi <em>BSSID</em> được lưu.</p>
-<p>Hàm dưới đây có chức năng tương tự, nhưng trả lại <em>BSSID</em> là một kiểu <cite>String</cite>.</p>
-<p><cite>WiFi.BSSIDstr()</cite></p>
+<p><code class="docutils literal"><span class="pre">WiFi.BSSID()</span></code></p>
+<p>Trả về một con trỏ đến vị trí nhớ (một mảng <code class="docutils literal"><span class="pre">uint8_t</span></code> với có kích thước là 6), nơi <em>BSSID</em> được lưu.</p>
+<p>Hàm dưới đây có chức năng tương tự, nhưng trả lại <em>BSSID</em> là một kiểu <code class="docutils literal"><span class="pre">String</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.BSSIDstr()</span></code></p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;BSSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">BSSIDstr</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
 </pre></div>
 </div>
 <p><em>output:</em></p>
-<blockquote>
-<div>BSSID: 00:1A:70:DE:C1:68</div></blockquote>
-<p><strong>RSSI</strong></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">BSSID</span><span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">1</span><span class="n">A</span><span class="p">:</span><span class="mi">70</span><span class="p">:</span><span class="n">DE</span><span class="p">:</span><span class="n">C1</span><span class="p">:</span><span class="mi">68</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id24">
+<h3>RSSI<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
 <p>Trả lại cường độ tín hiệu của mạng Wi-Fi.</p>
-<p><cite>WiFi.RSSI()</cite></p>
-<p>Giá trị cường độ tín hiệu được cung cấp trong <strong>dBm</strong>. Kiểu trả về giá trị là <cite>int32_t</cite>.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.RSSI()</span></code></p>
+<p>Giá trị cường độ tín hiệu được cung cấp trong <strong>dBm</strong>. Kiểu trả về giá trị là <code class="docutils literal"><span class="pre">int32_t</span></code>.</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;RSSI: </span><span class="si">%d</span><span class="s2"> dBm</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">RSSI</span><span class="p">());</span>
 </pre></div>
 </div>
-<p><em>outputL</em></p>
-<blockquote>
-<div>RSSI: -68 dBm</div></blockquote>
+<p><em>output:</em></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">RSSI</span><span class="p">:</span> <span class="o">-</span><span class="mi">68</span> <span class="n">dBm</span>
+</pre></div>
 </div>
-<div class="section" id="ket-noi-khac">
-<h2>Kết nối khác<a class="headerlink" href="#ket-noi-khac" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>Kết nối khác<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
 <p>ESP8266 SDK cung cấp các phương pháp thay thế để kết nối trạm ESP với một điểm truy cập. Core esp8266 / Arduino  thực hiện WPS và Smart Config như mô tả dưới đây.</p>
-<p><strong>WPS</strong></p>
-<p>Chức năng <cite>beginWPSConfig</cite> sau đây cho phép kết nối với mạng sử dụng WPS (Wi-Fi Protected Setup). Hiện tại chỉ hỗ trợ cấu hình nút nhấn (chế độ WPS_TYPE_PBC) (SDK 1.5.4).</p>
-<p><cite>WiFi.beginWPSConfig()</cite></p>
-<p>Tùy thuộc vào kết quả kết nối chức năng trả về <cite>true</cite> hoặc <cite>false</cite>.</p>
+<div class="section" id="id26">
+<h3>WPS<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<p>Chức năng <code class="docutils literal"><span class="pre">beginWPSConfig</span></code> sau đây cho phép kết nối với mạng sử dụng WPS (Wi-Fi Protected Setup). Hiện tại chỉ hỗ trợ cấu hình nút nhấn (chế độ WPS_TYPE_PBC) (SDK 1.5.4).</p>
+<p><code class="docutils literal"><span class="pre">WiFi.beginWPSConfig()</span></code></p>
+<p>Tùy thuộc vào kết quả kết nối chức năng trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code>.</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#include &lt;ESP8266WiFi.h&gt;
 
 void setup(void)
@@ -686,19 +782,23 @@ void loop() {}
 </pre></div>
 </div>
 <p><em>output:</em></p>
-<blockquote>
-<div>Wi-Fi mode set to WIFI_STA
-Begin WPS (press WPS button on your router) ... Success
-.........
-Connected, IP address: 192.168.1.102</div></blockquote>
-<p><strong>Smart Config</strong></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Wi</span><span class="o">-</span><span class="n">Fi</span> <span class="n">mode</span> <span class="nb">set</span> <span class="n">to</span> <span class="n">WIFI_STA</span>
+<span class="n">Begin</span> <span class="n">WPS</span> <span class="p">(</span><span class="n">press</span> <span class="n">WPS</span> <span class="n">button</span> <span class="n">on</span> <span class="n">your</span> <span class="n">router</span><span class="p">)</span> <span class="o">...</span> <span class="n">Success</span>
+<span class="o">.........</span>
+<span class="n">Connected</span><span class="p">,</span> <span class="n">IP</span> <span class="n">address</span><span class="p">:</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">1.102</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id27">
+<h3>Smart Config<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 <p>Để bắt đầu thiết lập cấu hình bằng chức năng này, dùng lệnh sau:</p>
-<p><cite>beginSmartConfig()</cite></p>
-<p>Kiểm tra trạng thái để quyết định khi ngừng cấu hình. Chức năng trả về <cite>true</cite> hoặc <cite>false</cite></p>
-<p><cite>smartConfigDone()</cite></p>
-<p>Dừng cấu hình thông minh, giải phóng bộ đệm <cite>beginSmartConfig()</cite>. Tùy thuộc vào chức năng kết quả trả về <cite>true</cite> hoặc <cite>false</cite>.</p>
-<p><cite>stopSmartConfig()</cite></p>
-<p>Để biết thêm chi tiết về Smart Config, vui lòng tham khảo <a class="reference external" href="../smartconfig.rst">tại đây</a></p>
+<p><code class="docutils literal"><span class="pre">beginSmartConfig()</span></code></p>
+<p>Kiểm tra trạng thái để quyết định khi ngừng cấu hình. Chức năng trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code></p>
+<p><code class="docutils literal"><span class="pre">smartConfigDone()</span></code></p>
+<p>Dừng cấu hình thông minh, giải phóng bộ đệm <code class="docutils literal"><span class="pre">beginSmartConfig()</span></code>. Tùy thuộc vào chức năng kết quả trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">stopSmartConfig()</span></code></p>
+<p>Để biết thêm chi tiết về Smart Config, vui lòng tham khảo <a class="reference external" href="../wifi/smartconfig.html">tại đây</a>.</p>
+</div>
 </div>
 </div>
 
