@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>MQTT &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Wi-Fi &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Websocket" href="websocket.html"/>
-        <link rel="prev" title="HTTP Server" href="http-server.html"/> 
+        <link rel="next" title="Thư viện ESP8266WiFi" href="wifi-api.html"/>
+        <link rel="prev" title="I2S" href="../peripherals/i2s.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -90,7 +90,7 @@
             
             
                 <p class="caption"><span class="caption-text">Cơ bản</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Cài đặt</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../basic/install.html">Cài đặt Arduino IDE</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../basic/install.html#cai-dat-voi-boards-manager">Cài đặt với Boards Manager</a></li>
@@ -157,55 +157,55 @@
 <li class="toctree-l2"><a class="reference internal" href="../peripherals/i2s.html"> I2S</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../wifi/index.html">Wi-Fi</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../wifi/wifi-api.html">WiFi API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../wifi/station.html">WiFi Station</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../wifi/station.html#muc-luc">Mục lục</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../wifi/station.html#id1">Kết nối</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../wifi/station.html#id4">Quản lý kết nối</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../wifi/station.html#id11">Cấu hình</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../wifi/station.html#id23">Kết nối khác</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Wi-Fi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="station.html">WiFi Station</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="station.html#muc-luc">Mục lục</a></li>
+<li class="toctree-l3"><a class="reference internal" href="station.html#id1">Kết nối</a></li>
+<li class="toctree-l3"><a class="reference internal" href="station.html#id4">Quản lý kết nối</a></li>
+<li class="toctree-l3"><a class="reference internal" href="station.html#id11">Cấu hình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="station.html#id23">Kết nối khác</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../wifi/access-point.html">WiFi Access Point</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../wifi/smartconfig.html">Smartconfig</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../wifi/smartconfig.html#loi-ich-cua-smartconfig">Lợi ích của Smartconfig</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../wifi/smartconfig.html#esp-touch">ESP Touch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access-point.html">WiFi Access Point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="smartconfig.html">Smartconfig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="smartconfig.html#loi-ich-cua-smartconfig">Lợi ích của Smartconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smartconfig.html#esp-touch">ESP Touch</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../wifi/wps.html">WPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wps.html">WPS</a></li>
 </ul>
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Network/Protocol</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="http-client.html">HTTP Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="http-server.html">HTTP Server</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">MQTT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#giao-thuc-mqtt">Giao thức MQTT</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mqtt-la-gi">MQTT là gì</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#publish-subscribe">Publish, subscribe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#qos">QoS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#retain">Retain</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#lwt">LWT</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#reference">Reference</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../network/http-client.html">HTTP Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/http-server.html">HTTP Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/mqtt.html">MQTT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../network/mqtt.html#giao-thuc-mqtt">Giao thức MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#mqtt-la-gi">MQTT là gì</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#publish-subscribe">Publish, subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#qos">QoS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#retain">Retain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#lwt">LWT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#reference">Reference</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#chuong-trinh">Chương trình</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#noi-dung">Nội dung</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Chương trình</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/mqtt.html#chuong-trinh">Chương trình</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#noi-dung">Nội dung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#id1">Chương trình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#demo">Demo</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="websocket.html">Websocket</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdns.html">mDNS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coap.html">CoAP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ota.html">Cập nhật firmware</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ota.html#gioi-thieu-ota">Giới thiệu OTA</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ota.html#bao-mat">Bảo mật</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ota.html#an-toan">An toàn</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/websocket.html">Websocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/mdns.html">mDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/coap.html">CoAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/ota.html">Cập nhật firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../network/ota.html#gioi-thieu-ota">Giới thiệu OTA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#bao-mat">Bảo mật</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#an-toan">An toàn</a></li>
 </ul>
 </li>
 </ul>
@@ -302,13 +302,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>MQTT</li>
+      <li>Wi-Fi</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/network/mqtt.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/wifi/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -321,75 +321,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mqtt">
-<h1>MQTT<a class="headerlink" href="#mqtt" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="giao-thuc-mqtt">
-<h2>Giao thức MQTT<a class="headerlink" href="#giao-thuc-mqtt" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="mqtt-la-gi">
-<h3>MQTT là gì<a class="headerlink" href="#mqtt-la-gi" title="Permalink to this headline">¶</a></h3>
-<img alt="../_images/mqttorg-glow.png" src="../_images/mqttorg-glow.png" />
-<p>MQTT (Message Queuing Telemetry Transport) là một giao thức gởi dạng publish/subscribe sử dụng cho các thiết bị [Internet of Things](/tags/IoT) với băng thông thấp, độ tin cậy cao và khả năng được sử dụng trong mạng lưới không ổn định.</p>
-<p>Bởi vì giao thức này sử dụng băng thông thấp trong môi trường có độ trễ cao nên nó là một giao thức lý tưởng cho các ứng dụng M2M</p>
-<p>MQTT cũng là giao thức sử dụng trong <a class="reference external" href="https://www.facebook.com/notes/facebook-engineering/building-facebook-messenger/10150259350998920">Facebook Messager</a></p>
-<p>Và MQTT là gì? Để có một cái nhìn toàn diện hoặc định nghĩa chi tiết, chỉ cần google &#8220;what is mqtt&#8221;, &#8220;mqtt slides&#8221; ... Trong bài viết này chúng ta chỉ nói ngắn gọn thôi, đủ để hiểu giao thức MQTT, bao gồm các định nghĩa <strong>&#8220;subscribe&#8221;, &#8220;publish&#8221;, &#8220;qos&#8221;, &#8220;retain&#8221;, &#8220;last will and testament (lwt)&#8221;</strong> - Và chỉ dành cho những ai đang muốn tìm hiểu về MQTT, không thì đọc toàn chữ thôi, mỏi mắt lắm.</p>
-</div>
-<div class="section" id="publish-subscribe">
-<h3>Publish, subscribe<a class="headerlink" href="#publish-subscribe" title="Permalink to this headline">¶</a></h3>
-<p>Trong một hệ thống sử dụng giao thức MQTT, nhiều node trạm (gọi là mqtt client - gọi tắt là client) kết nối tới một MQTT server (gọi là broker). Mỗi client sẽ đăng ký một vài kênh (topic), ví dụ như &#8220;/client1/channel1&#8221;, &#8220;/client1/channel2&#8221;. Quá trình đăng ký này gọi là <strong>&#8220;subscribe&#8221;</strong>, giống như chúng ta đăng ký nhận tin trên một kênh Youtube vậy. Mỗi client sẽ nhận được dữ liệu khi bất kỳ trạm nào khác gởi dữ liệu và kênh đã đăng ký. Khi một client gởi dữ liệu tới kênh đó, gọi là <strong>&#8220;publish&#8221;</strong>.</p>
-</div>
-<div class="section" id="qos">
-<h3>QoS<a class="headerlink" href="#qos" title="Permalink to this headline">¶</a></h3>
-<p>Ở đây có 3 tuỳ chọn <strong>QoS (Qualities of service)</strong> khi &#8220;publish&#8221; và &#8220;subscribe&#8221;:</p>
-<ul class="simple">
-<li><strong>QoS0</strong> Broker/client sẽ gởi dữ liệu đúng 1 lần, quá trình gởi được xác nhận bởi chỉ giao thức TCP/IP, giống kiểu đem con bỏ chợ.</li>
-<li><strong>QoS1</strong> Broker/client sẽ gởi dữ liệu với ít nhất 1 lần xác nhận từ đầu kia, nghĩa là có thể có nhiều hơn 1 lần xác nhận đã nhận được dữ liệu.</li>
-<li><strong>QoS2</strong> Broker/client đảm bảm khi gởi dữ liệu thì phía nhận chỉ nhận được đúng 1 lần, quá trình này phải trải qua 4 bước bắt tay.</li>
+  <div class="section" id="wi-fi">
+<h1>Wi-Fi<a class="headerlink" href="#wi-fi" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="station.html">WiFi Station</a></li>
+<li class="toctree-l1"><a class="reference internal" href="access-point.html">WiFi Access Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smartconfig.html">Smartconfig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wps.html">WPS</a></li>
 </ul>
-<p><strong>Xem thêm QoS</strong>: <a class="reference external" href="https://code.google.com/p/mqtt4erl/wiki/QualityOfServiceUseCases">https://code.google.com/p/mqtt4erl/wiki/QualityOfServiceUseCases</a></p>
-<p>Một gói tin có thể được gởi ở bất kỳ QoS nào, và các client cũng có thể subscribe với bất kỳ yêu cầu QoS nào. Có nghĩa là client sẽ lựa chọn QoS tối đa mà nó có để nhận tin. Ví dụ, nếu 1 gói dữ liệu được publish với QoS2, và client subscribe với QoS0, thì gói dữ liệu được nhận về client này sẽ được broker gởi với QoS0, và 1 client khác đăng ký cùng kênh này với QoS 2, thì nó sẽ được Broker gởi dữ liệu với QoS2.</p>
-<p>Một ví dụ khác, nếu 1 client subscribe với QoS2 và gói dữ liệu gởi vào kênh đó publish với QoS0 thì client đó sẽ được Broker gởi dữ liệu với QoS0. QoS càng cao thì càng đáng tin cậy, đồng thời độ trễ và băng thông đòi hỏi cũng cao hơn.</p>
-</div>
-<div class="section" id="retain">
-<h3>Retain<a class="headerlink" href="#retain" title="Permalink to this headline">¶</a></h3>
-<p>Nếu RETAIN được set bằng 1, khi gói tin được publish từ Client, Broker <strong>PHẢI</strong> lưu trữ lại gói tin với QoS, và nó sẽ được gởi đến bất kỳ Client nào subscribe cùng kênh trong tương lai. Khi một Client kết nối tới Broker và subscribe, nó sẽ nhận được gói tin cuối cùng có RETAIN = 1 với bất kỳ topic nào mà nó đăng ký trùng. Tuy nhiên, nếu Broker nhận được gói tin mà có QoS = 0 và RETAIN = 1, nó sẽ huỷ tất cả các gói tin có RETAIN = 1 trước đó. Và phải lưu gói tin này lại, nhưng hoàn toàn có thể huỷ bất kỳ lúc nào.</p>
-<p>Khi publish một gói dữ liệu đến Client, Broker phải se RETAIN = 1 nếu gói được gởi như là kết quả của việc subscribe mới của Client (giống như tin nhắn ACK báo subscribe thành công). RETAIN phải bằng 0 nếu không quan tâm tới kết quả của viẹc subscribe.</p>
-</div>
-<div class="section" id="lwt">
-<h3>LWT<a class="headerlink" href="#lwt" title="Permalink to this headline">¶</a></h3>
-<p>Gói tin LWT (last will and testament) không thực sự biết được Client có trực tuyến hay không, cái này do gói tin KeepAlive đảm nhận. Tuy nhiên gói tin LWT như là thông tin điều gì sẽ xảy đến sau khi thiết bị ngoại tuyến.</p>
-<p><strong>Một ví dụ</strong></p>
-<p>Tôi có 1 cảm biến, nó gởi những dữ liệu quan trọng và rất không thường xuyên. Nó có đăng ký trước với Broker một tin nhắn lwt ở topic <strong>/node/gone-offline</strong> với tin nhắn <strong>id</strong> của nó. Và tôi cũng đăng ký theo dõi topic <strong>/node/gone-offline</strong>, sẽ gởi SMS tới điện thoại thôi mỗi khi nhận được tin nhắn nào ở kênh mà tôi theo dõi.
-Trong quá trình hoạt động, cảm biến luôn giữ kết nối với Broker bởi việc luôn gởi gói tin keepAlive. Nhưng nếu vì lý do gì đó, cảm biến này chuyển sang ngoại tuyến, kết nối tới Broker timeout do Broker không còn nhận được gói keepAlive.
-Lúc này, do cảm biến của tôi đã đăng ký LWT, do vậy broker sẽ đóng kết nối của Cảm biến, đồng thời sẽ publish một gói tin là Id của cảm biến vào kênh <strong>/node/gone-offline</strong>, dĩ nhiên là tôi cũng sẽ nhận được tin nhắn báo cái Cảm biến yêu quý của mình  đã ngoại tuyến.</p>
-<p><strong>Ngắn gọn</strong></p>
-<p>Ngoài việc đóng kết nối của Client đã ngoại tuyến, gói tin LWT có thể được định nghĩa trước và được gởi bởi Broker tới kênh nào đó khi thiết bị đăng ký LWT ngoại tuyến.</p>
-</div>
-<div class="section" id="reference">
-<h3>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><a class="reference external" href="http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html">http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html</a></li>
-<li><a class="reference external" href="http://bb-smartsensing.com/basics-of-mqtt/">http://bb-smartsensing.com/basics-of-mqtt/</a></li>
-<li><a class="reference external" href="http://stackoverflow.com/questions/17270863/">http://stackoverflow.com/questions/17270863/</a></li>
-<li><a class="reference external" href="http://tuanpmt.github.io/what-is-mqtt/">http://tuanpmt.github.io/what-is-mqtt/</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="chuong-trinh">
-<h2>Chương trình<a class="headerlink" href="#chuong-trinh" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="noi-dung">
-<h3>Nội dung<a class="headerlink" href="#noi-dung" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Điều khiển bật tắt đèn LED quan Internet sử dụng giao thức <strong>MQTT</strong></li>
-<li>ESP8266 sẽ kết nối đến <code class="docutils literal"><span class="pre">test.mosquitto.org:1883</span></code> và <strong>subscribe</strong> channel <code class="docutils literal"><span class="pre">/iotmakervn/qos0</span></code></li>
-<li>Điện thoại sẽ kết nối đến <code class="docutils literal"><span class="pre">test.mosquitto.org:1883</span></code> và <strong>publish</strong> dữ liệu và channel <code class="docutils literal"><span class="pre">/iotmakervn/qos0</span></code>. Nếu dữ liệu là <code class="docutils literal"><span class="pre">0</span></code> thì ESP8266 sẽ tắt LED, nếu là <code class="docutils literal"><span class="pre">1</span></code> thì sẽ bật đèn LED</li>
-</ul>
-</div>
-<div class="section" id="id1">
-<h3>Chương trình<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
-</div>
-<div class="section" id="demo">
-<h3>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h3>
-</div>
 </div>
 </div>
 
@@ -403,10 +344,10 @@ Lúc này, do cảm biến của tôi đã đăng ký LWT, do vậy broker sẽ 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="websocket.html" class="btn btn-neutral float-right" title="Websocket" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="wifi-api.html" class="btn btn-neutral float-right" title="Thư viện ESP8266WiFi" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="http-server.html" class="btn btn-neutral" title="HTTP Server" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../peripherals/i2s.html" class="btn btn-neutral" title="I2S" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

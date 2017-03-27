@@ -40,7 +40,7 @@ Mục lục
   * `psk <#psk>`_
   * `BSSID <#bssid>`_
   * `RSSI <#rssi>`_
-   
+
 * `Kết nối khác <#ket-noi-khac>`_
 
   * `WPS <#wps>`_
@@ -162,7 +162,7 @@ isConnected
 ^^^^^^^^^^^
 Trả về ``true`` nếu Station kết nối với một điểm truy cập hoặc ``false`` nếu không.
 
-``WiFi.isConnected() ``
+``WiFi.isConnected()``
 
 
 setAutoConnect
@@ -178,7 +178,7 @@ getAutoConnet
 ^^^^^^^^^^^^^
 
 Đây là chức năng đi đôi với ``setAutoConnect()``. Nó trả về ``true`` nếu module được cấu hình để tự động kết nối với điểm truy cập được sử dụng lần cuối khi bật nguồn.
- 
+
 ``WiFi.getAutoConnect()``
 
 Trả về ``false`` nếu chức năng tự động kết nối bị vô hiệu.
@@ -189,7 +189,7 @@ setAutoReconnect
 Thiết đặt cho module tự động kết nối lại với một điểm truy cập trong trường hợp nó bị ngắt kết nối.
 
 ``WiFi.setAutoReconnect(autoReconnect)``
- 
+
 Nếu tham số ``autoReconnect`` được đặt thành ``true``, thì module sẽ cố gắng thiết lập lại kết nối bị mất với AP. Nếu thiết lập để ``false`` module sẽ không thực hiện kết nối lại.
 
 .. note::
@@ -527,7 +527,7 @@ Tùy thuộc vào kết quả kết nối chức năng trả về ``true`` hoặ
 
 .. code:: cpp
 
-    Wi-Fi mode set to WIFI_STA 
+    Wi-Fi mode set to WIFI_STA
     Begin WPS (press WPS button on your router) ... Success
     .........
     Connected, IP address: 192.168.1.102
