@@ -1,4 +1,4 @@
-Đo nhiệt độ, đổ ẩm và gởi lên Thingspeak
+Đo nhiệt độ, độ ẩm và gởi lên Thingspeak
 ----------------------------------------
 
 Demo
