@@ -2,19 +2,22 @@
 ------------
 
 Nội dung của lớp này được chia thành 4 phần:
+
 * Thứ nhất, các phương pháp để kết nối đến một điểm truy cập
-* Thứ hai, cung cấp các phương pháp để quản lý kết nối như `reconnect` hay `isConnected`.
+* Thứ hai, cung cấp các phương pháp để quản lý kết nối như ``reconnect`` hay ``isConnected``.
 * Thứ ba, các hàm để lấy các thuộc tính về kết nối như MAC hay địa chỉ IP.
 * Thứ tư, cung cấp các cách để kết nối như WPS hay Smart Config.
 
 Nội dung
 ********
 
-* Bắt đầu
+* **Kết nối**
+
   * begin
   * config
-  
-* Quản lý kết nối
+
+* **Quản lý kết nối**
+
   * reconnect
   * disconnect
   * isConnected
@@ -22,52 +25,57 @@ Nội dung
   * getAutoConnect
   * setAutoReconnect
   * waitForConnectResult
- 
- * Cấu hình
-   * macAddress
-   * localIP
-   * subnetMask
-   * gatewayIP
-   * dnsIP
-   * hostname
-   * status
-   * SSID
-   * psk
-   * BSSID
-   * RSSI
+
+* **Cấu hình**
+
+  * macAddress
+  * localIP
+  * subnetMask
+  * gatewayIP
+  * dnsIP
+  * hostname
+  * status
+  * SSID
+  * psk
+  * BSSID
+  * RSSI
    
- * Kết nối khác
-   * WPS
-   * Smart Config
+* **Kết nối khác**
+
+  * WPS
+  * Smart Config
+
+Kết nối
+*******
 
 **begin**
 
-Để chuyển đối sang chế độ *station*, ta dùng hàm `begin`. Các tham số cần thiết sẽ là *SSID* và *password*, để module có thể kết nối đến một Access Point (AP) cụ thể.
+Để chuyển đối sang chế độ *station*, ta dùng hàm ``begin``. Các tham số cần thiết sẽ là *SSID* và *password*, để module có thể kết nối đến một Access Point (AP) cụ thể.
 
-`WiFi.begin(ssid, password)`
+``WiFi.begin(ssid, password)``
 
 Theo mặc định, ESP sẽ cố kết nối lại đến mạng WiFi sau khi bị *disconnect*. Do đó chúng ta không cần phải xử lý việc này trong code.
 
-`WiFi.begin()`
+``WiFi.begin()``
 
 Gọi hàm này module sẽ chuyển sang chế độ station và kết nối với điểm truy cập cuối cùng được sử dụng dựa trên cấu hình được lưu trong bộ nhớ flash.
 Để thiết lập tất cả các thông số, ta có thể dùng lệnh:
 
-`WiFi.begin(ssid, password, channel, bssid, connect)`
+``WiFi.begin(ssid, password, channel, bssid, connect)``
 
 Các thông số:
 
-* `ssid` - tên WiFi của điểm truy cập mà chúng ta muốn kết nối đến, có thể có tối đa lên đến 32 ký tự.
-* `password` - mật khẩu của điểm truy cập, có độ dài từ 8 đến 64 ký tự.
-* `channel` - thiết lập kênh cho WiFi, tham số này có thể bỏ qua.
-* `bssid` - địa chỉ MAC của AP
-* `connect` - nếu giá trị là `false`, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.
+* ``ssid`` - tên WiFi của điểm truy cập mà chúng ta muốn kết nối đến, có thể có tối đa lên đến 32 ký tự.
+* ``password`` - mật khẩu của điểm truy cập, có độ dài từ 8 đến 64 ký tự.
+* ``channel`` - thiết lập kênh cho WiFi, tham số này có thể bỏ qua.
+* ``bssid`` - địa chỉ MAC của AP
+* ``connect`` - nếu giá trị là ``false``, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.
 
 **config**
 
 Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho *station*.
 
-`WiFi.config(local_ip, gateway, subnet, dns1, dns2)`
+``WiFi.config(local_ip, gateway, subnet, dns1, dns2)``
 
 * local_ip - IP tĩnh bạn muốn gán cho module
 * gateway - IP của gateway (thường là router) để kết nối ra mạng bên ngoài
@@ -107,6 +115,8 @@ Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho
 
 *output*
 
+.. code:: cpp
+
     Connecting to gith-wifi
     .
     Connected, IP address: 192.168.1.22
@@ -119,12 +129,12 @@ Quản lý kết nối
 
 Điều này được thực hiện bằng cách ngắt kết nối sau đó thiết lập kết nối lại đến cùng một điểm truy cập.
 
-`WiFi.reconnect()`
+``WiFi.reconnect()``
 
 .. note::
 
-    * Trạm phải được kết nối đến một điểm truy cập. Nếu không sẽ trả về `false` và không thực hiện bất kỳ hành động nào.
-    * Nếu trả về `true` có nghĩa là kết nối đã được thiết lập lại, bạn vẫn phải kiểm tra trạng thái kết nối, chờ đợi cho kết khi báo cáo `WL_CONNECTED`
+    * Trạm phải được kết nối đến một điểm truy cập. Nếu không sẽ trả về ``false`` và không thực hiện bất kỳ hành động nào.
+    * Nếu trả về ``true`` có nghĩa là kết nối đã được thiết lập lại, bạn vẫn phải kiểm tra trạng thái kết nối, chờ đợi cho kết khi báo cáo ``WL_CONNECTED``
 
 .. code:: cpp
 
@@ -137,53 +147,53 @@ Quản lý kết nối
 
 **disconnect**
 
-Thiết lập cấu hình `ssid` và `password` thành `null` và thực hiện ngắt kết nối đến điểm truy cập.
+Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực hiện ngắt kết nối đến điểm truy cập.
 
-WiFi.disconnect(wifioff)
+``WiFi.disconnect(wifioff)``
 
-* wifioff là tham số tùy chọn kiểu *boolean*, nếu là `true` thì chế độ trạm (station mode) sẽ bị tắt.
+* wifioff là tham số tùy chọn kiểu *boolean*, nếu là ``true`` thì chế độ trạm (station mode) sẽ bị tắt.
 
 **setAutoConnect**
 
 Định cấu hình module để tự động kết nối khi cấp nguồn đến điểm truy cập cuối cùng được sử dụng.
 
-`WiFi.setAutoConnect(autoConnect)`
+``WiFi.setAutoConnect(autoConnect)``
 
-`autoConnect` đây là tham số tùy chọn. Nếu đặt là `false` thì chức năng kết nối tự động sẽ bị tắt, nếu là `true` hoặc bỏ qua thì kết nối tự động sẽ được kích hoạt.
+``autoConnect`` đây là tham số tùy chọn. Nếu đặt là ``false`` thì chức năng kết nối tự động sẽ bị tắt, nếu là ``true`` hoặc bỏ qua thì kết nối tự động sẽ được kích hoạt.
 
 **getAutoConnet**
 
-Đây là chức năng đi đôi với `setAutoConnect()`. Nó trả về `true` nếu module được cấu hình để tự động kết nối với điểm truy cập được sử dụng lần cuối khi bật nguồn.
+Đây là chức năng đi đôi với ``setAutoConnect()``. Nó trả về ``true`` nếu module được cấu hình để tự động kết nối với điểm truy cập được sử dụng lần cuối khi bật nguồn.
  
-`WiFi.getAutoConnect()`
+``WiFi.getAutoConnect()``
 
-Trả về `false` nếu chức năng tự động kết nối bị vô hiệu.
+Trả về ``false`` nếu chức năng tự động kết nối bị vô hiệu.
 
 **setAutoReconnect**
 
 Thiết đặt cho module tự động kết nối lại với một điểm truy cập trong trường hợp nó bị ngắt kết nối.
 
-`WiFi.setAutoReconnect(autoReconnect)`
+``WiFi.setAutoReconnect(autoReconnect)``
  
-Nếu tham số `autoReconnect` được đặt thành `true`, thì module sẽ cố gắng thiết lập lại kết nối bị mất với AP. Nếu thiết lập để `false` module sẽ không thực hiện kết nối lại.
+Nếu tham số ``autoReconnect`` được đặt thành ``true``, thì module sẽ cố gắng thiết lập lại kết nối bị mất với AP. Nếu thiết lập để ``false`` module sẽ không thực hiện kết nối lại.
 
 .. note::
 
-    Chạy `setAutoReconnect(true)` khi module đã bị ngắt kết nối sẽ không kết nối lại với điểm truy cập. Thay vào đó `reconnect()` nên sử dụng.
+    Chạy ``setAutoReconnect(true)`` khi module đã bị ngắt kết nối sẽ không kết nối lại với điểm truy cập. Thay vào đó ``reconnect()`` nên sử dụng.
 
 **waitForConnectResult**
 
-Chờ cho đến khi module kết nối với điểm truy cập. Chức năng này dành cho các module được cấu hình trong chế độ `STA` hoặc `STA + AP`
+Chờ cho đến khi module kết nối với điểm truy cập. Chức năng này dành cho các module được cấu hình trong chế độ ``STA`` hoặc ``STA + AP``
 
-`WiFi.waitForConnectResult()`
+``WiFi.waitForConnectResult()``
 
 Chức năng trả về một trong các trạng thái kết nối sau đây:
 
-* `WL_CONNECTED` - Sau khi kết nối thành công được thiết lập
-* `WL_NO_SSID_AVAIL` - Trong trường hợp cấu hình SSID không thể đạt được
-* `WL_CONNECT_FAILED` - Nếu mật khẩu không chính xác
-* `WL_IDLE_STATUS` - Khi WiFi đang trong quá trình thay đổi giữa các trạng thái
-* `WL_DISCONNECTED` - Nếu module không được cấu hình trong chế độ station
+* ``WL_CONNECTED`` - Sau khi kết nối thành công được thiết lập
+* ``WL_NO_SSID_AVAIL`` - Trong trường hợp cấu hình SSID không thể đạt được
+* ``WL_CONNECT_FAILED`` - Nếu mật khẩu không chính xác
+* ``WL_IDLE_STATUS`` - Khi WiFi đang trong quá trình thay đổi giữa các trạng thái
+* ``WL_DISCONNECTED`` - Nếu module không được cấu hình trong chế độ station
 
 Cấu hình
 ********
@@ -192,9 +202,9 @@ Cấu hình
 
 Lấy địa chỉ MAC của ESP station
 
-`WiFi.macAddress(mac)`
+``WiFi.macAddress(mac)``
 
-Với `mac` đó là một con trỏ đến vị trí bộ nhớ (một mảng uint8_t có 6 phần tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.
+Với ``mac`` đó là một con trỏ đến vị trí bộ nhớ (một mảng uint8_t có 6 phần tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.
 
 .. code:: cpp
 
@@ -205,9 +215,9 @@ Với `mac` đó là một con trỏ đến vị trí bộ nhớ (một mảng u
       Serial.printf("Connected, mac address: %02x:%02x:%02x:%02x:%02x:%02x\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]);
     }
 
-Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh dưới, nó trả về một định dạng `String` chứa địa chỉ mac:
+Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh dưới, nó trả về một định dạng ``String`` chứa địa chỉ mac:
 
-`WiFi.macAddress()`
+``WiFi.macAddress()``
 
 .. code:: cpp
 
@@ -220,9 +230,9 @@ Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh d�
 
 Chức năng dùng để lấy địa chỉ IP của ESP station
 
-`WiFi.localIP() `
+``WiFi.localIP() ``
 
-Kiểu trả về là `IPAddress`.
+Kiểu trả về là ``IPAddress``.
 
 .. code:: cpp
 
@@ -234,13 +244,15 @@ Kiểu trả về là `IPAddress`.
 
 *output:*
 
+.. code:: cpp
+
     Connected, IP address: 192.168.1.10
 
 **subnetMask**
 
 Trả về subnet mask của ESP station
 
-`WiFi.subnetMask()`
+``WiFi.subnetMask()``
 
 Module nên được kết nối với điểm truy cập. Nếu không sẽ trả về 0.0.0.0
 
@@ -259,7 +271,7 @@ Module nên được kết nối với điểm truy cập. Nếu không sẽ tr�
 
 Lấy địa chỉ IP của gateway
 
-`WiFi.gatewayIP()`
+``WiFi.gatewayIP()``
 
 .. code:: cpp
 
@@ -267,15 +279,17 @@ Lấy địa chỉ IP của gateway
 
 *output:*
 
+.. code:: cpp
+
     Gateway IP: 192.168.1.9
 
 **dnsIP**
 
 Lấy địa chỉ IP của Máy chủ Tên miền (DNS).
 
-`WiFi.dnsIP(dns_no)`
+``WiFi.dnsIP(dns_no)``
 
-Với tham số đầu vào `dns_no` chúng ta có thể chỉ định địa chỉ IP của DNS mà chúng ta cần. Nếu không có tham số nào được cung cấp, thì IP của DNS #1 sẽ được trả về.
+Với tham số đầu vào ``dns_no`` chúng ta có thể chỉ định địa chỉ IP của DNS mà chúng ta cần. Nếu không có tham số nào được cung cấp, thì IP của DNS #1 sẽ được trả về.
 
     Serial.print("DNS #1, #2 IP: ");
     WiFi.dnsIP().printTo(Serial);
@@ -285,29 +299,35 @@ Với tham số đầu vào `dns_no` chúng ta có thể chỉ định địa ch
 
 *output:*
 
+.. code:: cpp
+
     DNS #1, #2 IP: 62.179.1.60, 62.179.1.61
 
 **hostname**
 
 Lấy DHCP hostname được gán cho ESP station.
 
-`WiFi.hostname()`
+``WiFi.hostname()``
 
-Trả về kiểu `String`. Tên máy chủ mặc định ở định dạng **ESP_24xMAC** với 24xMAC là 24 bit cuối cùng của địa chỉ MAC của module.
+Trả về kiểu ``String``. Tên máy chủ mặc định ở định dạng **ESP_24xMAC** với 24xMAC là 24 bit cuối cùng của địa chỉ MAC của module.
 
 Tên máy chủ có thể được thay đổi bằng cách sử dụng chức năng sau:
 
-`WiFi.hostname(aHostname)`
+``WiFi.hostname(aHostname)``
 
-Tham số đầu vào `aHostname` có thể là một kiểu `char*`, `const char*` hoặc `String`. Chiều dài tối đa của tên máy chủ được chỉ định là 32 ký tự. Chức năng trả về `true` hoặc `false` phụ thuộc vào kết quả.
+Tham số đầu vào ``aHostname`` có thể là một kiểu ``char*``, ``const char*`` hoặc ``String``. Chiều dài tối đa của tên máy chủ được chỉ định là 32 ký tự. Chức năng trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả.
 
-Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả lại `false` mà không gán tên máy chủ mới.
+Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả lại ``false`` mà không gán tên máy chủ mới.
+
+.. code:: cpp
 
     Serial.printf("Default hostname: %s\n", WiFi.hostname().c_str());
     WiFi.hostname("Station_Tester_02");
     Serial.printf("New hostname: %s\n", WiFi.hostname().c_str());
 
 *output:*
+
+.. code:: cpp
 
     Default hostname: ESP_081117
     New hostname: Station_Tester_02
@@ -316,17 +336,17 @@ Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả l
 
 Trả về trạng thái kết nối Wi-Fi.
 
-`WiFi.status()`
+``WiFi.status()``
 
 Chức năng trả về một trong các trạng thái kết nối sau đây:
 
-* `WL_CONNECTED` - Sau khi kết nối thành công được thiết lập
-* `WL_NO_SSID_AVAIL` - Trong trường hợp cấu hình SSID không thể đạt được
-* `WL_CONNECT_FAILED` - Nếu mật khẩu không chính xác
-* `WL_IDLE_STATUS` - Khi Wi-Fi đang trong quá trình thay đổi giữa các trạng thái
-* `WL_DISCONNECTED` - Nếu module không được cấu hình trong chế độ trạm
+* ``WL_CONNECTED`` - Sau khi kết nối thành công được thiết lập
+* ``WL_NO_SSID_AVAIL`` - Trong trường hợp cấu hình SSID không thể đạt được
+* ``WL_CONNECT_FAILED`` - Nếu mật khẩu không chính xác
+* ``WL_IDLE_STATUS`` - Khi Wi-Fi đang trong quá trình thay đổi giữa các trạng thái
+* ``WL_DISCONNECTED`` - Nếu module không được cấu hình trong chế độ trạm
 
-Giá trị trả lại kiểu `wl_status_t` được định nghĩa trong *wl_definitions.h*
+Giá trị trả lại kiểu ``wl_status_t`` được định nghĩa trong *wl_definitions.h*
 
 .. code:: cpp
 
@@ -353,6 +373,8 @@ Giá trị trả lại kiểu `wl_status_t` được định nghĩa trong *wl_de
 
 *output:*
 
+.. code:: cpp
+
     Connection status: 6
     Connecting to sensor-net
     Connection status: 6
@@ -362,22 +384,28 @@ Giá trị trả lại kiểu `wl_status_t` được định nghĩa trong *wl_de
 
 Các trạng thái kết nối đặc biệt 6 và 3 có thể được xem xét trong *wl_definitions.h* như sau:
 
+.. code:: cpp
+
     3 - WL_CONNECTED
     6 - WL_DISCONNECTED
 
-Dựa trên ví dụ này, khi chạy trên mã, mô-đun ban đầu bị ngắt kết nối khỏi mạng và trả về trạng thái kết nối *6 - `WL_DISCONNECTED`*. Nó cũng bị ngắt kết nối ngay sau khi chạy `WiFi.begin(ssid, password)`. Sau đó, sau khoảng 3 giây (dựa trên số dấu chấm được hiển thị mỗi 500ms), cuối cùng nó sẽ được kết nối trở lại trạng thái *3 - `WL_CONNECTED`*.
+Dựa trên ví dụ này, khi chạy trên mã, mô-đun ban đầu bị ngắt kết nối khỏi mạng và trả về trạng thái kết nối 6 - ``WL_DISCONNECTED``. Nó cũng bị ngắt kết nối ngay sau khi chạy ``WiFi.begin(ssid, password)``. Sau đó, sau khoảng 3 giây (dựa trên số dấu chấm được hiển thị mỗi 500ms), cuối cùng nó sẽ được kết nối trở lại trạng thái 3 - ``WL_CONNECTED``.
 
 **SSID**
 
 Trả lại tên của mạng Wi-Fi đã kết nối.
 
-`WiFi.SSID()`
+``WiFi.SSID()``
 
-Kiểu trả về `String`
+Kiểu trả về ``String``
 
 .. code:: cpp
 
     Serial.printf("SSID: %s\n", WiFi.SSID().c_str());
+
+*output:*
+
+.. code:: cpp
 
     SSID: sensor-net
 
@@ -385,21 +413,21 @@ Kiểu trả về `String`
 
 Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.
 
-`WiFi.psk()`
+``WiFi.psk()``
 
-Kiểu trả về `String`
+Kiểu trả về ``String``
 
 **BSSID**
 
 Trả lại địa chỉ mac điểm truy cập mà ESP kết nối đến.
 
-`WiFi.BSSID()`
+``WiFi.BSSID()``
 
-Trả về một con trỏ đến vị trí nhớ (một mảng `uint8_t` với có kích thước là 6), nơi *BSSID* được lưu.
+Trả về một con trỏ đến vị trí nhớ (một mảng ``uint8_t`` với có kích thước là 6), nơi *BSSID* được lưu.
 
-Hàm dưới đây có chức năng tương tự, nhưng trả lại *BSSID* là một kiểu `String`.
+Hàm dưới đây có chức năng tương tự, nhưng trả lại *BSSID* là một kiểu ``String``.
 
-`WiFi.BSSIDstr()`
+``WiFi.BSSIDstr()``
 
 .. code:: cpp
 
@@ -407,21 +435,25 @@ Hàm dưới đây có chức năng tương tự, nhưng trả lại *BSSID* là
 
 *output:*
 
+.. code:: cpp
+
     BSSID: 00:1A:70:DE:C1:68
 
 **RSSI**
 
 Trả lại cường độ tín hiệu của mạng Wi-Fi.
 
-`WiFi.RSSI()`
+``WiFi.RSSI()``
 
-Giá trị cường độ tín hiệu được cung cấp trong **dBm**. Kiểu trả về giá trị là `int32_t`.
+Giá trị cường độ tín hiệu được cung cấp trong **dBm**. Kiểu trả về giá trị là ``int32_t``.
 
 .. code:: cpp
 
     Serial.printf("RSSI: %d dBm\n", WiFi.RSSI());
 
-*outputL*
+*output:*
+
+.. code:: cpp
 
     RSSI: -68 dBm
 
@@ -432,11 +464,11 @@ ESP8266 SDK cung cấp các phương pháp thay thế để kết nối trạm E
 
 **WPS**
 
-Chức năng `beginWPSConfig` sau đây cho phép kết nối với mạng sử dụng WPS (Wi-Fi Protected Setup). Hiện tại chỉ hỗ trợ cấu hình nút nhấn (chế độ WPS_TYPE_PBC) (SDK 1.5.4).
+Chức năng ``beginWPSConfig`` sau đây cho phép kết nối với mạng sử dụng WPS (Wi-Fi Protected Setup). Hiện tại chỉ hỗ trợ cấu hình nút nhấn (chế độ WPS_TYPE_PBC) (SDK 1.5.4).
 
-`WiFi.beginWPSConfig()`
+``WiFi.beginWPSConfig()``
 
-Tùy thuộc vào kết quả kết nối chức năng trả về `true` hoặc `false`.
+Tùy thuộc vào kết quả kết nối chức năng trả về ``true`` hoặc ``false``.
 
 .. code:: cpp
 
@@ -465,6 +497,8 @@ Tùy thuộc vào kết quả kết nối chức năng trả về `true` hoặc 
 
 *output:*
 
+.. code:: cpp
+
     Wi-Fi mode set to WIFI_STA 
     Begin WPS (press WPS button on your router) ... Success
     .........
@@ -474,14 +508,14 @@ Tùy thuộc vào kết quả kết nối chức năng trả về `true` hoặc 
 
 Để bắt đầu thiết lập cấu hình bằng chức năng này, dùng lệnh sau:
 
-`beginSmartConfig()`
+``beginSmartConfig()``
 
-Kiểm tra trạng thái để quyết định khi ngừng cấu hình. Chức năng trả về `true` hoặc `false`
+Kiểm tra trạng thái để quyết định khi ngừng cấu hình. Chức năng trả về ``true`` hoặc ``false``
 
-`smartConfigDone()`
+``smartConfigDone()``
 
-Dừng cấu hình thông minh, giải phóng bộ đệm `beginSmartConfig()`. Tùy thuộc vào chức năng kết quả trả về `true` hoặc `false`.
+Dừng cấu hình thông minh, giải phóng bộ đệm ``beginSmartConfig()``. Tùy thuộc vào chức năng kết quả trả về ``true`` hoặc ``false``.
 
-`stopSmartConfig()`
+``stopSmartConfig()``
 
-Để biết thêm chi tiết về Smart Config, vui lòng tham khảo `tại đây <../smartconfig.rst>`_
+Để biết thêm chi tiết về Smart Config, vui lòng tham khảo `tại đây <../wifi/smartconfig.html>`_.
