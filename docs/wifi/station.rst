@@ -1,4 +1,5 @@
-﻿WiFi Station
+﻿
+WiFi Station
 ------------
 
 Nội dung của lớp này được chia thành 4 phần:
@@ -8,47 +9,48 @@ Nội dung của lớp này được chia thành 4 phần:
 * Thứ ba, các hàm để lấy các thuộc tính về kết nối như MAC hay địa chỉ IP.
 * Thứ tư, cung cấp các cách để kết nối như WPS hay Smart Config.
 
-Nội dung
-********
+Mục lục
+*******
 
-* **Kết nối**
+* `Kết nối <ket-noi>`_
 
-  * begin
-  * config
+  * `begin <#begin>`_
+  * `config <#config>`_
 
-* **Quản lý kết nối**
+* `Quản lý kết nối <#quan-ly-ket-noi>`_
 
-  * reconnect
-  * disconnect
-  * isConnected
-  * setAutoConnect
-  * getAutoConnect
-  * setAutoReconnect
-  * waitForConnectResult
+  * `reconnect <#reconnect>`_
+  * `disconnect <#disconnect>`_
+  * `isConnected <#isconnected>`_
+  * `setAutoConnect <#setautoconnect>`_
+  * `getAutoConnect <#getautoconnect>`_
+  * `setAutoReconnect <#setautoreconnect>`_
+  * `waitForConnectResult <#waitforconnectresult>`_
 
-* **Cấu hình**
+* `Cấu hình <#cau-hinh>`_
 
-  * macAddress
-  * localIP
-  * subnetMask
-  * gatewayIP
-  * dnsIP
-  * hostname
-  * status
-  * SSID
-  * psk
-  * BSSID
-  * RSSI
+  * `macAddress <#macaddress>`_
+  * `localIP <#localip>`_
+  * `subnetMask <#subnetmask>`_
+  * `gatewayIP <#gatewayip>`_
+  * `dnsIP <#dnsip>`_
+  * `hostname <#hostname>`_
+  * `status <#status>`_
+  * `SSID <#ssid>`_
+  * `psk <#psk>`_
+  * `BSSID <#bssid>`_
+  * `RSSI <#rssi>`_
    
-* **Kết nối khác**
+* `Kết nối khác <#ket-noi-khac>`_
 
-  * WPS
-  * Smart Config
+  * `WPS <#wps>`_
+  * `Smart Config <#smart-config>`_
 
 Kết nối
 *******
 
-**begin**
+begin
+^^^^^
 
 Để chuyển đối sang chế độ *station*, ta dùng hàm ``begin``. Các tham số cần thiết sẽ là *SSID* và *password*, để module có thể kết nối đến một Access Point (AP) cụ thể.
 
@@ -71,7 +73,8 @@ Các thông số:
 * ``bssid`` - địa chỉ MAC của AP
 * ``connect`` - nếu giá trị là ``false``, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.
 
-**config**
+config
+^^^^^^
 
 Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho *station*.
 
@@ -125,7 +128,8 @@ Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho
 Quản lý kết nối
 ***************
 
-**reconnect**
+reconnect
+^^^^^^^^^
 
 Điều này được thực hiện bằng cách ngắt kết nối sau đó thiết lập kết nối lại đến cùng một điểm truy cập.
 
@@ -145,7 +149,8 @@ Quản lý kết nối
       Serial.print(".");
     }
 
-**disconnect**
+disconnect
+^^^^^^^^^^
 
 Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực hiện ngắt kết nối đến điểm truy cập.
 
@@ -153,7 +158,15 @@ Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực h
 
 * wifioff là tham số tùy chọn kiểu *boolean*, nếu là ``true`` thì chế độ trạm (station mode) sẽ bị tắt.
 
-**setAutoConnect**
+isConnected
+^^^^^^^^^^^
+Trả về ``true`` nếu Station kết nối với một điểm truy cập hoặc ``false`` nếu không.
+
+``WiFi.isConnected() ``
+
+
+setAutoConnect
+^^^^^^^^^^^^^^
 
 Định cấu hình module để tự động kết nối khi cấp nguồn đến điểm truy cập cuối cùng được sử dụng.
 
@@ -161,7 +174,8 @@ Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực h
 
 ``autoConnect`` đây là tham số tùy chọn. Nếu đặt là ``false`` thì chức năng kết nối tự động sẽ bị tắt, nếu là ``true`` hoặc bỏ qua thì kết nối tự động sẽ được kích hoạt.
 
-**getAutoConnet**
+getAutoConnet
+^^^^^^^^^^^^^
 
 Đây là chức năng đi đôi với ``setAutoConnect()``. Nó trả về ``true`` nếu module được cấu hình để tự động kết nối với điểm truy cập được sử dụng lần cuối khi bật nguồn.
  
@@ -169,7 +183,8 @@ Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực h
 
 Trả về ``false`` nếu chức năng tự động kết nối bị vô hiệu.
 
-**setAutoReconnect**
+setAutoReconnect
+^^^^^^^^^^^^^^^^
 
 Thiết đặt cho module tự động kết nối lại với một điểm truy cập trong trường hợp nó bị ngắt kết nối.
 
@@ -181,7 +196,8 @@ Nếu tham số ``autoReconnect`` được đặt thành ``true``, thì module s
 
     Chạy ``setAutoReconnect(true)`` khi module đã bị ngắt kết nối sẽ không kết nối lại với điểm truy cập. Thay vào đó ``reconnect()`` nên sử dụng.
 
-**waitForConnectResult**
+waitForConnectResult
+^^^^^^^^^^^^^^^^^^^^
 
 Chờ cho đến khi module kết nối với điểm truy cập. Chức năng này dành cho các module được cấu hình trong chế độ ``STA`` hoặc ``STA + AP``
 
@@ -198,7 +214,8 @@ Chức năng trả về một trong các trạng thái kết nối sau đây:
 Cấu hình
 ********
 
-**macAddress**
+macAddress
+^^^^^^^^^^
 
 Lấy địa chỉ MAC của ESP station
 
@@ -226,11 +243,12 @@ Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh d�
       Serial.printf("Connected, mac address: %s\n", WiFi.macAddress().c_str());
     }
 
-**localIP**
+localIP
+^^^^^^^
 
 Chức năng dùng để lấy địa chỉ IP của ESP station
 
-``WiFi.localIP() ``
+``WiFi.localIP()``
 
 Kiểu trả về là ``IPAddress``.
 
@@ -248,7 +266,8 @@ Kiểu trả về là ``IPAddress``.
 
     Connected, IP address: 192.168.1.10
 
-**subnetMask**
+subnetMask
+^^^^^^^^^^
 
 Trả về subnet mask của ESP station
 
@@ -267,7 +286,8 @@ Module nên được kết nối với điểm truy cập. Nếu không sẽ tr�
 
     Subnet mask: 255.255.255.0
 
-**gatewayIP**
+gatewayIP
+^^^^^^^^^
 
 Lấy địa chỉ IP của gateway
 
@@ -283,7 +303,8 @@ Lấy địa chỉ IP của gateway
 
     Gateway IP: 192.168.1.9
 
-**dnsIP**
+dnsIP
+^^^^^
 
 Lấy địa chỉ IP của Máy chủ Tên miền (DNS).
 
@@ -303,7 +324,8 @@ Với tham số đầu vào ``dns_no`` chúng ta có thể chỉ định địa 
 
     DNS #1, #2 IP: 62.179.1.60, 62.179.1.61
 
-**hostname**
+hostname
+^^^^^^^^
 
 Lấy DHCP hostname được gán cho ESP station.
 
@@ -332,7 +354,8 @@ Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả l
     Default hostname: ESP_081117
     New hostname: Station_Tester_02
 
-**status**
+status
+^^^^^^
 
 Trả về trạng thái kết nối Wi-Fi.
 
@@ -391,7 +414,8 @@ Các trạng thái kết nối đặc biệt 6 và 3 có thể được xem xét
 
 Dựa trên ví dụ này, khi chạy trên mã, mô-đun ban đầu bị ngắt kết nối khỏi mạng và trả về trạng thái kết nối 6 - ``WL_DISCONNECTED``. Nó cũng bị ngắt kết nối ngay sau khi chạy ``WiFi.begin(ssid, password)``. Sau đó, sau khoảng 3 giây (dựa trên số dấu chấm được hiển thị mỗi 500ms), cuối cùng nó sẽ được kết nối trở lại trạng thái 3 - ``WL_CONNECTED``.
 
-**SSID**
+SSID
+^^^^
 
 Trả lại tên của mạng Wi-Fi đã kết nối.
 
@@ -409,7 +433,8 @@ Kiểu trả về ``String``
 
     SSID: sensor-net
 
-**psk**
+psk
+^^^
 
 Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.
 
@@ -417,7 +442,8 @@ Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.
 
 Kiểu trả về ``String``
 
-**BSSID**
+BSSID
+^^^^^
 
 Trả lại địa chỉ mac điểm truy cập mà ESP kết nối đến.
 
@@ -439,7 +465,8 @@ Hàm dưới đây có chức năng tương tự, nhưng trả lại *BSSID* là
 
     BSSID: 00:1A:70:DE:C1:68
 
-**RSSI**
+RSSI
+^^^^
 
 Trả lại cường độ tín hiệu của mạng Wi-Fi.
 
@@ -462,7 +489,8 @@ Kết nối khác
 
 ESP8266 SDK cung cấp các phương pháp thay thế để kết nối trạm ESP với một điểm truy cập. Core esp8266 / Arduino  thực hiện WPS và Smart Config như mô tả dưới đây.
 
-**WPS**
+WPS
+^^^
 
 Chức năng ``beginWPSConfig`` sau đây cho phép kết nối với mạng sử dụng WPS (Wi-Fi Protected Setup). Hiện tại chỉ hỗ trợ cấu hình nút nhấn (chế độ WPS_TYPE_PBC) (SDK 1.5.4).
 
@@ -504,7 +532,8 @@ Tùy thuộc vào kết quả kết nối chức năng trả về ``true`` hoặ
     .........
     Connected, IP address: 192.168.1.102
 
-**Smart Config**
+Smart Config
+^^^^^^^^^^^^
 
 Để bắt đầu thiết lập cấu hình bằng chức năng này, dùng lệnh sau:
 
