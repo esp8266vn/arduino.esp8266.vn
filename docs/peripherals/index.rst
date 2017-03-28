@@ -5,7 +5,8 @@ Ngoại vi
    :maxdepth: 1
 
     Serial/UART <serial>
-    Analog <analog>
-    Thời gian & Delay <timming>
+    Analog/ADC <analog>
+    Thời gian/Timer <timming>
     I2C/OLED <i2c>
     I2S <i2s>
+    SPI <spi>
