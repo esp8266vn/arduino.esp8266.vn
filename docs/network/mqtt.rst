@@ -6,7 +6,7 @@ Giao thức MQTT
 MQTT là gì
 ~~~~~~~~~~
 
-.. image:: http://mqtt.org/new/wp-content/uploads/2011/08/mqttorg-glow.png
+.. image:: ../_static/mqttorg-glow.png
 
 MQTT (Message Queuing Telemetry Transport) là một giao thức gởi dạng publish/subscribe sử dụng cho các thiết bị [Internet of Things](/tags/IoT) với băng thông thấp, độ tin cậy cao và khả năng được sử dụng trong mạng lưới không ổn định.
 
@@ -22,7 +22,7 @@ Trong một hệ thống sử dụng giao thức MQTT, nhiều node trạm (gọ
 
 QoS
 ~~~
-Ở đây có 3 tuỳ chọn **QoS (Qualities of service) ** khi "publish" và "subscribe":
+Ở đây có 3 tuỳ chọn **QoS (Qualities of service)** khi "publish" và "subscribe":
 
 - **QoS0** Broker/client sẽ gởi dữ liệu đúng 1 lần, quá trình gởi được xác nhận bởi chỉ giao thức TCP/IP, giống kiểu đem con bỏ chợ.
 - **QoS1** Broker/client sẽ gởi dữ liệu với ít nhất 1 lần xác nhận từ đầu kia, nghĩa là có thể có nhiều hơn 1 lần xác nhận đã nhận được dữ liệu.
@@ -73,7 +73,9 @@ Nội dung
 * Điều khiển bật tắt đèn LED quan Internet sử dụng giao thức **MQTT**
 * ESP8266 sẽ kết nối đến ``test.mosquitto.org:1883`` và **subscribe** channel ``/iotmakervn/qos0``
 * Điện thoại sẽ kết nối đến ``test.mosquitto.org:1883`` và **publish** dữ liệu và channel ``/iotmakervn/qos0``. Nếu dữ liệu là ``0`` thì ESP8266 sẽ tắt LED, nếu là ``1`` thì sẽ bật đèn LED
+
 Chương trình
 ~~~~~~~~~~~~
+
 Demo
 ~~~~

@@ -9,7 +9,7 @@ Các thực hiện
 * Chọn phiên bản thư viện cần cài đặt
 * Nhấn install
 
-.. image:: _static/library.png
+.. image:: ../_static/library.png
 
 Video hướng dẫn
 ===============

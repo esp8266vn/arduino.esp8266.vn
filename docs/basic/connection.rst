@@ -4,11 +4,11 @@ Kết nối phần cứng
 =================
 Kết nối USB với Board mạch **IoT WiFi Uno** như hình bên dưới, đảm bảo đèn LED (khoanh tròn) sáng
 
-.. image:: _static/connect.jpg
-    :target: _static/connect.jpg
+.. image:: ../_static/connect.jpg
+    :target: ../_static/connect.jpg
 
 Cài đặt USB Driver
-=================
+==================
 Tùy thuộc từng hệ điều hành, làm theo các hướng dẫn bên dưới
 
 Windows
@@ -39,8 +39,8 @@ Một số trường hợp đã cài đặt driver phiên bản cũ, tuy nhiên 
 
 * Nếu không thể thực hiện được lệnh trên, bạn cần phải thay đổi "Security and Privacy" trong phần System Preference. Chọn "Allow Apps Downloaded From" từ "Mac App Store and Identified Developers" sang "Anywhere" - Và tải `CH34x_Install_V1.3.pkg`_ về cài đặt lại
 
-.. image:: _static/mac.png
-    :target: _static/mac.png
+.. image:: ../_static/mac.png
+    :target: ../_static/mac.png
 
 
 Linux
@@ -60,9 +60,9 @@ Cấu hình kết nối
     * Port: chọn cổng khi gắn thiết bị vào sẽ thấy xuất hiện
     * Upload speed: Chọn cao nhất, nếu nạp không được chọn thấp dần
 
-.. image:: _static/port-setup.png
-    :target: _static/port-setup.png
+.. image:: ../_static/port-setup.png
+    :target: ../_static/port-setup.png
 
-.. _`CH34x_Install_V1.3.pkg`: _static/download/CH34x_Install_V1.3.pkg
+.. _`CH34x_Install_V1.3.pkg`: ../_static/download/CH34x_Install_V1.3.pkg
 .. _`CH341PAR_LINUX_ZIP`: http://www.wch.cn/download/CH341PAR_LINUX_ZIP.html
 .. _`CH341SER_ZIP`: http://www.wch.cn/download/CH341SER_ZIP.html

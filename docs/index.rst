@@ -13,35 +13,15 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
 
 
 .. toctree::
-   :caption: Cài đặt
-   :maxdepth: 1
-
-   Cài đặt Arduino IDE<install>
-   Board IoT WiFi Uno <board>
-   Kết nối máy tính <connection>
-   Cài đặt thư viện <library>
-
-.. toctree::
    :caption: Cơ bản
-   :maxdepth: 1
+   :maxdepth: 2
 
+   Cài đặt <basic/index>
    Bật tắt LED <basic/led>
    Nút nhấn <basic/button>
-   Analog <basic/analog>
-   Thời gian & Delay <basic/timming>
-   Serial <basic/serial>
-   OLED <basic/oled>
    Sử dụng Promem <basic/promem>
-
-.. toctree::
-   :caption: WiFi
-   :maxdepth: 1
-
-   WiFi API <wifi/wifi-api>
-   WiFi Station <wifi/station>
-   WiFi Access Point <wifi/access-point>
-   Smartconfig <wifi/smartconfig>
-   WPS <wifi/wps>
+   Ngoại vi <peripherals/index>
+   Wi-Fi <wifi/index>
 
 .. toctree::
    :caption: Network/Protocol
