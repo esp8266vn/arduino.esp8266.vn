@@ -12,42 +12,46 @@ Nội dung của lớp này được chia thành 4 phần:
 Mục lục
 *******
 
-* `Kết nối <ket-noi>`_
+* :ref:`ket-noi`
 
-  * `begin <#begin>`_
-  * `config <#config>`_
+  * :ref:`begin`
+  * :ref:`config`
 
-* `Quản lý kết nối <#quan-ly-ket-noi>`_
+* :ref:`quan-ly-ket-noi`
 
-  * `reconnect <#reconnect>`_
-  * `disconnect <#disconnect>`_
-  * `isConnected <#isconnected>`_
-  * `setAutoConnect <#setautoconnect>`_
-  * `getAutoConnect <#getautoconnect>`_
-  * `setAutoReconnect <#setautoreconnect>`_
-  * `waitForConnectResult <#waitforconnectresult>`_
+  * :ref:`reconnect`
+  * :ref:`disconnect`
+  * :ref:`isconnected`
+  * :ref:`setautoconnect`
+  * :ref:`getautoconnect`
+  * :ref:`setautoreconnect`
+  * :ref:`waitforconnectresult`
 
-* `Cấu hình <#cau-hinh>`_
+* :ref:`cau-hinh`
 
-  * `macAddress <#macaddress>`_
-  * `localIP <#localip>`_
-  * `subnetMask <#subnetmask>`_
-  * `gatewayIP <#gatewayip>`_
-  * `dnsIP <#dnsip>`_
-  * `hostname <#hostname>`_
-  * `status <#status>`_
-  * `SSID <#ssid>`_
-  * `psk <#psk>`_
-  * `BSSID <#bssid>`_
-  * `RSSI <#rssi>`_
+  * :ref:`macaddress`
+  * :ref:`localip`
+  * :ref:`subnetmask`
+  * :ref:`gatewayip`
+  * :ref:`dnsip`
+  * :ref:`hostname`
+  * :ref:`status`
+  * :ref:`ssid`
+  * :ref:`psk`
+  * :ref:`bssid`
+  * :ref:`rssi`
 
-* `Kết nối khác <#ket-noi-khac>`_
+* :ref:`ket-noi-khac`
 
-  * `WPS <#wps>`_
-  * `Smart Config <#smart-config>`_
+  * :ref:`wps`
+  * :ref:`smart-config`
+
+.. _ket-noi:
 
 Kết nối
 *******
+
+.. _begin:
 
 begin
 ^^^^^
@@ -72,6 +76,8 @@ Các thông số:
 * ``channel`` - thiết lập kênh cho WiFi, tham số này có thể bỏ qua.
 * ``bssid`` - địa chỉ MAC của AP
 * ``connect`` - nếu giá trị là ``false``, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.
+
+.. _config:
 
 config
 ^^^^^^
@@ -125,8 +131,12 @@ Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho
     Connected, IP address: 192.168.1.22
 
 
+.. _quan-ly-ket-noi:
+
 Quản lý kết nối
 ***************
+
+.. _reconnect:
 
 reconnect
 ^^^^^^^^^
@@ -149,6 +159,8 @@ reconnect
       Serial.print(".");
     }
 
+.. _disconnect:
+
 disconnect
 ^^^^^^^^^^
 
@@ -158,12 +170,16 @@ Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực h
 
 * wifioff là tham số tùy chọn kiểu *boolean*, nếu là ``true`` thì chế độ trạm (station mode) sẽ bị tắt.
 
+.. _isconnected:
+
 isConnected
 ^^^^^^^^^^^
 Trả về ``true`` nếu Station kết nối với một điểm truy cập hoặc ``false`` nếu không.
 
 ``WiFi.isConnected()``
 
+
+.. _setautoconnect:
 
 setAutoConnect
 ^^^^^^^^^^^^^^
@@ -174,6 +190,8 @@ setAutoConnect
 
 ``autoConnect`` đây là tham số tùy chọn. Nếu đặt là ``false`` thì chức năng kết nối tự động sẽ bị tắt, nếu là ``true`` hoặc bỏ qua thì kết nối tự động sẽ được kích hoạt.
 
+.. _getautoconnect:
+
 getAutoConnet
 ^^^^^^^^^^^^^
 
@@ -182,6 +200,8 @@ getAutoConnet
 ``WiFi.getAutoConnect()``
 
 Trả về ``false`` nếu chức năng tự động kết nối bị vô hiệu.
+
+.. _setautoreconnect:
 
 setAutoReconnect
 ^^^^^^^^^^^^^^^^
@@ -195,6 +215,8 @@ Nếu tham số ``autoReconnect`` được đặt thành ``true``, thì module s
 .. note::
 
     Chạy ``setAutoReconnect(true)`` khi module đã bị ngắt kết nối sẽ không kết nối lại với điểm truy cập. Thay vào đó ``reconnect()`` nên sử dụng.
+
+.. _waitforconnectresult:
 
 waitForConnectResult
 ^^^^^^^^^^^^^^^^^^^^
@@ -211,8 +233,12 @@ Chức năng trả về một trong các trạng thái kết nối sau đây:
 * ``WL_IDLE_STATUS`` - Khi WiFi đang trong quá trình thay đổi giữa các trạng thái
 * ``WL_DISCONNECTED`` - Nếu module không được cấu hình trong chế độ station
 
+.. _cau-hinh:
+
 Cấu hình
 ********
+
+.. _macaddress:
 
 macAddress
 ^^^^^^^^^^
@@ -243,6 +269,8 @@ Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh d�
       Serial.printf("Connected, mac address: %s\n", WiFi.macAddress().c_str());
     }
 
+.. _localip:
+
 localIP
 ^^^^^^^
 
@@ -266,6 +294,8 @@ Kiểu trả về là ``IPAddress``.
 
     Connected, IP address: 192.168.1.10
 
+.. _subnetmask:
+
 subnetMask
 ^^^^^^^^^^
 
@@ -286,6 +316,8 @@ Module nên được kết nối với điểm truy cập. Nếu không sẽ tr�
 
     Subnet mask: 255.255.255.0
 
+.. _gatewayip:
+
 gatewayIP
 ^^^^^^^^^
 
@@ -302,6 +334,8 @@ Lấy địa chỉ IP của gateway
 .. code:: cpp
 
     Gateway IP: 192.168.1.9
+
+.. _dnsip:
 
 dnsIP
 ^^^^^
@@ -323,6 +357,8 @@ Với tham số đầu vào ``dns_no`` chúng ta có thể chỉ định địa 
 .. code:: cpp
 
     DNS #1, #2 IP: 62.179.1.60, 62.179.1.61
+
+.. _hostname:
 
 hostname
 ^^^^^^^^
@@ -353,6 +389,8 @@ Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả l
 
     Default hostname: ESP_081117
     New hostname: Station_Tester_02
+
+.. _status:
 
 status
 ^^^^^^
@@ -414,6 +452,8 @@ Các trạng thái kết nối đặc biệt 6 và 3 có thể được xem xét
 
 Dựa trên ví dụ này, khi chạy trên mã, mô-đun ban đầu bị ngắt kết nối khỏi mạng và trả về trạng thái kết nối 6 - ``WL_DISCONNECTED``. Nó cũng bị ngắt kết nối ngay sau khi chạy ``WiFi.begin(ssid, password)``. Sau đó, sau khoảng 3 giây (dựa trên số dấu chấm được hiển thị mỗi 500ms), cuối cùng nó sẽ được kết nối trở lại trạng thái 3 - ``WL_CONNECTED``.
 
+.. _ssid:
+
 SSID
 ^^^^
 
@@ -433,6 +473,8 @@ Kiểu trả về ``String``
 
     SSID: sensor-net
 
+.. _psk:
+
 psk
 ^^^
 
@@ -441,6 +483,8 @@ Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.
 ``WiFi.psk()``
 
 Kiểu trả về ``String``
+
+.. _bssid:
 
 BSSID
 ^^^^^
@@ -465,6 +509,8 @@ Hàm dưới đây có chức năng tương tự, nhưng trả lại *BSSID* là
 
     BSSID: 00:1A:70:DE:C1:68
 
+.. _rssi:
+
 RSSI
 ^^^^
 
@@ -484,10 +530,14 @@ Giá trị cường độ tín hiệu được cung cấp trong **dBm**. Kiểu 
 
     RSSI: -68 dBm
 
+.. _ket-noi-khac:
+
 Kết nối khác
 ************
 
 ESP8266 SDK cung cấp các phương pháp thay thế để kết nối trạm ESP với một điểm truy cập. Core esp8266 / Arduino  thực hiện WPS và Smart Config như mô tả dưới đây.
+
+.. _wps:
 
 WPS
 ^^^
@@ -531,6 +581,8 @@ Tùy thuộc vào kết quả kết nối chức năng trả về ``true`` hoặ
     Begin WPS (press WPS button on your router) ... Success
     .........
     Connected, IP address: 192.168.1.102
+
+.. _smart-config:
 
 Smart Config
 ^^^^^^^^^^^^
