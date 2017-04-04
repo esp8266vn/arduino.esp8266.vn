@@ -1,4 +1,4 @@
-WiFi Access Point
+﻿i Access Point
 =================
 
 **Access Point** (AP - Điểm truy cập) cung cấp khả năng truy cập mạng WiFi cho các thiết bị khác (Station) và kết nối chúng với mạng có dây. ESP8266 có thể cung cấp chức năng tương tự nhưng nó không kết nối có dây với một mạng. Chế độ hoạt động như vậy gọi là **soft-AP**. Số lượng trạm tối đa kết nối với soft-AP là 5
@@ -109,7 +109,7 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
 
 .. _quan-ly-ket-noi:
 
-Quản lý Mạng
+Quản lý kết nối
 ------------
 
 Khi đã thiết lập softAP, bạn có thể kiểm tra các trạm đã kết nối, hoặc tắt chúng, sử dụng các hàm sau:
