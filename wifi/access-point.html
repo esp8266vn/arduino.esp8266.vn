@@ -169,7 +169,13 @@
 <li class="toctree-l3"><a class="reference internal" href="station.html#id23">Kết nối khác</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">WiFi Access Point</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">WiFi Access Point</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#muc-luc">Mục lục</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Thiết lập mạng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quan-ly-mang">Quản lý Mạng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Cấu hình Mạng</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="smartconfig.html">Smartconfig</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="smartconfig.html#loi-ich-cua-smartconfig">Lợi ích của Smartconfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smartconfig.html#esp-touch">ESP Touch</a></li>
@@ -327,6 +333,161 @@
             
   <div class="section" id="wifi-access-point">
 <h1>WiFi Access Point<a class="headerlink" href="#wifi-access-point" title="Permalink to this headline">¶</a></h1>
+<p><strong>Access Point</strong> (AP - Điểm truy cập) cung cấp khả năng truy cập mạng WiFi cho các thiết bị khác (Station) và kết nối chúng với mạng có dây. ESP8266 có thể cung cấp chức năng tương tự nhưng nó không kết nối có dây với một mạng. Chế độ hoạt động như vậy gọi là <strong>soft-AP</strong>. Số lượng trạm tối đa kết nối với soft-AP là 5</p>
+<img alt="../_images/esp8266-soft-access-point.png" src="../_images/esp8266-soft-access-point.png" />
+<p>Phần mô tả API này gồm có 3 phần: cách thiết lập soft-AP, quản lý kết nối và lấy thông tin về cấu hình soft-AP.</p>
+<div class="section" id="muc-luc">
+<h2>Mục lục<a class="headerlink" href="#muc-luc" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="#thiet-lap-mang">Thiết lập mạng</a><ul>
+<li><a class="reference external" href="#softAP">softAP</a></li>
+<li><a class="reference external" href="#softapconfig">softAPConfig</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#quan-ly-ket-noi">Quản lý kết nối</a><ul>
+<li><a class="reference external" href="#softapdisconnect">softAPdisconnect</a></li>
+<li><a class="reference external" href="#softapgetstationnum">softAPgetStationNum</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#cau-hinh-mang">Cấu hình mạng</a><ul>
+<li><a class="reference external" href="#softapip">softAPIP</a></li>
+<li><a class="reference external" href="#softapmacaddress">softAPmacAddress</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Thiết lập mạng<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Phần này mô tả các chức năng để thiết lập và cấu hình ESP8266 ở chế độ điểm truy cập mềm (soft-AP).</p>
+<div class="section" id="id2">
+<h3>softAP<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Cách thiết lập đơn giản nhất chỉ yêu cầu một tham số và được sử dụng để thiết lập một mạng Wi-Fi mở.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.softAP</span> <span class="pre">(ssid)</span></code></p>
+<p>Để thiết lập mạng được bảo vệ bằng mật khẩu, hoặc để cấu hình các thông số mạng bổ sung, sử dụng quá tải sau đây:</p>
+<p><code class="docutils literal"><span class="pre">WiFi.softAP(ssid,</span> <span class="pre">password,</span> <span class="pre">channel,</span> <span class="pre">hidden)</span></code></p>
+<p>Tham số đầu tiên của hàm này là bắt buộc, còn lại ba tùy chọn.</p>
+<ul class="simple">
+<li>ssid - chuỗi ký tự chứa SSID mạng (tối đa 63 ký tự)</li>
+<li>password - chuỗi ký tự tùy chọn với mật khẩu. Đối với mạng WPA2-PSK, nó phải có ít nhất 8 ký tự. Nếu không được chỉ định, điểm truy cập sẽ mở ra cho bất kỳ ai kết nối.</li>
+<li>channel - Tham số tùy chọn để thiết lập kênh Wi-Fi, từ 1 đến 13. Kênh mặc định = 1.</li>
+<li>hidden - Tham số tùy chọn, thiết lập là true để ẩn SSID</li>
+</ul>
+<p>Trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code> phụ thuộc vào kết quả của việc cài đặt soft-AP.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<ul class="last simple">
+<li>Mạng được thiết lập bởi softAP sẽ có địa chỉ IP mặc định là 192.168.4.1. Địa chỉ này có thể được thay đổi bằng cách sử dụng softAPConfig</li>
+<li>Mặc dù ESP8266 có thể hoạt động đưuọc ở chế độ softAP + station, nó thực sự chỉ có một kênh phần cứng. Do đó trong chế độ softAP, ESP8266 sẽ điều chỉnh channel của nó giống như trong chế độ station. Tham khảo thêm tại <a class="reference external" href="http://bbs.espressif.com/viewtopic.php?f=10&amp;t=324">đây</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="cau-hinh-softap">
+<h3>Cấu hình softAP<a class="headerlink" href="#cau-hinh-softap" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">softAPConfig(local_ip,</span> <span class="pre">gateway,</span> <span class="pre">subnet)</span></code></p>
+<p>Tất cả các thông số đều có kiểu <code class="docutils literal"><span class="pre">IPAddress</span></code> và được định nghĩa như sau:</p>
+<ul class="simple">
+<li>local_ip - Địa chỉ IP của điểm truy cập mềm</li>
+<li>gateway - địa chỉ IP gateway</li>
+<li>subnet - mặt nạ mạng con</li>
+</ul>
+<p>Trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code> phụ thuộc vào kết quả của việc thay đổi cấu hình.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#include &lt;ESP8266WiFi.h&gt;
+
+IPAddress local_IP(192,168,4,22);
+IPAddress gateway(192,168,4,9);
+IPAddress subnet(255,255,255,0);
+
+void setup()
+{
+  Serial.begin(115200);
+  Serial.println();
+
+  Serial.print(&quot;Setting soft-AP configuration ... &quot;);
+  Serial.println(WiFi.softAPConfig(local_IP, gateway, subnet) ? &quot;Ready&quot; : &quot;Failed!&quot;);
+
+  Serial.print(&quot;Setting soft-AP ... &quot;);
+  Serial.println(WiFi.softAP(&quot;ESPsoftAP_01&quot;) ? &quot;Ready&quot; : &quot;Failed!&quot;);
+
+  Serial.print(&quot;Soft-AP IP address = &quot;);
+  Serial.println(WiFi.softAPIP());
+}
+
+void loop() {}
+</pre></div>
+</div>
+<p><em>output</em></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Setting</span> <span class="n">soft</span><span class="o">-</span><span class="n">AP</span> <span class="n">configuration</span> <span class="o">...</span> <span class="n">Ready</span>
+<span class="n">Setting</span> <span class="n">soft</span><span class="o">-</span><span class="n">AP</span> <span class="o">...</span> <span class="n">Ready</span>
+<span class="n">Soft</span><span class="o">-</span><span class="n">AP</span> <span class="n">IP</span> <span class="n">address</span> <span class="o">=</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">4.22</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="quan-ly-mang">
+<h2>Quản lý Mạng<a class="headerlink" href="#quan-ly-mang" title="Permalink to this headline">¶</a></h2>
+<p>Khi đã thiết lập softAP, bạn có thể kiểm tra các trạm đã kết nối, hoặc tắt chúng, sử dụng các hàm sau:</p>
+<p>Lấy số lượng các station kết nối đến softAP</p>
+<p><code class="docutils literal"><span class="pre">WiFi.softAPgetStationNum()</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Stations connected to soft-AP = </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">softAPgetStationNum</span><span class="p">());</span>
+</pre></div>
+</div>
+<p><em>output</em></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Stations</span> <span class="n">connected</span> <span class="n">to</span> <span class="n">soft</span><span class="o">-</span><span class="n">AP</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+<p>Lưu ý: số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.</p>
+<div class="section" id="id3">
+<h3>softAPdisconnect<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>Ngắt kết nối các trạm từ mạng được thiết lập bởi softAP.</p>
+<p>WiFi.softAPdisconnect(wifioff)</p>
+<p>Chức năng sẽ thiết lập cấu hình SSID và password của soft-AP giá trị là <code class="docutils literal"><span class="pre">null</span></code>. Tham số <code class="docutils literal"><span class="pre">wifioff</span></code> là tùy chọn. Nếu thiết lập là <code class="docutils literal"><span class="pre">true</span></code> nó sẽ tắt chế độ soft-AP.</p>
+<p>Trả về <code class="docutils literal"><span class="pre">true</span></code> nếu hoạt động đã thành công, <code class="docutils literal"><span class="pre">false</span></code> nếu không.</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>Cấu hình Mạng<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Các hàm dưới đây cung cấp địa chỉ IP và MAC của soft-AP của ESP8266.</p>
+<div class="section" id="id5">
+<h3>softAPIP<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Trả lại địa chỉ IP của mạng softAP.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.softAPIP()</span></code></p>
+<p>Trả về giá trị có kiểu là <code class="docutils literal"><span class="pre">IPAddress</span></code>.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Soft-AP IP address = &quot;</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAPIP</span><span class="p">());</span>
+</pre></div>
+</div>
+<p><em>output</em></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Soft</span><span class="o">-</span><span class="n">AP</span> <span class="n">IP</span> <span class="n">address</span> <span class="o">=</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">4.1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>softAPmacAddress<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>Trả lại địa chỉ MAC của softAP. Chức năng này có hai phiên bản khác nhau về kiểu trả về. Trả về một con trỏ hoặc một <code class="docutils literal"><span class="pre">String</span></code>.</p>
+<p>Con trỏ</p>
+<p><code class="docutils literal"><span class="pre">WiFi.softAPmacAddress(mac)</span></code></p>
+<p>Tham số mac là một con trỏ trỏ đến vị trí bộ nhớ (một mảng <code class="docutils literal"><span class="pre">uint8_t</span></code> có 6 phẩn tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">uint8_t</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
+<span class="n">WiFi</span><span class="o">.</span><span class="n">softAPmacAddress</span><span class="p">(</span><span class="n">macAddr</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;MAC address = </span><span class="si">%02x</span><span class="s2">:</span><span class="si">%02x</span><span class="s2">:</span><span class="si">%02x</span><span class="s2">:</span><span class="si">%02x</span><span class="s2">:</span><span class="si">%02x</span><span class="s2">:</span><span class="si">%02x</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p><em>output</em></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">MAC</span> <span class="n">address</span> <span class="o">=</span> <span class="mi">5</span><span class="n">e</span><span class="p">:</span><span class="n">cf</span><span class="p">:</span><span class="mi">7</span><span class="n">f</span><span class="p">:</span><span class="mi">8</span><span class="n">b</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">13</span>
+</pre></div>
+</div>
+<p>MAC như một <code class="docutils literal"><span class="pre">String</span></code></p>
+<p><code class="docutils literal"><span class="pre">WiFi.softAPmacAddress()</span></code></p>
+<p>Kiểu trả về là một <code class="docutils literal"><span class="pre">String</span></code> chứa địa chỉ MAC của softAP.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;MAC address = </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">softAPmacAddress</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+</pre></div>
+</div>
+<p><em>output</em></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">MAC</span> <span class="n">address</span> <span class="o">=</span> <span class="mi">5</span><span class="n">E</span><span class="p">:</span><span class="n">CF</span><span class="p">:</span><span class="mi">7</span><span class="n">F</span><span class="p">:</span><span class="mi">8</span><span class="n">B</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">13</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -384,7 +545,7 @@
       <script type="text/javascript" src="../_static/underscore.js"></script>
       <script type="text/javascript" src="../_static/doctools.js"></script>
       <script type="text/javascript" src="../_static/translations.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
