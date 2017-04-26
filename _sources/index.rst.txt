@@ -43,6 +43,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Đo nhịp tim <projects/heart-rate>
    Cảm biến nhiệt độ (onewire) <projects/onewire>
    Đo nhiệt độ độ ẩm và gởi lên Thingspeak <projects/dht11-thingspeak>
+   Photodiode <projects/sensor-photodiode>
 
 .. toctree::
    :caption: API
