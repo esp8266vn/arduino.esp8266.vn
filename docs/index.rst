@@ -44,7 +44,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Cảm biến nhiệt độ (onewire) <projects/onewire>
    Đo nhiệt độ độ ẩm và gởi lên Thingspeak <projects/dht11-thingspeak>
    Photodiode <projects/sensor-photodiode>
-   Cảm biến chuyển động HC-SR501 <PIR>
+   Cảm biến chuyển động HC-SR501 <projects/PIR>
 
 .. toctree::
    :caption: API
