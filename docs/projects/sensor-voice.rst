@@ -24,6 +24,8 @@ Chuẩn bị
 Đấu nối
 =======
 
+.. image:: ../_static/projects/voice-sensor.jpg
+
 Bảng đấu nối
 =============
 
@@ -36,8 +38,6 @@ Bảng đấu nối
 +----------------------------------------------+
 |           +            |       5V           |
 +----------------------------------------------+
-
-.. image:: ../_static/projects/voice-sensor.jpg
 
 Cài đặt thư viện
 ================
