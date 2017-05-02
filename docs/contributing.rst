@@ -5,7 +5,7 @@ Cài đặt công cụ cần thiết
 =========================
 * ``python``: Cài đặt python 2.7
 * Cài đặt ``pip``
-* ``pip install sphinx sphinx_rtd_theme==0.2.0 sphinxcontrib.youtube sphinxcontrib-googleanalytics``
+* ``pip install sphinx sphinx_rtd_theme==0.2.0 sphinxcontrib.youtube sphinxcontrib-googleanalytics sphinx-autobuild``
 * ``make livehtml`` rồi truy cập vào http://localhost:8000
 
 Viết bài
