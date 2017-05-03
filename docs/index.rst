@@ -46,6 +46,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Photodiode <projects/sensor-photodiode>
    Cảm biến chuyển động HC-SR501 <projects/PIR>
    Cảm biến áp suất BMP280 <projects/BMP280>
+   Led 7 đoạn 4 số <projects/4led7seg>
 
 .. toctree::
    :caption: API
