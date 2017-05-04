@@ -4,7 +4,7 @@ Cảm biến áp suất BMP280 - Hiển thị ra OLED
 Demo
 ====
 
-
+.. youtube:: https://www.youtube.com/watch?v=zIXxxq9CnjE
 
 Chuẩn bị
 ========
@@ -23,6 +23,8 @@ Chuẩn bị
 
 Đấu nối
 =======
+
+
 
 +--------------------+------------------------------+
 | **BMP280**         | **IoT Iot WiFi Uno**         |
