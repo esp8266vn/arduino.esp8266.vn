@@ -25,6 +25,7 @@ Chuẩn bị
 =======
 
 .. image:: ../_static/projects/PIR.jpg
+.. image:: ../_static/projects/PIR_connect.png
 
 +--------------------+------------------------------+
 | **HC-SR501**       | **IoT WiFi Uno**             |
