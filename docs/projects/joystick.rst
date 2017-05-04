@@ -51,7 +51,7 @@ nhằm đọc xung analog từ 2 chân VRX và VRY của Joystick.
 Đấu nối
 =======
 
-
+.. image:: ../_static/projects/joystick_connect.jpg
 
 Cài đặt thư viện
 ================
@@ -60,9 +60,6 @@ Cài đặt thư viện
 | **Thư viện**       | **Link**                                                 |
 +====================+==========================================================+
 | OLED               | https://github.com/squix78/esp8266-oled-ssd1306          |
-+--------------------+----------------------------------------------------------+
-| OLED 128x64 SH1106 | https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html |
-| hoặc SSD1306       |                                                          |
 +--------------------+----------------------------------------------------------+
 
 Lập trình
