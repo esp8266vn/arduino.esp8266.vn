@@ -24,7 +24,7 @@ Chuẩn bị
 Đấu nối
 =======
 
-
+.. image:: ../_static/projects/BMP280_connect.png
 
 +--------------------+------------------------------+
 | **BMP280**         | **IoT Iot WiFi Uno**         |
