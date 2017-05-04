@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hiển thị ký tự với module led matrix MAX7219 &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Điều khiển Vòng 8/12/16 LED RGB &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Đọc dữ liệu từ Joystick - hiển thị lên OLED" href="joystick.html"/>
-        <link rel="prev" title="Module LED 7 đoạn - 4 số" href="4led7seg.html"/> 
+        <link rel="next" title="Hướng dẫn tham gia đóng góp" href="../contributing.html"/>
+        <link rel="prev" title="Đọc dữ liệu từ Joystick - hiển thị lên OLED" href="joystick.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -283,13 +283,13 @@
 <li class="toctree-l2"><a class="reference internal" href="4led7seg.html#lap-trinh">Lập trình</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Hiển thị ký tự với module led matrix MAX7219</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l1"><a class="reference internal" href="led-matrix-max7219.html">Hiển thị ký tự với module led matrix MAX7219</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="led-matrix-max7219.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="led-matrix-max7219.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="led-matrix-max7219.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="led-matrix-max7219.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="led-matrix-max7219.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="led-matrix-max7219.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joystick.html">Đọc dữ liệu từ Joystick</a><ul>
@@ -302,13 +302,13 @@
 <li class="toctree-l2"><a class="reference internal" href="joystick.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="led-12.html">Vòng 12 LED RGB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="led-12.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-12.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-12.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-12.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-12.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-12.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vòng 12 LED RGB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 </ul>
@@ -371,13 +371,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Hiển thị ký tự với module led matrix MAX7219</li>
+      <li>Điều khiển Vòng 8/12/16 LED RGB</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/led-matrix-max7219.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/led-12.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -390,17 +390,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hien-thi-ky-tu-voi-module-led-matrix-max7219">
-<h1>Hiển thị ký tự với module led matrix MAX7219<a class="headerlink" href="#hien-thi-ky-tu-voi-module-led-matrix-max7219" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="dieu-khien-vong-8-12-16-led-rgb">
+<h1>Điều khiển Vòng 8/12/16 LED RGB<a class="headerlink" href="#dieu-khien-vong-8-12-16-led-rgb" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/nVMOkoVbVEQ?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/9hatakXh0rE?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="32%" />
-<col width="68%" />
+<col width="26%" />
+<col width="74%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Tên board mạch</strong></th>
@@ -411,15 +411,16 @@
 <tr class="row-even"><td>Board IoT Wifi Uno</td>
 <td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
 </tr>
-<tr class="row-odd"><td>Module led matrix MAX7219</td>
-<td><a class="reference external" href="https://iotmaker.vn/module-led-matrix-max7219.html">https://iotmaker.vn/module-led-matrix-max7219.html</a></td>
+<tr class="row-odd"><td>Vòng 12 LED RGB
+WS2812 5050</td>
+<td><a class="reference external" href="https://iotmaker.vn/12-led-rgb-ws2812-5050.html">https://iotmaker.vn/12-led-rgb-ws2812-5050.html</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="../_static/projects/wifi-uno-led-matrix-max7219.fzz"><img alt="../_images/wifi-uno-led-matrix-max7219_bb.jpg" src="../_images/wifi-uno-led-matrix-max7219_bb.jpg" /></a>
+<img alt="../_images/led12_connect.png" src="../_images/led12_connect.png" />
 </div>
 <div class="section" id="cai-dat-thu-vien">
 <h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
@@ -434,35 +435,98 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Thư viện LedMatrix</td>
-<td><a class="reference external" href="https://github.com/dbu/arduino-LedMatrix">https://github.com/dbu/arduino-LedMatrix</a></td>
+<tr class="row-even"><td>Thư viện Adafruit
+Neopixel</td>
+<td><a class="reference external" href="https://github.com/adafruit/Adafruit_NeoPixel">https://github.com/adafruit/Adafruit_NeoPixel</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;SPI.h&gt;</span>
-<span class="c1">#include &quot;LedMatrix.h&quot;</span>
-<span class="o">//</span> <span class="n">connect</span> <span class="n">DIN</span> <span class="n">to</span> <span class="n">GPIO13</span>
-<span class="o">//</span> <span class="n">connect</span> <span class="n">CLK</span> <span class="n">to</span> <span class="n">GPIO14</span>
-<span class="c1">#define NUMBER_OF_DEVICES 1</span>
-<span class="c1">#define CS_PIN 2            // CS ket noi voi GPIO02</span>
-<span class="n">LedMatrix</span> <span class="n">ledMatrix</span> <span class="o">=</span> <span class="n">LedMatrix</span><span class="p">(</span><span class="n">NUMBER_OF_DEVICES</span><span class="p">,</span> <span class="n">CS_PIN</span><span class="p">);</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;Adafruit_NeoPixel.h&gt;</span>
 
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-  <span class="n">ledMatrix</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-  <span class="n">ledMatrix</span><span class="o">.</span><span class="n">setIntensity</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>       <span class="o">//</span> <span class="n">dieu</span> <span class="n">chinh</span> <span class="n">muc</span> <span class="n">do</span> <span class="n">sang</span> <span class="n">cho</span> <span class="n">led</span>
-  <span class="n">ledMatrix</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;IoTmaker.vn&quot;</span><span class="p">);</span> <span class="o">//</span><span class="n">noi</span> <span class="n">dung</span> <span class="n">muon</span> <span class="n">hien</span> <span class="n">thi</span>
+<span class="c1">#define PIN 12</span>
+
+<span class="n">Adafruit_NeoPixel</span> <span class="n">strip</span> <span class="o">=</span> <span class="n">Adafruit_NeoPixel</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="n">PIN</span><span class="p">,</span> <span class="n">NEO_GRB</span> <span class="o">+</span> <span class="n">NEO_KHZ800</span><span class="p">);</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">strip</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
+  <span class="n">strip</span><span class="o">.</span><span class="n">setBrightness</span><span class="p">(</span><span class="mi">30</span><span class="p">);</span>
+  <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
 <span class="p">}</span>
 
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">ledMatrix</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-  <span class="n">ledMatrix</span><span class="o">.</span><span class="n">scrollTextLeft</span><span class="p">();</span>
-  <span class="n">ledMatrix</span><span class="o">.</span><span class="n">drawText</span><span class="p">();</span>
-  <span class="n">ledMatrix</span><span class="o">.</span><span class="n">commit</span><span class="p">();</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="o">//</span><span class="n">color</span><span class="p">(</span><span class="n">r</span><span class="p">,</span><span class="n">g</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">r</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">g</span> <span class="o">&lt;</span> <span class="o">&lt;</span><span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="n">b</span>
+  <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+  <span class="n">colorWipe</span><span class="p">(</span><span class="n">strip</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">50</span><span class="p">);</span> <span class="o">//</span> <span class="n">Red</span>
+  <span class="n">colorWipe</span><span class="p">(</span><span class="n">strip</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">50</span><span class="p">);</span> <span class="o">//</span> <span class="n">Green</span>
+  <span class="n">colorWipe</span><span class="p">(</span><span class="n">strip</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">50</span><span class="p">);</span> <span class="o">//</span> <span class="n">Blue</span>
+  <span class="n">rainbow</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+  <span class="n">rainbowCycle</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">colorWipe</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">c</span><span class="p">,</span> <span class="n">unsigned</span> <span class="nb">int</span> <span class="n">wait</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="o">//</span><span class="n">numPixels</span> <span class="o">=</span> <span class="n">numLEDs</span>
+  <span class="p">{</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">setPixelColor</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span> <span class="o">//</span><span class="nb">set</span> <span class="n">color</span> <span class="k">for</span> <span class="n">once</span> <span class="n">LED</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">wait</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">rainbow</span> <span class="n">led</span> <span class="k">for</span> <span class="nb">all</span>
+<span class="n">void</span> <span class="n">rainbow</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">wait</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nb">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">256</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">strip</span><span class="o">.</span><span class="n">setPixelColor</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Wheel</span><span class="p">((</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">255</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">wait</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span> <span class="n">rainbow</span> <span class="n">circle</span> <span class="n">led</span>
+<span class="n">void</span> <span class="n">rainbowCycle</span><span class="p">(</span><span class="n">unsigned</span> <span class="nb">int</span> <span class="n">wait</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">uint16_t</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">256</span> <span class="o">*</span> <span class="mi">5</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+  <span class="p">{</span> <span class="o">//</span> <span class="mi">5</span> <span class="n">cycles</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">colors</span> <span class="n">on</span> <span class="n">wheel</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+      <span class="n">strip</span><span class="o">.</span><span class="n">setPixelColor</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">Wheel</span><span class="p">(((</span><span class="n">i</span> <span class="o">*</span> <span class="mi">256</span> <span class="o">/</span> <span class="n">strip</span><span class="o">.</span><span class="n">numPixels</span><span class="p">())</span> <span class="o">+</span> <span class="n">j</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mi">255</span><span class="p">));</span>
+    <span class="p">}</span>
+    <span class="n">strip</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="n">wait</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="o">//</span><span class="n">change</span> <span class="n">LED</span> <span class="kn">from</span> <span class="nn">green</span> <span class="o">-&gt;</span> <span class="n">red</span> <span class="o">-&gt;</span> <span class="n">blue</span> <span class="o">-&gt;</span> <span class="n">green</span> <span class="p">(</span><span class="n">full</span> <span class="n">color</span><span class="p">)</span>
+<span class="n">uint32_t</span> <span class="n">Wheel</span><span class="p">(</span><span class="n">byte</span> <span class="n">WheelPos</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">WheelPos</span> <span class="o">&lt;</span> <span class="mi">85</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">strip</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="n">WheelPos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">WheelPos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">WheelPos</span> <span class="o">&lt;</span> <span class="mi">170</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">WheelPos</span> <span class="o">-=</span> <span class="mi">85</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">strip</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="mi">255</span> <span class="o">-</span> <span class="n">WheelPos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">WheelPos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+  <span class="p">{</span>
+    <span class="n">WheelPos</span> <span class="o">-=</span> <span class="mi">170</span><span class="p">;</span>
+    <span class="k">return</span> <span class="n">strip</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">WheelPos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">WheelPos</span> <span class="o">*</span> <span class="mi">3</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -470,7 +534,8 @@
 <div class="section" id="luu-y">
 <h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Cần nạp chương trình xong, sau đó kết nối board với module led matrix MAX7219 sau.</li>
+<li>Có thể thay thế các vòng 8/12/16 LED bằng cách thay thế số 12 bằng số 8 hoặc 16 tại:
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(12, PIN, NEO_GRB + NEO_KHZ800);</li>
 </ul>
 </div>
 </div>
@@ -485,10 +550,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="joystick.html" class="btn btn-neutral float-right" title="Đọc dữ liệu từ Joystick - hiển thị lên OLED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Hướng dẫn tham gia đóng góp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="4led7seg.html" class="btn btn-neutral" title="Module LED 7 đoạn - 4 số" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="joystick.html" class="btn btn-neutral" title="Đọc dữ liệu từ Joystick - hiển thị lên OLED" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

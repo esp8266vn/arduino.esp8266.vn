@@ -49,6 +49,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Led 7 đoạn 4 số <projects/4led7seg>
    Hiển thị ký tự với module led matrix MAX7219 <projects/led-matrix-max7219>
    Đọc dữ liệu từ Joystick <projects/joystick>
+   Vòng 12 LED RGB <projects/led-12>
    
 .. toctree::
    :caption: API
