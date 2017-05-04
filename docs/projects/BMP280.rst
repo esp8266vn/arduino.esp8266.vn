@@ -1,0 +1,122 @@
+Cảm biến áp suất BMP280 - Hiển thị ra OLED
+-----------------
+
+Demo
+====
+
+.. youtube:: https://www.youtube.com/watch?v=zIXxxq9CnjE
+
+Chuẩn bị
+========
+
++--------------------+----------------------------------------------------------+
+| **Tên board mạch** | **Link**                                                 |
++====================+==========================================================+
+| Board IoT Wifi Uno | https://iotmaker.vn/esp8266-iot-wifi-uno.html            |
++--------------------+----------------------------------------------------------+
+| OLED 128x64 SH1106 | https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html |
+| hoặc SSD1306       |                                                          |
++--------------------+----------------------------------------------------------+
+| Cảm biến áp suất   | https://iotmaker.vn/cam-bien-ap-suat-bmp280.html         |
+| BMP280             |                                                          |
++--------------------+----------------------------------------------------------+
+
+Đấu nối
+=======
+
+.. image:: ../_static/projects/BMP280_connect.png
+
++--------------------+------------------------------+
+| **BMP280**         | **IoT Iot WiFi Uno**         |
++====================+==============================+
+| VCC                | 3.3V                         |
++--------------------+------------------------------+
+| GND                | GND                          |
++--------------------+------------------------------+
+| SCL                | GPIO5                        |
++--------------------+------------------------------+
+| SDA                | GPIO4                        |
++--------------------+------------------------------+
+| CSB                | 3.3V                         |
++--------------------+------------------------------+
+| SD0                | 3.3V                         |
++--------------------+------------------------------+
+
+Cảm biến BMP280 hỗ trợ cả 2 giao tiếp I2C và SPI.
+
+Nối chân CSB với GND để giao tiếp SPI, CSB với VCC để giao tiếp I2C.
+
+Địa chỉ thiết bị 7bit:111011x, 6 bit cố định, bit cuối SD0 thay đổi tùy mục đích sử
+dụng. SD0 nối với GND thì BMP280 là Slaver, SD0 nối với VCC thì BMP280 là Master.
+
+Cần kết nối trực tiếp CSB, SD0 với VCC (Không nên dùng chân GPIO set mức HIGH) để
+đảm bảo giao thức cần sử dụng là chính xác nhất.
+
+
+Cài đặt thư viện
+================
+
++--------------------+----------------------------------------------------------+
+| **Thư viện**       | **Link**                                                 |
++====================+==========================================================+
+| OLED               | https://github.com/squix78/esp8266-oled-ssd1306          |
++--------------------+----------------------------------------------------------+
+| Thư viện Adafuit   | https://github.com/adafruit/Adafruit_BMP280_Library      |
+| BMP280             |                                                          |
++--------------------+----------------------------------------------------------+
+| Thư viện Adafruit  | https://github.com/adafruit/Adafruit_Sensor              |
+| Sensor             |                                                          |
++--------------------+----------------------------------------------------------+
+
+Lập trình
+=========
+
+.. code:: cpp
+
+
+  #include <Adafruit_Sensor.h>
+  #include <Adafruit_BMP280.h>
+  #include <Wire.h>
+  #include "SSD1306.h"
+
+  Adafruit_BMP280 bmp; // I2C
+
+  SSD1306  display(0x3c, 4, 5);
+
+  void setup() 
+  {
+    display.init();
+    display.flipScreenVertically();
+    display.setFont(ArialMT_Plain_16);
+    display.drawString(15, 20, "IotMaker.VN");
+    display.display();
+    delay(2000);
+
+    if (!bmp.begin()) {
+      display.clear();
+      display.drawString(0, 20, "Not Connect BMP");
+      display.display();
+      while (1) {
+        delay(1);
+      }
+    }
+  }
+
+  void loop() 
+  {
+    display.clear();
+    display.setFont(ArialMT_Plain_10);
+    display.drawString(0, 0, "Temperature: " + String(bmp.readTemperature()) + "*C");
+    display.drawString(0, 20, "Pressure: " + String(bmp.readPressure()) + "Pa");
+    display.drawString(0, 40, "Approx Altitude: " + String(bmp.readAltitude()) + "m");
+    display.display();
+    delay(2000);
+  }
+
+
+Lưu ý
+=====
+
+* Có thể xem hướng dẫn cài đặt thư viện tại `đây <https://www.arduino.cc/en/guide/libraries>`_
+* Có thể sử dụng OLED ``SS1306`` bằng cách thay đổi ``SSD1306  display(0x3c, 4, 5);``
+
