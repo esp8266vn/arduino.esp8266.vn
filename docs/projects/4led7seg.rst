@@ -15,7 +15,7 @@ Chuẩn bị
 | Board IoT Wifi Uno | https://iotmaker.vn/esp8266-iot-wifi-uno.html            |
 +--------------------+----------------------------------------------------------+
 | Module LED 7 đoạn  | https://iotmaker.vn/module-led-7-doan-4so.html           |
-| 4 số                           |                                                          |
+| 4 số               |                                                          |
 +--------------------+----------------------------------------------------------+
 
 Đấu nối
@@ -106,4 +106,6 @@ Lập trình
     }
     return downCurrent;
   }
+
+
 
