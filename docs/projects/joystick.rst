@@ -51,7 +51,7 @@ nhằm đọc xung analog từ 2 chân VRX và VRY của Joystick.
 Đấu nối
 =======
 
-.. image:: ../_static/projects/joystick_connect.jpg
+.. image:: ../_static/projects/joystick_connect.png
 
 Cài đặt thư viện
 ================
