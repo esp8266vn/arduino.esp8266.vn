@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Onewire &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Cảm biến áp suất BMP280 - Hiển thị ra OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Đo nhiệt độ, độ ẩm và gởi lên Thingspeak" href="dht11-thingspeak.html"/>
-        <link rel="prev" title="Đo nhịp tim và hiển thị trên OLED" href="heart-rate.html"/> 
+        <link rel="next" title="Module LED 7 đoạn - 4 số" href="4led7seg.html"/>
+        <link rel="prev" title="Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED" href="PIR.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -231,13 +231,13 @@
 <li class="toctree-l2"><a class="reference internal" href="heart-rate.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cảm biến nhiệt độ (onewire)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onewire.html">Cảm biến nhiệt độ (onewire)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dht11-thingspeak.html">Đo nhiệt độ độ ẩm và gởi lên Thingspeak</a><ul>
@@ -266,13 +266,13 @@
 <li class="toctree-l2"><a class="reference internal" href="PIR.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="BMP280.html">Cảm biến áp suất BMP280</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="BMP280.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BMP280.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BMP280.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BMP280.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BMP280.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BMP280.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cảm biến áp suất BMP280</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="4led7seg.html">Led 7 đoạn 4 số</a><ul>
@@ -362,13 +362,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Onewire</li>
+      <li>Cảm biến áp suất BMP280 - Hiển thị ra OLED</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/onewire.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/BMP280.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -381,12 +381,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="onewire">
-<h1>Onewire<a class="headerlink" href="#onewire" title="Permalink to this headline">¶</a></h1>
-<p>Đọc cảm biến nhiệt độ DS18B20 và hiển thị ra OLED</p>
+  <div class="section" id="cam-bien-ap-suat-bmp280-hien-thi-ra-oled">
+<h1>Cảm biến áp suất BMP280 - Hiển thị ra OLED<a class="headerlink" href="#cam-bien-ap-suat-bmp280-hien-thi-ra-oled" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/xwWSdrXhcqo?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/zIXxxq9CnjE?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
@@ -407,16 +406,53 @@
 hoặc SSD1306</td>
 <td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
 </tr>
-<tr class="row-even"><td>Cảm biến nhiệt độ
-DS18B20</td>
-<td><a class="reference external" href="https://iotmaker.vn/cam-bien-nhiet-do-probe-ds18b20.html">https://iotmaker.vn/cam-bien-nhiet-do-probe-ds18b20.html</a></td>
+<tr class="row-even"><td>Cảm biến áp suất
+BMP280</td>
+<td><a class="reference external" href="https://iotmaker.vn/cam-bien-ap-suat-bmp280.html">https://iotmaker.vn/cam-bien-ap-suat-bmp280.html</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="../_static/projects/iot-uno-onewirte.fzz"><img alt="../_images/iot-uno-onewirte_bb.png" src="../_images/iot-uno-onewirte_bb.png" /></a>
+<img alt="../_images/BMP280_connect.png" src="../_images/BMP280_connect.png" />
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>BMP280</strong></th>
+<th class="head"><strong>IoT Iot WiFi Uno</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>VCC</td>
+<td>3.3V</td>
+</tr>
+<tr class="row-odd"><td>GND</td>
+<td>GND</td>
+</tr>
+<tr class="row-even"><td>SCL</td>
+<td>GPIO5</td>
+</tr>
+<tr class="row-odd"><td>SDA</td>
+<td>GPIO4</td>
+</tr>
+<tr class="row-even"><td>CSB</td>
+<td>3.3V</td>
+</tr>
+<tr class="row-odd"><td>SD0</td>
+<td>3.3V</td>
+</tr>
+</tbody>
+</table>
+<p>Cảm biến BMP280 hỗ trợ cả 2 giao tiếp I2C và SPI.</p>
+<p>Nối chân CSB với GND để giao tiếp SPI, CSB với VCC để giao tiếp I2C.</p>
+<p>Địa chỉ thiết bị 7bit:111011x, 6 bit cố định, bit cuối SD0 thay đổi tùy mục đích sử
+dụng. SD0 nối với GND thì BMP280 là Slaver, SD0 nối với VCC thì BMP280 là Master.</p>
+<p>Cần kết nối trực tiếp CSB, SD0 với VCC (Không nên dùng chân GPIO set mức HIGH) để
+đảm bảo giao thức cần sử dụng là chính xác nhất.</p>
 </div>
 <div class="section" id="cai-dat-thu-vien">
 <h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
@@ -431,65 +467,60 @@ DS18B20</td>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>OneWire</td>
-<td><a class="reference external" href="https://github.com/PaulStoffregen/OneWire">https://github.com/PaulStoffregen/OneWire</a></td>
-</tr>
-<tr class="row-odd"><td>DallasTemperature</td>
-<td><a class="reference external" href="https://github.com/adafruit/MAX31850_DallasTemp">https://github.com/adafruit/MAX31850_DallasTemp</a></td>
-</tr>
 <tr class="row-even"><td>OLED</td>
 <td><a class="reference external" href="https://github.com/squix78/esp8266-oled-ssd1306">https://github.com/squix78/esp8266-oled-ssd1306</a></td>
+</tr>
+<tr class="row-odd"><td>Thư viện Adafuit
+BMP280</td>
+<td><a class="reference external" href="https://github.com/adafruit/Adafruit_BMP280_Library">https://github.com/adafruit/Adafruit_BMP280_Library</a></td>
+</tr>
+<tr class="row-even"><td>Thư viện Adafruit
+Sensor</td>
+<td><a class="reference external" href="https://github.com/adafruit/Adafruit_Sensor">https://github.com/adafruit/Adafruit_Sensor</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;SH1106.h&quot;</span>
-<span class="n">SH1106</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-<span class="c1">#include &lt;OneWire.h&gt;</span>
-<span class="c1">#include &lt;DallasTemperature.h&gt;</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#include &lt;Adafruit_Sensor.h&gt;
+#include &lt;Adafruit_BMP280.h&gt;
+#include &lt;Wire.h&gt;
+#include &quot;SSD1306.h&quot;
 
+Adafruit_BMP280 bmp; // I2C
 
-<span class="o">//</span> <span class="n">OneWire</span> <span class="n">DS18S20</span><span class="p">,</span> <span class="n">DS18B20</span><span class="p">,</span> <span class="n">DS1822</span> <span class="n">Temperature</span> <span class="n">Example</span>
+SSD1306  display(0x3c, 4, 5);
 
-<span class="n">OneWire</span>  <span class="n">ds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  <span class="o">//</span> <span class="n">on</span> <span class="n">pin</span> <span class="n">D4</span> <span class="p">(</span><span class="n">a</span> <span class="mf">4.7</span><span class="n">K</span> <span class="n">resistor</span> <span class="ow">is</span> <span class="n">necessary</span><span class="p">)</span>
-<span class="n">DallasTemperature</span> <span class="n">DS18B20</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ds</span><span class="p">);</span>
+void setup()
+{
+  display.init();
+  display.flipScreenVertically();
+  display.setFont(ArialMT_Plain_16);
+  display.drawString(15, 20, &quot;IotMaker.VN&quot;);
+  display.display();
+  delay(2000);
 
-<span class="n">char</span> <span class="n">temperatureCString</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-<span class="n">char</span> <span class="n">temperatureFString</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+  if (!bmp.begin()) {
+    display.clear();
+    display.drawString(0, 20, &quot;Not Connect BMP&quot;);
+    display.display();
+    while (1) {
+      delay(1);
+    }
+  }
+}
 
-<span class="n">void</span> <span class="n">getTemperature</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nb">float</span> <span class="n">tempC</span><span class="p">;</span>
-  <span class="nb">float</span> <span class="n">tempF</span><span class="p">;</span>
-  <span class="n">do</span> <span class="p">{</span>
-    <span class="n">DS18B20</span><span class="o">.</span><span class="n">requestTemperatures</span><span class="p">();</span>
-    <span class="n">tempC</span> <span class="o">=</span> <span class="n">DS18B20</span><span class="o">.</span><span class="n">getTempCByIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">dtostrf</span><span class="p">(</span><span class="n">tempC</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">temperatureCString</span><span class="p">);</span>
-    <span class="n">tempF</span> <span class="o">=</span> <span class="n">DS18B20</span><span class="o">.</span><span class="n">getTempFByIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">dtostrf</span><span class="p">(</span><span class="n">tempF</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">temperatureFString</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">tempC</span> <span class="o">==</span> <span class="mf">85.0</span> <span class="o">||</span> <span class="n">tempC</span> <span class="o">==</span> <span class="p">(</span><span class="o">-</span><span class="mf">127.0</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="o">//</span> <span class="n">put</span> <span class="n">your</span> <span class="n">setup</span> <span class="n">code</span> <span class="n">here</span><span class="p">,</span> <span class="n">to</span> <span class="n">run</span> <span class="n">once</span><span class="p">:</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">flipScreenVertically</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_24</span><span class="p">);</span>
-  <span class="n">DS18B20</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
-  <span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="o">//</span> <span class="n">put</span> <span class="n">your</span> <span class="n">main</span> <span class="n">code</span> <span class="n">here</span><span class="p">,</span> <span class="n">to</span> <span class="n">run</span> <span class="n">repeatedly</span><span class="p">:</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;  Reading </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">getTemperature</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">temperatureCString</span><span class="p">);</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-<span class="p">}</span>
+void loop()
+{
+  display.clear();
+  display.setFont(ArialMT_Plain_10);
+  display.drawString(0, 0, &quot;Temperature: &quot; + String(bmp.readTemperature()) + &quot;*C&quot;);
+  display.drawString(0, 20, &quot;Pressure: &quot; + String(bmp.readPressure()) + &quot;Pa&quot;);
+  display.drawString(0, 40, &quot;Approx Altitude: &quot; + String(bmp.readAltitude()) + &quot;m&quot;);
+  display.display();
+  delay(2000);
+}
 </pre></div>
 </div>
 </div>
@@ -512,10 +543,10 @@ DS18B20</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dht11-thingspeak.html" class="btn btn-neutral float-right" title="Đo nhiệt độ, độ ẩm và gởi lên Thingspeak" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="4led7seg.html" class="btn btn-neutral float-right" title="Module LED 7 đoạn - 4 số" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="heart-rate.html" class="btn btn-neutral" title="Đo nhịp tim và hiển thị trên OLED" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="PIR.html" class="btn btn-neutral" title="Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Onewire &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Module LED 7 đoạn - 4 số &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Đo nhiệt độ, độ ẩm và gởi lên Thingspeak" href="dht11-thingspeak.html"/>
-        <link rel="prev" title="Đo nhịp tim và hiển thị trên OLED" href="heart-rate.html"/> 
+        <link rel="next" title="Hiển thị ký tự với module led matrix MAX7219" href="led-matrix-max7219.html"/>
+        <link rel="prev" title="Cảm biến áp suất BMP280 - Hiển thị ra OLED" href="BMP280.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -231,13 +231,13 @@
 <li class="toctree-l2"><a class="reference internal" href="heart-rate.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cảm biến nhiệt độ (onewire)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onewire.html">Cảm biến nhiệt độ (onewire)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="onewire.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="dht11-thingspeak.html">Đo nhiệt độ độ ẩm và gởi lên Thingspeak</a><ul>
@@ -275,12 +275,12 @@
 <li class="toctree-l2"><a class="reference internal" href="BMP280.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="4led7seg.html">Led 7 đoạn 4 số</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="4led7seg.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4led7seg.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4led7seg.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4led7seg.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="4led7seg.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Led 7 đoạn 4 số</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="led-matrix-max7219.html">Hiển thị ký tự với module led matrix MAX7219</a><ul>
@@ -362,13 +362,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Onewire</li>
+      <li>Module LED 7 đoạn - 4 số</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/onewire.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/4led7seg.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -381,12 +381,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="onewire">
-<h1>Onewire<a class="headerlink" href="#onewire" title="Permalink to this headline">¶</a></h1>
-<p>Đọc cảm biến nhiệt độ DS18B20 và hiển thị ra OLED</p>
+  <div class="section" id="module-led-7-doan-4-so">
+<h1>Module LED 7 đoạn - 4 số<a class="headerlink" href="#module-led-7-doan-4-so" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/xwWSdrXhcqo?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/_-uuQLz9slU?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
@@ -403,20 +402,16 @@
 <tr class="row-even"><td>Board IoT Wifi Uno</td>
 <td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
 </tr>
-<tr class="row-odd"><td>OLED 128x64 SH1106
-hoặc SSD1306</td>
-<td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
-</tr>
-<tr class="row-even"><td>Cảm biến nhiệt độ
-DS18B20</td>
-<td><a class="reference external" href="https://iotmaker.vn/cam-bien-nhiet-do-probe-ds18b20.html">https://iotmaker.vn/cam-bien-nhiet-do-probe-ds18b20.html</a></td>
+<tr class="row-odd"><td>Module LED 7 đoạn
+4 số</td>
+<td><a class="reference external" href="https://iotmaker.vn/module-led-7-doan-4so.html">https://iotmaker.vn/module-led-7-doan-4so.html</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="../_static/projects/iot-uno-onewirte.fzz"><img alt="../_images/iot-uno-onewirte_bb.png" src="../_images/iot-uno-onewirte_bb.png" /></a>
+<img alt="../_images/LED_7SEG.png" src="../_images/LED_7SEG.png" />
 </div>
 <div class="section" id="cai-dat-thu-vien">
 <h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
@@ -431,74 +426,84 @@ DS18B20</td>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>OneWire</td>
-<td><a class="reference external" href="https://github.com/PaulStoffregen/OneWire">https://github.com/PaulStoffregen/OneWire</a></td>
-</tr>
-<tr class="row-odd"><td>DallasTemperature</td>
-<td><a class="reference external" href="https://github.com/adafruit/MAX31850_DallasTemp">https://github.com/adafruit/MAX31850_DallasTemp</a></td>
-</tr>
-<tr class="row-even"><td>OLED</td>
-<td><a class="reference external" href="https://github.com/squix78/esp8266-oled-ssd1306">https://github.com/squix78/esp8266-oled-ssd1306</a></td>
+<tr class="row-even"><td>Thư viện TM1637
+Display</td>
+<td><a class="reference external" href="https://github.com/avishorp/TM1637">https://github.com/avishorp/TM1637</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;SH1106.h&quot;</span>
-<span class="n">SH1106</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-<span class="c1">#include &lt;OneWire.h&gt;</span>
-<span class="c1">#include &lt;DallasTemperature.h&gt;</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;TM1637Display.h&gt;</span>
+
+<span class="c1">#define upButton 14</span>
+<span class="c1">#define downButton 15</span>
+
+<span class="c1">#define CLK 12</span>
+<span class="c1">#define DIO 13</span>
+
+<span class="n">TM1637Display</span> <span class="n">display</span><span class="p">(</span><span class="n">CLK</span><span class="p">,</span> <span class="n">DIO</span><span class="p">);</span>
 
 
-<span class="o">//</span> <span class="n">OneWire</span> <span class="n">DS18S20</span><span class="p">,</span> <span class="n">DS18B20</span><span class="p">,</span> <span class="n">DS1822</span> <span class="n">Temperature</span> <span class="n">Example</span>
+<span class="n">boolean</span> <span class="n">upLastButton</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+<span class="n">boolean</span> <span class="n">downLastButton</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+<span class="n">boolean</span> <span class="n">upCurrentButton</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+<span class="n">boolean</span> <span class="n">downCurrentButton</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
 
-<span class="n">OneWire</span>  <span class="n">ds</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>  <span class="o">//</span> <span class="n">on</span> <span class="n">pin</span> <span class="n">D4</span> <span class="p">(</span><span class="n">a</span> <span class="mf">4.7</span><span class="n">K</span> <span class="n">resistor</span> <span class="ow">is</span> <span class="n">necessary</span><span class="p">)</span>
-<span class="n">DallasTemperature</span> <span class="n">DS18B20</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ds</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">numCounter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-<span class="n">char</span> <span class="n">temperatureCString</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-<span class="n">char</span> <span class="n">temperatureFString</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
-
-<span class="n">void</span> <span class="n">getTemperature</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nb">float</span> <span class="n">tempC</span><span class="p">;</span>
-  <span class="nb">float</span> <span class="n">tempF</span><span class="p">;</span>
-  <span class="n">do</span> <span class="p">{</span>
-    <span class="n">DS18B20</span><span class="o">.</span><span class="n">requestTemperatures</span><span class="p">();</span>
-    <span class="n">tempC</span> <span class="o">=</span> <span class="n">DS18B20</span><span class="o">.</span><span class="n">getTempCByIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">dtostrf</span><span class="p">(</span><span class="n">tempC</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">temperatureCString</span><span class="p">);</span>
-    <span class="n">tempF</span> <span class="o">=</span> <span class="n">DS18B20</span><span class="o">.</span><span class="n">getTempFByIndex</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-    <span class="n">dtostrf</span><span class="p">(</span><span class="n">tempF</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">temperatureFString</span><span class="p">);</span>
-    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
-  <span class="p">}</span> <span class="k">while</span> <span class="p">(</span><span class="n">tempC</span> <span class="o">==</span> <span class="mf">85.0</span> <span class="o">||</span> <span class="n">tempC</span> <span class="o">==</span> <span class="p">(</span><span class="o">-</span><span class="mf">127.0</span><span class="p">));</span>
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">setBrightness</span><span class="p">(</span><span class="mh">0x0a</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">upButton</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">downButton</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="o">//</span> <span class="n">put</span> <span class="n">your</span> <span class="n">setup</span> <span class="n">code</span> <span class="n">here</span><span class="p">,</span> <span class="n">to</span> <span class="n">run</span> <span class="n">once</span><span class="p">:</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">flipScreenVertically</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_24</span><span class="p">);</span>
-  <span class="n">DS18B20</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
-  <span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">upCurrentButton</span> <span class="o">=</span> <span class="n">upDebounce</span><span class="p">(</span><span class="n">upLastButton</span><span class="p">);</span>
+  <span class="n">downCurrentButton</span> <span class="o">=</span> <span class="n">downDebounce</span><span class="p">(</span><span class="n">downLastButton</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">upLastButton</span> <span class="o">==</span> <span class="n">LOW</span> <span class="o">&amp;&amp;</span> <span class="n">upCurrentButton</span> <span class="o">==</span> <span class="n">HIGH</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">numCounter</span><span class="o">++</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">downLastButton</span> <span class="o">==</span> <span class="n">LOW</span> <span class="o">&amp;&amp;</span> <span class="n">downCurrentButton</span> <span class="o">==</span> <span class="n">HIGH</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">numCounter</span><span class="o">--</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">display</span><span class="o">.</span><span class="n">showNumberDec</span><span class="p">(</span><span class="n">numCounter</span><span class="p">);</span>
+
+  <span class="n">upLastButton</span> <span class="o">=</span> <span class="n">upCurrentButton</span><span class="p">;</span>
+  <span class="n">downLastButton</span> <span class="o">=</span> <span class="n">downCurrentButton</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
-  <span class="o">//</span> <span class="n">put</span> <span class="n">your</span> <span class="n">main</span> <span class="n">code</span> <span class="n">here</span><span class="p">,</span> <span class="n">to</span> <span class="n">run</span> <span class="n">repeatedly</span><span class="p">:</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;  Reading </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">);</span>
-  <span class="n">getTemperature</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">temperatureCString</span><span class="p">);</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+<span class="n">boolean</span> <span class="n">upDebounce</span><span class="p">(</span><span class="n">boolean</span> <span class="n">upLast</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">boolean</span> <span class="n">upCurrent</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">upButton</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">upLast</span> <span class="o">!=</span> <span class="n">upCurrent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">upCurrent</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">upButton</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">upCurrent</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="n">boolean</span> <span class="n">downDebounce</span><span class="p">(</span><span class="n">boolean</span> <span class="n">downLast</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">boolean</span> <span class="n">downCurrent</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">downButton</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">downLast</span> <span class="o">!=</span> <span class="n">downCurrent</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+    <span class="n">downCurrent</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">downButton</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="n">downCurrent</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="luu-y">
-<h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Có thể xem hướng dẫn cài đặt thư viện tại <a class="reference external" href="https://www.arduino.cc/en/guide/libraries">đây</a></li>
-<li>Có thể sử dụng OLED <code class="docutils literal"><span class="pre">SS1306</span></code> bằng cách thay đổi <code class="docutils literal"><span class="pre">SSD1306</span>&#160; <span class="pre">display(0x3c,</span> <span class="pre">4,</span> <span class="pre">5);</span></code></li>
-</ul>
 </div>
 </div>
 
@@ -512,10 +517,10 @@ DS18B20</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="dht11-thingspeak.html" class="btn btn-neutral float-right" title="Đo nhiệt độ, độ ẩm và gởi lên Thingspeak" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="led-matrix-max7219.html" class="btn btn-neutral float-right" title="Hiển thị ký tự với module led matrix MAX7219" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="heart-rate.html" class="btn btn-neutral" title="Đo nhịp tim và hiển thị trên OLED" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="BMP280.html" class="btn btn-neutral" title="Cảm biến áp suất BMP280 - Hiển thị ra OLED" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
