@@ -45,7 +45,13 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Đo nhiệt độ độ ẩm và gởi lên Thingspeak <projects/dht11-thingspeak>
    Photodiode <projects/sensor-photodiode>
    Cảm biến âm thanh <projects/sensor-voice>
-
+   Cảm biến chuyển động HC-SR501 <projects/PIR>
+   Cảm biến áp suất BMP280 <projects/BMP280>
+   Led 7 đoạn 4 số <projects/4led7seg>
+   Hiển thị ký tự với module led matrix MAX7219 <projects/led-matrix-max7219>
+   Đọc dữ liệu từ Joystick <projects/joystick>
+   Vòng 12 LED RGB <projects/led-12>
+   
 .. toctree::
    :caption: API
    :maxdepth: 1

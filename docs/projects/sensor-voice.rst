@@ -113,5 +113,5 @@ Lưu ý
 =====
 
 * Có thể xem hướng dẫn cài đặt thư viện tại `đây <https://www.arduino.cc/en/guide/libraries>`_
-* Ngoài ra Module cảm biến âm thanh còn có 1 chân tín hiệu D0(dạng digital), cường độ âm thanh chỉ hiển thị ở 2 mức.
+* Ngoài ra Module cảm biến âm thanh còn có 1 chân tín hiệu D0(dạng digital), cường độ âm thanh chỉ hiển thị 2 giá trị analog tương ứng với 2 mốc 0,1.
 
