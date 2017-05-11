@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>ESP8266 Arduino Flappy bird &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Đo cường độ âm thanh, hiển thị trên OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Đo nhịp tim và hiển thị trên OLED" href="heart-rate.html"/>
-        <link rel="prev" title="Cập nhật firmware" href="../network/ota.html"/> 
+        <link rel="next" title="Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED" href="PIR.html"/>
+        <link rel="prev" title="Sensor photodiode" href="sensor-photodiode.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -220,7 +220,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Dự án</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Game Flappy Bird</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flappy-bird.html">Game Flappy Bird</a></li>
 <li class="toctree-l1"><a class="reference internal" href="heart-rate.html">Đo nhịp tim</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="heart-rate.html#demo">Demo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="heart-rate.html#chuan-bi">Chuẩn bị</a></li>
@@ -257,15 +257,15 @@
 <li class="toctree-l2"><a class="reference internal" href="sensor-photodiode.html#lap-trinh">Lập trình</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="sensor-voice.html">Cảm biến âm thanh</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#bang-dau-noi">Bảng đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#video-cai-dat">Video Cài đặt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cảm biến âm thanh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bang-dau-noi">Bảng đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="PIR.html">Cảm biến chuyển động HC-SR501</a><ul>
@@ -382,13 +382,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>ESP8266 Arduino Flappy bird</li>
+      <li>Đo cường độ âm thanh, hiển thị trên OLED</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/flappy-bird.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/sensor-voice.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -401,9 +401,149 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="esp8266-arduino-flappy-bird">
-<h1>ESP8266 Arduino Flappy bird<a class="headerlink" href="#esp8266-arduino-flappy-bird" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference external" href="https://kipalog.com/posts/Lam-game-Flappy-Bird-tren-Arduino">https://kipalog.com/posts/Lam-game-Flappy-Bird-tren-Arduino</a></p>
+  <div class="section" id="do-cuong-do-am-thanh-hien-thi-tren-oled">
+<h1>Đo cường độ âm thanh, hiển thị trên OLED<a class="headerlink" href="#do-cuong-do-am-thanh-hien-thi-tren-oled" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="demo">
+<h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
+<iframe width="640" height="360" src="//www.youtube.com/embed/Jslzw9pstok?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<div class="section" id="chuan-bi">
+<h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Tên board mạch</strong></th>
+<th class="head"><strong>Link</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Board IoT Wifi Uno</td>
+<td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
+</tr>
+<tr class="row-odd"><td>OLED 128x64 SH1106
+hoặc SSD1306</td>
+<td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
+</tr>
+<tr class="row-even"><td>Cảm biến âm thanh</td>
+<td><a class="reference external" href="https://iotmaker.vn/cam-bien-am-thanh.html">https://iotmaker.vn/cam-bien-am-thanh.html</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="dau-noi">
+<h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/voice-sensor.jpg" src="../_images/voice-sensor.jpg" />
+</div>
+<div class="section" id="bang-dau-noi">
+<h2>Bảng đấu nối<a class="headerlink" href="#bang-dau-noi" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="56%" />
+<col width="44%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Module voice sensor</strong></th>
+<th class="head"><strong>Board esp8266</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>A0</td>
+<td>ADC</td>
+</tr>
+<tr class="row-odd"><td>G</td>
+<td>GND</td>
+</tr>
+<tr class="row-even"><td>&#8216;+&#8217;</td>
+<td>5V</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cai-dat-thu-vien">
+<h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Thư viện</strong></th>
+<th class="head"><strong>Link</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>OLED</td>
+<td><a class="reference external" href="https://github.com/squix78/esp8266-oled-ssd1306">https://github.com/squix78/esp8266-oled-ssd1306</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="video-cai-dat">
+<h2>Video Cài đặt<a class="headerlink" href="#video-cai-dat" title="Permalink to this headline">¶</a></h2>
+<iframe width="640" height="360" src="//www.youtube.com/embed/bkH-wATlyNU?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<div class="section" id="lap-trinh">
+<h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;SSD1306.h&quot;</span>
+
+<span class="n">SSD1306</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">SH1106</span> <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D5</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">Output_control_1</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>       <span class="o">//</span> <span class="nb">set</span> <span class="n">control</span> <span class="n">pin</span> <span class="ow">is</span> <span class="n">pin10</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">Output_control_2</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>       <span class="o">//</span> <span class="nb">set</span> <span class="n">control</span> <span class="n">pin</span> <span class="ow">is</span> <span class="n">pin13</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">V_level_1</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">V_level_2</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">voiceValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>         <span class="o">//</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">store</span> <span class="n">the</span> <span class="n">read</span> <span class="n">value</span>
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">Output_control_1</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">Output_control_2</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
+
+  <span class="o">//</span> <span class="n">Initialising</span> <span class="n">the</span> <span class="n">UI</span> <span class="n">will</span> <span class="n">init</span> <span class="n">the</span> <span class="n">display</span> <span class="n">too</span><span class="o">.</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
+
+  <span class="n">display</span><span class="o">.</span><span class="n">flipScreenVertically</span><span class="p">();</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_10</span><span class="p">);</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Voice sensor&quot;</span><span class="p">);</span> <span class="o">//</span><span class="n">write</span> <span class="s2">&quot;sensordiode in OLED when it&#39;s start.</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+
+<span class="p">}</span>
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="n">voiceValue</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">A0</span><span class="p">);</span>   <span class="o">//</span> <span class="n">read</span> <span class="n">the</span> <span class="nb">input</span> <span class="n">pin</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Voice val =&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">voiceValue</span><span class="p">));</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">voiceValue</span> <span class="o">&lt;</span> <span class="mi">23</span><span class="p">){</span>
+    <span class="n">V_level_1</span> <span class="o">=</span> <span class="n">HIGH</span><span class="p">;</span>
+    <span class="n">V_level_2</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">voiceValue</span> <span class="o">&gt;=</span><span class="mi">23</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">voiceValue</span> <span class="o">&lt;=</span> <span class="mi">25</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+    <span class="n">V_level_1</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
+    <span class="n">V_level_2</span> <span class="o">=</span> <span class="n">HIGH</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="p">{</span>
+    <span class="n">V_level_1</span> <span class="o">=</span> <span class="n">HIGH</span> <span class="p">;</span>
+    <span class="n">V_level_2</span> <span class="o">=</span> <span class="n">HIGH</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">Output_control_1</span><span class="p">,</span> <span class="n">V_level_1</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">Output_control_2</span><span class="p">,</span> <span class="n">V_level_2</span><span class="p">);</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="luu-y">
+<h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Có thể xem hướng dẫn cài đặt thư viện tại <a class="reference external" href="https://www.arduino.cc/en/guide/libraries">đây</a></li>
+<li>Ngoài ra Module cảm biến âm thanh còn có 1 chân tín hiệu D0(dạng digital), cường độ âm thanh chỉ hiển thị 2 giá trị analog tương ứng với 2 mốc 0,1.</li>
+</ul>
+</div>
 </div>
 
 
@@ -416,10 +556,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="heart-rate.html" class="btn btn-neutral float-right" title="Đo nhịp tim và hiển thị trên OLED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="PIR.html" class="btn btn-neutral float-right" title="Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../network/ota.html" class="btn btn-neutral" title="Cập nhật firmware" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sensor-photodiode.html" class="btn btn-neutral" title="Sensor photodiode" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
