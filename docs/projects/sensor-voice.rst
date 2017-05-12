@@ -87,7 +87,7 @@ Lập trình
 	void loop() {
 	 
 	  display.clear();
-	  voiceValue = analogRead(A0);   // read the input pin
+	  voiceValue = analogRead(A0);   //read the input pin
 	  display.drawString(0, 0, "Voice val =" + String(voiceValue));
 	  if ( voiceValue < 23){
 	    V_level_1 = HIGH;
