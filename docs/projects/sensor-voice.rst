@@ -101,12 +101,10 @@ Lập trình
 	    V_level_1 = HIGH ;
 	    V_level_2 = HIGH;    
 	  }
-	  
 	  digitalWrite(Output_control_1, V_level_1);
 	  digitalWrite(Output_control_2, V_level_2);
 	  display.display();
 	  delay(1);
-
 	}
 
 Lưu ý
