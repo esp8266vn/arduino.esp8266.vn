@@ -87,7 +87,11 @@ Lập trình
 	void loop() {
 	 
 	  display.clear();
+<<<<<<< HEAD
 	  voiceValue = analogRead(A0);   //read the input pin
+=======
+	  voiceValue = analogRead(A0);   // read the input pin
+>>>>>>> ba2253ba347c7a09b7354ee517b68a9de57ec5d5
 	  display.drawString(0, 0, "Voice val =" + String(voiceValue));
 	  if ( voiceValue < 23){
 	    V_level_1 = HIGH;
@@ -101,10 +105,18 @@ Lập trình
 	    V_level_1 = HIGH ;
 	    V_level_2 = HIGH;    
 	  }
+<<<<<<< HEAD
+=======
+	  
+>>>>>>> ba2253ba347c7a09b7354ee517b68a9de57ec5d5
 	  digitalWrite(Output_control_1, V_level_1);
 	  digitalWrite(Output_control_2, V_level_2);
 	  display.display();
 	  delay(1);
+<<<<<<< HEAD
+=======
+
+>>>>>>> ba2253ba347c7a09b7354ee517b68a9de57ec5d5
 	}
 
 Lưu ý
