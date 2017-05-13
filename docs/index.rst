@@ -52,6 +52,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Đọc dữ liệu từ Joystick <projects/joystick>
    Vòng 12 LED RGB <projects/led-12>
    Cảm biến âm thanh <projects/sensor-voice>
+   Động cơ RC servo <projects/servo-motor>
    
 .. toctree::
    :caption: API
