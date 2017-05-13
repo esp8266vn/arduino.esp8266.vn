@@ -1,5 +1,5 @@
 Module LED 7 đoạn - 4 số
------------------
+------------------------
 
 Demo
 ====
@@ -57,18 +57,18 @@ Lập trình
 
   int numCounter = 0;
 
-  void setup() 
+  void setup()
   {
     display.setBrightness(0x0a);
     pinMode(upButton, INPUT);
     pinMode(downButton, INPUT);
   }
 
-  void loop() 
+  void loop()
   {
     upCurrentButton = upDebounce(upLastButton);
     downCurrentButton = downDebounce(downLastButton);
-    
+
     if(upLastButton == LOW && upCurrentButton == HIGH)
     {
       numCounter++;
@@ -80,7 +80,7 @@ Lập trình
     }
 
     display.showNumberDec(numCounter);
-    
+
     upLastButton = upCurrentButton;
     downLastButton = downCurrentButton;
   }

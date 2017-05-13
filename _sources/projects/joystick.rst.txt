@@ -1,5 +1,5 @@
 Đọc dữ liệu từ Joystick - hiển thị lên OLED
------------------
+-------------------------------------------
 
 Demo
 ====
@@ -74,7 +74,7 @@ Lập trình
   #define S1 13
   #define S2 14
 
-  int Xsensor, Ysensor; 
+  int Xsensor, Ysensor;
 
   SSD1306  display(0x3c, 4, 5);
 
@@ -84,9 +84,9 @@ Lập trình
     display.flipScreenVertically();
     display.setFont(ArialMT_Plain_16);
     display.drawString(15, 20, "IotMaker.VN");
-    display.display(); 
+    display.display();
     delay(2000);
-    
+
     pinMode(S0, OUTPUT);
     pinMode(S1, OUTPUT);
     pinMode(S2, OUTPUT);
@@ -99,7 +99,7 @@ Lập trình
     digitalWrite(S1, LOW);
     digitalWrite(S2, LOW);
     Xsensor = analogRead(A0);
-    
+
     digitalWrite(S0, HIGH);
     digitalWrite(S1, LOW);
     digitalWrite(S2, LOW);
