@@ -52,7 +52,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Moudule led 3 màu RGB <projects/led-3mau-rgb>
    Đọc dữ liệu từ Joystick <projects/joystick>
    Vòng 12 LED RGB <projects/led-12>
-   
+   Động cơ servo <projects/servo-motor>
 .. toctree::
    :caption: API
    :maxdepth: 1
