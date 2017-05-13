@@ -49,6 +49,7 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Cảm biến áp suất BMP280 <projects/BMP280>
    Led 7 đoạn 4 số <projects/4led7seg>
    Hiển thị ký tự với module led matrix MAX7219 <projects/led-matrix-max7219>
+   Moudule led 3 màu RGB <projects/led-3mau-rgb>
    Đọc dữ liệu từ Joystick <projects/joystick>
    Vòng 12 LED RGB <projects/led-12>
    
