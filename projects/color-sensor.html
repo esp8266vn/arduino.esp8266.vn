@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Phát hiện màu sắc và hiển thị màu đọc được ra OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Cảm biến áp suất BMP280 - Hiển thị ra OLED" href="BMP280.html"/>
-        <link rel="prev" title="Đo cường độ âm thanh, hiển thị trên OLED" href="sensor-voice.html"/> 
+        <link rel="next" title="Hướng dẫn tham gia đóng góp" href="../contributing.html"/>
+        <link rel="prev" title="Điều khiển góc quay của động cơ servo, hiển thị giá trị góc quay trên OLED." href="servo-motor.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -268,13 +268,13 @@
 <li class="toctree-l2"><a class="reference internal" href="sensor-voice.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Cảm biến chuyển động HC-SR501</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PIR.html">Cảm biến chuyển động HC-SR501</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="PIR.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PIR.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PIR.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PIR.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PIR.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="PIR.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="BMP280.html">Cảm biến áp suất BMP280</a><ul>
@@ -340,14 +340,14 @@
 <li class="toctree-l2"><a class="reference internal" href="servo-motor.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="color-sensor.html">Cảm biến màu sắc</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="color-sensor.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="color-sensor.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="color-sensor.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="color-sensor.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="color-sensor.html#video-cai-dat">Video Cài đặt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="color-sensor.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="color-sensor.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cảm biến màu sắc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 </ul>
@@ -410,13 +410,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED</li>
+      <li>Phát hiện màu sắc và hiển thị màu đọc được ra OLED</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/PIR.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/color-sensor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -429,11 +429,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cam-bien-chuyen-dong-hc-sr501-hien-thi-ra-oled">
-<h1>Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED<a class="headerlink" href="#cam-bien-chuyen-dong-hc-sr501-hien-thi-ra-oled" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="phat-hien-mau-sac-va-hien-thi-mau-doc-duoc-ra-oled">
+<h1>Phát hiện màu sắc và hiển thị màu đọc được ra OLED<a class="headerlink" href="#phat-hien-mau-sac-va-hien-thi-mau-doc-duoc-ra-oled" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/rfkNhG_70Hg?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/Tzg2iAMkKYc?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
@@ -454,41 +454,16 @@
 hoặc SSD1306</td>
 <td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
 </tr>
-<tr class="row-even"><td>Cảm biến chuyển
-động HC-SR51</td>
-<td><a class="reference external" href="https://iotmaker.vn/chuyen-dong-hc-sr501.html">https://iotmaker.vn/chuyen-dong-hc-sr501.html</a></td>
+<tr class="row-even"><td>Cảm biến màu sắc
+TCS3200</td>
+<td><a class="reference external" href="https://iotmaker.vn/tcs3200-cam-bien-mau-sac.html">https://iotmaker.vn/tcs3200-cam-bien-mau-sac.html</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
-<img alt="../_images/PIR.jpg" src="../_images/PIR.jpg" />
-<img alt="../_images/PIR_connect.png" src="../_images/PIR_connect.png" />
-<table border="1" class="docutils">
-<colgroup>
-<col width="40%" />
-<col width="60%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>HC-SR501</strong></th>
-<th class="head"><strong>IoT WiFi Uno</strong></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>VCC</td>
-<td>3.3V</td>
-</tr>
-<tr class="row-odd"><td>OUTPUT</td>
-<td>GPIO2</td>
-</tr>
-<tr class="row-even"><td>GND</td>
-<td>GND</td>
-</tr>
-</tbody>
-</table>
-<p>Biến trở Delay: Điều chỉnh thời gian trể trong khoảng 0.5-200s.</p>
-<p>Biến trở Sensitivity: Điều chỉnh độ nhạy cho cảm biến.</p>
+<a class="reference external image-reference" href="../_static/projects/color-sensor.fzz"><img alt="../_images/color-sensor.png" src="../_images/color-sensor.png" /></a>
 </div>
 <div class="section" id="cai-dat-thu-vien">
 <h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
@@ -509,56 +484,217 @@ hoặc SSD1306</td>
 </tbody>
 </table>
 </div>
+<div class="section" id="video-cai-dat">
+<h2>Video Cài đặt<a class="headerlink" href="#video-cai-dat" title="Permalink to this headline">¶</a></h2>
+<iframe width="640" height="360" src="//www.youtube.com/embed/bkH-wATlyNU?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;SSD1306.h&quot;</span>
-
-<span class="nb">int</span> <span class="n">InputPin</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>   <span class="o">//</span><span class="n">using</span> <span class="n">digital</span> <span class="n">pin10</span> <span class="k">as</span> <span class="nb">input</span>
-<span class="nb">int</span> <span class="n">ledPin</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
-<span class="nb">bool</span> <span class="n">Pin_Status</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
-<span class="nb">bool</span> <span class="n">PIR_State</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span> <span class="o">//</span><span class="n">LOW</span> <span class="o">=</span> <span class="n">no</span> <span class="n">motion</span><span class="p">,</span> <span class="n">HIGH</span> <span class="o">=</span> <span class="n">motion</span>
+<span class="c1">#include &quot;Wire.h&quot;</span>
 
 <span class="n">SSD1306</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">SH1106</span> <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D5</span><span class="p">);</span>
+
+<span class="o">//</span> <span class="n">Pins</span> <span class="ow">in</span> <span class="n">definition</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">s0</span> <span class="o">=</span> <span class="n">MOSI</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">s1</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">s2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">s3</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">sensorData</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">ledRed</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">ledGreen</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="n">const</span> <span class="nb">int</span> <span class="n">ledBlue</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="o">//</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">store</span> <span class="n">value</span> <span class="n">of</span> <span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span>
+<span class="nb">int</span> <span class="n">dataR</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">dataG</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">dataB</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">dataY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
 <span class="p">{</span>
+  <span class="o">//</span> <span class="n">PINs</span> <span class="n">configuration</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">s0</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">sensorData</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">Serial</span> <span class="n">baude</span> <span class="n">rate</span> <span class="n">setup</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
+
   <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
   <span class="n">display</span><span class="o">.</span><span class="n">flipScreenVertically</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_16</span><span class="p">);</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;IotMaker.VN&quot;</span><span class="p">);</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_10</span><span class="p">);</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;color sensor&quot;</span><span class="p">);</span> <span class="o">//</span><span class="n">write</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">OLED</span> <span class="n">when</span> <span class="n">it</span><span class="s1">&#39;s start.</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;_IoTmaker.vn_&quot;</span><span class="p">);</span>
   <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-
-  <span class="n">pinMode</span><span class="p">(</span><span class="n">InputPin</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>  <span class="o">//</span><span class="nb">input</span> <span class="n">declaration</span>
-  <span class="n">pinMode</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">Frequency</span> <span class="n">scale</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s0</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
 <span class="p">{</span>
-  <span class="n">Pin_Status</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">InputPin</span><span class="p">);</span>
-  <span class="k">if</span> <span class="p">(</span><span class="n">Pin_Status</span> <span class="o">==</span> <span class="n">HIGH</span><span class="p">)</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="o">/***********************</span> <span class="n">getting</span> <span class="n">the</span> <span class="n">RED</span> <span class="n">COLOR</span> <span class="n">data</span> <span class="o">************************/</span>
+  <span class="o">//</span> <span class="n">Set</span> <span class="n">S2</span> <span class="ow">and</span> <span class="n">S3</span> <span class="n">to</span> <span class="n">LOW</span> <span class="ow">in</span> <span class="n">order</span> <span class="n">to</span> <span class="n">sense</span> <span class="n">the</span> <span class="n">RED</span> <span class="n">color</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">store</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">Global</span> <span class="n">varibale</span>
+  <span class="n">dataR</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">sensorData</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="o">//</span> <span class="n">Display</span> <span class="n">data</span> <span class="n">through</span> <span class="n">the</span> <span class="n">Serial</span> <span class="n">monitor</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Red data= &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">dataR</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="o">/***********************</span> <span class="n">getting</span> <span class="n">the</span> <span class="n">GREEN</span> <span class="n">COLOR</span> <span class="n">data</span> <span class="o">************************/</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">dataG</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">sensorData</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Green data= &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">dataG</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="o">/***********************</span> <span class="n">getting</span> <span class="n">the</span> <span class="n">BLUE</span> <span class="n">COLOR</span> <span class="n">data</span> <span class="o">************************/</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">dataB</span> <span class="o">=</span> <span class="n">pulseIn</span><span class="p">(</span><span class="n">sensorData</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Blue data= &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">dataB</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+
+  <span class="nb">bool</span> <span class="n">isRed</span><span class="p">();</span>
+  <span class="nb">bool</span> <span class="n">isGreen</span><span class="p">();</span>
+  <span class="nb">bool</span> <span class="n">isBlue</span><span class="p">();</span>
+  <span class="nb">bool</span> <span class="n">isYellow</span><span class="p">();</span>
+  <span class="nb">bool</span> <span class="n">isNoColor</span><span class="p">();</span>
+
+  <span class="k">if</span> <span class="p">(</span><span class="n">isRed</span><span class="p">())</span>
   <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">PIR_State</span> <span class="o">==</span> <span class="n">LOW</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_16</span><span class="p">);</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Motion&quot;</span><span class="p">);</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
-      <span class="n">PIR_State</span> <span class="o">=</span> <span class="n">HIGH</span><span class="p">;</span>
-    <span class="p">}</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;RED COLOR&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;_IoTmaker.vn_&quot;</span><span class="p">);</span>
+
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledRed</span><span class="p">,</span> <span class="mi">1023</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledGreen</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledBlue</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">isBlue</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;BLUE COLOR&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;_IoTmaker.vn_&quot;</span><span class="p">);</span>
+
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledRed</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledGreen</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledBlue</span><span class="p">,</span> <span class="mi">1023</span><span class="p">);</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">isGreen</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;GREEN COLOR&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;_IoTmaker.vn_&quot;</span><span class="p">);</span>
+
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledRed</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledGreen</span><span class="p">,</span> <span class="mi">1023</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledBlue</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">isYellow</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;YELLOW COLOR&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;_IoTmaker.vn_&quot;</span><span class="p">);</span>
+
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledRed</span><span class="p">,</span> <span class="mi">1023</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledGreen</span><span class="p">,</span> <span class="mi">1023</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledBlue</span><span class="p">,</span> <span class="mi">1023</span><span class="p">);</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">isNoColor</span><span class="p">())</span>
+  <span class="p">{</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;NO -COlOR&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;_IoTmaker.vn_&quot;</span><span class="p">);</span>
+
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledRed</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledGreen</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">ledBlue</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="n">delay</span><span class="p">(</span><span class="mi">300</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nb">bool</span> <span class="n">isRed</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">((</span><span class="n">dataR</span> <span class="o">&lt;=</span> <span class="mi">700</span> <span class="o">&amp;&amp;</span> <span class="n">dataR</span> <span class="o">&gt;=</span> <span class="mi">600</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataG</span> <span class="o">&lt;=</span> <span class="mi">1450</span> <span class="o">&amp;&amp;</span> <span class="n">dataG</span> <span class="o">&gt;=</span> <span class="mi">1185</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataB</span> <span class="o">&lt;=</span> <span class="mi">1080</span> <span class="o">&amp;&amp;</span> <span class="n">dataB</span> <span class="o">&gt;=</span> <span class="mi">930</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
   <span class="p">}</span>
   <span class="k">else</span>
   <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">PIR_State</span> <span class="o">==</span> <span class="n">HIGH</span><span class="p">)</span>
-    <span class="p">{</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_16</span><span class="p">);</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;Not Motion&quot;</span><span class="p">);</span>
-      <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-      <span class="n">digitalWrite</span><span class="p">(</span><span class="n">ledPin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-      <span class="n">PIR_State</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">bool</span> <span class="n">isGreen</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">((</span><span class="n">dataR</span> <span class="o">&lt;=</span> <span class="mi">1400</span> <span class="o">&amp;&amp;</span> <span class="n">dataR</span> <span class="o">&gt;=</span> <span class="mi">1240</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataG</span> <span class="o">&lt;=</span> <span class="mi">1330</span> <span class="o">&amp;&amp;</span> <span class="n">dataG</span> <span class="o">&gt;=</span> <span class="mi">1050</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataB</span> <span class="o">&lt;=</span> <span class="mi">1150</span> <span class="o">&amp;&amp;</span> <span class="n">dataB</span> <span class="o">&gt;=</span> <span class="mi">900</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">bool</span> <span class="n">isBlue</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">((</span><span class="n">dataR</span> <span class="o">&lt;=</span> <span class="mi">11</span>  <span class="mi">40</span> <span class="o">&amp;&amp;</span> <span class="n">dataR</span> <span class="o">&gt;=</span> <span class="mi">900</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataG</span> <span class="o">&lt;=</span> <span class="mi">950</span> <span class="o">&amp;&amp;</span> <span class="n">dataG</span> <span class="o">&gt;=</span> <span class="mi">750</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataB</span> <span class="o">&lt;=</span> <span class="mi">700</span> <span class="o">&amp;&amp;</span> <span class="n">dataB</span> <span class="o">&gt;=</span> <span class="mi">430</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">bool</span> <span class="n">isYellow</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">((</span><span class="n">dataR</span> <span class="o">&lt;=</span> <span class="mi">720</span> <span class="o">&amp;&amp;</span> <span class="n">dataR</span> <span class="o">&gt;=</span> <span class="mi">550</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataG</span> <span class="o">&lt;=</span> <span class="mi">1100</span> <span class="o">&amp;&amp;</span> <span class="n">dataG</span> <span class="o">&gt;=</span> <span class="mi">800</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataB</span> <span class="o">&lt;=</span> <span class="mi">1200</span>   <span class="o">&amp;&amp;</span> <span class="n">dataB</span> <span class="o">&gt;=</span> <span class="mi">1070</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nb">bool</span> <span class="n">isNoColor</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">((</span><span class="n">dataR</span> <span class="o">&gt;=</span><span class="mi">1620</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataG</span> <span class="o">&gt;=</span> <span class="mi">2150</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">dataB</span> <span class="o">&gt;=</span> <span class="mi">1700</span><span class="p">))</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">true</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span>
+  <span class="p">{</span>
+    <span class="k">return</span> <span class="n">false</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -568,7 +704,7 @@ hoặc SSD1306</td>
 <h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Có thể xem hướng dẫn cài đặt thư viện tại <a class="reference external" href="https://www.arduino.cc/en/guide/libraries">đây</a></li>
-<li>Có thể sử dụng OLED <code class="docutils literal"><span class="pre">SS1306</span></code> bằng cách thay đổi <code class="docutils literal"><span class="pre">SSD1306</span>&#160; <span class="pre">display(0x3c,</span> <span class="pre">4,</span> <span class="pre">5);</span></code></li>
+<li>Kết nối 2 chân VCC và 2 chân GND của module TCS3200 lần lượt với nguồn 5VDC và GND trên board ESP8266.</li>
 </ul>
 </div>
 </div>
@@ -583,10 +719,10 @@ hoặc SSD1306</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="BMP280.html" class="btn btn-neutral float-right" title="Cảm biến áp suất BMP280 - Hiển thị ra OLED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Hướng dẫn tham gia đóng góp" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sensor-voice.html" class="btn btn-neutral" title="Đo cường độ âm thanh, hiển thị trên OLED" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="servo-motor.html" class="btn btn-neutral" title="Điều khiển góc quay của động cơ servo, hiển thị giá trị góc quay trên OLED." accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
