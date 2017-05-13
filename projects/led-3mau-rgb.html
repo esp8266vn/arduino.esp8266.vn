@@ -19,7 +19,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Đo nhịp tim và hiển thị trên OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Moudule led 3 màu RGB &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -45,8 +45,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Onewire" href="onewire.html"/>
-        <link rel="prev" title="ESP8266 Arduino Flappy bird" href="flappy-bird.html"/> 
+        <link rel="next" title="Đọc dữ liệu từ Joystick - hiển thị lên OLED" href="joystick.html"/>
+        <link rel="prev" title="Hiển thị ký tự với module led matrix MAX7219" href="led-matrix-max7219.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -221,14 +221,14 @@
 <p class="caption"><span class="caption-text">Dự án</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="flappy-bird.html">Game Flappy Bird</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Đo nhịp tim</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#video-cai-dat">Video Cài đặt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heart-rate.html">Đo nhịp tim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="onewire.html">Cảm biến nhiệt độ (onewire)</a><ul>
@@ -303,12 +303,12 @@
 <li class="toctree-l2"><a class="reference internal" href="led-matrix-max7219.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="led-3mau-rgb.html">Moudule led 3 màu RGB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="led-3mau-rgb.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-3mau-rgb.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-3mau-rgb.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-3mau-rgb.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="led-3mau-rgb.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Moudule led 3 màu RGB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="joystick.html">Đọc dữ liệu từ Joystick</a><ul>
@@ -390,13 +390,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Đo nhịp tim và hiển thị trên OLED</li>
+      <li>Moudule led 3 màu RGB</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/heart-rate.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/led-3mau-rgb.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -409,17 +409,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="do-nhip-tim-va-hien-thi-tren-oled">
-<h1>Đo nhịp tim và hiển thị trên OLED<a class="headerlink" href="#do-nhip-tim-va-hien-thi-tren-oled" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="moudule-led-3-mau-rgb">
+<h1>Moudule led 3 màu RGB<a class="headerlink" href="#moudule-led-3-mau-rgb" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/KVyuZBbViIM?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/WG26TwyPD5A?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="26%" />
-<col width="74%" />
+<col width="32%" />
+<col width="68%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Tên board mạch</strong></th>
@@ -430,104 +430,56 @@
 <tr class="row-even"><td>Board IoT Wifi Uno</td>
 <td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
 </tr>
-<tr class="row-odd"><td>OLED 128x64 SH1106
-hoặc SSD1306</td>
-<td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
-</tr>
-<tr class="row-even"><td>Cảm biến nhịp tim
-MAX30100</td>
-<td><a class="reference external" href="https://iotmaker.vn/cam-bien-nhip-tim-max30100.html">https://iotmaker.vn/cam-bien-nhip-tim-max30100.html</a></td>
+<tr class="row-odd"><td>Moudule led 3 màu RGB</td>
+<td><a class="reference external" href="https://iotmaker.vn/module-led-3-mau-rgb.html">https://iotmaker.vn/module-led-3-mau-rgb.html</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="../_static/projects/iot-uno-heartrate.fzz"><img alt="../_images/iot-uno-heartrate_bb.png" src="../_images/iot-uno-heartrate_bb.png" /></a>
+<img alt="../_images/iot-uno-led-3mau-rgb.jpg" src="../_images/iot-uno-led-3mau-rgb.jpg" />
 </div>
-<div class="section" id="cai-dat-thu-vien">
-<h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
-<colgroup>
-<col width="26%" />
-<col width="74%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head"><strong>Thư viện</strong></th>
-<th class="head"><strong>Link</strong></th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Thư viện MAX30100</td>
-<td><a class="reference external" href="https://github.com/oxullo/Arduino-MAX30100">https://github.com/oxullo/Arduino-MAX30100</a></td>
-</tr>
-<tr class="row-odd"><td>OLED</td>
-<td><a class="reference external" href="https://github.com/squix78/esp8266-oled-ssd1306">https://github.com/squix78/esp8266-oled-ssd1306</a></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="video-cai-dat">
-<h2>Video Cài đặt<a class="headerlink" href="#video-cai-dat" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/bkH-wATlyNU?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;MAX30100_PulseOximeter.h&quot;</span>
-<span class="c1">#include &quot;SH1106.h&quot;</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">void</span> <span class="n">setColor</span><span class="p">(</span><span class="nb">int</span> <span class="n">red</span><span class="p">,</span> <span class="nb">int</span> <span class="n">green</span><span class="p">,</span> <span class="nb">int</span> <span class="n">blue</span><span class="p">);</span>
 
-<span class="c1">#define REPORTING_PERIOD_MS     1000</span>
+<span class="c1">#define PinR  14</span>
+<span class="c1">#define PinG  12</span>
+<span class="c1">#define PinB  13</span>
 
-<span class="o">//</span> <span class="n">PulseOximeter</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">higher</span> <span class="n">level</span> <span class="n">interface</span> <span class="n">to</span> <span class="n">the</span> <span class="n">sensor</span>
-<span class="o">//</span> <span class="n">it</span> <span class="n">offers</span><span class="p">:</span>
-<span class="o">//</span>  <span class="o">*</span> <span class="n">beat</span> <span class="n">detection</span> <span class="n">reporting</span>
-<span class="o">//</span>  <span class="o">*</span> <span class="n">heart</span> <span class="n">rate</span> <span class="n">calculation</span>
-<span class="o">//</span>  <span class="o">*</span> <span class="n">SpO2</span> <span class="p">(</span><span class="n">oxidation</span> <span class="n">level</span><span class="p">)</span> <span class="n">calculation</span>
-<span class="n">PulseOximeter</span> <span class="n">pox</span><span class="p">;</span>
-
-
-
-<span class="n">SH1106</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-
-<span class="n">uint32_t</span> <span class="n">tsLastReport</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="o">//</span> <span class="n">Callback</span> <span class="p">(</span><span class="n">registered</span> <span class="n">below</span><span class="p">)</span> <span class="n">fired</span> <span class="n">when</span> <span class="n">a</span> <span class="n">pulse</span> <span class="ow">is</span> <span class="n">detected</span>
-<span class="n">void</span> <span class="n">onBeatDetected</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Beat!&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<span class="n">char</span> <span class="n">R</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">B</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
 
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-
-    <span class="o">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">PulseOximeter</span> <span class="n">instance</span> <span class="ow">and</span> <span class="n">register</span> <span class="n">a</span> <span class="n">beat</span><span class="o">-</span><span class="n">detected</span> <span class="n">callback</span>
-    <span class="n">pox</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
-    <span class="n">pox</span><span class="o">.</span><span class="n">setOnBeatDetectedCallback</span><span class="p">(</span><span class="n">onBeatDetected</span><span class="p">);</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-
-    <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_16</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">PinR</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">PinG</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">PinB</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">analogWriteRange</span><span class="p">(</span><span class="mi">255</span><span class="p">);</span>
+  <span class="n">analogWriteFreq</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+  <span class="n">setColor</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
 <span class="p">}</span>
+
 
 <span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
 <span class="p">{</span>
-    <span class="o">//</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">call</span> <span class="n">update</span> <span class="k">as</span> <span class="n">fast</span> <span class="k">as</span> <span class="n">possible</span>
-    <span class="n">pox</span><span class="o">.</span><span class="n">update</span><span class="p">();</span>
 
-    <span class="o">//</span> <span class="n">Asynchronously</span> <span class="n">dump</span> <span class="n">heart</span> <span class="n">rate</span> <span class="ow">and</span> <span class="n">oxidation</span> <span class="n">levels</span> <span class="n">to</span> <span class="n">the</span> <span class="n">serial</span>
-    <span class="o">//</span> <span class="n">For</span> <span class="n">both</span><span class="p">,</span> <span class="n">a</span> <span class="n">value</span> <span class="n">of</span> <span class="mi">0</span> <span class="n">means</span> <span class="s2">&quot;invalid&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">tsLastReport</span> <span class="o">&gt;</span> <span class="n">REPORTING_PERIOD_MS</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;HR: &quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getHeartRate</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; bpm&quot;</span><span class="p">);</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;SpO2: &quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getSpO2</span><span class="p">())</span> <span class="o">+</span><span class="s2">&quot; %&quot;</span><span class="p">);</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Heart rate:&quot;</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getHeartRate</span><span class="p">());</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;bpm / SpO2:&quot;</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getSpO2</span><span class="p">());</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">);</span>
+  <span class="n">R</span> <span class="o">+=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="n">B</span> <span class="o">+=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">G</span> <span class="o">+=</span> <span class="n">rand</span><span class="p">()</span> <span class="o">*</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="n">setColor</span><span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="p">}</span>
 
-        <span class="n">tsLastReport</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
-    <span class="p">}</span>
+<span class="n">void</span> <span class="n">setColor</span><span class="p">(</span><span class="nb">int</span> <span class="n">red</span><span class="p">,</span> <span class="nb">int</span> <span class="n">green</span><span class="p">,</span> <span class="nb">int</span> <span class="n">blue</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">red</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">red</span><span class="p">;</span>
+  <span class="n">green</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">green</span><span class="p">;</span>
+  <span class="n">blue</span> <span class="o">=</span> <span class="mi">255</span> <span class="o">-</span> <span class="n">blue</span><span class="p">;</span>
+  <span class="n">analogWrite</span><span class="p">(</span><span class="n">PinR</span><span class="p">,</span> <span class="n">red</span><span class="p">);</span>
+  <span class="n">analogWrite</span><span class="p">(</span><span class="n">PinG</span><span class="p">,</span> <span class="n">green</span><span class="p">);</span>
+  <span class="n">analogWrite</span><span class="p">(</span><span class="n">PinB</span><span class="p">,</span> <span class="n">blue</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -535,8 +487,7 @@ MAX30100</td>
 <div class="section" id="luu-y">
 <h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Có thể xem hướng dẫn cài đặt thư viện tại <a class="reference external" href="https://www.arduino.cc/en/guide/libraries">đây</a></li>
-<li>Có thể sử dụng OLED <code class="docutils literal"><span class="pre">SS1306</span></code> bằng cách thay đổi <code class="docutils literal"><span class="pre">SSD1306</span>&#160; <span class="pre">display(0x3c,</span> <span class="pre">4,</span> <span class="pre">5);</span></code></li>
+<li>Để nạp chương trình được thuận lợi, nên kết nối module led sau khi đã nạp chương trình xong.</li>
 </ul>
 </div>
 </div>
@@ -551,10 +502,10 @@ MAX30100</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="onewire.html" class="btn btn-neutral float-right" title="Onewire" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="joystick.html" class="btn btn-neutral float-right" title="Đọc dữ liệu từ Joystick - hiển thị lên OLED" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="flappy-bird.html" class="btn btn-neutral" title="ESP8266 Arduino Flappy bird" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="led-matrix-max7219.html" class="btn btn-neutral" title="Hiển thị ký tự với module led matrix MAX7219" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
