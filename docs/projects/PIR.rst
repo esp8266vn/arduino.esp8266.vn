@@ -1,5 +1,5 @@
 Cảm biến chuyển động HC-SR501 - Hiển thị ra OLED
------------------
+------------------------------------------------
 
 Demo
 ====
@@ -66,7 +66,7 @@ Lập trình
 
   SSD1306  display(0x3c, 4, 5);
 
-  void setup() 
+  void setup()
   {
     display.init();
     display.flipScreenVertically();
@@ -74,17 +74,17 @@ Lập trình
     display.drawString(15, 20, "IotMaker.VN");
     display.display();
     delay(2000);
-    
+
     pinMode(InputPin, INPUT);  //input declaration
     pinMode(ledPin, OUTPUT);
     Serial.begin(115200);
   }
-  void loop() 
+  void loop()
   {
     Pin_Status = digitalRead(InputPin);
-    if (Pin_Status == HIGH) 
+    if (Pin_Status == HIGH)
     {
-      if (PIR_State == LOW) 
+      if (PIR_State == LOW)
       {
         display.clear();
         display.setFont(ArialMT_Plain_16);
@@ -93,10 +93,10 @@ Lập trình
         digitalWrite(ledPin, LOW);
         PIR_State = HIGH;
       }
-    } 
-    else 
+    }
+    else
     {
-      if (PIR_State == HIGH) 
+      if (PIR_State == HIGH)
       {
         display.clear();
         display.setFont(ArialMT_Plain_16);
