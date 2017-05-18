@@ -5,23 +5,14 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <script type="text/javascript">
-
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-60470603-9']);
-      _gaq.push(['_trackPageview']);
-
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <title>MQTT &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
+  
+  
   
   
 
@@ -89,7 +80,10 @@
           
             
             
-                <p class="caption"><span class="caption-text">Cơ bản</span></p>
+              
+            
+            
+              <p class="caption"><span class="caption-text">Cơ bản</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Cài đặt</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../basic/install.html">Cài đặt Arduino IDE</a><ul>
@@ -439,15 +433,15 @@
 <p>MQTT (Message Queuing Telemetry Transport) là một giao thức gởi dạng publish/subscribe sử dụng cho các thiết bị [Internet of Things](/tags/IoT) với băng thông thấp, độ tin cậy cao và khả năng được sử dụng trong mạng lưới không ổn định.</p>
 <p>Bởi vì giao thức này sử dụng băng thông thấp trong môi trường có độ trễ cao nên nó là một giao thức lý tưởng cho các ứng dụng M2M</p>
 <p>MQTT cũng là giao thức sử dụng trong <a class="reference external" href="https://www.facebook.com/notes/facebook-engineering/building-facebook-messenger/10150259350998920">Facebook Messager</a></p>
-<p>Và MQTT là gì? Để có một cái nhìn toàn diện hoặc định nghĩa chi tiết, chỉ cần google &#8220;what is mqtt&#8221;, &#8220;mqtt slides&#8221; ... Trong bài viết này chúng ta chỉ nói ngắn gọn thôi, đủ để hiểu giao thức MQTT, bao gồm các định nghĩa <strong>&#8220;subscribe&#8221;, &#8220;publish&#8221;, &#8220;qos&#8221;, &#8220;retain&#8221;, &#8220;last will and testament (lwt)&#8221;</strong> - Và chỉ dành cho những ai đang muốn tìm hiểu về MQTT, không thì đọc toàn chữ thôi, mỏi mắt lắm.</p>
+<p>Và MQTT là gì? Để có một cái nhìn toàn diện hoặc định nghĩa chi tiết, chỉ cần google &quot;what is mqtt&quot;, &quot;mqtt slides&quot; ... Trong bài viết này chúng ta chỉ nói ngắn gọn thôi, đủ để hiểu giao thức MQTT, bao gồm các định nghĩa <strong>&quot;subscribe&quot;, &quot;publish&quot;, &quot;qos&quot;, &quot;retain&quot;, &quot;last will and testament (lwt)&quot;</strong> - Và chỉ dành cho những ai đang muốn tìm hiểu về MQTT, không thì đọc toàn chữ thôi, mỏi mắt lắm.</p>
 </div>
 <div class="section" id="publish-subscribe">
 <h3>Publish, subscribe<a class="headerlink" href="#publish-subscribe" title="Permalink to this headline">¶</a></h3>
-<p>Trong một hệ thống sử dụng giao thức MQTT, nhiều node trạm (gọi là mqtt client - gọi tắt là client) kết nối tới một MQTT server (gọi là broker). Mỗi client sẽ đăng ký một vài kênh (topic), ví dụ như &#8220;/client1/channel1&#8221;, &#8220;/client1/channel2&#8221;. Quá trình đăng ký này gọi là <strong>&#8220;subscribe&#8221;</strong>, giống như chúng ta đăng ký nhận tin trên một kênh Youtube vậy. Mỗi client sẽ nhận được dữ liệu khi bất kỳ trạm nào khác gởi dữ liệu và kênh đã đăng ký. Khi một client gởi dữ liệu tới kênh đó, gọi là <strong>&#8220;publish&#8221;</strong>.</p>
+<p>Trong một hệ thống sử dụng giao thức MQTT, nhiều node trạm (gọi là mqtt client - gọi tắt là client) kết nối tới một MQTT server (gọi là broker). Mỗi client sẽ đăng ký một vài kênh (topic), ví dụ như &quot;/client1/channel1&quot;, &quot;/client1/channel2&quot;. Quá trình đăng ký này gọi là <strong>&quot;subscribe&quot;</strong>, giống như chúng ta đăng ký nhận tin trên một kênh Youtube vậy. Mỗi client sẽ nhận được dữ liệu khi bất kỳ trạm nào khác gởi dữ liệu và kênh đã đăng ký. Khi một client gởi dữ liệu tới kênh đó, gọi là <strong>&quot;publish&quot;</strong>.</p>
 </div>
 <div class="section" id="qos">
 <h3>QoS<a class="headerlink" href="#qos" title="Permalink to this headline">¶</a></h3>
-<p>Ở đây có 3 tuỳ chọn <strong>QoS (Qualities of service)</strong> khi &#8220;publish&#8221; và &#8220;subscribe&#8221;:</p>
+<p>Ở đây có 3 tuỳ chọn <strong>QoS (Qualities of service)</strong> khi &quot;publish&quot; và &quot;subscribe&quot;:</p>
 <ul class="simple">
 <li><strong>QoS0</strong> Broker/client sẽ gởi dữ liệu đúng 1 lần, quá trình gởi được xác nhận bởi chỉ giao thức TCP/IP, giống kiểu đem con bỏ chợ.</li>
 <li><strong>QoS1</strong> Broker/client sẽ gởi dữ liệu với ít nhất 1 lần xác nhận từ đầu kia, nghĩa là có thể có nhiều hơn 1 lần xác nhận đã nhận được dữ liệu.</li>
@@ -511,10 +505,10 @@ Lúc này, do cảm biến của tôi đã đăng ký LWT, do vậy broker sẽ 
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="websocket.html" class="btn btn-neutral float-right" title="Websocket" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="websocket.html" class="btn btn-neutral float-right" title="Websocket" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="http-server.html" class="btn btn-neutral" title="HTTP Server" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="http-server.html" class="btn btn-neutral" title="HTTP Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -546,6 +540,7 @@ Lúc này, do cảm biến của tôi đã đăng ký LWT, do vậy broker sẽ 
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
             VERSION:'1.0',
+            LANGUAGE:'vi',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -572,7 +567,18 @@ Lúc này, do cảm biến của tôi đã đăng ký LWT, do vậy broker sẽ 
           SphinxRtdTheme.StickyNav.enable();
       });
   </script>
-   
+  
+ 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-60470603-9");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
 
 </body>
 </html>
