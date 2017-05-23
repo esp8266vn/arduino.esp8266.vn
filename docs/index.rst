@@ -58,6 +58,7 @@ Giấy phép
    Vòng 12 LED RGB <projects/led-12>
    Động cơ servo <projects/servo-motor>
    Cảm biến màu sắc <projects/color-sensor>
+   Cảm biến mưa <projects/rain-sensor>
 .. toctree::
    :caption: API
    :maxdepth: 1
