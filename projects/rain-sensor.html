@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Sensor photodiode &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Đọc cảm biến mưa qua analog và hiển thị OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Đo cường độ âm thanh, hiển thị trên OLED" href="sensor-voice.html"/>
-        <link rel="prev" title="Đo nhiệt độ, độ ẩm và gởi lên Thingspeak" href="dht11-thingspeak.html"/> 
+        <link rel="next" title="Hướng dẫn tham gia đóng góp" href="../contributing.html"/>
+        <link rel="prev" title="Phát hiện màu sắc và hiển thị màu đọc được ra OLED" href="color-sensor.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -243,12 +243,12 @@
 <li class="toctree-l2"><a class="reference internal" href="dht11-thingspeak.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Photodiode</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensor-photodiode.html">Photodiode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="sensor-photodiode.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor-photodiode.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor-photodiode.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor-photodiode.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensor-photodiode.html#lap-trinh">Lập trình</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="sensor-voice.html">Cảm biến âm thanh</a><ul>
@@ -344,12 +344,12 @@
 <li class="toctree-l2"><a class="reference internal" href="color-sensor.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="rain-sensor.html">Cảm biến mưa</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rain-sensor.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rain-sensor.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rain-sensor.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rain-sensor.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rain-sensor.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Cảm biến mưa</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
 </ul>
 </li>
 </ul>
@@ -412,13 +412,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Sensor photodiode</li>
+      <li>Đọc cảm biến mưa qua analog và hiển thị OLED</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/sensor-photodiode.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/rain-sensor.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -431,17 +431,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="sensor-photodiode">
-<h1>Sensor photodiode<a class="headerlink" href="#sensor-photodiode" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="doc-cam-bien-mua-qua-analog-va-hien-thi-oled">
+<h1>Đọc cảm biến mưa qua analog và hiển thị OLED<a class="headerlink" href="#doc-cam-bien-mua-qua-analog-va-hien-thi-oled" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/pjekCHFF6cw?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe><iframe width="640" height="360" src="//www.youtube.com/embed/9zEVciTSalU?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/Xyft05a5x0g?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
-<col width="26%" />
-<col width="74%" />
+<col width="32%" />
+<col width="68%" />
 </colgroup>
 <thead valign="bottom">
 <tr class="row-odd"><th class="head"><strong>Tên board mạch</strong></th>
@@ -452,20 +452,15 @@
 <tr class="row-even"><td>Board IoT Wifi Uno</td>
 <td><a class="reference external" href="https://iotmaker.vn/esp8266-iot-wifi-uno.html">https://iotmaker.vn/esp8266-iot-wifi-uno.html</a></td>
 </tr>
-<tr class="row-odd"><td>OLED 128x64 SH1106
-hoặc SSD1306</td>
-<td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
-</tr>
-<tr class="row-even"><td>Module sensor
-photodiode</td>
-<td><a class="reference external" href="https://iotmaker.vn/cam-bien-anh-sang-photodiod.html">https://iotmaker.vn/cam-bien-anh-sang-photodiod.html</a></td>
+<tr class="row-odd"><td>Cảm biến mưa</td>
+<td><a class="reference external" href="https://iotmaker.vn/cam-bien-mua.html">https://iotmaker.vn/cam-bien-mua.html</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
-<img alt="../_images/sensor-photodiode.jpg" src="../_images/sensor-photodiode.jpg" />
+<img alt="../_images/wifi-uno-rain-sensor.jpg" src="../_images/wifi-uno-rain-sensor.jpg" />
 </div>
 <div class="section" id="cai-dat-thu-vien">
 <h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
@@ -488,41 +483,50 @@ photodiode</td>
 </div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;SSD1306.h&quot;</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;SSD1306.h&quot; // thu vien de hien thi OLED</span>
+<span class="c1">#include &lt;Wire.h&gt;</span>
 
+<span class="o">//</span> <span class="n">IoT</span> <span class="n">Wifi</span> <span class="n">Uno</span><span class="o">-----</span><span class="n">Cam</span> <span class="n">bien</span> <span class="n">mua</span>
+<span class="o">//</span>      <span class="n">ADC</span><span class="o">---------------</span><span class="n">A0</span>
+<span class="o">//</span>      <span class="mf">3.3</span><span class="n">V</span><span class="o">--------------</span><span class="n">VCC</span>
+<span class="o">//</span>      <span class="n">GND</span><span class="o">---------------</span><span class="n">GND</span>
+
+<span class="nb">int</span> <span class="n">nRainIn</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>          <span class="o">//</span> <span class="n">khai</span> <span class="n">bao</span> <span class="n">chan</span> <span class="n">ADC</span>
+<span class="nb">int</span> <span class="n">nRainVal</span><span class="p">;</span>             <span class="o">//</span> <span class="n">bien</span> <span class="n">de</span> <span class="n">doc</span> <span class="n">gia</span> <span class="n">tri</span> <span class="n">ADC</span>
 <span class="n">SSD1306</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-<span class="o">//</span> <span class="n">SH1106</span> <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D5</span><span class="p">);</span>
-<span class="nb">int</span> <span class="n">Output_control</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>       <span class="o">//</span> <span class="nb">set</span> <span class="n">control</span> <span class="n">pin</span> <span class="ow">is</span> <span class="n">pin13</span><span class="p">;</span>
-<span class="nb">int</span> <span class="n">V_level</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
-<span class="nb">int</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>         <span class="o">//</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">store</span> <span class="n">the</span> <span class="n">read</span> <span class="n">value</span>
+
+<span class="n">char</span> <span class="n">temperatureCString</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+
 <span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">pinMode</span><span class="p">(</span><span class="n">Output_control</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
-  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">();</span>
-
-  <span class="o">//</span> <span class="n">Initialising</span> <span class="n">the</span> <span class="n">UI</span> <span class="n">will</span> <span class="n">init</span> <span class="n">the</span> <span class="n">display</span> <span class="n">too</span><span class="o">.</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
   <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-
   <span class="n">display</span><span class="o">.</span><span class="n">flipScreenVertically</span><span class="p">();</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_10</span><span class="p">);</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Sensor photodiode&quot;</span><span class="p">);</span> <span class="o">//</span><span class="n">write</span> <span class="s2">&quot;sensordiode in OLED when it&#39;s start.</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-
-
+  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_24</span><span class="p">);</span> <span class="o">//</span> <span class="n">size</span> <span class="n">chu</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">INPUT_PULLUP</span><span class="p">);</span>
 <span class="p">}</span>
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">nRainVal</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">nRainIn</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2"> Moisture Level: &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">nRainVal</span><span class="p">);</span>
 
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-  <span class="n">val</span> <span class="o">=</span> <span class="n">analogRead</span><span class="p">(</span><span class="n">A0</span><span class="p">);</span>   <span class="o">//</span> <span class="n">variable</span> <span class="n">to</span> <span class="n">read</span> <span class="n">the</span> <span class="n">value</span> <span class="nb">input</span>
-  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;val=&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">val</span><span class="p">));</span>
-  <span class="k">if</span> <span class="p">(</span> <span class="n">val</span> <span class="o">&gt;=</span> <span class="mi">256</span><span class="p">)</span>
-    <span class="n">V_level</span> <span class="o">=</span> <span class="n">HIGH</span><span class="p">;</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">String</span><span class="p">(</span><span class="n">nRainVal</span><span class="p">));</span> <span class="o">//</span> <span class="n">hien</span> <span class="n">thi</span> <span class="n">gia</span> <span class="n">tri</span> <span class="n">ADC</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;IoTmaker&quot;</span><span class="p">);</span>
+
+  <span class="k">if</span><span class="p">(</span><span class="n">nRainVal</span> <span class="o">&lt;</span> <span class="mi">320</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;:STOP&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">00</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;the nay thoi&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
   <span class="k">else</span>
-    <span class="n">V_level</span> <span class="o">=</span> <span class="n">LOW</span><span class="p">;</span>
-  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">Output_control</span><span class="p">,</span> <span class="n">V_level</span><span class="p">);</span>
+  <span class="p">{</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;:Xuong&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="s2">&quot;them ti nua!&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+
   <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-  <span class="n">delay</span><span class="p">(</span><span class="mf">0.1</span><span class="p">);</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
 
 <span class="p">}</span>
 </pre></div>
@@ -540,10 +544,10 @@ photodiode</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sensor-voice.html" class="btn btn-neutral float-right" title="Đo cường độ âm thanh, hiển thị trên OLED" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Hướng dẫn tham gia đóng góp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dht11-thingspeak.html" class="btn btn-neutral" title="Đo nhiệt độ, độ ẩm và gởi lên Thingspeak" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="color-sensor.html" class="btn btn-neutral" title="Phát hiện màu sắc và hiển thị màu đọc được ra OLED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
