@@ -1,4 +1,4 @@
-Dự báo mực nước với cảm biến mưa            
+Đọc cảm biến mưa qua analog và hiển thị OLED
 --------------------------------------------
 
 Demo
@@ -14,7 +14,7 @@ Chuẩn bị
 +===========================+==========================================================+
 |    Board IoT Wifi Uno     | https://iotmaker.vn/esp8266-iot-wifi-uno.html            |
 +---------------------------+----------------------------------------------------------+
-|    Cảm biến mưa    | https://iotmaker.vn/cam-bien-mua.html                    |
+|        Cảm biến mưa       | https://iotmaker.vn/cam-bien-mua.html                    |
 +---------------------------+----------------------------------------------------------+
 
 Đấu nối
@@ -36,54 +36,49 @@ Lập trình
 
 .. code:: cpp
 
-#include "SSD1306.h" // alias for `#include "SSD1306Wire.h"`
-#include <Wire.h>  
+  #include "SSD1306.h" // thu vien de hien thi OLED
+  #include <Wire.h>  
 
-// IoT Wifi Uno-----Cam bien mua
-//      ADC---------------A0
-//      3.3V--------------VCC
-//      GND---------------GND
+  // IoT Wifi Uno-----Cam bien mua
+  //      ADC---------------A0
+  //      3.3V--------------VCC
+  //      GND---------------GND
 
-int nRainIn = 0;          // khai bao chan ADC
-int nRainVal;             // bien de doc gia tri ADC
-SSD1306  display(0x3c, 4, 5);
+  int nRainIn = 0;          // khai bao chan ADC
+  int nRainVal;             // bien de doc gia tri ADC
+  SSD1306  display(0x3c, 4, 5);
 
-char temperatureCString[10];
+  char temperatureCString[10];
 
-void setup() {
-  Serial.begin(9600);
-  display.init();
-  display.flipScreenVertically();
-  display.setFont(ArialMT_Plain_24); // size chu
-  pinMode(2, INPUT_PULLUP);
-}
-void loop() 
-{
-  nRainVal = analogRead(nRainIn); 
-  Serial.print("\t Moisture Level: ");
-  Serial.println(nRainVal);
-
-  display.clear();
-  display.drawString(0, 20, String(nRainVal)); // hien thi gia tri ADC  
-  display.drawString(10, 0, "IoTmaker");
-
-  if(nRainVal < 320)
-  {
-    display.drawString(40, 20, ":STOP");
-    display.drawString(00, 40, "the nay thoi");
+  void setup() {
+    Serial.begin(9600);
+    display.init();
+    display.flipScreenVertically();
+    display.setFont(ArialMT_Plain_24); // size chu
+    pinMode(2, INPUT_PULLUP);
   }
-  else
+  void loop() 
   {
-    display.drawString(40, 20, ":Xuong");
-    display.drawString(0, 40, "them ti nua!");
+    nRainVal = analogRead(nRainIn); 
+    Serial.print("\t Moisture Level: ");
+    Serial.println(nRainVal);
+
+    display.clear();
+    display.drawString(0, 20, String(nRainVal)); // hien thi gia tri ADC  
+    display.drawString(10, 0, "IoTmaker");
+
+    if(nRainVal < 320)
+    {
+      display.drawString(40, 20, ":STOP");
+      display.drawString(00, 40, "the nay thoi");
+    }
+    else
+    {
+      display.drawString(40, 20, ":Xuong");
+      display.drawString(0, 40, "them ti nua!");
+    }
+    
+    display.display();
+    delay(60);
+
   }
-  
-  display.display();
-  delay(60);
-
-}
-
-Lưu ý
-=====
-
-* Trong ví dụ trên sử dụng A0 của cảm biến.
