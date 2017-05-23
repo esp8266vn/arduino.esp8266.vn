@@ -14,7 +14,7 @@ Giấy phép
 *********
 
 - `CC-BY-NC-SA <https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>`_
-- Ngắn gọn: Bản quyền toàn bộ tài liệu thuộc về **IoT Maker Việt Nam**, bạn được miễn phí sử dụng cho mục đích cá nhân, học tập và không được dùng để kinh doanh. Nếu bạn muốn sửa chữa, phân phối lại, bạn bắt buộc phải giữ nguyên giấy phép và ghi công đến **IoT Maker Việt Nam**
+- Ngắn gọn: Bản quyền toàn bộ **tài liệu** thuộc về **IoT Maker Việt Nam**, bạn được miễn phí sử dụng cho mục đích cá nhân, học tập và sử dụng trong các dự án của mình. Nếu bạn muốn sửa chữa, phân phối lại, bạn bắt buộc phải giữ nguyên giấy phép và ghi công đến **IoT Maker Việt Nam**
 
 .. toctree::
    :caption: Cơ bản
