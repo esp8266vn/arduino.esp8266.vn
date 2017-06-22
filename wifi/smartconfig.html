@@ -173,6 +173,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Smartconfig</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#loi-ich-cua-smartconfig">Lợi ích của Smartconfig</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#esp-touch">ESP Touch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#esp8266-code">ESP8266 code</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="wps.html">WPS</a></li>
@@ -482,6 +483,86 @@ Ban đầu không thể kết nối với ESP8266, nhưng thông qua giao thức
 </tbody>
 </table>
 <p>Length bao gồm SSID và thông tin key cho ESP8266</p>
+</div>
+<div class="section" id="esp8266-code">
+<h2>ESP8266 code<a class="headerlink" href="#esp8266-code" title="Permalink to this headline">¶</a></h2>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#include &lt;Arduino.h&gt;
+#include &lt;ESP8266WiFi.h&gt;
+#include &lt;Ticker.h&gt;
+#include &lt;time.h&gt;
+
+
+
+#define PIN_LED 16
+#define PIN_BUTTON 0
+
+#define LED_ON() digitalWrite(PIN_LED, HIGH)
+#define LED_OFF() digitalWrite(PIN_LED, LOW)
+#define LED_TOGGLE() digitalWrite(PIN_LED, digitalRead(PIN_LED) ^ 0x01)
+
+Ticker ticker;
+
+bool longPress()
+{
+  static int lastPress = 0;
+  if (millis() - lastPress &gt; 3000 &amp;&amp; digitalRead(PIN_BUTTON) == 0) {
+    return true;
+  } else if (digitalRead(PIN_BUTTON) == 1) {
+    lastPress = millis();
+  }
+  return false;
+}
+
+void tick()
+{
+  //toggle state
+  int state = digitalRead(PIN_LED);  // get the current state of GPIO1 pin
+  digitalWrite(PIN_LED, !state);     // set pin to the opposite state
+}
+
+bool in_smartconfig = false;
+void enter_smartconfig()
+{
+  if (in_smartconfig == false) {
+    in_smartconfig = true;
+    ticker.attach(0.1, tick);
+    WiFi.beginSmartConfig();
+  }
+}
+
+void exit_smart()
+{
+  ticker.detach();
+  LED_ON();
+  in_smartconfig = false;
+}
+
+void setup() {
+  Serial.begin(115200);
+  Serial.setDebugOutput(true);
+
+  pinMode(PIN_LED, OUTPUT);
+  pinMode(PIN_BUTTON, INPUT);
+  ticker.attach(1, tick);
+  Serial.println(&quot;Setup done&quot;);
+}
+
+void loop() {
+  if (longPress()) {
+    enter_smartconfig();
+    Serial.println(&quot;Enter smartconfig&quot;);
+  }
+  if (WiFi.status() == WL_CONNECTED &amp;&amp; in_smartconfig &amp;&amp; WiFi.smartConfigDone()) {
+    exit_smart();
+    Serial.println(&quot;Connected, Exit smartconfig&quot;);
+  }
+
+  if (WiFi.status() == WL_CONNECTED) {
+
+  }
+}
+</pre></div>
+</div>
 </div>
 </div>
 
