@@ -30,6 +30,11 @@ Cấu trúc gói tin sẽ có dạng
 Length bao gồm SSID và thông tin key cho ESP8266
 
 
+Demo Video
+==========
+
+.. youtube:: https://www.youtube.com/watch?v=-RqMKvMLPi0
+
 ESP8266 code
 ============
 
