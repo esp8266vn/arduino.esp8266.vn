@@ -10,7 +10,11 @@ ESP8266 Arduino core đi kèm với thư viện kết nối WiFi hỗ trợ TCP,
 
 Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotmaker.vn>`_
 
+Giấy phép
+*********
 
+- `CC-BY-NC-SA <https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>`_
+- Ngắn gọn: Bản quyền toàn bộ **tài liệu** thuộc về **IoT Maker Việt Nam**, bạn được miễn phí sử dụng cho mục đích cá nhân, học tập và sử dụng trong các dự án của mình. Nếu bạn muốn sửa chữa, phân phối lại, bạn bắt buộc phải giữ nguyên giấy phép và ghi công đến **IoT Maker Việt Nam**
 
 .. toctree::
    :caption: Cơ bản
@@ -54,6 +58,8 @@ Dự án hỗ trợ và phát triển bởi `IoT Maker Việt Nam <https://iotma
    Vòng 12 LED RGB <projects/led-12>
    Động cơ servo <projects/servo-motor>
    Cảm biến màu sắc <projects/color-sensor>
+=======
+   Cảm biến mưa <projects/rain-sensor>
 .. toctree::
    :caption: API
    :maxdepth: 1

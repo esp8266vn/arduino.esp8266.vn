@@ -32,3 +32,4 @@ Danh sách các thành viên đã đóng góp
 * `@tackelua <https://github.com/tackelua>`_
 * `@trinhduc <https://github.com/trinhduc>`_
 * `@lamnhatquan <https://github.com/lamnhatquan>`_
+* `@tienat <https://github.com/tienat>`_

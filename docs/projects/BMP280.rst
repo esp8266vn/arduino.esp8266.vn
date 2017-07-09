@@ -1,5 +1,5 @@
 Cảm biến áp suất BMP280 - Hiển thị ra OLED
------------------
+------------------------------------------
 
 Demo
 ====
@@ -83,7 +83,7 @@ Lập trình
 
   SSD1306  display(0x3c, 4, 5);
 
-  void setup() 
+  void setup()
   {
     display.init();
     display.flipScreenVertically();
@@ -102,7 +102,7 @@ Lập trình
     }
   }
 
-  void loop() 
+  void loop()
   {
     display.clear();
     display.setFont(ArialMT_Plain_10);

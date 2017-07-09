@@ -1,5 +1,5 @@
 Hiển thị ký tự với module led matrix MAX7219
----------------------------------------------------------------
+--------------------------------------------
 
 Demo
 ====
@@ -22,14 +22,14 @@ Chuẩn bị
 
 .. image:: ../_static/projects/wifi-uno-led-matrix-max7219_bb.jpg
     :target: ../_static/projects/wifi-uno-led-matrix-max7219.fzz
- 
+
 Cài đặt thư viện
 ================
 
 +--------------------+----------------------------------------------------------+
 | **Thư viện**       | **Link**                                                 |
 +====================+==========================================================+
-| Thư viện LedMatrix | https://github.com/dbu/arduino-LedMatrix                 |
+| Thư viện LedMatrix | https://github.com/squix78/MAX7219LedMatrix              |
 +--------------------+----------------------------------------------------------+
 
 Lập trình
@@ -48,7 +48,7 @@ Lập trình
     void setup() {
       Serial.begin(115200);
       ledMatrix.init();
-      ledMatrix.setIntensity(5);       // dieu chinh muc do sang cho led 
+      ledMatrix.setIntensity(5);       // dieu chinh muc do sang cho led
       ledMatrix.setText("IoTmaker.vn"); //noi dung muon hien thi
     }
 
@@ -56,7 +56,7 @@ Lập trình
       ledMatrix.clear();
       ledMatrix.scrollTextLeft();
       ledMatrix.drawText();
-      ledMatrix.commit(); 
+      ledMatrix.commit();
       delay(100);
     }
 
