@@ -58,8 +58,8 @@ Giấy phép
    Vòng 12 LED RGB <projects/led-12>
    Động cơ servo <projects/servo-motor>
    Cảm biến màu sắc <projects/color-sensor>
-=======
    Cảm biến mưa <projects/rain-sensor>
+   Ma trận phím 4x4 <projects/keypad4x4.rst>
 .. toctree::
    :caption: API
    :maxdepth: 1

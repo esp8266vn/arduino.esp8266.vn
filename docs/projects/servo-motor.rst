@@ -101,5 +101,3 @@ Lưu ý
 =====
 
 * Có thể xem hướng dẫn cài đặt thư viện tại `đây <https://www.arduino.cc/en/guide/libraries>`_
-
-
