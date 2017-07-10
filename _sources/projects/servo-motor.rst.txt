@@ -1,5 +1,5 @@
 Điều khiển góc quay của động cơ servo, hiển thị giá trị góc quay trên OLED.
---------------------------------------------------------------------------
+---------------------------------------------------------------------------
 
 Demo
 ====
@@ -101,5 +101,3 @@ Lưu ý
 =====
 
 * Có thể xem hướng dẫn cài đặt thư viện tại `đây <https://www.arduino.cc/en/guide/libraries>`_
-
-

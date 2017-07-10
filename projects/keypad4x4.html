@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Đo nhịp tim và hiển thị trên OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  <title>Đọc giá trị phím nhấn từ bàn phím ma trận, hiển thị lên OLED &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
   
 
   
@@ -36,8 +36,8 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Onewire" href="onewire.html"/>
-        <link rel="prev" title="ESP8266 Arduino Flappy bird" href="flappy-bird.html"/> 
+        <link rel="next" title="Hướng dẫn tham gia đóng góp" href="../contributing.html"/>
+        <link rel="prev" title="Đọc cảm biến mưa qua analog và hiển thị OLED" href="rain-sensor.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -217,14 +217,14 @@
 <p class="caption"><span class="caption-text">Dự án</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="flappy-bird.html">Game Flappy Bird</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Đo nhịp tim</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#video-cai-dat">Video Cài đặt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
+<li class="toctree-l1"><a class="reference internal" href="heart-rate.html">Đo nhịp tim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heart-rate.html#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="onewire.html">Cảm biến nhiệt độ (onewire)</a><ul>
@@ -354,14 +354,14 @@
 <li class="toctree-l2"><a class="reference internal" href="rain-sensor.html#lap-trinh">Lập trình</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="keypad4x4.html">Ma trận phím 4x4</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="keypad4x4.html#demo">Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keypad4x4.html#chuan-bi">Chuẩn bị</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keypad4x4.html#dau-noi">Đấu nối</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keypad4x4.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keypad4x4.html#video-cai-dat">Video Cài đặt</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keypad4x4.html#lap-trinh">Lập trình</a></li>
-<li class="toctree-l2"><a class="reference internal" href="keypad4x4.html#luu-y">Lưu ý</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ma trận phím 4x4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#luu-y">Lưu ý</a></li>
 </ul>
 </li>
 </ul>
@@ -424,13 +424,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Đo nhịp tim và hiển thị trên OLED</li>
+      <li>Đọc giá trị phím nhấn từ bàn phím ma trận, hiển thị lên OLED</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/projects/heart-rate.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/projects/keypad4x4.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -443,11 +443,11 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="do-nhip-tim-va-hien-thi-tren-oled">
-<h1>Đo nhịp tim và hiển thị trên OLED<a class="headerlink" href="#do-nhip-tim-va-hien-thi-tren-oled" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="doc-gia-tri-phim-nhan-tu-ban-phim-ma-tran-hien-thi-len-oled">
+<h1>Đọc giá trị phím nhấn từ bàn phím ma trận, hiển thị lên OLED<a class="headerlink" href="#doc-gia-tri-phim-nhan-tu-ban-phim-ma-tran-hien-thi-len-oled" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="demo">
 <h2>Demo<a class="headerlink" href="#demo" title="Permalink to this headline">¶</a></h2>
-<iframe width="640" height="360" src="//www.youtube.com/embed/KVyuZBbViIM?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
+<iframe width="640" height="360" src="//www.youtube.com/embed/YT3tcNPJ6JA?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="chuan-bi">
 <h2>Chuẩn bị<a class="headerlink" href="#chuan-bi" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
@@ -468,16 +468,15 @@
 hoặc SSD1306</td>
 <td><a class="reference external" href="https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html">https://iotmaker.vn/ssd1306-oled-096inch-128x64-i2c.html</a></td>
 </tr>
-<tr class="row-even"><td>Cảm biến nhịp tim
-MAX30100</td>
-<td><a class="reference external" href="https://iotmaker.vn/cam-bien-nhip-tim-max30100.html">https://iotmaker.vn/cam-bien-nhip-tim-max30100.html</a></td>
+<tr class="row-even"><td>Keypad matrix 4x4</td>
+<td><a class="reference external" href="https://iotmaker.vn/ban-phim-ma-tran-4x4.html">https://iotmaker.vn/ban-phim-ma-tran-4x4.html</a></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="dau-noi">
 <h2>Đấu nối<a class="headerlink" href="#dau-noi" title="Permalink to this headline">¶</a></h2>
-<a class="reference external image-reference" href="../_static/projects/iot-uno-heartrate.fzz"><img alt="../_images/iot-uno-heartrate_bb.png" src="../_images/iot-uno-heartrate_bb.png" /></a>
+<a class="reference external image-reference" href="../_static/projects/keypad4x4.fzz"><img alt="../_images/keypad4x4.png" src="../_images/keypad4x4.png" /></a>
 </div>
 <div class="section" id="cai-dat-thu-vien">
 <h2>Cài đặt thư viện<a class="headerlink" href="#cai-dat-thu-vien" title="Permalink to this headline">¶</a></h2>
@@ -492,10 +491,7 @@ MAX30100</td>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>Thư viện MAX30100</td>
-<td><a class="reference external" href="https://github.com/oxullo/Arduino-MAX30100">https://github.com/oxullo/Arduino-MAX30100</a></td>
-</tr>
-<tr class="row-odd"><td>OLED</td>
+<tr class="row-even"><td>OLED</td>
 <td><a class="reference external" href="https://github.com/squix78/esp8266-oled-ssd1306">https://github.com/squix78/esp8266-oled-ssd1306</a></td>
 </tr>
 </tbody>
@@ -506,62 +502,147 @@ MAX30100</td>
 <iframe width="640" height="360" src="//www.youtube.com/embed/bkH-wATlyNU?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="lap-trinh">
 <h2>Lập trình<a class="headerlink" href="#lap-trinh" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;MAX30100_PulseOximeter.h&quot;</span>
-<span class="c1">#include &quot;SH1106.h&quot;</span>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &quot;SSD1306.h&quot;</span>
+<span class="c1">#include &quot;Wire.h&quot;</span>
 
-<span class="c1">#define REPORTING_PERIOD_MS     1000</span>
+<span class="o">//</span><span class="n">declare</span> <span class="n">columns</span>
+<span class="nb">int</span> <span class="n">col1</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">col2</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">col3</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">col4</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+<span class="o">////</span><span class="n">declare</span> <span class="n">rows</span>
+<span class="nb">int</span> <span class="n">row1</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">row2</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">row3</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">row4</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-<span class="o">//</span> <span class="n">PulseOximeter</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">higher</span> <span class="n">level</span> <span class="n">interface</span> <span class="n">to</span> <span class="n">the</span> <span class="n">sensor</span>
-<span class="o">//</span> <span class="n">it</span> <span class="n">offers</span><span class="p">:</span>
-<span class="o">//</span>  <span class="o">*</span> <span class="n">beat</span> <span class="n">detection</span> <span class="n">reporting</span>
-<span class="o">//</span>  <span class="o">*</span> <span class="n">heart</span> <span class="n">rate</span> <span class="n">calculation</span>
-<span class="o">//</span>  <span class="o">*</span> <span class="n">SpO2</span> <span class="p">(</span><span class="n">oxidation</span> <span class="n">level</span><span class="p">)</span> <span class="n">calculation</span>
-<span class="n">PulseOximeter</span> <span class="n">pox</span><span class="p">;</span>
+<span class="n">SSD1306</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="o">//</span> <span class="n">SH1106</span> <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="n">D3</span><span class="p">,</span> <span class="n">D5</span><span class="p">);</span>
 
+<span class="n">char</span> <span class="n">keyName</span><span class="p">[</span><span class="mi">16</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;9&#39;</span><span class="p">,</span> <span class="s1">&#39;6&#39;</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">,</span> <span class="s1">&#39;5&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span> <span class="s1">&#39;1&#39;</span>
+                   <span class="p">};</span>
+<span class="n">void</span> <span class="n">_controlCol</span><span class="p">(</span> <span class="n">char</span> <span class="n">colName</span><span class="p">,</span> <span class="nb">int</span> <span class="n">stage</span><span class="p">);</span>
+<span class="n">void</span> <span class="n">_initKeypad</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+<span class="n">char</span> <span class="n">_scanKeypad</span><span class="p">(</span><span class="n">void</span><span class="p">);</span>
+<span class="o">/*-------------------------------------------------------*/</span>
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span> <span class="p">{</span>
 
+  <span class="o">//</span><span class="n">setup</span> <span class="n">stage</span> <span class="n">of</span> <span class="n">pins</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">row1</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">row2</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">row3</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">row4</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">col2</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">col3</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">col4</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
 
-<span class="n">SH1106</span>  <span class="n">display</span><span class="p">(</span><span class="mh">0x3c</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
-
-<span class="n">uint32_t</span> <span class="n">tsLastReport</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-<span class="o">//</span> <span class="n">Callback</span> <span class="p">(</span><span class="n">registered</span> <span class="n">below</span><span class="p">)</span> <span class="n">fired</span> <span class="n">when</span> <span class="n">a</span> <span class="n">pulse</span> <span class="ow">is</span> <span class="n">detected</span>
-<span class="n">void</span> <span class="n">onBeatDetected</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Beat!&quot;</span><span class="p">);</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">flipScreenVertically</span><span class="p">();</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_16</span><span class="p">);</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;Keypad_4x4&quot;</span><span class="p">);</span> <span class="o">//</span><span class="n">write</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">OLED</span> <span class="n">when</span> <span class="n">it</span><span class="s1">&#39;s start.</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;IoTmaker&quot;</span><span class="p">);</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">57600</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;Scan keypad 4x4&quot;</span><span class="p">);</span>
+  <span class="n">_initKeypad</span><span class="p">();</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
 <span class="p">}</span>
-
-<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
-<span class="p">{</span>
-    <span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
-
-    <span class="o">//</span> <span class="n">Initialize</span> <span class="n">the</span> <span class="n">PulseOximeter</span> <span class="n">instance</span> <span class="ow">and</span> <span class="n">register</span> <span class="n">a</span> <span class="n">beat</span><span class="o">-</span><span class="n">detected</span> <span class="n">callback</span>
-    <span class="n">pox</span><span class="o">.</span><span class="n">begin</span><span class="p">();</span>
-    <span class="n">pox</span><span class="o">.</span><span class="n">setOnBeatDetectedCallback</span><span class="p">(</span><span class="n">onBeatDetected</span><span class="p">);</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">init</span><span class="p">();</span>
-
-    <span class="n">display</span><span class="o">.</span><span class="n">setFont</span><span class="p">(</span><span class="n">ArialMT_Plain_16</span><span class="p">);</span>
+<span class="o">/*-------------------------------------------------------*/</span>
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
+  <span class="nb">int</span> <span class="n">key</span><span class="p">;</span>
+  <span class="nb">int</span> <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="n">_scanKeypad</span><span class="p">();</span>
+  <span class="n">temp</span> <span class="o">=</span> <span class="n">key</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;The key being pressed:&quot;</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">keyName</span><span class="p">[</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;pressed&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">keyName</span><span class="p">[</span><span class="n">temp</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">);</span>
+    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="n">delay</span><span class="p">(</span><span class="mi">200</span><span class="p">);</span>
 <span class="p">}</span>
-
-<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="o">/*-------------------------------------------------------*/</span>
+<span class="n">void</span> <span class="n">_initKeypad</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="o">//</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">to</span> <span class="n">call</span> <span class="n">update</span> <span class="k">as</span> <span class="n">fast</span> <span class="k">as</span> <span class="n">possible</span>
-    <span class="n">pox</span><span class="o">.</span><span class="n">update</span><span class="p">();</span>
+  <span class="n">char</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="o">//</span> <span class="n">val</span> <span class="n">i</span> <span class="ow">is</span> <span class="n">column</span>
+  <span class="p">{</span>
+    <span class="n">_controlCol</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="o">//</span> <span class="nb">set</span> <span class="n">columns</span> <span class="ow">is</span> <span class="n">HIGH</span> <span class="n">level</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">/*-------------------------------------------------------*/</span>
+<span class="n">void</span> <span class="n">_controlCol</span><span class="p">(</span><span class="n">char</span> <span class="n">colName</span><span class="p">,</span> <span class="nb">int</span> <span class="n">stage</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="n">switch</span> <span class="p">(</span><span class="n">colName</span><span class="p">)</span>
+  <span class="p">{</span>
+    <span class="n">case</span> <span class="p">(</span><span class="mi">1</span><span class="p">):</span> <span class="o">//</span> <span class="n">column</span> <span class="mi">1</span><span class="p">;</span>
+      <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span> <span class="n">stage</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="n">case</span> <span class="p">(</span><span class="mi">2</span><span class="p">):</span> <span class="o">//</span> <span class="n">column</span> <span class="mi">2</span><span class="p">;</span>
+      <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">col2</span><span class="p">,</span> <span class="n">stage</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="n">case</span> <span class="p">(</span><span class="mi">3</span><span class="p">):</span> <span class="o">//</span> <span class="n">column</span> <span class="mi">3</span><span class="p">;</span>
+      <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">col3</span><span class="p">,</span> <span class="n">stage</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="n">case</span> <span class="p">(</span><span class="mi">4</span><span class="p">):</span> <span class="o">//</span> <span class="n">column</span> <span class="mi">4</span><span class="p">;</span>
+      <span class="p">{</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">col4</span><span class="p">,</span> <span class="n">stage</span><span class="p">);</span>
+        <span class="k">break</span><span class="p">;</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="o">/*-------------------------------------------------------*/</span>
+<span class="n">char</span> <span class="n">_scanKeypad</span><span class="p">(</span><span class="n">void</span><span class="p">)</span>
+<span class="p">{</span>
+  <span class="nb">int</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span class="o">//</span> <span class="n">Asynchronously</span> <span class="n">dump</span> <span class="n">heart</span> <span class="n">rate</span> <span class="ow">and</span> <span class="n">oxidation</span> <span class="n">levels</span> <span class="n">to</span> <span class="n">the</span> <span class="n">serial</span>
-    <span class="o">//</span> <span class="n">For</span> <span class="n">both</span><span class="p">,</span> <span class="n">a</span> <span class="n">value</span> <span class="n">of</span> <span class="mi">0</span> <span class="n">means</span> <span class="s2">&quot;invalid&quot;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">tsLastReport</span> <span class="o">&gt;</span> <span class="n">REPORTING_PERIOD_MS</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">clear</span><span class="p">();</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;HR: &quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getHeartRate</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot; bpm&quot;</span><span class="p">);</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">drawString</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="s2">&quot;SpO2: &quot;</span> <span class="o">+</span> <span class="n">String</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getSpO2</span><span class="p">())</span> <span class="o">+</span><span class="s2">&quot; %&quot;</span><span class="p">);</span>
-        <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">();</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Heart rate:&quot;</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getHeartRate</span><span class="p">());</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;bpm / SpO2:&quot;</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="n">pox</span><span class="o">.</span><span class="n">getSpO2</span><span class="p">());</span>
-        <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;%&quot;</span><span class="p">);</span>
+  <span class="o">//</span><span class="n">Scan</span> <span class="n">column</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
 
-        <span class="n">tsLastReport</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
-    <span class="p">}</span>
+  <span class="o">//</span><span class="n">Scan</span> <span class="n">column</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="o">//</span><span class="n">Scan</span> <span class="n">column</span> <span class="mi">3</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">11</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="o">//</span><span class="n">Scan</span> <span class="n">column</span> <span class="mi">4</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">14</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">15</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">row4</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+  <span class="n">_controlCol</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">key</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -570,7 +651,7 @@ MAX30100</td>
 <h2>Lưu ý<a class="headerlink" href="#luu-y" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Có thể xem hướng dẫn cài đặt thư viện tại <a class="reference external" href="https://www.arduino.cc/en/guide/libraries">đây</a></li>
-<li>Có thể sử dụng OLED <code class="docutils literal"><span class="pre">SS1306</span></code> bằng cách thay đổi <code class="docutils literal"><span class="pre">SSD1306</span>&#160; <span class="pre">display(0x3c,</span> <span class="pre">4,</span> <span class="pre">5);</span></code></li>
+<li>Để giảm số chân kết nối đến board esp8266, có thể dùng 1 chân ADC để đọc giá trị của các phím nhấn. Tham khảo đường dẫn !(<a class="reference external" href="https://www.youtube.com/watch?v=kVw6kPSJJfw">https://www.youtube.com/watch?v=kVw6kPSJJfw</a>)</li>
 </ul>
 </div>
 </div>
@@ -585,10 +666,10 @@ MAX30100</td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="onewire.html" class="btn btn-neutral float-right" title="Onewire" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Hướng dẫn tham gia đóng góp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="flappy-bird.html" class="btn btn-neutral" title="ESP8266 Arduino Flappy bird" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rain-sensor.html" class="btn btn-neutral" title="Đọc cảm biến mưa qua analog và hiển thị OLED" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
