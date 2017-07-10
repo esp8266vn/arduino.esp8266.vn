@@ -4,7 +4,7 @@
 Demo
 ====
 
-.. youtube:: https://www.youtube.com/watch?v=Jslzw9psto
+.. youtube:: https://www.youtube.com/watch?v=YT3tcNPJ6JA
 
 Chuẩn bị
 ========
@@ -51,7 +51,7 @@ Lập trình
 
 	//declare columns
 	int col1 = 14;
-	int col2 = 5;
+	int col2 = 9;
 	int col3 = 2;
 	int col4 = 15;
 	////declare rows
@@ -87,8 +87,8 @@ Lập trình
 	  display.init();
 	  display.flipScreenVertically();
 	  display.setFont(ArialMT_Plain_16);
-	  display.drawString(35, 15, "Keypad_4x4"); //write text in OLED when it's start.
-	  display.drawString(35, 35, "IoTmaker");
+	  display.drawString(25, 15, "Keypad_4x4"); //write text in OLED when it's start.
+	  display.drawString(25, 35, "IoTmaker");
 	  display.display();
 	  Serial.begin(57600);
 	  Serial.println("Scan keypad 4x4");
@@ -107,9 +107,9 @@ Lập trình
 	    Serial.print("The key being pressed:");
 	    Serial.println(keyName[temp - 1]);
 	    display.drawString(35, 15, "pressed");
-	    display.drawString(35, 35, keyName[temp - 1);
-	                       display.display();
-	                       delay(100);
+	    display.drawString(35, 35, "'" + String(keyName[temp - 1]) + "'");
+	    display.display();
+	    delay(100);
 	  }
 	  delay(200);
 	}
@@ -193,4 +193,4 @@ Lưu ý
 =====
 
 * Có thể xem hướng dẫn cài đặt thư viện tại `đây <https://www.arduino.cc/en/guide/libraries>`_
-* Để giảm số chân kết nối đến board esp8266, có thể dùng phương pháp 1 chân ADC để đọc giá trị của các phím nhấn. Tham khảo đường dẫn !(https://www.youtube.com/watch?v=kVw6kPSJJfw)
+* Để giảm số chân kết nối đến board esp8266, có thể dùng 1 chân ADC để đọc giá trị của các phím nhấn. Tham khảo đường dẫn !(https://www.youtube.com/watch?v=kVw6kPSJJfw)
