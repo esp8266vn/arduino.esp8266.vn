@@ -79,7 +79,7 @@ Các hàm sau đây được cung cấp bởi thư viện `ArduinoOTA`_ và đư
 	 void onError(OTA_CALLBACK_ERROR (fn));
 
 Yêu cầu căn bản
-~~~~~~~
+~~~~~~~~~~~~~~~
 Bộ nhớ Flash phải có đủ dung lượng để lưu cả sketch cũ (đang vận hành trên hệ thống) và sketch mới (cập nhật OTA).
 
 Hệ thống File và EEPROM cũng cần dung lượng để lưu trữ. Xem `flash layout`_ .
@@ -110,7 +110,7 @@ Yêu cầu
     ESP và máy tính phải được kết nối cùng một mạng.
 
 Ví dụ ứng dụng
-~~~~~~~
+~~~~~~~~~~~~~~
 
 Các hướng dẫn sau trình bày cách cấu hình OTA trên board NodeMCU 1.0 (ESP-12E Module). Ta có thể dùng các board khác nếu chúng thỏa các yêu cầu trình bảy ở trên. Hướng dẫn này thích hợp với các hệ điều hành hỗ trợ Arduino IDE. 
 Các hình ảnh hướng dẫn thực hiện trên Win7 và bạn có thể gặp một số khác biệt nhỏ (như tên của các cổng nối tiếp), nếu dùng Linux hoặc MacOS if you are using Linux and MacOS.
@@ -176,7 +176,7 @@ Các hình ảnh hướng dẫn thực hiện trên Win7 và bạn có thể g�
 
 
 Bảo mật Password
-~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Bảo vệ quá trình upload OTA với password là một quá trình khá đơn gỉản. Những việc bạn cần làm là dán đoạn code sau vào đoạn code của bạn:
 
@@ -264,7 +264,7 @@ Yêu cầu
 Module ESP và máy tính phải được kết nối cùng một mạng.
     
 Tổng quan
-~~~~~~~
+~~~~~~~~~~
 
 Cập nhật với web browser được thực hiện bằng lớp ``ESP8266HTTPUpdateServer`` cùng với 2 lớp: ``ESP8266WebServer`` và ``ESP8266mDNS`` 
 
@@ -287,7 +287,7 @@ Code:
 
 
 Ưng dụng ví dụ:
-~~~~~~~
+~~~~~~~~~~~~~~~
 
 Để thực hiện ví dụ, bạn cần:
 
@@ -316,6 +316,7 @@ Bạn cũng có thể dùng module khác nếu nó thõa yêu cầu trên
              .. image:: ../_static/webbrowser0.png
 
        Chú ý: Việc chọn cài đặt compilation này cũng được yêu cầu tương tự ở 5 bước sau. Bạn có thể không chọn "compilation" ở các bước sau. 
+
 3. Upload sketch (Ctrl+U). Khi thực hiện xong, mở Serial Monitor (Ctrl+Shift+M) và kiểm tra nếu bạn thấy các tin nhắn như hình sau, bao gồm cả URL cho cập nhật OTA 
 
              .. image:: ../_static/webbrowser01.png
@@ -332,7 +333,7 @@ Bạn cũng có thể dùng module khác nếu nó thõa yêu cầu trên
 
                  .. image:: ../_static/webbrowser04.png
 
-Bây giờ chọn "Choose File" trong web browser, đến nơi lưu file làm việc như đã trình bày ở bước 5, tìm file "WebUpdater.cpp.bin" và upload lên. Nếu upload thành công, ta sẽ có kết quả như hình dưới
+Bây giờ chọn "Choose File" trong web browser, đến nơi lưu file làm việc như đã trình bày ở bước 5, tìm file "WebUpdater.cpp.bin" và upload lên. Nếu upload thành công, ta sẽ có kết quả như hình dưới.
 
                  .. image:: ../_static/webbrowser05.png
 
@@ -341,9 +342,9 @@ Bây giờ chọn "Choose File" trong web browser, đến nơi lưu file làm vi
     
                  .. image:: ../_static/webbrowser06.png
 
-Sau khi reboot, ta sẽ nhận được tin nhắn: ``HTTPUpdateServer ready! Open http:// esp8266-webupdate.local /update in your browser `` như ở bước 3, bởi vì module được load lại bằng code cũ (dùng serial port), sau đó dùng OTA.
+Sau khi reboot, ta sẽ nhận được tin nhắn ``HTTPUpdateServer ready! Open http:// esp8266-webupdate.local /update in your browser`` như ở bước 3, bởi vì module được load lại bằng code cũ (dùng serial port), sau đó dùng OTA.
      
-     Sau khi bạn đã quen với các bước thưc hiện này, ta có thể điều chỉnh WebUpdater.ino sketch và xuất ra các tin nhắn theo ý muốn, sau đó biên dịch chương trình, sau đó upload file biên dịch dùng Web browser. Kết quả sẽ hiển thị trên Serial Monitor
+     Sau khi bạn đã quen với các bước thưc hiện này, ta có thể điều chỉnh WebUpdater.ino sketch và xuất ra các tin nhắn theo ý muốn, sau đó biên dịch chương trình, sau đó upload file biên dịch dùng Web browser. Kết quả sẽ hiển thị trên Serial Monitor.
 
 Ta cũng có thể lên kế hoạch update OTA trong sketch, như hướng dẫn Tổng quan ở trên. Nếu thưc hiện đúng, ta có thể dùng web browser upload sketch mới như là bản cập nhật mới, bên cạnh sketch cũ đã update.
 
@@ -362,17 +363,17 @@ Yêu cầu
     
 
 Arduino code
-~~~~~~~
+~~~~~~~~~~~~
 
 Simple updater
-~~~~~~~~~~
+~~~~~~~~~~~~~~
 
 Simple updater sẽ download file mỗi khi hàm được gọi.
 
 ``ESPhttpUpdate.update("192.168.0.2", 80, "/arduino.bin");``
 
 Advanced updater
-~~~~~~~~~~
+~~~~~~~~~~~~~~~~
 Ta cũng có thể gọi hàm update bằng một đoạn script trên server. Nếu ta có đối số của version, nó sẽ được gởi lên server. Phía server sẽ dùng nó để kiểm tra xem đã đủ điều kiện thực hiện update được chưa.
 
 Script trên server có các kết quả trả về như:
@@ -397,15 +398,15 @@ Script trên server có các kết quả trả về như:
        }
 
 Server request handling
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
 
 Simple updater
-~~~~~~~
+~~~~~~~~~~~~~~
 
 Với simple updater, server chỉ cần file nhị phân để update.
 
 Advanced updater
-~~~~~~~
+~~~~~~~~~~~~~~~~
 
 Với advanced update thì script phải chạy trên server, ví dụ như một PHP script. Mỗi lần yêu cầu update, ESP sẽ gởi thông tin lên qua giao thức HTTP bằng các HTTP header tới server. 
 
@@ -497,17 +498,17 @@ Script ví dụ (Với địa chỉ MAC):
      header($_SERVER["SERVER_PROTOCOL"].' 500 no version for ESP MAC', true, 500);
 
 Stream Interface
-~~~~~~~
+~~~~~~~~~~~~~~~~
 
 The Stream Interface dựa trên các mode update khác đã trình bày ở trên như OTA, HTTP server/client. 
 
 Updater class
-~~~~~~~
+~~~~~~~~~~~~~
 
 Updater nằm trong Core và dùng để xử lí việc viết firmware lên flash, kiểm tra tính thống nhất của nó và thông báo bootloader để load firmware trên boot kế tiếp. 
 
 Update process - memory view
-~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 *    Sketch mới sẽ được chứa trong dung lượng trống gĩưa sketch cũ và spiff will be stored in the space between the old sketch and the spiff.
 *    Trong lần reboot tiếp theo thì “eboot” bootloader kiểm tra các câu lệnh.
