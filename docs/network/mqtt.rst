@@ -16,11 +16,11 @@ MQTT cũng là giao thức sử dụng trong `Facebook Messager`_
 
 Và MQTT là gì? Để có một cái nhìn toàn diện hoặc định nghĩa chi tiết, chỉ cần google "what is mqtt", "mqtt slides" ... Trong bài viết này chúng ta chỉ nói ngắn gọn thôi, đủ để hiểu giao thức MQTT, bao gồm các định nghĩa **"subscribe", "publish", "qos", "retain", "last will and testament (lwt)"** - Và chỉ dành cho những ai đang muốn tìm hiểu về MQTT, không thì đọc toàn chữ thôi, mỏi mắt lắm.
 
-Publish, subscribe
+Publish, subscribe 
 ~~~~~~~~~~~~~~~~~~
 Trong một hệ thống sử dụng giao thức MQTT, nhiều node trạm (gọi là mqtt client - gọi tắt là client) kết nối tới một MQTT server (gọi là broker). Mỗi client sẽ đăng ký một vài kênh (topic), ví dụ như "/client1/channel1", "/client1/channel2". Quá trình đăng ký này gọi là **"subscribe"**, giống như chúng ta đăng ký nhận tin trên một kênh Youtube vậy. Mỗi client sẽ nhận được dữ liệu khi bất kỳ trạm nào khác gởi dữ liệu và kênh đã đăng ký. Khi một client gởi dữ liệu tới kênh đó, gọi là **"publish"**.
 
-QoS
+QoS 
 ~~~
 Ở đây có 3 tuỳ chọn **QoS (Qualities of service)** khi "publish" và "subscribe":
 
