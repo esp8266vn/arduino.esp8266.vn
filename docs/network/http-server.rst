@@ -1,13 +1,5 @@
 HTTP Server
 -----------
-Giao thức MQTT
-==============
-
-MQTT là gì
-~~~~~~~~~~
-
-.. image:: ../_static/mqttorg-glow.png
-
 
 HTTP Server
 

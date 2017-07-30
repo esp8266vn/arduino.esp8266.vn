@@ -1,4 +1,4 @@
-LED
+ LED
 ---
 
 Chúng ta sẽ thực hiện việc chớp tắt đèn LED của board **IoT WiFi Uno** mỗi giây, được nối tới pin ``GPIO16``.

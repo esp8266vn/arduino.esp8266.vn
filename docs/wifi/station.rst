@@ -12,7 +12,8 @@ Nội dung của lớp này được chia thành 4 phần:
 Mục lục
 *******
 
-* `Kết nối <ket-noi>`_
+* `Kết nối <ket-noi>`_  :ref:`Kết nối` 
+
 
   * `begin <#begin>`_
   * `config <#config>`_
@@ -46,8 +47,10 @@ Mục lục
   * `WPS <#wps>`_
   * `Smart Config <#smart-config>`_
 
+.. _Kết nối:
+
 Kết nối
-*******
+==============
 
 begin
 ^^^^^
