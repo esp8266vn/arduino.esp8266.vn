@@ -30,22 +30,22 @@ Mục lục
 
 * :ref:`Cấu hình0` 
 
-  * `macAddress <#macaddress>`_
-  * `localIP <#localip>`_
-  * `subnetMask <#subnetmask>`_
-  * `gatewayIP <#gatewayip>`_
-  * `dnsIP <#dnsip>`_
-  * `hostname <#hostname>`_
-  * `status <#status>`_
-  * `SSID <#ssid>`_
-  * `psk <#psk>`_
-  * `BSSID <#bssid>`_
-  * `RSSI <#rssi>`_
+  * :ref:`macAddress0` 
+  * :ref:`localIP0` 
+  * :ref:`subnetMask0` 
+  * :ref:`gatewayIP0` 
+  * :ref:`dnsIP0` 
+  * :ref:`hostname0` 
+  * :ref:`status0` 
+  * :ref:`SSID0` 
+  * :ref:`psk0` 
+  * :ref:`BSSID0` 
+  * :ref:`RSSI0` 
 
-* `Kết nối khác <#ket-noi-khac>`_
+* :ref:`Kết nối khác0` 
 
-  * `WPS <#wps>`_
-  * `Smart Config <#smart-config>`_
+  * :ref:`WPS0` 
+  * :ref:`Smart Config0` 
 
 .. _Kết nối0:
 
