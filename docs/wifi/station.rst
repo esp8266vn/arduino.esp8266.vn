@@ -1,6 +1,12 @@
 ﻿
 WiFi Station
 ------------
+Khái niệm cơ bản
+*****************
+
+Thiết bị kết nối vào mạng WIFI được gọi là station (trạm). Việc kết nối vào mạng Wifi được hỗ trợ bởi một access point (AP), một AP có chức năng như một hub nhưng dùng cho nhiều station. Một access point thông thường được kết nối vào một mạng dây để phát WIFI (tức là chuyển từ mạng dây sang WIFI). Do đó access point luôn được tích hợp vào router. Mỗi access point được nhận biết bằng một SSID (Service Set IDentifier), SSID cũng là tên của mạng hiển thị khi ta kết nối vào WIFI.
+
+Thư viện ESP8266WiFi.h có hỗ trợ các câu lệnh để module thưc hiện việc kết nối vào WIFI (làm chức năng của station).
 
 Nội dung của lớp này được chia thành 4 phần:
 
@@ -14,38 +20,37 @@ Mục lục
 
 * :ref:`Kết nối0` 
 
-
   * :ref:`begin0`
   * :ref:`config0`
 
-*  :ref:`Quản lý kết nối0` 
+* :ref:`Quản lý kết nối0` 
 
-  * :ref:`reconnect0` 
-  * :ref:`isconnect0` 
-  * :ref:`isConnected0` 
-  * :ref:`setAutoConnect0` 
-  * :ref:`getAutoConnect0` 
-  * :ref:`setAutoReconnect0` 
-  * :ref:`waitForConnectResult0` 
+  * :ref:`reconnect0`
+  * :ref:`disconnect0`
+  * :ref:`isConnected0`
+  * :ref:`setAutoConnect0`
+  * :ref:`getAutoConnect0`
+  * :ref:`setAutoReconnect0`
+  * :ref:`waitForConnectResult0`
 
 * :ref:`Cấu hình0` 
 
-  * :ref:`macAddress0` 
-  * :ref:`localIP0` 
-  * :ref:`subnetMask0` 
-  * :ref:`gatewayIP0` 
-  * :ref:`dnsIP0` 
-  * :ref:`hostname0` 
-  * :ref:`status0` 
-  * :ref:`SSID0` 
-  * :ref:`psk0` 
-  * :ref:`BSSID0` 
-  * :ref:`RSSI0` 
+  * :ref:`macAddress0`
+  * :ref:`localIP0`
+  * :ref:`subnetMask0`
+  * :ref:`gatewayIP0`
+  * :ref:`dnsIP0`
+  * :ref:`hostname0`
+  * :ref:`status0`
+  * :ref:`SSID0`
+  * :ref:`psk0`
+  * :ref:`BSSID0`
+  * :ref:`RSSI0`
 
 * :ref:`Kết nối khác0` 
 
-  * :ref:`WPS0` 
-  * :ref:`Smart Config0` 
+  * :ref:`WPS0`
+  * :ref:`Smart Config0`
 
 .. _Kết nối0:
 
@@ -81,7 +86,7 @@ Các thông số:
 .. _config0:
 
 config
-^^^^^
+^^^^^^
 
 Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho *station*.
 
@@ -131,10 +136,15 @@ Lệnh này sẽ vô hiệu hóa DHCP và thiết lập cấu hình IP tĩnh cho
     .
     Connected, IP address: 192.168.1.22
 
+Video DEMO
+^^^^^^^^^^
+.. youtube:: https://www.youtube.com/watch?v=OYP7lckCxRg
+   
+
 .. _Quản lý kết nối0:
 
 Quản lý kết nối
-***************
+==============
 
 .. _reconnect0:
 
@@ -159,9 +169,9 @@ reconnect
       Serial.print(".");
     }
 
-.. _reconnect0:
+.. _disconnect0:
 
-reconnect
+disconnect
 ^^^^^^^^^^
 
 Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực hiện ngắt kết nối đến điểm truy cập.
@@ -170,7 +180,7 @@ Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực h
 
 * wifioff là tham số tùy chọn kiểu *boolean*, nếu là ``true`` thì chế độ trạm (station mode) sẽ bị tắt.
 
-.. _isConnect0:
+.. _isConnected0:
 
 isConnected
 ^^^^^^^^^^^
@@ -189,10 +199,10 @@ setAutoConnect
 
 ``autoConnect`` đây là tham số tùy chọn. Nếu đặt là ``false`` thì chức năng kết nối tự động sẽ bị tắt, nếu là ``true`` hoặc bỏ qua thì kết nối tự động sẽ được kích hoạt.
 
-.. _getAutoConnet0:
+.. _getAutoConnect0:
 
-getAutoConnet
-^^^^^^^^^^^^^
+getAutoConnect
+^^^^^^^^^^^^^^
 
 Đây là chức năng đi đôi với ``setAutoConnect()``. Nó trả về ``true`` nếu module được cấu hình để tự động kết nối với điểm truy cập được sử dụng lần cuối khi bật nguồn.
 
@@ -234,10 +244,12 @@ Chức năng trả về một trong các trạng thái kết nối sau đây:
 * ``WL_DISCONNECTED`` - Nếu module không được cấu hình trong chế độ station
 
 .. _Cấu hình0:
+
 Cấu hình
-********
+==============
 
 .. _macAddress0:
+
 macAddress
 ^^^^^^^^^^
 
@@ -267,11 +279,15 @@ Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh d�
       Serial.printf("Connected, mac address: %s\n", WiFi.macAddress().c_str());
     }
 
-    Kết quả thực hiện (địa chỉ MAC là duy nhất cho mỗi thiết bị truy cập vào mạng):
+Kết quả thực hiện (địa chỉ MAC là duy nhất cho mỗi thiết bị truy cập vào mạng):
 
-     .. image:: ../_wifi/MAC address.png
+.. image:: ../wifi/MAC address.png   
+
+
+
 
 .. _localIP0:  
+
 localIP
 ^^^^^^^
 
@@ -485,13 +501,16 @@ Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.
 
 Kiểu trả về ``String``
 
+
 DEMO:
-^^^^^^
+
 
 Mô tả: Với module ESP8266 đã kết nối wifi ở trên,ta cần hiển thị password wifi đã kết nối
 
 Code:
+
 .. code:: cpp
+
     #include <ESP8266WiFi.h>
 
     void setup()
@@ -505,7 +524,10 @@ Code:
     void loop() {}
 
 Output:
-  ``pass: @iotmaker.vn``
+
+.. code:: cpp
+
+    pass: @iotmaker.vn
 
 
 .. _BSSID0:  
@@ -557,7 +579,8 @@ Giá trị cường độ tín hiệu được cung cấp trong **dBm**. Kiểu 
 .. _Kết nối khác0:  
 
 Kết nối khác
-************
+==============
+
 
 ESP8266 SDK cung cấp các phương pháp thay thế để kết nối trạm ESP với một điểm truy cập. Core esp8266 / Arduino  thực hiện WPS và Smart Config như mô tả dưới đây.
 
@@ -606,7 +629,8 @@ Tùy thuộc vào kết quả kết nối chức năng trả về ``true`` hoặ
     .........
     Connected, IP address: 192.168.1.102
 
-.. _Smart Config0:  
+.. _Smart Config0:
+
 Smart Config
 ^^^^^^^^^^^^
 
