@@ -144,7 +144,7 @@ Video DEMO
 .. _Quản lý kết nối0:
 
 Quản lý kết nối
-==============
+================
 
 .. _reconnect0:
 
@@ -281,7 +281,7 @@ Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh d�
 
 Kết quả thực hiện (địa chỉ MAC là duy nhất cho mỗi thiết bị truy cập vào mạng):
 
-.. image:: ../wifi/MAC address.png   
+.. image:: ../_static/wifi/mac-address.png   
 
 
 

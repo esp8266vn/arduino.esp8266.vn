@@ -163,7 +163,7 @@ Trả về số lượng các thiết bị (station) kết nối tới mạng Wi
 
 *output*
 
-        .. image:: ../_static/wifi/soft-apgetstationnum.png
+        .. image:: ../_static/wifi/softap-getstationnum.png
 
 Ta thấy có 1 thiết bị kết nối tới mạng WIFI: "31/8/2017"
 

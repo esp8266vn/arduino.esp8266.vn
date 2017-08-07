@@ -1,5 +1,5 @@
 Lớp Scan trong thư viện ESP8266WiFi
-======================
+===================================
 
 * :ref:`Giới thiệu về lớp Scan0`
   
@@ -112,6 +112,7 @@ Thực hiện chạy song song 2 hàm scanNetworks và scanComplete, kiểm tra,
      {
 
 	 }
+   
 Kết quả:
 
 .. image:: ../_static/wifi/scan-complete.png
@@ -138,6 +139,7 @@ Code demo:
 Ta cần trả về tên của 2 mạng WIFI thứ tự 0 và 1
 
 .. code:: cpp
+
    #include <ESP8266WiFi.h>
    void setup()
    {
@@ -260,6 +262,7 @@ Trả về channel của 2 mạng thứ tự 0 và 1 sau khi Scan
    void loop()
    {
    }
+
 Kết quả:
 
 .. image:: ../_static/wifi/channel.png
@@ -325,7 +328,7 @@ Code Demo:
 
 Kết quả:
 
-.. image:: ../wifi/_static/hidden-plus.png
+.. image:: ../_static/wifi/hidden-plus.png
 
 Từ kết quả ta thấy mạng WiFi ẩn không có trong trường hợp này hoặc module ESP8266 không tìm được.
 
@@ -366,7 +369,7 @@ Trả về RSSI của 2 mạng Wifi 0 và 1
 
 Kết quả:
 
-.. image:: ../wifi/RSSI.png
+.. image:: ../_static/wifi/rssi.png
 
 .. _BSSID0:
 
@@ -405,7 +408,7 @@ Code demo
 
 Kết quả:
 
-.. image:: ../wifi/BSSID.png
+.. image:: ../_static/wifi/bssid.png
 
 
 Lưu ý:
@@ -415,7 +418,7 @@ Các hàm ``WiFi.SSID``, ``WiFi.RSSI``, ``WiFi.BSSID``, ``WiFi.channel`` trình 
 .. _getNetworkInfo0:
 
 getNetworkInfo
-~~~~~~
+~~~~~~~~~~~~~~~
 
 Đây là một hàm hữu hiệu nhất trong khi làm việc với thư viện ESP8266WIFI. Hàm trả về tất cả các thông tin cần thiết của một mạng WiFI (trừ password), như đã trình bày ở các hàm ở trên: SSID, Kiểu bảo mật, RSSI, BSSID, channel và nếu WiFi ẩn khi scan.
 Kiểu trả về của hàm là kiểu boolean (true hoặc false). Kiểu true trả về khi thu được thông tin của mạng WiFi, và kiểu false trả về khi không thu được kết quả. 
@@ -456,5 +459,5 @@ Trả về thông tin về các mạng WiFI dùng hàm ``WiFi.getNetworkInfo()``
 
 Kết quả:
 
-.. image:: ../wifi/getNetworkInfo.png
+.. image:: ../_static/wifi/get-network-info.png
 
