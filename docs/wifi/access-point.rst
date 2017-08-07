@@ -8,7 +8,7 @@ WiFi Access Point
 Phần mô tả API này gồm có 3 phần: cách thiết lập soft-AP, quản lý kết nối và lấy thông tin về cấu hình soft-AP.
 
 Mục lục
-------
+--------
 
 * :ref:`Về Access Point 0` 
 
@@ -123,7 +123,7 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
 .. _Quản lý kết nối0:	
 
 Quản lý kết nối
-------------
+----------------
 
 Khi đã thiết lập softAP, bạn có thể kiểm tra các trạm đã kết nối, hoặc tắt chúng, sử dụng các hàm sau:
 
