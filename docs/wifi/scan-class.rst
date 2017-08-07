@@ -40,29 +40,30 @@ scanNetworks
 
 Hàm scanNetworks thưc hiện scan các Wifi trong vùng mà module có thể kết nối được và kết quả trả về là số lượng các WIFI (ta lập trình để kết quả hiển thị trên Serial Monitor).
 
-``WiFi.scanNetworks()``
+.. code:: cpp
+
+   WiFi.scanNetworks()
 
 Code demo:
 
 .. code:: cpp
 
-    #include <ESP8266WiFi.h>
+  #include <ESP8266WiFi.h>
 
-
-    void setup()
+  void setup()
    {
-   Serial.begin(115200);
+      Serial.begin(115200);
 
-   Serial.println("** Scan Networks **");
+      Serial.println("** Scan Networks **");
 
-   int numSsid = WiFi.scanNetworks();
+      int numSsid = WiFi.scanNetworks();
 
-   Serial.print("SSID List:");
-   Serial.println(numSsid);
+      Serial.print("SSID List:");
+      Serial.println(numSsid);
 
 
    } 
-   void loop()
+  void loop()
    {
 
    }
@@ -75,9 +76,12 @@ Kết quả:
 
 scanComplete
 ~~~~~~~~~~~~~
+
 Hàm WiFi.scanComplete() có chức năng tương tự như hàm scanNetworks nhưng thực hiện các chức năng scan bất đồ bộ (asynchronous scanning)
 
-``WiFi.scanComplete()``
+.. code:: cpp
+
+   WiFi.scanComplete()
 
 Kết quả trả về số lượng các mạng Wifi có thể kết nối được (giống như với hàm scanNetworks)
 
@@ -92,26 +96,25 @@ Thực hiện chạy song song 2 hàm scanNetworks và scanComplete, kiểm tra,
 
 .. code:: cpp
 
-     #include <ESP8266WiFi.h>
+  #include <ESP8266WiFi.h>
 
-
-	 void setup()
-     {
+  void setup()
+  {
      Serial.begin(115200);
 
      Serial.println("** Scan Networks **");
      int sN = WiFi.scanNetworks();
      int sC = WiFi.scanComplete();
 
-     Serial.print("SSID List:");
+     Serial.print("**SSID List:**");
 	 Serial.println(sN);
 	 Serial.printf("Scan Complete %d ", sC);
 
-     }
-	 void loop()
-     {
+  }
+  void loop()
+  {
 
-	 }
+  }
    
 Kết quả:
 
@@ -126,9 +129,12 @@ Hiển thị kết quả
 
 SSID
 ~~~~~
-Sau khi scan network, kết quả trả về là số các network. Để biết SSID của network với số thứ tự tương ứng trong kết quả về, ta dùng hàm ``WiFi.SSID(arg 1)``, với arg 1 là tham số truyền vào là số thứ tự của network cần biết SSID.
 
-``WiFi.SSID( số thứ tự của SSID);``
+Sau khi scan network, kết quả trả về là số các network. Để biết SSID của network với số thứ tự tương ứng trong kết quả về, ta dùng hàm ``WiFi.SSID(arg 1)``, với arg 1 là networkItem la2 tham số truyền vào là số thứ tự của network cần biết SSID.
+
+.. code:: cpp
+
+   WiFi.SSID(networkItem);
 
 Returned Kết quả trả về là kiểu string, nên ta dùng chuyển đổi: ``WiFi.SSID(1).c_str()``
 
@@ -140,21 +146,19 @@ Ta cần trả về tên của 2 mạng WIFI thứ tự 0 và 1
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
-   void setup()
-   {
+ #include <ESP8266WiFi.h>
+ void setup()
+ {
    Serial.begin(115200);
    int a = WiFi.scanNetworks();
    Serial.printf(" Number of networks: %d \n",a);
    Serial.printf("SSID: %s\n", WiFi.SSID(0).c_str());
    Serial.printf("SSID: %s\n", WiFi.SSID(1).c_str());
+ }
 
-   }
-
-
-   void loop()
-   {
-   }
+ void loop()
+ {
+ }
 
 Kết quả: 
 
@@ -167,7 +171,9 @@ scanDelete
 
 Xóa kết quả của lần scanNetworks trước khỏi bộ nhớ, do đó kết quả sau khi scan sẽ không thể hiển thị trên màn hình Serial Monitor
 
-``WiFi.scanDelete()``
+.. code:: cpp
+
+ WiFi.scanDelete()
 
 Ví dụ:
 
@@ -177,21 +183,21 @@ Code Demo
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
+ #include <ESP8266WiFi.h>
 
-   void setup()
-   {
+ void setup()
+ {
    Serial.begin(115200);
    int a = WiFi.scanNetworks();
    Serial.printf(" Number of networks: %d \n",a);
    Serial.printf("SSID: %s\n", WiFi.SSID(0).c_str());
    Serial.printf("SSID: %s\n", WiFi.SSID(1).c_str());
    WiFi.scanDelete();
-   }
+ }
 
-   void loop()
-   {
-   }
+ void loop()
+ {
+ }
 
 Kết quả:
 
@@ -206,8 +212,9 @@ Việc mã hóa dữ liệu/kiểu bảo mật (encryption) là một phần r�
 
 Hàm ``Wifi.encryptionType`` trả về kiểu bảo mật mà mạng Wifi sử dụng
 
+.. code:: cpp
 
-``WiFi.encryptionType(số thứ tự WiFi)``
+ WiFi.encryptionType(networkItem)
 
 Hàm có các kết quả trả về sau đây:
 
@@ -235,7 +242,9 @@ channel
 
 Trả về kênh (channel) của mạng sau khi scan
 
-``WiFi.channel(số thứ tự mạng)``
+.. code:: cpp
+
+ WiFi.channel(số thứ tự mạng)
 
 Kết quả trả về kiểu int 32 bit.
 
@@ -245,23 +254,22 @@ Trả về channel của 2 mạng thứ tự 0 và 1 sau khi Scan
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
+  #include <ESP8266WiFi.h>
 
-   void setup()
-   {
-   Serial.begin(115200);
-   int a = WiFi.scanNetworks();
-   Serial.printf(" Number of networks: %d \n",a);
-   Serial.printf("SSID: %s\n", WiFi.SSID(0).c_str());
-   Serial.printf("SSID: %s\n", WiFi.SSID(1).c_str());
-   Serial.println(WiFi.channel(0));
-   Serial.println(WiFi.channel(1));
+  void setup()
+  {
+    Serial.begin(115200);
+    int a = WiFi.scanNetworks();
+    Serial.printf(" Number of networks: %d \n",a);
+    Serial.printf("SSID: %s\n", WiFi.SSID(0).c_str());
+    Serial.printf("SSID: %s\n", WiFi.SSID(1).c_str());
+    Serial.println(WiFi.channel(0));
+    Serial.println(WiFi.channel(1));
+  }
 
-   }
-
-   void loop()
-   {
-   }
+  void loop()
+  {
+  }
 
 Kết quả:
 
@@ -274,17 +282,19 @@ isHidden
 
 Khi thao tác với hàm ``WiFi.scanNetworks()`` thì vẫn có một số trường hợp một số mạng WiFi bị ẩn đi và không hiển thị được. Hàm WiFi.isHidden() dùng để kiểm tra xem một mạng SSID có phải là một mạng bị ẩn đi hay không. Hàm có kiểu trả về là boolean: true false hoặc 1 0 với 1 ứng với true, và 0 ứng với false.
 
-``WiFi.isHidden(số thứ tự mạng)``
+.. code:: cpp
+
+ WiFi.isHidden(networkItem)
 
 Code Demo:
 Kiểm tra xem 2 mạng WiFi 0 1 có phải là mạng bị ẩn không.
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
+ #include <ESP8266WiFi.h>
 
-   void setup()
-   {
+ void setup()
+ {
    Serial.begin(115200);
    int a = WiFi.scanNetworks();
    Serial.printf(" Number of networks: %d \n",a);
@@ -293,11 +303,11 @@ Kiểm tra xem 2 mạng WiFi 0 1 có phải là mạng bị ẩn không.
    Serial.println(WiFi.isHidden(0));
    Serial.println(WiFi.isHidden(1));
 
-   }
+ }
 
-   void loop()
-   {
-   }
+ void loop()
+ {
+ }
 
 
 .. image:: ../_static/wifi/hidden.png
@@ -310,21 +320,21 @@ Code Demo:
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
+ #include <ESP8266WiFi.h>
 
-   void setup()
-   {
+ void setup()
+ {
    Serial.begin(115200);
    int a = WiFi.scanNetworks();
    Serial.printf(" Number of networks: %d \n",a);
   
    Serial.println(WiFi.isHidden(a+1));
    Serial.printf("SSID: %s\n", WiFi.SSID(a+1).c_str());
-   }
+ }
 
-   void loop()
-   {
-   } 
+ void loop()
+ {
+ } 
 
 Kết quả:
 
@@ -339,7 +349,9 @@ RSSI
 
 Trả về cường độ tín hiệu của một mạng Wi-Fi với thứ tự tương ứng từ kết quả của hàm ``WiFi.scanNetworks()``.
 
-``WiFi.RSSI("thứ tự mạng WiFi")``
+.. code:: cpp
+
+ WiFi.RSSI("networkItem")
 
 Kết quả trả về kiểu int 32 bit.
 
@@ -349,10 +361,10 @@ Trả về RSSI của 2 mạng Wifi 0 và 1
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
+ #include <ESP8266WiFi.h>
 
-   void setup()
-   {
+ void setup()
+ {
    Serial.begin(115200);
    int a = WiFi.scanNetworks();
    Serial.printf(" Number of networks: %d \n",a);
@@ -361,11 +373,10 @@ Trả về RSSI của 2 mạng Wifi 0 và 1
    Serial.println(WiFi.RSSI(0));
    Serial.println(WiFi.RSSI(1));
 
-   }
-
-   void loop()
-   {
-   }
+ }
+ void loop()
+ {
+ }
 
 Kết quả:
 
@@ -378,20 +389,24 @@ BSSID
 
 Trả về địa chỉ MAC của một mạng WiFi với thứ tự tương ứng từ kết quả của hàm ``WiFi.scanNetworks()`` (BSSID: Basic Service Set Identification là tên gọi khác của địa chỉ MAC).
 
- ``WiFi.BSSID(thứ tự mạng WiFi)``
+.. code:: cpp
+
+ WiFi.BSSID(networkItem)
 
 Do giống với hàm ``WiFi.BSSID()`` trình bày ở phần WiFi Station thì kết quả trả về sẽ là ô nhớ mà địa chỉ BSSID được lưu. Do đó, để hiển thị kết quả dạng string thì ta phải dùng lệnh ``WiFi.BSSIDstr()``. Để hiện thị kết quả dạng string trên Serial Monitor, ta dùng thêm lệnh c_str(). Do đó,code đầy đủ sẽ là:
 
-``WiFi.BSSIDstr(thứ tự mạng WiFi).c_str()`` 
+.. code:: cpp
+
+ WiFi.BSSIDstr(thứ tự mạng WiFi).c_str()
 
 Code demo
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
+ #include <ESP8266WiFi.h>
 
-   void setup()
-   {
+ void setup()
+ {
    Serial.begin(115200);
    int a = WiFi.scanNetworks();
    Serial.printf(" Number of networks: %d \n",a);
@@ -400,20 +415,20 @@ Code demo
    Serial.println(WiFi.BSSIDstr(0).c_str());
    Serial.println(WiFi.BSSIDstr(1).c_str());
 
-   }
+ }
 
-   void loop()
-   {
-   }
+ void loop()
+ {
+ }
 
 Kết quả:
 
 .. image:: ../_static/wifi/bssid.png
 
 
-Lưu ý:
+.. note::
 
-Các hàm ``WiFi.SSID``, ``WiFi.RSSI``, ``WiFi.BSSID``, ``WiFi.channel`` trình bày ở phần Scan class này và ở phần WiFi Station đều là một, nhưng để thao tác ở Scan Class (muốn hiển thị thông tin của mạng Wifi) thì khác với các hàm ở WiFi Station ở chỗ là phải thêm vào đối số : thứ tự mạng Wifi. 
+  Các hàm ``WiFi.SSID``, ``WiFi.RSSI``, ``WiFi.BSSID``, ``WiFi.channel`` trình bày ở phần Scan class này và ở phần WiFi Station đều là một, nhưng để thao tác ở Scan Class (muốn hiển thị thông tin của mạng Wifi) thì khác với các hàm ở WiFi Station ở chỗ là phải thêm vào đối số : thứ tự mạng Wifi. 
 
 .. _getNetworkInfo0:
 
@@ -424,7 +439,9 @@ getNetworkInfo
 Kiểu trả về của hàm là kiểu boolean (true hoặc false). Kiểu true trả về khi thu được thông tin của mạng WiFi, và kiểu false trả về khi không thu được kết quả. 
 Muốn hiển thị các thông tin như SSID, RSSI,... thì ta dùng hàm Serial.printf. 
 
-``WiFi.getNetworkInfo(" thứ tự mạng WiFi ", &ssid, &encryptionType, &RSSI, *&BSSID, &channel, &isHidden)``
+.. code:: cpp
+
+ WiFi.getNetworkInfo("networkItem", &ssid, &encryptionType, &RSSI, *&BSSID, &channel, &isHidden)
 
 Code demo:
 
@@ -432,10 +449,10 @@ Trả về thông tin về các mạng WiFI dùng hàm ``WiFi.getNetworkInfo()``
 
 .. code:: cpp
 
-   #include <ESP8266WiFi.h>
+ #include <ESP8266WiFi.h>
 
-   void setup()
-   {
+ void setup()
+ {
    Serial.begin(115200);  
    int n = WiFi.scanNetworks();
 
@@ -446,16 +463,16 @@ Trả về thông tin về các mạng WiFI dùng hàm ``WiFi.getNetworkInfo()``
    ỉnt32_t channel;
    bool isHidden;
 
-   for (int i = 0; i < n; i++)
-   {
-   WiFi.getNetworkInfo(i, ssid, encryptionType, RSSI, BSSID, channel, isHidden);
-   Serial.printf("%d: %s, Ch:%d (%ddBm) %s %s\n", i + 1, ssid.c_str(), channel, RSSI, encryptionType == ENC_TYPE_NONE ? "open" : "", isHidden ? "hidden" : "");
-   }
-   }
+     for (int i = 0; i < n; i++)
+     {
+     WiFi.getNetworkInfo(i, ssid, encryptionType, RSSI, BSSID, channel, isHidden);
+     Serial.printf("%d: %s, Ch:%d (%ddBm) %s %s\n", i + 1, ssid.c_str(), channel, RSSI, encryptionType == ENC_TYPE_NONE ? "open" : "", isHidden ? "hidden" : "");
+     }
+ }
 
-   void loop()
-   {
-    }
+ void loop()
+ {
+ }
 
 Kết quả:
 

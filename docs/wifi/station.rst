@@ -83,11 +83,11 @@ Gọi hàm này module sẽ chuyển sang chế độ station và kết nối v�
 
 Các thông số:
 
-* ``ssid`` - tên WiFi của điểm truy cập mà chúng ta muốn kết nối đến, có thể có tối đa lên đến 32 ký tự.
-* ``password`` - mật khẩu của điểm truy cập, có độ dài từ 8 đến 64 ký tự.
-* ``channel`` - thiết lập kênh cho WiFi, tham số này có thể bỏ qua.
-* ``bssid`` - địa chỉ MAC của AP
-* ``connect`` - nếu giá trị là ``false``, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.
+* ``ssid``: tên WiFi của điểm truy cập mà chúng ta muốn kết nối đến, có thể có tối đa lên đến 32 ký tự.
+* ``password``: mật khẩu của điểm truy cập, có độ dài từ 8 đến 64 ký tự.
+* ``channel``: thiết lập kênh cho WiFi, tham số này có thể bỏ qua.
+* ``bssid``: địa chỉ MAC của AP
+* ``connect``: nếu giá trị là ``false``, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.
 
 .. _config0:
 
@@ -313,9 +313,6 @@ Kết quả thực hiện (địa chỉ MAC là duy nhất cho mỗi thiết b�
 
 .. image:: ../_static/wifi/mac-address.png   
 
-
-
-
 .. _localIP0:  
 
 localIP
@@ -375,7 +372,6 @@ gatewayIP
 Lấy địa chỉ IP của gateway
 
 .. code:: cpp
-
 
    WiFi.gatewayIP()
 
