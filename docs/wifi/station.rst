@@ -616,6 +616,7 @@ RSSI
 Trả lại cường độ tín hiệu của mạng Wi-Fi.
 
 .. code:: cpp
+
     WiFi.RSSI()
 
 Giá trị cường độ tín hiệu được cung cấp trong **dBm**. Kiểu trả về giá trị là ``int32_t``.
@@ -705,6 +706,7 @@ Kiểm tra trạng thái để quyết định khi ngừng cấu hình. Chức n
 Dừng cấu hình thông minh, giải phóng bộ đệm ``beginSmartConfig()``. Tùy thuộc vào chức năng kết quả trả về ``true`` hoặc ``false``.
 
 .. code:: cpp 
+
    stopSmartConfig()
 
 Để biết thêm chi tiết về Smart Config, vui lòng tham khảo `tại đây <../wifi/smartconfig.html>`_.
