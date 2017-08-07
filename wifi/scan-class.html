@@ -1,0 +1,882 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Lớp Scan trong thư viện ESP8266WiFi &mdash; Tài liệu Lập trình IoT với ESP8266 Arduino 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Tìm Kiếm" href="../search.html"/>
+    <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Lập trình IoT với ESP8266 Arduino
+          
+
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Cơ bản</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../basic/index.html">Cài đặt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic/install.html">Cài đặt Arduino IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../basic/install.html#cai-dat-voi-boards-manager">Cài đặt với Boards Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/install.html#su-dung-git-version">Sử dụng git version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/board.html">Board IoT WiFi Uno</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../basic/board.html#pinout">Pinout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/board.html#thuc-te">Thực tế</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/board.html#mach-nguyen-ly">Mạch nguyên lý</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/board.html#fritzing-part">Fritzing part</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/board.html#mua-hang">Mua hàng</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/connection.html">Kết nối máy tính</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../basic/connection.html#ket-noi-phan-cung">Kết nối phần cứng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/connection.html#cai-dat-usb-driver">Cài đặt USB Driver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/connection.html#cau-hinh-ket-noi">Cấu hình kết nối</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/library.html">Cài đặt thư viện</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../basic/library.html#cac-thuc-hien">Các thực hiện</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../basic/library.html#video-huong-dan">Video hướng dẫn</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/led.html">Chuẩn bị</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/led.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/led.html#chop-tat-dung-delay">Chớp tắt dùng Delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/led.html#chop-tat-dung-dinh-thoi">Chớp tắt dùng định thời</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/led.html#digital-io">Digital IO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/button.html">Nút nhấn</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic/button.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/button.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/button.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/button.html#code">Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../basic/button.html#digital-io">Digital IO</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../basic/promem.html">Sử dụng Promem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../basic/promem.html#vi-du">Ví dụ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../peripherals/index.html">Ngoại vi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../peripherals/serial.html"> Serial/UART</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../peripherals/serial.html#hardware-serial">Hardware Serial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../peripherals/serial.html#software-serial">Software Serial</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../peripherals/analog.html"> Analog/ADC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../peripherals/analog.html#ngo-ra-analog">Ngõ ra Analog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../peripherals/analog.html#vi-du">Ví dụ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../peripherals/timming.html"> Thời gian/Timer</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../peripherals/timming.html#ticker">Ticker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../peripherals/i2c.html"> I2C/OLED</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripherals/i2s.html"> I2S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peripherals/spi.html"> SPI</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Wi-Fi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="station.html">WiFi Station</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="station.html#khai-niem-co-ban">Khái niệm cơ bản</a></li>
+<li class="toctree-l3"><a class="reference internal" href="station.html#muc-luc">Mục lục</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="access-point.html">WiFi Access Point</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="access-point.html#muc-luc">Mục lục</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-point.html#ve-access-point">Về Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-point.html#thiet-lap-mang">Thiết lập mạng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-point.html#quan-ly-ket-noi">Quản lý kết nối</a></li>
+<li class="toctree-l3"><a class="reference internal" href="access-point.html#cau-hinh-mang">Cấu hình Mạng</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="smartconfig.html">Smartconfig</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="smartconfig.html#loi-ich-cua-smartconfig">Lợi ích của Smartconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smartconfig.html#esp-touch">ESP Touch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smartconfig.html#demo-video">Demo Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smartconfig.html#esp8266-code">ESP8266 code</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="wps.html">WPS</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Network/Protocol</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../network/http-client.html">HTTP Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/http-server.html">HTTP Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/mqtt.html">MQTT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../network/mqtt.html#giao-thuc-mqtt">Giao thức MQTT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#mqtt-la-gi">MQTT là gì</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#publish-subscribe">Publish, subscribe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#qos">QoS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#retain">Retain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#lwt">LWT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/mqtt.html#chuong-trinh">Chương trình</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#noi-dung">Nội dung</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#id1">Chương trình</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/mqtt.html#demo">Demo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../network/websocket.html">Websocket</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/mdns.html">mDNS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/coap.html">CoAP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../network/ota.html">Cập nhật firmware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../network/ota.html#gioi-thieu-ota">Giới thiệu OTA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#bao-mat">Bảo mật</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#an-toan">An toàn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#yeu-cau-can-ban">Yêu cầu căn bản</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/ota.html#arduino-ide">Arduino IDE</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#yeu-cau">Yêu cầu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#vi-du-ung-dung">Ví dụ ứng dụng</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#bao-mat-password">Bảo mật Password</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/ota.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../network/ota.html#web-browser">Web Browser</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#id1">Yêu cầu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#tong-quan">Tổng quan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#ung-dung-vi-du">Ưng dụng ví dụ:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../network/ota.html#http-server">HTTP Server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#id2">Yêu cầu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#arduino-code">Arduino code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#simple-updater">Simple updater</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#advanced-updater">Advanced updater</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#server-request-handling">Server request handling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#id3">Simple updater</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#id4">Advanced updater</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#stream-interface">Stream Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#updater-class">Updater class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../network/ota.html#update-process-memory-view">Update process - memory view</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Dự án</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../projects/flappy-bird.html">Game Flappy Bird</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/heart-rate.html">Đo nhịp tim</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/heart-rate.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/heart-rate.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/heart-rate.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/heart-rate.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/heart-rate.html#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/heart-rate.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/heart-rate.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/onewire.html">Cảm biến nhiệt độ (onewire)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/onewire.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/onewire.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/onewire.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/onewire.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/onewire.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/onewire.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/dht11-thingspeak.html">Đo nhiệt độ độ ẩm và gởi lên Thingspeak</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/dht11-thingspeak.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/dht11-thingspeak.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/dht11-thingspeak.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/dht11-thingspeak.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/dht11-thingspeak.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/dht11-thingspeak.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/sensor-photodiode.html">Photodiode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-photodiode.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-photodiode.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-photodiode.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-photodiode.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-photodiode.html#lap-trinh">Lập trình</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/sensor-voice.html">Cảm biến âm thanh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#bang-dau-noi">Bảng đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/sensor-voice.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/PIR.html">Cảm biến chuyển động HC-SR501</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/PIR.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/PIR.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/PIR.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/PIR.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/PIR.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/PIR.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/BMP280.html">Cảm biến áp suất BMP280</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/BMP280.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/BMP280.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/BMP280.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/BMP280.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/BMP280.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/BMP280.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/4led7seg.html">Led 7 đoạn 4 số</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/4led7seg.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/4led7seg.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/4led7seg.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/4led7seg.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/4led7seg.html#lap-trinh">Lập trình</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/led-matrix-max7219.html">Hiển thị ký tự với module led matrix MAX7219</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-matrix-max7219.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-matrix-max7219.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-matrix-max7219.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-matrix-max7219.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-matrix-max7219.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-matrix-max7219.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/led-3mau-rgb.html">Moudule led 3 màu RGB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-3mau-rgb.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-3mau-rgb.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-3mau-rgb.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-3mau-rgb.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-3mau-rgb.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/joystick.html">Đọc dữ liệu từ Joystick</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/joystick.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/joystick.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/joystick.html#huong-dan">Hướng dẫn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/joystick.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/joystick.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/joystick.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/joystick.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/led-12.html">Vòng 12 LED RGB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-12.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-12.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-12.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-12.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-12.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/led-12.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/servo-motor.html">Động cơ servo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/servo-motor.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/servo-motor.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/servo-motor.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/servo-motor.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/servo-motor.html#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/servo-motor.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/servo-motor.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/color-sensor.html">Cảm biến màu sắc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/color-sensor.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/color-sensor.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/color-sensor.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/color-sensor.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/color-sensor.html#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/color-sensor.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/color-sensor.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/rain-sensor.html">Cảm biến mưa</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/rain-sensor.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/rain-sensor.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/rain-sensor.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/rain-sensor.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/rain-sensor.html#lap-trinh">Lập trình</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../projects/keypad4x4.html">Ma trận phím 4x4</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../projects/keypad4x4.html#demo">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/keypad4x4.html#chuan-bi">Chuẩn bị</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/keypad4x4.html#dau-noi">Đấu nối</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/keypad4x4.html#cai-dat-thu-vien">Cài đặt thư viện</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/keypad4x4.html#video-cai-dat">Video Cài đặt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/keypad4x4.html#lap-trinh">Lập trình</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../projects/keypad4x4.html#luu-y">Lưu ý</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Tài liệu ESP8266</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/esp8266-technical_reference_en.pdf">Technical Reference Manual (PDF)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/sites/default/files/documentation/0d-esp8266_pin_list_release_15-11-2014.xlsx">Pin List and Functions (XLSX)</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://espressif.com/en/products/hardware/esp8266ex/resources">Tài nguyên chính thống</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Đóng góp và bản quyền</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Hướng dẫn đóng góp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#cai-dat-cong-cu-can-thiet">Cài đặt công cụ cần thiết</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#viet-bai">Viết bài</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#mot-so-luu-y-khac">Một số lưu ý khác</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributing.html#danh-sach-cac-thanh-vien-da-dong-gop">Danh sách các thành viên đã đóng góp</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Lập trình IoT với ESP8266 Arduino</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Lớp Scan trong thư viện ESP8266WiFi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/wifi/scan-class.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="lop-scan-trong-thu-vien-esp8266wifi">
+<h1>Lớp Scan trong thư viện ESP8266WiFi<a class="headerlink" href="#lop-scan-trong-thu-vien-esp8266wifi" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="#gioi-thieu-ve-lop-scan0"><span class="std std-ref">Giới thiệu về lớp Scan</span></a></li>
+<li><a class="reference internal" href="#scan-for-networks0"><span class="std std-ref">Scan for Networks</span></a><ul>
+<li><a class="reference internal" href="#scannetworks0"><span class="std std-ref">scanNetworks</span></a></li>
+<li><a class="reference internal" href="#scancomplete0"><span class="std std-ref">scanComplete</span></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hien-thi-ket-qua0"><span class="std std-ref">Hiển thị kết quả</span></a><ul>
+<li><a class="reference internal" href="station.html#ssid0"><span class="std std-ref">SSID</span></a></li>
+<li><a class="reference internal" href="#scandelete0"><span class="std std-ref">scanDelete</span></a></li>
+<li><a class="reference internal" href="#encryptiontype0"><span class="std std-ref">encryptionType</span></a></li>
+<li><a class="reference internal" href="#channel0"><span class="std std-ref">channel</span></a></li>
+<li><a class="reference internal" href="#ishidden0"><span class="std std-ref">isHidden</span></a></li>
+<li><a class="reference internal" href="station.html#rssi0"><span class="std std-ref">RSSI</span></a></li>
+<li><a class="reference internal" href="station.html#bssid0"><span class="std std-ref">BSSID</span></a></li>
+<li><a class="reference internal" href="#getnetworkinfo0"><span class="std std-ref">getNetworkInfo</span></a></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="gioi-thieu-ve-lop-scan">
+<span id="gioi-thieu-ve-lop-scan0"></span><h2>Giới thiệu về lớp Scan<a class="headerlink" href="#gioi-thieu-ve-lop-scan" title="Permalink to this headline">¶</a></h2>
+<p>Đế kết nối smart phone tới một hotspot, ta mở chức năng setting Wifi trên smart phone, tìm Wifi cần kết nối và chọn kết nối. Với ESP8266, ta có thể làm điều tương tự như thế với hàm <code class="docutils literal"><span class="pre">WiFi.scanNetworks()</span></code> cho kết quả trả về là số lượng các WIFI (có mật khẩu và không có mật khẩu) mà module có thế kết nối được.</p>
+</div>
+<div class="section" id="scan-for-networks">
+<span id="scan-for-networks0"></span><h2>Scan for Networks<a class="headerlink" href="#scan-for-networks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scannetworks">
+<span id="scannetworks0"></span><h3>scanNetworks<a class="headerlink" href="#scannetworks" title="Permalink to this headline">¶</a></h3>
+<p>Hàm scanNetworks thưc hiện scan các Wifi trong vùng mà module có thể kết nối được và kết quả trả về là số lượng các WIFI (ta lập trình để kết quả hiển thị trên Serial Monitor).</p>
+<p><code class="docutils literal"><span class="pre">WiFi.scanNetworks()</span></code></p>
+<p>Code demo:</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span> <span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+
+ <span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;** Scan Networks **&quot;</span><span class="p">);</span>
+
+<span class="nb">int</span> <span class="n">numSsid</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+
+<span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;SSID List:&quot;</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">numSsid</span><span class="p">);</span>
+
+
+<span class="p">}</span>
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="../_images/scan-networks.png" src="../_images/scan-networks.png" />
+</div>
+<div class="section" id="scancomplete">
+<span id="scancomplete0"></span><h3>scanComplete<a class="headerlink" href="#scancomplete" title="Permalink to this headline">¶</a></h3>
+<p>Hàm WiFi.scanComplete() có chức năng tương tự như hàm scanNetworks nhưng thực hiện các chức năng scan bất đồ bộ (asynchronous scanning)</p>
+<p><code class="docutils literal"><span class="pre">WiFi.scanComplete()</span></code></p>
+<p>Kết quả trả về số lượng các mạng Wifi có thể kết nối được (giống như với hàm scanNetworks)</p>
+<p>Nếu việc scan chưa thực hiện xong thì có các kết quả trả về:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Hàm scan chưa thực hiện xong: -1</li>
+<li>Lỗi scan: -2</li>
+</ul>
+</div></blockquote>
+<p>Code demo:</p>
+<p>Thực hiện chạy song song 2 hàm scanNetworks và scanComplete, kiểm tra, so sánh kết quả.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+
+    <span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="s2">&quot;** Scan Networks **&quot;</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">sN</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+<span class="nb">int</span> <span class="n">sC</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanComplete</span><span class="p">();</span>
+
+<span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;SSID List:&quot;</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">sN</span><span class="p">);</span>
+    <span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Scan Complete </span><span class="si">%d</span><span class="s2"> &quot;</span><span class="p">,</span> <span class="n">sC</span><span class="p">);</span>
+
+<span class="p">}</span>
+    <span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="p">}</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="../_images/scan-complete.png" src="../_images/scan-complete.png" />
+</div>
+</div>
+<div class="section" id="hien-thi-ket-qua">
+<span id="hien-thi-ket-qua0"></span><h2>Hiển thị kết quả<a class="headerlink" href="#hien-thi-ket-qua" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ssid">
+<span id="ssid0"></span><h3>SSID<a class="headerlink" href="#ssid" title="Permalink to this headline">¶</a></h3>
+<p>Sau khi scan network, kết quả trả về là số các network. Để biết SSID của network với số thứ tự tương ứng trong kết quả về, ta dùng hàm <code class="docutils literal"><span class="pre">WiFi.SSID(arg</span> <span class="pre">1)</span></code>, với arg 1 là tham số truyền vào là số thứ tự của network cần biết SSID.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.SSID(</span> <span class="pre">số</span> <span class="pre">thứ</span> <span class="pre">tự</span> <span class="pre">của</span> <span class="pre">SSID);</span></code></p>
+<p>Returned Kết quả trả về là kiểu string, nên ta dùng chuyển đổi: <code class="docutils literal"><span class="pre">WiFi.SSID(1).c_str()</span></code></p>
+<p>Ta lưu ý là kết quả tên mạng SSID trả về được tính bắt từ 0, tức là gỉa sử có 10 mạng Wifi thì số thứ tự các mạng sẽ là từ 0 đến 9.</p>
+<p>Code demo:</p>
+<p>Ta cần trả về tên của 2 mạng WIFI thứ tự 0 và 1</p>
+<p>Kết quả:</p>
+<img alt="../_images/ssid-name.png" src="../_images/ssid-name.png" />
+</div>
+<div class="section" id="scandelete">
+<span id="scandelete0"></span><h3>scanDelete<a class="headerlink" href="#scandelete" title="Permalink to this headline">¶</a></h3>
+<p>Xóa kết quả của lần scanNetworks trước khỏi bộ nhớ, do đó kết quả sau khi scan sẽ không thể hiển thị trên màn hình Serial Monitor</p>
+<p><code class="docutils literal"><span class="pre">WiFi.scanDelete()</span></code></p>
+<p>Ví dụ:</p>
+<p>Ơ đoạn code trước ở phần trước của câu lệnh WiFi.SSID, ta thêm dòng lệnh <code class="docutils literal"><span class="pre">WiFi.scanDelete();</span></code> ở cuối đoạn code phần setup, thì sẽ không có kết quả nào hiển thị trên Serial Monitor, màn hình Serial Monitor trống.</p>
+<p>Code Demo</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot; Number of networks: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">WiFi</span><span class="o">.</span><span class="n">scanDelete</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="../_images/scan-delete.png" src="../_images/scan-delete.png" />
+</div>
+<div class="section" id="encryptiontype">
+<span id="encryptiontype0"></span><h3>encryptionType<a class="headerlink" href="#encryptiontype" title="Permalink to this headline">¶</a></h3>
+<p>Việc mã hóa dữ liệu/kiểu bảo mật (encryption) là một phần rất quan trọng trong việc cấu hình, lắp đặt và sử dụng Wifi. Xem thêm <a class="reference external" href="../wifi/kn-wifi.html">Khái niệm Wifi cơ bản</a> để tìm hiểu cơ bản về các chuẩn bảo mật Wifi.</p>
+<p>Hàm <code class="docutils literal"><span class="pre">Wifi.encryptionType</span></code> trả về kiểu bảo mật mà mạng Wifi sử dụng</p>
+<p><code class="docutils literal"><span class="pre">WiFi.encryptionType(số</span> <span class="pre">thứ</span> <span class="pre">tự</span> <span class="pre">WiFi)</span></code></p>
+<p>Hàm có các kết quả trả về sau đây:</p>
+<blockquote>
+<div><ul class="simple">
+<li>0 : Mạng không tồn tại hoặc không scan được mạng</li>
+<li>5 : Bảo mật WEP</li>
+<li>2 : Bảo mật WPA / PSK</li>
+<li>4 : Bảo mật WPA2 / PSK</li>
+<li>7 : Không dùng bảo mật</li>
+<li>8 : Bảo mật WPA / WPA2 / PSK</li>
+</ul>
+</div></blockquote>
+<p>Code Demo:</p>
+<p>Trả về tên 2 WIFI thứ 0 và 1 và kiểu bảo mật của 2 WiFi này</p>
+<p>Kết quả</p>
+<img alt="../_images/encryption.png" src="../_images/encryption.png" />
+<p>Ta thấy 2 mạng WIFI số 0 và 1 có kết quả trả về là 8, tức là kiểu bảo mật WPA / WPA 2 / PSK</p>
+</div>
+<div class="section" id="channel">
+<span id="channel0"></span><h3>channel<a class="headerlink" href="#channel" title="Permalink to this headline">¶</a></h3>
+<p>Trả về kênh (channel) của mạng sau khi scan</p>
+<p><code class="docutils literal"><span class="pre">WiFi.channel(số</span> <span class="pre">thứ</span> <span class="pre">tự</span> <span class="pre">mạng)</span></code></p>
+<p>Kết quả trả về kiểu int 32 bit.</p>
+<p>Code Demo</p>
+<p>Trả về channel của 2 mạng thứ tự 0 và 1 sau khi Scan</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot; Number of networks: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="../_images/channel.png" src="../_images/channel.png" />
+</div>
+<div class="section" id="ishidden">
+<span id="ishidden0"></span><h3>isHidden<a class="headerlink" href="#ishidden" title="Permalink to this headline">¶</a></h3>
+<p>Khi thao tác với hàm <code class="docutils literal"><span class="pre">WiFi.scanNetworks()</span></code> thì vẫn có một số trường hợp một số mạng WiFi bị ẩn đi và không hiển thị được. Hàm WiFi.isHidden() dùng để kiểm tra xem một mạng SSID có phải là một mạng bị ẩn đi hay không. Hàm có kiểu trả về là boolean: true false hoặc 1 0 với 1 ứng với true, và 0 ứng với false.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.isHidden(số</span> <span class="pre">thứ</span> <span class="pre">tự</span> <span class="pre">mạng)</span></code></p>
+<p>Code Demo:
+Kiểm tra xem 2 mạng WiFi 0 1 có phải là mạng bị ẩn không.</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot; Number of networks: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">isHidden</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">isHidden</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<img alt="../_images/hidden.png" src="../_images/hidden.png" />
+<p>Ta thấy kết quả trả về là 0, tức là false, tức là 2 mạng này không phải là mạng ẩn.</p>
+<p>Với kết quả trả về từ <code class="docutils literal"><span class="pre">WiFi.scanNetworks()</span></code> là 1 số nguyên n mạng, thì các mạng ẩn phải có số thứ tư từ n+1 trở lên. Ta kiểm tra xem mang Wifi thứ n+1 có được modue ESP8266 scan được không, và nếu có thì hiển thi tên mạng.</p>
+<p>Code Demo:</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot; Number of networks: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">isHidden</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="wifi/../wifi/_static/hidden-plus.png" src="wifi/../wifi/_static/hidden-plus.png" />
+<p>Từ kết quả ta thấy mạng WiFi ẩn không có trong trường hợp này hoặc module ESP8266 không tìm được.</p>
+</div>
+<div class="section" id="rssi">
+<span id="rssi0"></span><h3>RSSI<a class="headerlink" href="#rssi" title="Permalink to this headline">¶</a></h3>
+<p>Trả về cường độ tín hiệu của một mạng Wi-Fi với thứ tự tương ứng từ kết quả của hàm <code class="docutils literal"><span class="pre">WiFi.scanNetworks()</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.RSSI(&quot;thứ</span> <span class="pre">tự</span> <span class="pre">mạng</span> <span class="pre">WiFi&quot;)</span></code></p>
+<p>Kết quả trả về kiểu int 32 bit.</p>
+<p>Code demo:</p>
+<p>Trả về RSSI của 2 mạng Wifi 0 và 1</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot; Number of networks: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">RSSI</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">RSSI</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="wifi/../wifi/RSSI.png" src="wifi/../wifi/RSSI.png" />
+</div>
+<div class="section" id="bssid">
+<span id="bssid0"></span><h3>BSSID<a class="headerlink" href="#bssid" title="Permalink to this headline">¶</a></h3>
+<p>Trả về địa chỉ MAC của một mạng WiFi với thứ tự tương ứng từ kết quả của hàm <code class="docutils literal"><span class="pre">WiFi.scanNetworks()</span></code> (BSSID: Basic Service Set Identification là tên gọi khác của địa chỉ MAC).</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">WiFi.BSSID(thứ</span> <span class="pre">tự</span> <span class="pre">mạng</span> <span class="pre">WiFi)</span></code></div></blockquote>
+<p>Do giống với hàm <code class="docutils literal"><span class="pre">WiFi.BSSID()</span></code> trình bày ở phần WiFi Station thì kết quả trả về sẽ là ô nhớ mà địa chỉ BSSID được lưu. Do đó, để hiển thị kết quả dạng string thì ta phải dùng lệnh <code class="docutils literal"><span class="pre">WiFi.BSSIDstr()</span></code>. Để hiện thị kết quả dạng string trên Serial Monitor, ta dùng thêm lệnh c_str(). Do đó,code đầy đủ sẽ là:</p>
+<p><code class="docutils literal"><span class="pre">WiFi.BSSIDstr(thứ</span> <span class="pre">tự</span> <span class="pre">mạng</span> <span class="pre">WiFi).c_str()</span></code></p>
+<p>Code demo</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="c1">#include &lt;ESP8266WiFi.h&gt;</span>
+
+<span class="n">void</span> <span class="n">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+<span class="nb">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">scanNetworks</span><span class="p">();</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot; Number of networks: </span><span class="si">%d</span><span class="s2"> </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">);</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;SSID: </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">SSID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">BSSIDstr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">BSSIDstr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
+
+<span class="p">}</span>
+
+<span class="n">void</span> <span class="n">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="wifi/../wifi/BSSID.png" src="wifi/../wifi/BSSID.png" />
+<p>Lưu ý:</p>
+<p>Các hàm <code class="docutils literal"><span class="pre">WiFi.SSID</span></code>, <code class="docutils literal"><span class="pre">WiFi.RSSI</span></code>, <code class="docutils literal"><span class="pre">WiFi.BSSID</span></code>, <code class="docutils literal"><span class="pre">WiFi.channel</span></code> trình bày ở phần Scan class này và ở phần WiFi Station đều là một, nhưng để thao tác ở Scan Class (muốn hiển thị thông tin của mạng Wifi) thì khác với các hàm ở WiFi Station ở chỗ là phải thêm vào đối số : thứ tự mạng Wifi.</p>
+</div>
+<div class="section" id="getnetworkinfo">
+<span id="getnetworkinfo0"></span><h3>getNetworkInfo<a class="headerlink" href="#getnetworkinfo" title="Permalink to this headline">¶</a></h3>
+<p>Đây là một hàm hữu hiệu nhất trong khi làm việc với thư viện ESP8266WIFI. Hàm trả về tất cả các thông tin cần thiết của một mạng WiFI (trừ password), như đã trình bày ở các hàm ở trên: SSID, Kiểu bảo mật, RSSI, BSSID, channel và nếu WiFi ẩn khi scan.
+Kiểu trả về của hàm là kiểu boolean (true hoặc false). Kiểu true trả về khi thu được thông tin của mạng WiFi, và kiểu false trả về khi không thu được kết quả.
+Muốn hiển thị các thông tin như SSID, RSSI,... thì ta dùng hàm Serial.printf.</p>
+<p><code class="docutils literal"><span class="pre">WiFi.getNetworkInfo(&quot;</span> <span class="pre">thứ</span> <span class="pre">tự</span> <span class="pre">mạng</span> <span class="pre">WiFi</span> <span class="pre">&quot;,</span> <span class="pre">&amp;ssid,</span> <span class="pre">&amp;encryptionType,</span> <span class="pre">&amp;RSSI,</span> <span class="pre">*&amp;BSSID,</span> <span class="pre">&amp;channel,</span> <span class="pre">&amp;isHidden)</span></code></p>
+<p>Code demo:</p>
+<p>Trả về thông tin về các mạng WiFI dùng hàm <code class="docutils literal"><span class="pre">WiFi.getNetworkInfo()</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#include &lt;ESP8266WiFi.h&gt;
+
+void setup()
+{
+Serial.begin(115200);
+int n = WiFi.scanNetworks();
+
+String ssid;
+uint8_t encryptionType;
+ỉnt32_t RSSI;
+uint8_t* BSSID;
+ỉnt32_t channel;
+bool isHidden;
+
+for (int i = 0; i &lt; n; i++)
+{
+WiFi.getNetworkInfo(i, ssid, encryptionType, RSSI, BSSID, channel, isHidden);
+Serial.printf(&quot;%d: %s, Ch:%d (%ddBm) %s %s\n&quot;, i + 1, ssid.c_str(), channel, RSSI, encryptionType == ENC_TYPE_NONE ? &quot;open&quot; : &quot;&quot;, isHidden ? &quot;hidden&quot; : &quot;&quot;);
+}
+}
+
+void loop()
+{
+ }
+</pre></div>
+</div>
+<p>Kết quả:</p>
+<img alt="wifi/../wifi/getNetworkInfo.png" src="wifi/../wifi/getNetworkInfo.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, TuanPM.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            LANGUAGE:'vi',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+ 
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-60470603-9");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+
+
+</body>
+</html>

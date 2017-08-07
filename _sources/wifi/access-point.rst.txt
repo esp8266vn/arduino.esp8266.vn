@@ -1,34 +1,51 @@
-﻿WiFi Access Point
+WiFi Access Point
 =================
 
-**Access Point** (AP - Điểm truy cập) cung cấp khả năng truy cập mạng WiFi cho các thiết bị khác (Station) và kết nối chúng với mạng có dây. ESP8266 có thể cung cấp chức năng tương tự nhưng nó không kết nối có dây với một mạng. Chế độ hoạt động như vậy gọi là **soft-AP**. Số lượng trạm tối đa kết nối với soft-AP là 5
+**Access Point** (AP - Điểm truy cập) cung cấp khả năng truy cập mạng WiFi cho các thiết bị khác (Station) và kết nối chúng với mạng có dây. ESP8266 có thể làm một AP nhưng nó không kết nối có dây với một mạng. Chế độ hoạt động như vậy gọi là **soft-AP**. Số lượng trạm tối đa kết nối với soft-AP là 5
 
-.. image:: ../_static/wifi/esp8266-soft-access-point.png
+.. image::  ../_static/wifi/esp8266-soft-access-point.png
 
 Phần mô tả API này gồm có 3 phần: cách thiết lập soft-AP, quản lý kết nối và lấy thông tin về cấu hình soft-AP.
 
 Mục lục
--------
+--------
 
-* `Thiết lập mạng <#thiet-lap-mang>`_
+* :ref:`Về Access Point 0` 
 
-  - `softAP <#softAP>`_
-  - `softAPConfig <#softapconfig>`_
+* :ref:`Thiết lập mạng0` 
 
-* `Quản lý kết nối <#quan-ly-ket-noi>`_
+  - :ref:`softAP0` 
+  - :ref:`softAPConfig0` 
 
-  - `softAPdisconnect <#softapdisconnect>`_
-  - `softAPgetStationNum <#softapgetstationnum>`_
+* :ref:`Quản lý kết nối0` 
 
-* `Cấu hình mạng <#cau-hinh-mang>`_
+  - :ref:`softAPgetStationNum0` 
+  - :ref:`softAPdisconnect0` 
+  
+* :ref:`Cấu hình mạng0` 
 
-  - `softAPIP <#softapip>`_
-  - `softAPmacAddress <#softapmacaddress>`_
+  - :ref:`softAPIP0` 
+  - :ref:`softAPmacAddress0` 
+
+.. _Về Access Point 0:
+
+Về Access Point
+---------------
+
+Chế độ soft access point (soft-AP) được dùng để hỗ trợ việc kết nối vào mạng Wifi. Khi đó, ta thiết lập một mạng WiFi mới với SSID và password do ta thiết lập. Sau khi thiết lập Wifi ở chế độ soft Access point, thì các thiết bị có thể kết nối tới mạng WiFi đó. Khi đó, ta có thể quản lí các kết nối với các trạm kết nối (station).
+
+Chế độ soft-AP có thể được dùng để thiết lập mesh network (một mạng lưới). Mesh network là những kết nối mạng theo lưới với nhiều điểm truy nhập (access points) khác nhau trong những khu vực địa lý rộng lớn.
+
+Một hệ thống mesh network bao gồm các client, router và gateway. Do đó, để module ESP8266 tham gia vào một mesh network lớn thì hệ thống cần có các router. Mesh network truyền thông tin giữa các nút. Do ESP8266 có thể làm việc ở 2 chế độ station và soft-AP nên nó có thể là một nút trong mesh network.
+
+.. _Thiết lập mạng0:
 
 Thiết lập mạng
 --------------
 
-Phần này mô tả các chức năng để thiết lập và cấu hình ESP8266 ở chế độ điểm truy cập mềm (soft-AP).
+Phần này mô tả các chức năng để thiết lập và cấu hình ESP8266 ở chế độ soft-AP.
+
+.. _softAP0:
 
 softAP
 ~~~~~~
@@ -55,16 +72,18 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
     * Mạng được thiết lập bởi softAP sẽ có địa chỉ IP mặc định là 192.168.4.1. Địa chỉ này có thể được thay đổi bằng cách sử dụng softAPConfig
     * Mặc dù ESP8266 có thể hoạt động đưuọc ở chế độ softAP + station, nó thực sự chỉ có một kênh phần cứng. Do đó trong chế độ softAP, ESP8266 sẽ điều chỉnh channel của nó giống như trong chế độ station. Tham khảo thêm tại `đây <http://bbs.espressif.com/viewtopic.php?f=10&t=324>`_
 
-Cấu hình softAP
+.. _softAPConfig0:
+
+softAPConfig
 ~~~~~~~~~~~~~~~
 
 ``softAPConfig(local_ip, gateway, subnet)``
 
 Tất cả các thông số đều có kiểu ``IPAddress`` và được định nghĩa như sau:
 
-* local_ip - Địa chỉ IP của điểm truy cập mềm
-* gateway - địa chỉ IP gateway
-* subnet - mặt nạ mạng con
+* local_ip: Địa chỉ IP của điểm truy cập mềm
+* gateway: địa chỉ IP gateway
+* subnet: subnet mask
 
 Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc thay đổi cấu hình.
 
@@ -101,13 +120,17 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
 	Setting soft-AP ... Ready
 	Soft-AP IP address = 192.168.4.22
 
-Quản lý Mạng
-------------
+.. _Quản lý kết nối0:	
+
+Quản lý kết nối
+----------------
 
 Khi đã thiết lập softAP, bạn có thể kiểm tra các trạm đã kết nối, hoặc tắt chúng, sử dụng các hàm sau:
 
+.. _softAPgetStationNum0:
+
 softAPgetStationNum
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Lấy số lượng các station kết nối đến softAP
 
@@ -117,29 +140,58 @@ Lấy số lượng các station kết nối đến softAP
 
 	Serial.printf("Stations connected to soft-AP = %d\n", WiFi.softAPgetStationNum());
 
-*output*
+DEMO:
+
+Trả về số lượng các thiết bị (station) kết nối tới mạng Wifi thiết lập bởi ESP8266
 
 .. code:: cpp
 
-	Stations connected to soft-AP = 2
+	 #include <ESP8266WiFi.h>
+
+     void setup()
+     {
+     WiFi.softAP("31/8/2017");
+     Serial.begin(115200);
+
+     }
+     void loop() 
+     {
+     Serial.printf("Stations connected to soft-AP = %d \n", WiFi.softAPgetStationNum());
+ 	 delay(2000); //delay trong 2s để kiểm tra xem có thiết bị nào mới kết nối với module không ?
+     }
+
+
+*output*
+
+        .. image:: ../_static/wifi/soft-apgetstationnum.png
+
+Ta thấy có 1 thiết bị kết nối tới mạng WIFI: "31/8/2017"
+
+	
 
 Lưu ý: số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.
+
+.. _softAPdisconnect0:
 
 softAPdisconnect
 ~~~~~~~~~~~~~~~~
 
 Ngắt kết nối các trạm từ mạng được thiết lập bởi softAP.
 
-WiFi.softAPdisconnect(wifioff)
+``WiFi.softAPdisconnect(wifioff)``
 
 Chức năng sẽ thiết lập cấu hình SSID và password của soft-AP giá trị là ``null``. Tham số ``wifioff`` là tùy chọn. Nếu thiết lập là ``true`` nó sẽ tắt chế độ soft-AP.
 
 Trả về ``true`` nếu hoạt động đã thành công, ``false`` nếu không.
 
+.. _Cấu hình Mạng0:
+
 Cấu hình Mạng
 -------------
 
 Các hàm dưới đây cung cấp địa chỉ IP và MAC của soft-AP của ESP8266.
+
+.. _softAPIP0:
 
 softAPIP
 ~~~~~~~~
@@ -160,6 +212,8 @@ Trả về giá trị có kiểu là ``IPAddress``.
 .. code:: cpp
 
 	Soft-AP IP address = 192.168.4.1
+
+.. _softAPmacAddress0:
 
 softAPmacAddress
 ~~~~~~~~~~~~~~~~
@@ -199,3 +253,5 @@ Kiểu trả về là một ``String`` chứa địa chỉ MAC của softAP.
 .. code:: cpp
 
 	MAC address = 5E:CF:7F:8B:10:13
+
+
