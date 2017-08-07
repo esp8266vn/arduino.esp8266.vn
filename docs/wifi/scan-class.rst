@@ -69,7 +69,7 @@ Code demo:
 
 Kết quả:
 
-.. image:: ../wifi/scanNetworks.png
+.. image:: ../_static/wifi/scan-networks.png
 
 .. _scanComplete0:
 
@@ -114,7 +114,7 @@ Thực hiện chạy song song 2 hàm scanNetworks và scanComplete, kiểm tra,
 	 }
 Kết quả:
 
-.. image:: ../wifi/scanComplete.png
+.. image:: ../_static/wifi/scan-complete.png
 
 .. _Hiển thị kết quả0:
 
@@ -156,7 +156,7 @@ Ta cần trả về tên của 2 mạng WIFI thứ tự 0 và 1
 
 Kết quả: 
 
-.. image:: ../wifi/SSIDn.png
+.. image:: ../_static/wifi/ssid-name.png
 
 .. _scanDelete0:
 
@@ -193,14 +193,14 @@ Code Demo
 
 Kết quả:
 
-.. image:: ../wifi/SCANDELETE.png
+.. image:: ../_static/wifi/scan-delete.png
 
 .. _encryptionType0:
 
 encryptionType
 ~~~~~~~~~~~~~~~
 
-Việc mã hóa dữ liệu/kiểu bảo mật (encryption) là một phần rất quan trọng trong việc cấu hình, lắp đặt và sử dụng Wifi. Xem thêm `Khái niệm Wifi cơ bản <../wifi/BasicWiFIdefinitions.html>`_ để tìm hiểu cơ bản về các chuẩn bảo mật Wifi.
+Việc mã hóa dữ liệu/kiểu bảo mật (encryption) là một phần rất quan trọng trong việc cấu hình, lắp đặt và sử dụng Wifi. Xem thêm `Khái niệm Wifi cơ bản <../wifi/kn-wifi.html>`_ để tìm hiểu cơ bản về các chuẩn bảo mật Wifi.
 
 Hàm ``Wifi.encryptionType`` trả về kiểu bảo mật mà mạng Wifi sử dụng
 
@@ -222,7 +222,7 @@ Trả về tên 2 WIFI thứ 0 và 1 và kiểu bảo mật của 2 WiFi này
 
 Kết quả
 
-.. image:: ../wifi/encryption.png
+.. image:: ../_static/wifi/encryption.png
 
 Ta thấy 2 mạng WIFI số 0 và 1 có kết quả trả về là 8, tức là kiểu bảo mật WPA / WPA 2 / PSK
 
@@ -262,7 +262,7 @@ Trả về channel của 2 mạng thứ tự 0 và 1 sau khi Scan
    }
 Kết quả:
 
-.. image:: ../wifi/channel.png
+.. image:: ../_static/wifi/channel.png
 
 .. _isHidden0:
 
@@ -297,7 +297,7 @@ Kiểm tra xem 2 mạng WiFi 0 1 có phải là mạng bị ẩn không.
    }
 
 
-.. image:: ../wifi/hidden.png
+.. image:: ../_static/wifi/hidden.png
 
 Ta thấy kết quả trả về là 0, tức là false, tức là 2 mạng này không phải là mạng ẩn.
 
@@ -325,7 +325,7 @@ Code Demo:
 
 Kết quả:
 
-.. image:: ../wifi/hiddenplus.png
+.. image:: ../wifi/_static/hidden-plus.png
 
 Từ kết quả ta thấy mạng WiFi ẩn không có trong trường hợp này hoặc module ESP8266 không tìm được.
 

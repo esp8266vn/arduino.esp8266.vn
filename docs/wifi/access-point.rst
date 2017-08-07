@@ -3,7 +3,7 @@ WiFi Access Point
 
 **Access Point** (AP - Điểm truy cập) cung cấp khả năng truy cập mạng WiFi cho các thiết bị khác (Station) và kết nối chúng với mạng có dây. ESP8266 có thể làm một AP nhưng nó không kết nối có dây với một mạng. Chế độ hoạt động như vậy gọi là **soft-AP**. Số lượng trạm tối đa kết nối với soft-AP là 5
 
-.. image:: ../wifi/esp8266-soft-access-point.png
+.. image::  ../_static/wifi/esp8266-soft-access-point.png
 
 Phần mô tả API này gồm có 3 phần: cách thiết lập soft-AP, quản lý kết nối và lấy thông tin về cấu hình soft-AP.
 
@@ -74,16 +74,16 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
 
 .. _softAPConfig0:
 
-softAPConfig0
+softAPConfig
 ~~~~~~~~~~~~~~~
 
 ``softAPConfig(local_ip, gateway, subnet)``
 
 Tất cả các thông số đều có kiểu ``IPAddress`` và được định nghĩa như sau:
 
-* local_ip - Địa chỉ IP của điểm truy cập mềm
-* gateway - địa chỉ IP gateway
-* subnet - mặt nạ mạng con
+* local_ip: Địa chỉ IP của điểm truy cập mềm
+* gateway: địa chỉ IP gateway
+* subnet: subnet mask
 
 Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc thay đổi cấu hình.
 
@@ -163,7 +163,7 @@ Trả về số lượng các thiết bị (station) kết nối tới mạng Wi
 
 *output*
 
-        .. image:: ../wifi/softAPgetStationNum.png
+        .. image:: ../_static/wifi/soft-apgetstationnum.png
 
 Ta thấy có 1 thiết bị kết nối tới mạng WIFI: "31/8/2017"
 
