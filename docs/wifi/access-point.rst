@@ -19,9 +19,9 @@ Mục lục
 
 * :ref:`Quản lý kết nối0` 
 
-  - :ref:`softAPdisconnect0` 
   - :ref:`softAPgetStationNum0` 
- 
+  - :ref:`softAPdisconnect0` 
+  
 * :ref:`Cấu hình mạng0` 
 
   - :ref:`softAPIP0` 
@@ -32,12 +32,11 @@ Mục lục
 Về Access Point
 ---------------
 
-Chế độ soft access point (soft-AP) được dùng 
+Chế độ soft access point (soft-AP) được dùng để hỗ trợ việc kết nối vào mạng Wifi. Khi đó, ta thiết lập một mạng WiFi mới với SSID và password do ta thiết lập. Sau khi thiết lập Wifi ở chế độ soft Access point, thì các thiết bị có thể kết nối tới mạng WiFi đó. Khi đó, ta có thể quản lí các kết nối với các trạm kết nối (station).
 
-The soft-AP mode is often used and an intermediate step before connecting ESP to a Wi-Fi in a station mode. This is when SSID and 
-password to such network is not known upfront. ESP first boots in soft-AP mode, so we can connect to it using a laptop or a mobile phone. Then we are able to provide credentials to the target network. Once done ESP is switched to the station mode and can connect to the target Wi-Fi.
+Chế độ soft-AP có thể được dùng để thiết lập mesh network (một mạng lưới). Mesh network là những kết nối mạng theo lưới với nhiều điểm truy nhập (access points) khác nhau trong những khu vực địa lý rộng lớn.
 
-Another handy application of soft-AP mode is to set up mesh networks. ESP can operate in both soft-AP and Station mode so it can act as a node of a mesh network.
+Một hệ thống mesh network bao gồm các client, router và gateway. Do đó, để module ESP8266 tham gia vào một mesh network lớn thì hệ thống cần có các router. Mesh network truyền thông tin giữa các nút. Do ESP8266 có thể làm việc ở 2 chế độ station và soft-AP nên nó có thể là một nút trong mesh network.
 
 .. _Thiết lập mạng0:
 
@@ -73,9 +72,9 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
     * Mạng được thiết lập bởi softAP sẽ có địa chỉ IP mặc định là 192.168.4.1. Địa chỉ này có thể được thay đổi bằng cách sử dụng softAPConfig
     * Mặc dù ESP8266 có thể hoạt động đưuọc ở chế độ softAP + station, nó thực sự chỉ có một kênh phần cứng. Do đó trong chế độ softAP, ESP8266 sẽ điều chỉnh channel của nó giống như trong chế độ station. Tham khảo thêm tại `đây <http://bbs.espressif.com/viewtopic.php?f=10&t=324>`_
 
-.. _Cấu hình softAP0:
+.. _softAPConfig0:
 
-Cấu hình softAP
+softAPConfig0
 ~~~~~~~~~~~~~~~
 
 ``softAPConfig(local_ip, gateway, subnet)``
@@ -121,9 +120,9 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
 	Setting soft-AP ... Ready
 	Soft-AP IP address = 192.168.4.22
 
-.. _Quản lý Mạng0:	
+.. _Quản lý kết nối0:	
 
-Quản lý Mạng
+Quản lý kết nối
 ------------
 
 Khi đã thiết lập softAP, bạn có thể kiểm tra các trạm đã kết nối, hoặc tắt chúng, sử dụng các hàm sau:
@@ -131,7 +130,7 @@ Khi đã thiết lập softAP, bạn có thể kiểm tra các trạm đã kết
 .. _softAPgetStationNum0:
 
 softAPgetStationNum
-^^^^^^^^^^^^^^^^^^^
+~~~~~~~~~~~~~~~~~~~~
 
 Lấy số lượng các station kết nối đến softAP
 
