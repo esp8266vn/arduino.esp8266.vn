@@ -107,6 +107,8 @@ Các đối số:
 * ``subnet``: subnet xác định phạm vi IP của mạng nội bộ
 * ``dns1, dns2``: các tham số tùy chọn của máy chủ phân giải tên miền
 
+Ví dụ:
+
 .. code:: cpp
 
     #include <ESP8266WiFi.h>
@@ -172,7 +174,7 @@ reconnect
     * Trạm phải được kết nối đến một điểm truy cập. Nếu không sẽ trả về ``false`` và không thực hiện bất kỳ hành động nào.
     * Nếu trả về ``true`` có nghĩa là kết nối đã được thiết lập lại, bạn vẫn phải kiểm tra trạng thái kết nối, chờ đợi cho kết khi báo cáo ``WL_CONNECTED``
 
-CODE DEMO: 
+Ví dụ: 
 
 .. code:: cpp
 
@@ -287,6 +289,8 @@ Lấy địa chỉ MAC của ESP station
 
 Với ``mac`` đó là một con trỏ đến vị trí bộ nhớ (một mảng uint8_t có 6 phần tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.
 
+Ví dụ:
+
 .. code:: cpp
 
     if (WiFi.status() == WL_CONNECTED)
@@ -309,7 +313,7 @@ Nếu bạn không muốn sử dụng con trỏ, bạn có thẻ dùng lệnh d�
       Serial.printf("Connected, mac address: %s\n", WiFi.macAddress().c_str());
     }
 
-Kết quả thực hiện (địa chỉ MAC là duy nhất cho mỗi thiết bị truy cập vào mạng):
+*output:*
 
 .. image:: ../_static/wifi/mac-address.png   
 
@@ -398,6 +402,8 @@ Lấy địa chỉ IP của Máy chủ Tên miền (DNS).
 
 Với tham số đầu vào ``dns_no`` chúng ta có thể chỉ định địa chỉ IP của DNS mà chúng ta cần. Nếu không có tham số nào được cung cấp, thì IP của DNS #1 sẽ được trả về.
 
+Ví dụ;
+
 .. code:: cpp
 
     Serial.print("DNS #1, #2 IP: ");
@@ -435,6 +441,8 @@ Tham số đầu vào ``aHostname`` có thể là một kiểu ``char*``, ``cons
 
 Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả lại ``false`` mà không gán tên máy chủ mới.
 
+Ví dụ:
+
 .. code:: cpp
 
     Serial.printf("Default hostname: %s\n", WiFi.hostname().c_str());
@@ -469,7 +477,7 @@ Chức năng trả về một trong các trạng thái kết nối sau đây:
 
 Giá trị trả lại kiểu ``wl_status_t`` được định nghĩa trong *wl_definitions.h*
 
-CODE DEMO
+Ví dụ:
 
 .. code:: cpp
 
@@ -542,7 +550,7 @@ Kiểu trả về ``String``
 psk
 ^^^
 
-Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.
+Trả lại mật khẩu hiện tại của WiFi mà module đã kết nối tới:
 
 .. code:: cpp 
 
@@ -551,12 +559,12 @@ Trả lại mật khẩu hiện tại được liên kết với mạng Wi-Fi.
 Kiểu trả về ``String``
 
 
-DEMO:
+Ví dụ:
 
 
 Mô tả: Với module ESP8266 đã kết nối wifi ở trên,ta cần hiển thị password wifi đã kết nối
 
-Code:
+Ví dụ:
 
 .. code:: cpp
 
@@ -572,7 +580,7 @@ Code:
     }
     void loop() {}
 
-Output:
+*output:*
 
 .. code:: cpp
 
@@ -651,6 +659,8 @@ Chức năng ``beginWPSConfig`` sau đây cho phép kết nối với mạng s�
    WiFi.beginWPSConfig()
 
 Tùy thuộc vào kết quả kết nối chức năng trả về ``true`` hoặc ``false``.
+
+Ví dụ:
 
 .. code:: cpp
 

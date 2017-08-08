@@ -92,6 +92,8 @@ Tất cả các thông số đều có kiểu ``IPAddress`` và được định
 
 Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc thay đổi cấu hình.
 
+Ví dụ:
+
 .. code:: cpp
 
 	#include <ESP8266WiFi.h>
@@ -147,9 +149,11 @@ Lấy số lượng các station kết nối đến softAP
 
 	 Serial.printf("Stations connected to soft-AP = %d\n", WiFi.softAPgetStationNum());
 
-DEMO:
+Ví dụ:
 
 Trả về số lượng các thiết bị (station) kết nối tới mạng Wifi thiết lập bởi ESP8266
+
+Ví dụ:
 
 .. code:: cpp
 

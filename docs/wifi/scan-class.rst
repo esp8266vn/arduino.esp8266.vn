@@ -44,7 +44,7 @@ Hàm scanNetworks thưc hiện scan các Wifi trong vùng mà module có thể k
 
    WiFi.scanNetworks()
 
-Code demo:
+Ví dụ:
 
 .. code:: cpp
 
@@ -68,7 +68,7 @@ Code demo:
 
    }
 
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/scan-networks.png
 
@@ -90,7 +90,7 @@ Nếu việc scan chưa thực hiện xong thì có các kết quả trả về:
  * Hàm scan chưa thực hiện xong: -1 
  * Lỗi scan: -2
 
-Code demo:
+Ví dụ:
 
 Thực hiện chạy song song 2 hàm scanNetworks và scanComplete, kiểm tra, so sánh kết quả.
 
@@ -100,23 +100,20 @@ Thực hiện chạy song song 2 hàm scanNetworks và scanComplete, kiểm tra,
 
   void setup()
   {
-     Serial.begin(115200);
-
-     Serial.println("** Scan Networks **");
-     int sN = WiFi.scanNetworks();
-     int sC = WiFi.scanComplete();
-
-     Serial.print("**SSID List:**");
+   Serial.begin(115200);
+   Serial.println("** Scan Networks **");
+   int sN = WiFi.scanNetworks();
+   int sC = WiFi.scanComplete();
+   Serial.print("**SSID List:**");
 	 Serial.println(sN);
 	 Serial.printf("Scan Complete %d ", sC);
-
   }
   void loop()
   {
 
   }
    
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/scan-complete.png
 
@@ -140,7 +137,7 @@ Returned Kết quả trả về là kiểu string, nên ta dùng chuyển đổi
 
 Ta lưu ý là kết quả tên mạng SSID trả về được tính bắt từ 0, tức là gỉa sử có 10 mạng Wifi thì số thứ tự các mạng sẽ là từ 0 đến 9.
 
-Code demo:
+Ví dụ:
 
 Ta cần trả về tên của 2 mạng WIFI thứ tự 0 và 1
 
@@ -160,7 +157,7 @@ Ta cần trả về tên của 2 mạng WIFI thứ tự 0 và 1
  {
  }
 
-Kết quả: 
+Output: 
 
 .. image:: ../_static/wifi/ssid-name.png
 
@@ -179,7 +176,7 @@ Ví dụ:
 
 Ơ đoạn code trước ở phần trước của câu lệnh WiFi.SSID, ta thêm dòng lệnh ``WiFi.scanDelete();`` ở cuối đoạn code phần setup, thì sẽ không có kết quả nào hiển thị trên Serial Monitor, màn hình Serial Monitor trống.
 
-Code Demo
+Ví dụ:
 
 .. code:: cpp
 
@@ -199,7 +196,7 @@ Code Demo
  {
  }
 
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/scan-delete.png
 
@@ -229,7 +226,7 @@ Code Demo:
 
 Trả về tên 2 WIFI thứ 0 và 1 và kiểu bảo mật của 2 WiFi này
 
-Kết quả
+Output:
 
 .. image:: ../_static/wifi/encryption.png
 
@@ -248,7 +245,7 @@ Trả về kênh (channel) của mạng sau khi scan
 
 Kết quả trả về kiểu int 32 bit.
 
-Code Demo
+Ví dụ:
 
 Trả về channel của 2 mạng thứ tự 0 và 1 sau khi Scan
 
@@ -258,20 +255,20 @@ Trả về channel của 2 mạng thứ tự 0 và 1 sau khi Scan
 
   void setup()
   {
-    Serial.begin(115200);
-    int a = WiFi.scanNetworks();
-    Serial.printf(" Number of networks: %d \n",a);
-    Serial.printf("SSID: %s\n", WiFi.SSID(0).c_str());
-    Serial.printf("SSID: %s\n", WiFi.SSID(1).c_str());
-    Serial.println(WiFi.channel(0));
-    Serial.println(WiFi.channel(1));
+   Serial.begin(115200);
+   int a = WiFi.scanNetworks();
+   Serial.printf(" Number of networks: %d \n",a);
+   Serial.printf("SSID: %s\n", WiFi.SSID(0).c_str());
+   Serial.printf("SSID: %s\n", WiFi.SSID(1).c_str());
+   Serial.println(WiFi.channel(0));
+   Serial.println(WiFi.channel(1));
   }
 
   void loop()
   {
   }
 
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/channel.png
 
@@ -286,7 +283,7 @@ Khi thao tác với hàm ``WiFi.scanNetworks()`` thì vẫn có một số trư�
 
  WiFi.isHidden(networkItem)
 
-Code Demo:
+Ví dụ:
 Kiểm tra xem 2 mạng WiFi 0 1 có phải là mạng bị ẩn không.
 
 .. code:: cpp
@@ -336,7 +333,7 @@ Code Demo:
  {
  } 
 
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/hidden-plus.png
 
@@ -378,7 +375,7 @@ Trả về RSSI của 2 mạng Wifi 0 và 1
  {
  }
 
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/rssi.png
 
@@ -421,7 +418,7 @@ Code demo
  {
  }
 
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/bssid.png
 
@@ -474,7 +471,7 @@ Trả về thông tin về các mạng WiFI dùng hàm ``WiFi.getNetworkInfo()``
  {
  }
 
-Kết quả:
+Output:
 
 .. image:: ../_static/wifi/get-network-info.png
 
