@@ -46,7 +46,7 @@ Hàm scanNetworks thưc hiện scan các Wifi trong vùng mà module có thể k
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
   #include <ESP8266WiFi.h>
 
@@ -94,7 +94,7 @@ Ví dụ:
 
 Thực hiện chạy song song 2 hàm scanNetworks và scanComplete, kiểm tra, so sánh kết quả.
 
-.. code:: cpp
+.. code-block:: cpp
 
   #include <ESP8266WiFi.h>
 
@@ -141,7 +141,7 @@ Ví dụ:
 
 Ta cần trả về tên của 2 mạng WIFI thứ tự 0 và 1
 
-.. code:: cpp
+.. code-block:: cpp
 
  #include <ESP8266WiFi.h>
  void setup()
@@ -178,7 +178,7 @@ Ví dụ:
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
  #include <ESP8266WiFi.h>
 
@@ -249,7 +249,7 @@ Ví dụ:
 
 Trả về channel của 2 mạng thứ tự 0 và 1 sau khi Scan
 
-.. code:: cpp
+.. code-block:: cpp
 
   #include <ESP8266WiFi.h>
 
@@ -286,7 +286,7 @@ Khi thao tác với hàm ``WiFi.scanNetworks()`` thì vẫn có một số trư�
 Ví dụ:
 Kiểm tra xem 2 mạng WiFi 0 1 có phải là mạng bị ẩn không.
 
-.. code:: cpp
+.. code-block:: cpp
 
  #include <ESP8266WiFi.h>
 
@@ -306,6 +306,7 @@ Kiểm tra xem 2 mạng WiFi 0 1 có phải là mạng bị ẩn không.
  {
  }
 
+Output:
 
 .. image:: ../_static/wifi/hidden.png
 
@@ -315,7 +316,7 @@ Với kết quả trả về từ ``WiFi.scanNetworks()`` là 1 số nguyên n m
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
  #include <ESP8266WiFi.h>
 
@@ -356,7 +357,7 @@ Ví dụ:
 
 Trả về RSSI của 2 mạng Wifi 0 và 1
 
-.. code:: cpp
+.. code-block:: cpp
 
  #include <ESP8266WiFi.h>
 
@@ -398,7 +399,7 @@ Do giống với hàm ``WiFi.BSSID()`` trình bày ở phần WiFi Station thì 
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
  #include <ESP8266WiFi.h>
 
@@ -436,7 +437,7 @@ getNetworkInfo
 Kiểu trả về của hàm là kiểu boolean (true hoặc false). Kiểu true trả về khi thu được thông tin của mạng WiFi, và kiểu false trả về khi không thu được kết quả. 
 Muốn hiển thị các thông tin như SSID, RSSI,... thì ta dùng hàm Serial.printf. 
 
-.. code:: cpp
+.. code-block:: cpp
 
  WiFi.getNetworkInfo("networkItem", &ssid, &encryptionType, &RSSI, *&BSSID, &channel, &isHidden)
 
@@ -444,34 +445,53 @@ Ví dụ:
 
 Trả về thông tin về các mạng WiFI dùng hàm ``WiFi.getNetworkInfo()``
 
-.. code:: cpp
+.. code-block:: cpp
 
- #include <ESP8266WiFi.h>
+  #include <ESP8266WiFi.h>
 
- void setup()
- {
-   Serial.begin(115200);  
-   int n = WiFi.scanNetworks();
+  void setup()
+  {
+    Serial.begin(115200);  
+     int n = WiFi.scanNetworks();
 
-   String ssid;
-   uint8_t encryptionType;
-   ỉnt32_t RSSI;
-   uint8_t* BSSID;
-   ỉnt32_t channel;
-   bool isHidden;
+     String ssid;
+     uint8_t encryptionType;
+     init32_t RSSI;
+     uint8_t* BSSID;
+     init32_t channel;
+     bool isHidden;
 
-     for (int i = 0; i < n; i++)
-     {
-     WiFi.getNetworkInfo(i, ssid, encryptionType, RSSI, BSSID, channel, isHidden);
-     Serial.printf("%d: %s, Ch:%d (%ddBm) %s %s\n", i + 1, ssid.c_str(), channel, RSSI, encryptionType == ENC_TYPE_NONE ? "open" : "", isHidden ? "hidden" : "");
-     }
- }
+       for (int i = 0; i < n; i++)
+       {
+       WiFi.getNetworkInfo(i, ssid, encryptionType, RSSI, BSSID, channel, isHidden);
+       Serial.printf("%d: %s, Ch:%d (%ddBm) %s %s\n", i + 1, ssid.c_str(), channel, RSSI, encryptionType == ENC_TYPE_NONE ? "open" : "", isHidden ? "hidden" : "");
+       }
+  }
 
- void loop()
- {
- }
+  void loop(){}  
 
 Output:
 
 .. image:: ../_static/wifi/get-network-info.png
 
+.. code-block:: cpp
+
+  #include <ESP8266WiFi.h>
+
+  void setup()
+   {
+      Serial.begin(115200);
+
+      Serial.println("** Scan Networks **");
+
+      int numSsid = WiFi.scanNetworks();
+
+      Serial.print("SSID List:");
+      Serial.println(numSsid);
+
+
+   } 
+  void loop()
+   {
+
+   }

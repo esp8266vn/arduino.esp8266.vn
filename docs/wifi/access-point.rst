@@ -94,30 +94,29 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
-	#include <ESP8266WiFi.h>
+ #include <ESP8266WiFi.h>
+ 
+ IPAddress local_IP(192,168,4,22);
+ IPAddress gateway(192,168,4,9);
+ IPAddress subnet(255,255,255,0);
 
-	IPAddress local_IP(192,168,4,22);
-	IPAddress gateway(192,168,4,9);
-	IPAddress subnet(255,255,255,0);
+ void setup()
+ {
+   Serial.begin(115200);
+   Serial.println();
+   Serial.print("Setting soft-AP configuration ... ");
+   Serial.println(WiFi.softAPConfig(local_IP, gateway, subnet) ? "Ready" : "Failed!");
 
-	void setup()
-	{
-	  Serial.begin(115200);
-	  Serial.println();
+   Serial.print("Setting soft-AP ... ");
+   Serial.println(WiFi.softAP("ESPsoftAP_01") ? "Ready" : "Failed!");
 
-	  Serial.print("Setting soft-AP configuration ... ");
-	  Serial.println(WiFi.softAPConfig(local_IP, gateway, subnet) ? "Ready" : "Failed!");
+   Serial.print("Soft-AP IP address = ");
+   Serial.println(WiFi.softAPIP());
+ }
 
-	  Serial.print("Setting soft-AP ... ");
-	  Serial.println(WiFi.softAP("ESPsoftAP_01") ? "Ready" : "Failed!");
-
-	  Serial.print("Soft-AP IP address = ");
-	  Serial.println(WiFi.softAPIP());
-	}
-
-	void loop() {}
+ void loop() {}
 
 *output*
 
@@ -147,7 +146,7 @@ Lấy số lượng các station kết nối đến softAP
 
 .. code:: cpp
 
-	 Serial.printf("Stations connected to soft-AP = %d\n", WiFi.softAPgetStationNum());
+      Serial.printf("Stations connected to soft-AP = %d\n", WiFi.softAPgetStationNum());
 
 Ví dụ:
 
@@ -155,21 +154,21 @@ Trả về số lượng các thiết bị (station) kết nối tới mạng Wi
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
  #include <ESP8266WiFi.h>
 
-     void setup()
-     {
-         WiFi.softAP("31/8/2017");
-         Serial.begin(115200);
+ void setup()
+ {
+ WiFi.softAP("31/8/2017");
+ Serial.begin(115200);
 
-     }
-     void loop() 
-     {
-         Serial.printf("Stations connected to soft-AP = %d \n", WiFi.softAPgetStationNum());
- 	     delay(2000); //delay trong 2s để kiểm tra xem có thiết bị nào mới kết nối với module không ?
-     }
+ }
+ void loop() 
+ {
+ Serial.printf("Stations connected to soft-AP = %d \n", WiFi.softAPgetStationNum());
+ delay(2000); //delay trong 2s để kiểm tra xem có thiết bị nào mới kết nối với module không ?
+ }
 
 
 *output*
@@ -179,8 +178,9 @@ Ví dụ:
 Ta thấy có 1 thiết bị kết nối tới mạng WIFI: "31/8/2017"
 
 	
+.. note::
 
-Lưu ý: số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.
+ Số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.
 
 .. _softAPdisconnect0:
 
@@ -211,13 +211,13 @@ softAPIP
 
 Trả lại địa chỉ IP của mạng softAP.
 
-.. code:: cpp
+.. code-block:: cpp
 
      WiFi.softAPIP()
 
 Trả về giá trị có kiểu là ``IPAddress``.
 
-.. code:: cpp
+.. code-block:: cpp
 
 	Serial.print("Soft-AP IP address = ");
 	Serial.println(WiFi.softAPIP());

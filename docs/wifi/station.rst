@@ -291,7 +291,7 @@ Với ``mac`` đó là một con trỏ đến vị trí bộ nhớ (một mảng
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
     if (WiFi.status() == WL_CONNECTED)
     {
@@ -404,7 +404,7 @@ Với tham số đầu vào ``dns_no`` chúng ta có thể chỉ định địa 
 
 Ví dụ;
 
-.. code:: cpp
+.. code-block:: cpp
 
     Serial.print("DNS #1, #2 IP: ");
     WiFi.dnsIP().printTo(Serial);
@@ -443,7 +443,7 @@ Ví dụ, nếu giới hạn 32 ký tự vượt quá, chức năng sẽ trả l
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
     Serial.printf("Default hostname: %s\n", WiFi.hostname().c_str());
     WiFi.hostname("Station_Tester_02");
@@ -479,7 +479,7 @@ Giá trị trả lại kiểu ``wl_status_t`` được định nghĩa trong *wl_
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
     #include <ESP8266WiFi.h>
 
@@ -566,7 +566,7 @@ Mô tả: Với module ESP8266 đã kết nối wifi ở trên,ta cần hiển t
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
     #include <ESP8266WiFi.h>
 
@@ -662,7 +662,7 @@ Tùy thuộc vào kết quả kết nối chức năng trả về ``true`` hoặ
 
 Ví dụ:
 
-.. code:: cpp
+.. code-block:: cpp
 
     #include <ESP8266WiFi.h>
 
