@@ -313,7 +313,7 @@ Ta thấy kết quả trả về là 0, tức là false, tức là 2 mạng này
 
 Với kết quả trả về từ ``WiFi.scanNetworks()`` là 1 số nguyên n mạng, thì các mạng ẩn phải có số thứ tư từ n+1 trở lên. Ta kiểm tra xem mang Wifi thứ n+1 có được modue ESP8266 scan được không, và nếu có thì hiển thi tên mạng.
 
-Code Demo:
+Ví dụ:
 
 .. code:: cpp
 
@@ -352,7 +352,7 @@ Trả về cường độ tín hiệu của một mạng Wi-Fi với thứ tự 
 
 Kết quả trả về kiểu int 32 bit.
 
-Code demo:
+Ví dụ:
 
 Trả về RSSI của 2 mạng Wifi 0 và 1
 
@@ -396,7 +396,7 @@ Do giống với hàm ``WiFi.BSSID()`` trình bày ở phần WiFi Station thì 
 
  WiFi.BSSIDstr(thứ tự mạng WiFi).c_str()
 
-Code demo
+Ví dụ:
 
 .. code:: cpp
 
@@ -440,7 +440,7 @@ Muốn hiển thị các thông tin như SSID, RSSI,... thì ta dùng hàm Seria
 
  WiFi.getNetworkInfo("networkItem", &ssid, &encryptionType, &RSSI, *&BSSID, &channel, &isHidden)
 
-Code demo:
+Ví dụ:
 
 Trả về thông tin về các mạng WiFI dùng hàm ``WiFi.getNetworkInfo()``
 
