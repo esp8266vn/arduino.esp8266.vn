@@ -39,7 +39,7 @@ ESP8266 code
 ============
 
 
-.. code:: cpp
+.. code-block:: cpp
 
     #include <Arduino.h>
     #include <ESP8266WiFi.h>

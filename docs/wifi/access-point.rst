@@ -52,18 +52,22 @@ softAP
 
 Cách thiết lập đơn giản nhất chỉ yêu cầu một tham số và được sử dụng để thiết lập một mạng Wi-Fi mở.
 
-``WiFi.softAP (ssid)``
+.. code:: cpp
+
+     WiFi.softAP (ssid)
 
 Để thiết lập mạng được bảo vệ bằng mật khẩu, hoặc để cấu hình các thông số mạng bổ sung, sử dụng quá tải sau đây:
 
-``WiFi.softAP(ssid, password, channel, hidden)``
+.. code:: cpp
+
+     WiFi.softAP(ssid, password, channel, hidden)
 
 Tham số đầu tiên của hàm này là bắt buộc, còn lại ba tùy chọn.
 
-* ssid - chuỗi ký tự chứa SSID mạng (tối đa 63 ký tự)
-* password - chuỗi ký tự tùy chọn với mật khẩu. Đối với mạng WPA2-PSK, nó phải có ít nhất 8 ký tự. Nếu không được chỉ định, điểm truy cập sẽ mở ra cho bất kỳ ai kết nối.
-* channel - Tham số tùy chọn để thiết lập kênh Wi-Fi, từ 1 đến 13. Kênh mặc định = 1.
-* hidden - Tham số tùy chọn, thiết lập là true để ẩn SSID
+* ``ssid``: chuỗi ký tự chứa SSID mạng (tối đa 63 ký tự)
+* ``password``: chuỗi ký tự tùy chọn với mật khẩu. Đối với mạng WPA2-PSK, nó phải có ít nhất 8 ký tự. Nếu không có mật khẩu, thì đây sẽ là mạng WiFi mở.
+* ``channel``: Tham số tùy chọn để thiết lập kênh Wi-Fi, từ 1 đến 13. Kênh mặc định = 1.
+* ``hidden``: Tham số tùy chọn, thiết lập là true để ẩn SSID
 
 Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc cài đặt soft-AP.
 
@@ -76,41 +80,44 @@ Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc
 
 softAPConfig
 ~~~~~~~~~~~~~~~
+.. code:: cpp
 
-``softAPConfig(local_ip, gateway, subnet)``
+     softAPConfig(local_ip, gateway, subnet)
 
 Tất cả các thông số đều có kiểu ``IPAddress`` và được định nghĩa như sau:
 
-* local_ip: Địa chỉ IP của điểm truy cập mềm
-* gateway: địa chỉ IP gateway
-* subnet: subnet mask
+
+* ``local_ip``: Địa chỉ IP của điểm truy cập mềm
+* ``gateway``: địa chỉ IP gateway
+* ``subnet``: subnet mask
 
 Trả về ``true`` hoặc ``false`` phụ thuộc vào kết quả của việc thay đổi cấu hình.
 
-.. code:: cpp
+Ví dụ:
 
-	#include <ESP8266WiFi.h>
+.. code-block:: cpp
 
-	IPAddress local_IP(192,168,4,22);
-	IPAddress gateway(192,168,4,9);
-	IPAddress subnet(255,255,255,0);
+ #include <ESP8266WiFi.h>
+ 
+ IPAddress local_IP(192,168,4,22);
+ IPAddress gateway(192,168,4,9);
+ IPAddress subnet(255,255,255,0);
 
-	void setup()
-	{
-	  Serial.begin(115200);
-	  Serial.println();
+ void setup()
+ {
+   Serial.begin(115200);
+   Serial.println();
+   Serial.print("Setting soft-AP configuration ... ");
+   Serial.println(WiFi.softAPConfig(local_IP, gateway, subnet) ? "Ready" : "Failed!");
 
-	  Serial.print("Setting soft-AP configuration ... ");
-	  Serial.println(WiFi.softAPConfig(local_IP, gateway, subnet) ? "Ready" : "Failed!");
+   Serial.print("Setting soft-AP ... ");
+   Serial.println(WiFi.softAP("ESPsoftAP_01") ? "Ready" : "Failed!");
 
-	  Serial.print("Setting soft-AP ... ");
-	  Serial.println(WiFi.softAP("ESPsoftAP_01") ? "Ready" : "Failed!");
+   Serial.print("Soft-AP IP address = ");
+   Serial.println(WiFi.softAPIP());
+ }
 
-	  Serial.print("Soft-AP IP address = ");
-	  Serial.println(WiFi.softAPIP());
-	}
-
-	void loop() {}
+ void loop() {}
 
 *output*
 
@@ -134,42 +141,52 @@ softAPgetStationNum
 
 Lấy số lượng các station kết nối đến softAP
 
-``WiFi.softAPgetStationNum()``
+.. code:: cpp
+
+      WiFi.softAPgetStationNum()
 
 .. code:: cpp
 
-	Serial.printf("Stations connected to soft-AP = %d\n", WiFi.softAPgetStationNum());
+      Serial.printf("Stations connected to soft-AP = %d\n", WiFi.softAPgetStationNum());
+
+Ví dụ:
+
+Trả về số lượng các thiết bị (station) kết nối tới mạng Wifi thiết lập bởi ESP8266
+
+Ví dụ:
+
+.. code-block:: cpp
+
+ #include <ESP8266WiFi.h>
+
+ void setup()
+ {
+ WiFi.softAP("31/8/2017");
+ Serial.begin(115200);
+
+ }
+ void loop() 
+ {
+ Serial.printf("Stations connected to soft-AP = %d \n", WiFi.softAPgetStationNum());
+ delay(2000); //delay trong 2s để kiểm tra xem có thiết bị nào mới kết nối với module không ?
+ }
+
 
 DEMO:
 
 Trả về số lượng các thiết bị (station) kết nối tới mạng Wifi thiết lập bởi ESP8266
 
-.. code:: cpp
-
-	 #include <ESP8266WiFi.h>
-
-     void setup()
-     {
-     WiFi.softAP("31/8/2017");
-     Serial.begin(115200);
-
-     }
-     void loop() 
-     {
-     Serial.printf("Stations connected to soft-AP = %d \n", WiFi.softAPgetStationNum());
- 	 delay(2000); //delay trong 2s để kiểm tra xem có thiết bị nào mới kết nối với module không ?
-     }
-
-
-*output*
-
-        .. image:: ../_static/wifi/soft-apgetstationnum.png
+        .. image:: ../_static/wifi/softap-getstationnum.png
 
 Ta thấy có 1 thiết bị kết nối tới mạng WIFI: "31/8/2017"
 
-	
 
-Lưu ý: số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.
+	
+.. note::
+
+ Số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.
+
+.. _softAPdisconnect0:
 
 .. _softAPdisconnect0:
 
@@ -178,7 +195,10 @@ softAPdisconnect
 
 Ngắt kết nối các trạm từ mạng được thiết lập bởi softAP.
 
-``WiFi.softAPdisconnect(wifioff)``
+.. code:: cpp
+
+     WiFi.softAPdisconnect(wifioff)
+
 
 Chức năng sẽ thiết lập cấu hình SSID và password của soft-AP giá trị là ``null``. Tham số ``wifioff`` là tùy chọn. Nếu thiết lập là ``true`` nó sẽ tắt chế độ soft-AP.
 
@@ -198,11 +218,13 @@ softAPIP
 
 Trả lại địa chỉ IP của mạng softAP.
 
-``WiFi.softAPIP()``
+.. code-block:: cpp
+
+     WiFi.softAPIP()
 
 Trả về giá trị có kiểu là ``IPAddress``.
 
-.. code:: cpp
+.. code-block:: cpp
 
 	Serial.print("Soft-AP IP address = ");
 	Serial.println(WiFi.softAPIP());
@@ -220,38 +242,43 @@ softAPmacAddress
 
 Trả lại địa chỉ MAC của softAP. Chức năng này có hai phiên bản khác nhau về kiểu trả về. Trả về một con trỏ hoặc một ``String``.
 
-Con trỏ
+Với kiểu trả về là Con trỏ
 
-``WiFi.softAPmacAddress(mac)``
+.. code:: cpp
+
+     WiFi.softAPmacAddress(mac)
 
 Tham số mac là một con trỏ trỏ đến vị trí bộ nhớ (một mảng ``uint8_t`` có 6 phẩn tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.
 
 .. code:: cpp
 
-	uint8_t macAddr[6];
-	WiFi.softAPmacAddress(macAddr);
-	Serial.printf("MAC address = %02x:%02x:%02x:%02x:%02x:%02x\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]);
+	 uint8_t macAddr[6];
+	 WiFi.softAPmacAddress(macAddr);
+	 Serial.printf("MAC address = %02x:%02x:%02x:%02x:%02x:%02x\n", macAddr[0], macAddr[1], macAddr[2], macAddr[3], macAddr[4], macAddr[5]);
 
 *output*
 
 .. code:: cpp
 
-	MAC address = 5e:cf:7f:8b:10:13
+	 MAC address = 5e:cf:7f:8b:10:13
 
 MAC như một ``String``
 
-``WiFi.softAPmacAddress()``
+.. code:: cpp
+
+     WiFi.softAPmacAddress()
 
 Kiểu trả về là một ``String`` chứa địa chỉ MAC của softAP.
 
 .. code:: cpp
 
-	Serial.printf("MAC address = %s\n", WiFi.softAPmacAddress().c_str());
+	 Serial.printf("MAC address = %s\n", WiFi.softAPmacAddress().c_str());
 
 *output*
 
 .. code:: cpp
 
 	MAC address = 5E:CF:7F:8B:10:13
+
 
 
