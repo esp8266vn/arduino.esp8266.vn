@@ -37,7 +37,7 @@
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
         <link rel="up" title="Wi-Fi" href="index.html"/>
-        <link rel="next" title="Smartconfig" href="smartconfig.html"/>
+        <link rel="next" title="Giới thiệu về lớp Scan" href="scan-class.html"/>
         <link rel="prev" title="WiFi Station" href="station.html"/> 
 
   
@@ -151,6 +151,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kn-wifi.html">Các khái niệm cơ bản về WiFi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#station-va-access-point">Station vả Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#hotspot">Hotspot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#cac-chuan-bao-mat-wifi">Các chuẩn bảo mật WiFi</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="station.html">WiFi Station</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="station.html#khai-niem-co-ban">Khái niệm cơ bản</a></li>
@@ -163,6 +169,23 @@
 <li class="toctree-l3"><a class="reference internal" href="#thiet-lap-mang">Thiết lập mạng</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#quan-ly-ket-noi">Quản lý kết nối</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cau-hinh-mang">Cấu hình Mạng</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html">Giới thiệu về lớp Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html#scan-for-networks">Scan for Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scannetworks">scanNetworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scancomplete">scanComplete</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html#hien-thi-ket-qua">Hiển thị kết quả</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#ssid">SSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scandelete">scanDelete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#encryptiontype">encryptionType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#channel">channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#ishidden">isHidden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#rssi">RSSI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#bssid">BSSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#getnetworkinfo">getNetworkInfo</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smartconfig.html">Smartconfig</a><ul>
@@ -484,7 +507,7 @@
 </li>
 <li><a class="reference internal" href="station.html#quan-ly-ket-noi0"><span class="std std-ref">Quản lý kết nối</span></a><ul>
 <li><a class="reference internal" href="#softapgetstationnum0"><span class="std std-ref">softAPgetStationNum</span></a></li>
-<li><a class="reference internal" href="#softapdisconnect0"><span class="std std-ref">softAPdisconnect</span></a></li>
+<li><span class="xref std std-ref">softAPdisconnect0</span></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#cau-hinh-mang0"><span class="std std-ref">Cấu hình Mạng</span></a><ul>
@@ -506,15 +529,19 @@
 <div class="section" id="softap">
 <span id="softap0"></span><h3>softAP<a class="headerlink" href="#softap" title="Permalink to this headline">¶</a></h3>
 <p>Cách thiết lập đơn giản nhất chỉ yêu cầu một tham số và được sử dụng để thiết lập một mạng Wi-Fi mở.</p>
-<p><code class="docutils literal"><span class="pre">WiFi.softAP</span> <span class="pre">(ssid)</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAP</span> <span class="p">(</span><span class="n">ssid</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Để thiết lập mạng được bảo vệ bằng mật khẩu, hoặc để cấu hình các thông số mạng bổ sung, sử dụng quá tải sau đây:</p>
-<p><code class="docutils literal"><span class="pre">WiFi.softAP(ssid,</span> <span class="pre">password,</span> <span class="pre">channel,</span> <span class="pre">hidden)</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAP</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">channel</span><span class="p">,</span> <span class="n">hidden</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Tham số đầu tiên của hàm này là bắt buộc, còn lại ba tùy chọn.</p>
 <ul class="simple">
-<li>ssid - chuỗi ký tự chứa SSID mạng (tối đa 63 ký tự)</li>
-<li>password - chuỗi ký tự tùy chọn với mật khẩu. Đối với mạng WPA2-PSK, nó phải có ít nhất 8 ký tự. Nếu không được chỉ định, điểm truy cập sẽ mở ra cho bất kỳ ai kết nối.</li>
-<li>channel - Tham số tùy chọn để thiết lập kênh Wi-Fi, từ 1 đến 13. Kênh mặc định = 1.</li>
-<li>hidden - Tham số tùy chọn, thiết lập là true để ẩn SSID</li>
+<li><code class="docutils literal"><span class="pre">ssid</span></code>: chuỗi ký tự chứa SSID mạng (tối đa 63 ký tự)</li>
+<li><code class="docutils literal"><span class="pre">password</span></code>: chuỗi ký tự tùy chọn với mật khẩu. Đối với mạng WPA2-PSK, nó phải có ít nhất 8 ký tự. Nếu không có mật khẩu, thì đây sẽ là mạng WiFi mở.</li>
+<li><code class="docutils literal"><span class="pre">channel</span></code>: Tham số tùy chọn để thiết lập kênh Wi-Fi, từ 1 đến 13. Kênh mặc định = 1.</li>
+<li><code class="docutils literal"><span class="pre">hidden</span></code>: Tham số tùy chọn, thiết lập là true để ẩn SSID</li>
 </ul>
 <p>Trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code> phụ thuộc vào kết quả của việc cài đặt soft-AP.</p>
 <div class="admonition note">
@@ -527,36 +554,38 @@
 </div>
 <div class="section" id="softapconfig">
 <span id="softapconfig0"></span><h3>softAPConfig<a class="headerlink" href="#softapconfig" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal"><span class="pre">softAPConfig(local_ip,</span> <span class="pre">gateway,</span> <span class="pre">subnet)</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">softAPConfig</span><span class="p">(</span><span class="n">local_ip</span><span class="p">,</span> <span class="n">gateway</span><span class="p">,</span> <span class="n">subnet</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Tất cả các thông số đều có kiểu <code class="docutils literal"><span class="pre">IPAddress</span></code> và được định nghĩa như sau:</p>
 <ul class="simple">
-<li>local_ip: Địa chỉ IP của điểm truy cập mềm</li>
-<li>gateway: địa chỉ IP gateway</li>
-<li>subnet: subnet mask</li>
+<li><code class="docutils literal"><span class="pre">local_ip</span></code>: Địa chỉ IP của điểm truy cập mềm</li>
+<li><code class="docutils literal"><span class="pre">gateway</span></code>: địa chỉ IP gateway</li>
+<li><code class="docutils literal"><span class="pre">subnet</span></code>: subnet mask</li>
 </ul>
 <p>Trả về <code class="docutils literal"><span class="pre">true</span></code> hoặc <code class="docutils literal"><span class="pre">false</span></code> phụ thuộc vào kết quả của việc thay đổi cấu hình.</p>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#include &lt;ESP8266WiFi.h&gt;
+<p>Ví dụ:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ESP8266WiFi.h&gt;</span><span class="cp"></span>
 
-IPAddress local_IP(192,168,4,22);
-IPAddress gateway(192,168,4,9);
-IPAddress subnet(255,255,255,0);
+<span class="n">IPAddress</span> <span class="nf">local_IP</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">22</span><span class="p">);</span>
+<span class="n">IPAddress</span> <span class="nf">gateway</span><span class="p">(</span><span class="mi">192</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">);</span>
+<span class="n">IPAddress</span> <span class="nf">subnet</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
 
-void setup()
-{
-  Serial.begin(115200);
-  Serial.println();
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">();</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Setting soft-AP configuration ... &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAPConfig</span><span class="p">(</span><span class="n">local_IP</span><span class="p">,</span> <span class="n">gateway</span><span class="p">,</span> <span class="n">subnet</span><span class="p">)</span> <span class="o">?</span> <span class="s">&quot;Ready&quot;</span> <span class="o">:</span> <span class="s">&quot;Failed!&quot;</span><span class="p">);</span>
 
-  Serial.print(&quot;Setting soft-AP configuration ... &quot;);
-  Serial.println(WiFi.softAPConfig(local_IP, gateway, subnet) ? &quot;Ready&quot; : &quot;Failed!&quot;);
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Setting soft-AP ... &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAP</span><span class="p">(</span><span class="s">&quot;ESPsoftAP_01&quot;</span><span class="p">)</span> <span class="o">?</span> <span class="s">&quot;Ready&quot;</span> <span class="o">:</span> <span class="s">&quot;Failed!&quot;</span><span class="p">);</span>
 
-  Serial.print(&quot;Setting soft-AP ... &quot;);
-  Serial.println(WiFi.softAP(&quot;ESPsoftAP_01&quot;) ? &quot;Ready&quot; : &quot;Failed!&quot;);
+  <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Soft-AP IP address = &quot;</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAPIP</span><span class="p">());</span>
+<span class="p">}</span>
 
-  Serial.print(&quot;Soft-AP IP address = &quot;);
-  Serial.println(WiFi.softAPIP());
-}
-
-void loop() {}
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{}</span>
 </pre></div>
 </div>
 <p><em>output</em></p>
@@ -573,38 +602,47 @@ void loop() {}
 <div class="section" id="softapgetstationnum">
 <span id="softapgetstationnum0"></span><h3>softAPgetStationNum<a class="headerlink" href="#softapgetstationnum" title="Permalink to this headline">¶</a></h3>
 <p>Lấy số lượng các station kết nối đến softAP</p>
-<p><code class="docutils literal"><span class="pre">WiFi.softAPgetStationNum()</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAPgetStationNum</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;Stations connected to soft-AP = </span><span class="si">%d</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">softAPgetStationNum</span><span class="p">());</span>
+</pre></div>
+</div>
+<p>Ví dụ:</p>
+<p>Trả về số lượng các thiết bị (station) kết nối tới mạng Wifi thiết lập bởi ESP8266</p>
+<p>Ví dụ:</p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;ESP8266WiFi.h&gt;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">WiFi</span><span class="p">.</span><span class="n">softAP</span><span class="p">(</span><span class="s">&quot;31/8/2017&quot;</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Stations connected to soft-AP = %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">softAPgetStationNum</span><span class="p">());</span>
+<span class="n">delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span> <span class="c1">//delay trong 2s để kiểm tra xem có thiết bị nào mới kết nối với module không ?</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>DEMO:</p>
 <p>Trả về số lượng các thiết bị (station) kết nối tới mạng Wifi thiết lập bởi ESP8266</p>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>    #include &lt;ESP8266WiFi.h&gt;
-
-void setup()
-{
-WiFi.softAP(&quot;31/8/2017&quot;);
-Serial.begin(115200);
-
-}
-void loop()
-{
-Serial.printf(&quot;Stations connected to soft-AP = %d \n&quot;, WiFi.softAPgetStationNum());
-    delay(2000); //delay trong 2s để kiểm tra xem có thiết bị nào mới kết nối với module không ?
-}
-</pre></div>
-</div>
-<p><em>output</em></p>
 <blockquote>
-<div><img alt="../_images/soft-apgetstationnum.png" src="../_images/soft-apgetstationnum.png" />
+<div><img alt="../_images/softap-getstationnum.png" src="../_images/softap-getstationnum.png" />
 </div></blockquote>
 <p>Ta thấy có 1 thiết bị kết nối tới mạng WIFI: &quot;31/8/2017&quot;</p>
-<p>Lưu ý: số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.</p>
+<div class="admonition note">
+<p class="first admonition-title">Ghi chú</p>
+<p class="last">Số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.</p>
+</div>
 </div>
 <div class="section" id="softapdisconnect">
-<span id="softapdisconnect0"></span><h3>softAPdisconnect<a class="headerlink" href="#softapdisconnect" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>softAPdisconnect<a class="headerlink" href="#softapdisconnect" title="Permalink to this headline">¶</a></h3>
 <p>Ngắt kết nối các trạm từ mạng được thiết lập bởi softAP.</p>
-<p><code class="docutils literal"><span class="pre">WiFi.softAPdisconnect(wifioff)</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAPdisconnect</span><span class="p">(</span><span class="n">wifioff</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Chức năng sẽ thiết lập cấu hình SSID và password của soft-AP giá trị là <code class="docutils literal"><span class="pre">null</span></code>. Tham số <code class="docutils literal"><span class="pre">wifioff</span></code> là tùy chọn. Nếu thiết lập là <code class="docutils literal"><span class="pre">true</span></code> nó sẽ tắt chế độ soft-AP.</p>
 <p>Trả về <code class="docutils literal"><span class="pre">true</span></code> nếu hoạt động đã thành công, <code class="docutils literal"><span class="pre">false</span></code> nếu không.</p>
 </div>
@@ -615,10 +653,12 @@ Serial.printf(&quot;Stations connected to soft-AP = %d \n&quot;, WiFi.softAPgetS
 <div class="section" id="softapip">
 <span id="softapip0"></span><h3>softAPIP<a class="headerlink" href="#softapip" title="Permalink to this headline">¶</a></h3>
 <p>Trả lại địa chỉ IP của mạng softAP.</p>
-<p><code class="docutils literal"><span class="pre">WiFi.softAPIP()</span></code></p>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAPIP</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>Trả về giá trị có kiểu là <code class="docutils literal"><span class="pre">IPAddress</span></code>.</p>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">print</span><span class="p">(</span><span class="s2">&quot;Soft-AP IP address = &quot;</span><span class="p">);</span>
-<span class="n">Serial</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAPIP</span><span class="p">());</span>
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Soft-AP IP address = &quot;</span><span class="p">);</span>
+<span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">softAPIP</span><span class="p">());</span>
 </pre></div>
 </div>
 <p><em>output</em></p>
@@ -629,8 +669,10 @@ Serial.printf(&quot;Stations connected to soft-AP = %d \n&quot;, WiFi.softAPgetS
 <div class="section" id="softapmacaddress">
 <span id="softapmacaddress0"></span><h3>softAPmacAddress<a class="headerlink" href="#softapmacaddress" title="Permalink to this headline">¶</a></h3>
 <p>Trả lại địa chỉ MAC của softAP. Chức năng này có hai phiên bản khác nhau về kiểu trả về. Trả về một con trỏ hoặc một <code class="docutils literal"><span class="pre">String</span></code>.</p>
-<p>Con trỏ</p>
-<p><code class="docutils literal"><span class="pre">WiFi.softAPmacAddress(mac)</span></code></p>
+<p>Với kiểu trả về là Con trỏ</p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAPmacAddress</span><span class="p">(</span><span class="n">mac</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Tham số mac là một con trỏ trỏ đến vị trí bộ nhớ (một mảng <code class="docutils literal"><span class="pre">uint8_t</span></code> có 6 phẩn tử) để lưu địa chỉ mac. Cùng một giá trị con trỏ được trả về bởi chính hàm đó.</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">uint8_t</span> <span class="n">macAddr</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span>
 <span class="n">WiFi</span><span class="o">.</span><span class="n">softAPmacAddress</span><span class="p">(</span><span class="n">macAddr</span><span class="p">);</span>
@@ -642,7 +684,9 @@ Serial.printf(&quot;Stations connected to soft-AP = %d \n&quot;, WiFi.softAPgetS
 </pre></div>
 </div>
 <p>MAC như một <code class="docutils literal"><span class="pre">String</span></code></p>
-<p><code class="docutils literal"><span class="pre">WiFi.softAPmacAddress()</span></code></p>
+<div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">WiFi</span><span class="o">.</span><span class="n">softAPmacAddress</span><span class="p">()</span>
+</pre></div>
+</div>
 <p>Kiểu trả về là một <code class="docutils literal"><span class="pre">String</span></code> chứa địa chỉ MAC của softAP.</p>
 <div class="code cpp highlight-default"><div class="highlight"><pre><span></span><span class="n">Serial</span><span class="o">.</span><span class="n">printf</span><span class="p">(</span><span class="s2">&quot;MAC address = </span><span class="si">%s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">WiFi</span><span class="o">.</span><span class="n">softAPmacAddress</span><span class="p">()</span><span class="o">.</span><span class="n">c_str</span><span class="p">());</span>
 </pre></div>
@@ -665,7 +709,7 @@ Serial.printf(&quot;Stations connected to soft-AP = %d \n&quot;, WiFi.softAPgetS
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="smartconfig.html" class="btn btn-neutral float-right" title="Smartconfig" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="scan-class.html" class="btn btn-neutral float-right" title="Giới thiệu về lớp Scan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="station.html" class="btn btn-neutral" title="WiFi Station" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -38,7 +38,7 @@
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
         <link rel="up" title="Wi-Fi" href="index.html"/>
         <link rel="next" title="WPS" href="wps.html"/>
-        <link rel="prev" title="WiFi Access Point" href="access-point.html"/> 
+        <link rel="prev" title="Giới thiệu về lớp Scan" href="scan-class.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -151,6 +151,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Wi-Fi</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kn-wifi.html">Các khái niệm cơ bản về WiFi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#station-va-access-point">Station vả Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#hotspot">Hotspot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#cac-chuan-bao-mat-wifi">Các chuẩn bảo mật WiFi</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="station.html">WiFi Station</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="station.html#khai-niem-co-ban">Khái niệm cơ bản</a></li>
@@ -163,6 +169,23 @@
 <li class="toctree-l3"><a class="reference internal" href="access-point.html#thiet-lap-mang">Thiết lập mạng</a></li>
 <li class="toctree-l3"><a class="reference internal" href="access-point.html#quan-ly-ket-noi">Quản lý kết nối</a></li>
 <li class="toctree-l3"><a class="reference internal" href="access-point.html#cau-hinh-mang">Cấu hình Mạng</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html">Giới thiệu về lớp Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html#scan-for-networks">Scan for Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scannetworks">scanNetworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scancomplete">scanComplete</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html#hien-thi-ket-qua">Hiển thị kết quả</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#ssid">SSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scandelete">scanDelete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#encryptiontype">encryptionType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#channel">channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#ishidden">isHidden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#rssi">RSSI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#bssid">BSSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#getnetworkinfo">getNetworkInfo</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Smartconfig</a><ul>
@@ -522,81 +545,81 @@ Ban đầu không thể kết nối với ESP8266, nhưng thông qua giao thức
 <iframe width="640" height="360" src="//www.youtube.com/embed/-RqMKvMLPi0?feature=player_detailpage" frameborder="0" allowfullscreen="1">&nbsp;</iframe></div>
 <div class="section" id="esp8266-code">
 <h2>ESP8266 code<a class="headerlink" href="#esp8266-code" title="Permalink to this headline">¶</a></h2>
-<div class="code cpp highlight-default"><div class="highlight"><pre><span></span>#include &lt;Arduino.h&gt;
-#include &lt;ESP8266WiFi.h&gt;
-#include &lt;Ticker.h&gt;
-#include &lt;time.h&gt;
+<div class="highlight-cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Arduino.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ESP8266WiFi.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;Ticker.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
 
 
 
-#define PIN_LED 16
-#define PIN_BUTTON 0
+<span class="cp">#define PIN_LED 16</span>
+<span class="cp">#define PIN_BUTTON 0</span>
 
-#define LED_ON() digitalWrite(PIN_LED, HIGH)
-#define LED_OFF() digitalWrite(PIN_LED, LOW)
-#define LED_TOGGLE() digitalWrite(PIN_LED, digitalRead(PIN_LED) ^ 0x01)
+<span class="cp">#define LED_ON() digitalWrite(PIN_LED, HIGH)</span>
+<span class="cp">#define LED_OFF() digitalWrite(PIN_LED, LOW)</span>
+<span class="cp">#define LED_TOGGLE() digitalWrite(PIN_LED, digitalRead(PIN_LED) ^ 0x01)</span>
 
-Ticker ticker;
+<span class="n">Ticker</span> <span class="n">ticker</span><span class="p">;</span>
 
-bool longPress()
-{
-  static int lastPress = 0;
-  if (millis() - lastPress &gt; 3000 &amp;&amp; digitalRead(PIN_BUTTON) == 0) {
-    return true;
-  } else if (digitalRead(PIN_BUTTON) == 1) {
-    lastPress = millis();
-  }
-  return false;
-}
+<span class="kt">bool</span> <span class="nf">longPress</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">static</span> <span class="kt">int</span> <span class="n">lastPress</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">millis</span><span class="p">()</span> <span class="o">-</span> <span class="n">lastPress</span> <span class="o">&gt;</span> <span class="mi">3000</span> <span class="o">&amp;&amp;</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">PIN_BUTTON</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">digitalRead</span><span class="p">(</span><span class="n">PIN_BUTTON</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">lastPress</span> <span class="o">=</span> <span class="n">millis</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
 
-void tick()
-{
-  //toggle state
-  int state = digitalRead(PIN_LED);  // get the current state of GPIO1 pin
-  digitalWrite(PIN_LED, !state);     // set pin to the opposite state
-}
+<span class="kt">void</span> <span class="nf">tick</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="c1">//toggle state</span>
+  <span class="kt">int</span> <span class="n">state</span> <span class="o">=</span> <span class="n">digitalRead</span><span class="p">(</span><span class="n">PIN_LED</span><span class="p">);</span>  <span class="c1">// get the current state of GPIO1 pin</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">PIN_LED</span><span class="p">,</span> <span class="o">!</span><span class="n">state</span><span class="p">);</span>     <span class="c1">// set pin to the opposite state</span>
+<span class="p">}</span>
 
-bool in_smartconfig = false;
-void enter_smartconfig()
-{
-  if (in_smartconfig == false) {
-    in_smartconfig = true;
-    ticker.attach(0.1, tick);
-    WiFi.beginSmartConfig();
-  }
-}
+<span class="kt">bool</span> <span class="n">in_smartconfig</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">enter_smartconfig</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">in_smartconfig</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">in_smartconfig</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">ticker</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">tick</span><span class="p">);</span>
+    <span class="n">WiFi</span><span class="p">.</span><span class="n">beginSmartConfig</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-void exit_smart()
-{
-  ticker.detach();
-  LED_ON();
-  in_smartconfig = false;
-}
+<span class="kt">void</span> <span class="nf">exit_smart</span><span class="p">()</span>
+<span class="p">{</span>
+  <span class="n">ticker</span><span class="p">.</span><span class="n">detach</span><span class="p">();</span>
+  <span class="n">LED_ON</span><span class="p">();</span>
+  <span class="n">in_smartconfig</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+<span class="p">}</span>
 
-void setup() {
-  Serial.begin(115200);
-  Serial.setDebugOutput(true);
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">115200</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">setDebugOutput</span><span class="p">(</span><span class="nb">true</span><span class="p">);</span>
 
-  pinMode(PIN_LED, OUTPUT);
-  pinMode(PIN_BUTTON, INPUT);
-  ticker.attach(1, tick);
-  Serial.println(&quot;Setup done&quot;);
-}
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">PIN_LED</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">PIN_BUTTON</span><span class="p">,</span> <span class="n">INPUT</span><span class="p">);</span>
+  <span class="n">ticker</span><span class="p">.</span><span class="n">attach</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">tick</span><span class="p">);</span>
+  <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Setup done&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 
-void loop() {
-  if (longPress()) {
-    enter_smartconfig();
-    Serial.println(&quot;Enter smartconfig&quot;);
-  }
-  if (WiFi.status() == WL_CONNECTED &amp;&amp; in_smartconfig &amp;&amp; WiFi.smartConfigDone()) {
-    exit_smart();
-    Serial.println(&quot;Connected, Exit smartconfig&quot;);
-  }
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">longPress</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">enter_smartconfig</span><span class="p">();</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Enter smartconfig&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="n">WL_CONNECTED</span> <span class="o">&amp;&amp;</span> <span class="n">in_smartconfig</span> <span class="o">&amp;&amp;</span> <span class="n">WiFi</span><span class="p">.</span><span class="n">smartConfigDone</span><span class="p">())</span> <span class="p">{</span>
+    <span class="n">exit_smart</span><span class="p">();</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Connected, Exit smartconfig&quot;</span><span class="p">);</span>
+  <span class="p">}</span>
 
-  if (WiFi.status() == WL_CONNECTED) {
+  <span class="k">if</span> <span class="p">(</span><span class="n">WiFi</span><span class="p">.</span><span class="n">status</span><span class="p">()</span> <span class="o">==</span> <span class="n">WL_CONNECTED</span><span class="p">)</span> <span class="p">{</span>
 
-  }
-}
+  <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -615,7 +638,7 @@ void loop() {
         <a href="wps.html" class="btn btn-neutral float-right" title="WPS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="access-point.html" class="btn btn-neutral" title="WiFi Access Point" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="scan-class.html" class="btn btn-neutral" title="Giới thiệu về lớp Scan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

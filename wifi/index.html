@@ -36,7 +36,7 @@
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
     <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
-        <link rel="next" title="Thư viện ESP8266WiFi" href="wifi-api.html"/>
+        <link rel="next" title="Các khái niệm cơ bản về WiFi" href="kn-wifi.html"/>
         <link rel="prev" title="SPI" href="../peripherals/spi.html"/> 
 
   
@@ -150,6 +150,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Wi-Fi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kn-wifi.html">Các khái niệm cơ bản về WiFi</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#station-va-access-point">Station vả Access Point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#hotspot">Hotspot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kn-wifi.html#cac-chuan-bao-mat-wifi">Các chuẩn bảo mật WiFi</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="station.html">WiFi Station</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="station.html#khai-niem-co-ban">Khái niệm cơ bản</a></li>
@@ -162,6 +168,23 @@
 <li class="toctree-l3"><a class="reference internal" href="access-point.html#thiet-lap-mang">Thiết lập mạng</a></li>
 <li class="toctree-l3"><a class="reference internal" href="access-point.html#quan-ly-ket-noi">Quản lý kết nối</a></li>
 <li class="toctree-l3"><a class="reference internal" href="access-point.html#cau-hinh-mang">Cấu hình Mạng</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html">Giới thiệu về lớp Scan</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html#scan-for-networks">Scan for Networks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scannetworks">scanNetworks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scancomplete">scanComplete</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="scan-class.html#hien-thi-ket-qua">Hiển thị kết quả</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#ssid">SSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#scandelete">scanDelete</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#encryptiontype">encryptionType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#channel">channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#ishidden">isHidden</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#rssi">RSSI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#bssid">BSSID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scan-class.html#getnetworkinfo">getNetworkInfo</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="smartconfig.html">Smartconfig</a><ul>
@@ -469,9 +492,13 @@
 <h1>Wi-Fi<a class="headerlink" href="#wi-fi" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="kn-wifi.html">Các khái niệm cơ bản về WiFi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wifi-api.html">WiFi API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="station.html">WiFi Station</a></li>
 <li class="toctree-l1"><a class="reference internal" href="access-point.html">WiFi Access Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-class.html">Giới thiệu về lớp Scan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-class.html#scan-for-networks">Scan for Networks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scan-class.html#hien-thi-ket-qua">Hiển thị kết quả</a></li>
 <li class="toctree-l1"><a class="reference internal" href="smartconfig.html">Smartconfig</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wps.html">WPS</a></li>
 </ul>
@@ -488,7 +515,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="wifi-api.html" class="btn btn-neutral float-right" title="Thư viện ESP8266WiFi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="kn-wifi.html" class="btn btn-neutral float-right" title="Các khái niệm cơ bản về WiFi" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../peripherals/spi.html" class="btn btn-neutral" title="SPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
