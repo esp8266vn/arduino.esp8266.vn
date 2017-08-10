@@ -9,6 +9,9 @@ Các khái niệm cơ bản về WiFi
   - :ref:`WPA0` 
   - :ref:`WPA 2 0`
 
+* :ref:`Port (trong mạng máy tính) 0`
+
+
 
 .. _Station và Access Point0:
 
@@ -54,3 +57,19 @@ WPA 2
 
 WPA 2 ( WiFi Protected Access II ) là giao thức và chuẩn bảo mật thay thế cho WPA từ năm 2006 và được xem là chuẩn bảo mật an toàn nhất đến thời điểm này. Ngoài việc sử dụng giao thức AES,thì WPA 2 còn sử dụng thêm giao thức mã hóa CCMP (CTR mode with CBC-MAC Protocol). Giao thức CCMP là một giao thức truyền dữ liệu và kiểm soát tính truyền dữ liệu thống nhất để bảo đảm cả tính bảo mật và nguyên vẹn của dữ liệu được truyền đi.
 Cho đến nay thì giao thức bảo mật WPA2 dùng AES là giao thức bảo mật Wifi tốt nhất.
+
+.. _Port (trong mạng máy tính) 0:
+
+Port (trong mạng máy tính)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Trong giao thức mạng máy tính, port là một điểm đích (endpoint) trong giao tiếp ở một hệ điều hành. Cần phân biệt khái niệm Port trong mạng máy tính với Port trong phần cứng, port trong phần cứng là đầu kết nối female của thiết bị phần cứng. Với giao thức mạng máy tính, Port được dùng để nhận biết một qui trình đặc biệt hay một dịch vụ mạng nào đó.
+
+Một port thường kết hợp với một địa chỉ IP của một host và dạng giao thức của giao tiếp mạng tương ứng, do đó sẽ hoàn thành việc xác định đích đến của một giao tiếp mạng. Một port sẽ được xác định bằng một số 16 bit, thường được gọi là port number (số port). Ví dụ, các thông tin về một giao thức mạng sẽ là: "Giao thức mạng: TCP, IP: 1.2.3.4, port number: 80", ta có thể viết lại thành 1.2.3.4:80.
+
+Các port number được dùng để nhận biết một dịch vụ mạng đặc biệt. Ta có danh sách 1024 port number thông dụng được dùng để xác định các dịch vụ đặc biệt trên một host.
+
+Specific port numbers are often used to identify specific services. Of the thousands of enumerated ports, 1024 well-known port numbers are reserved by convention to identify specific service types on a host. In the client–server model of application architecture, the ports that network clients connect to for service initiation provide a multiplexing service. After initial communication binds to the well-known port number, this port is freed by switching each instance of service requests to a dedicated, connection-specific port number, so that additional clients can be serviced. The protocols that primarily use ports are the transport layer protocols, such as the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP).
+
+Ports were unnecessary on direct point-to-point links when the computers at each end could only run one program at a time. Ports became necessary after computers became capable of executing more than one program at a time and were connected to modern networks.
+
