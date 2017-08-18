@@ -86,6 +86,7 @@ softAPConfig
 
 Tất cả các thông số đều có kiểu ``IPAddress`` và được định nghĩa như sau:
 
+
 * ``local_ip``: Địa chỉ IP của điểm truy cập mềm
 * ``gateway``: địa chỉ IP gateway
 * ``subnet``: subnet mask
@@ -171,16 +172,21 @@ Ví dụ:
  }
 
 
-*output*
+DEMO:
+
+Trả về số lượng các thiết bị (station) kết nối tới mạng Wifi thiết lập bởi ESP8266
 
         .. image:: ../_static/wifi/softap-getstationnum.png
 
 Ta thấy có 1 thiết bị kết nối tới mạng WIFI: "31/8/2017"
 
+
 	
 .. note::
 
  Số lượng trạm tối đa có thể kết nối với phần mềm ESP8266 là 5.
+
+.. _softAPdisconnect0:
 
 .. _softAPdisconnect0:
 
@@ -192,6 +198,7 @@ Ngắt kết nối các trạm từ mạng được thiết lập bởi softAP.
 .. code:: cpp
 
      WiFi.softAPdisconnect(wifioff)
+
 
 Chức năng sẽ thiết lập cấu hình SSID và password của soft-AP giá trị là ``null``. Tham số ``wifioff`` là tùy chọn. Nếu thiết lập là ``true`` nó sẽ tắt chế độ soft-AP.
 
@@ -271,6 +278,7 @@ Kiểu trả về là một ``String`` chứa địa chỉ MAC của softAP.
 
 .. code:: cpp
 
-	 MAC address = 5E:CF:7F:8B:10:13
+	MAC address = 5E:CF:7F:8B:10:13
+
 
 

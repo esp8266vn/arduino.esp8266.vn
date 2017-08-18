@@ -57,6 +57,7 @@ Mục lục
 Kết nối 
 ==============
 
+
 .. _begin0: 
 
 begin
@@ -88,6 +89,8 @@ Các thông số:
 * ``channel``: thiết lập kênh cho WiFi, tham số này có thể bỏ qua.
 * ``bssid``: địa chỉ MAC của AP
 * ``connect``: nếu giá trị là ``false``, module sẽ lưu các tham số nhưng không thiết lập kết nối đến điểm truy cập.
+
+.. _config0:
 
 .. _config0:
 
@@ -197,6 +200,8 @@ Thiết lập cấu hình ``ssid`` và ``password`` thành ``null`` và thực h
     WiFi.disconnect(wifioff)
 
 * Đối số ``wifioff`` là tham số tùy chọn kiểu *boolean*, nếu là ``true`` thì chế độ trạm (station mode) sẽ bị tắt.
+
+.. _isConnected0:
 
 .. _isConnected0:
 
@@ -559,8 +564,8 @@ Trả lại mật khẩu hiện tại của WiFi mà module đã kết nối t�
 Kiểu trả về ``String``
 
 
-Ví dụ:
 
+Ví dụ:
 
 Mô tả: Với module ESP8266 đã kết nối wifi ở trên,ta cần hiển thị password wifi đã kết nối
 
@@ -568,19 +573,19 @@ Ví dụ:
 
 .. code-block:: cpp
 
+
     #include <ESP8266WiFi.h>
 
     void setup()
     {
       Serial.begin(115200);
       Serial.println();
-
- 
       Serial.printf("pass: %s ", WiFi.psk().c_str() );
     }
     void loop() {}
 
 *output:*
+
 
 .. code:: cpp
 
