@@ -9,6 +9,9 @@ Các khái niệm cơ bản về WiFi
   - :ref:`WPA0` 
   - :ref:`WPA 2 0`
 
+* :ref:`Port (trong mạng máy tính) 0`
+* :ref:`Client và Server 0`
+
 
 
 
@@ -57,4 +60,27 @@ WPA 2
 WPA 2 ( WiFi Protected Access II ) là giao thức và chuẩn bảo mật thay thế cho WPA từ năm 2006 và được xem là chuẩn bảo mật an toàn nhất đến thời điểm này. Ngoài việc sử dụng giao thức AES,thì WPA 2 còn sử dụng thêm giao thức mã hóa CCMP (CTR mode with CBC-MAC Protocol). Giao thức CCMP là một giao thức truyền dữ liệu và kiểm soát tính truyền dữ liệu thống nhất để bảo đảm cả tính bảo mật và nguyên vẹn của dữ liệu được truyền đi.
 Cho đến nay thì giao thức bảo mật WPA2 dùng AES là giao thức bảo mật Wifi tốt nhất.
 
+.. _Port (trong mạng máy tính) 0:
 
+Port (trong mạng máy tính)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Trong giao thức mạng máy tính, port là một điểm đích (endpoint) trong giao tiếp ở một hệ điều hành. Cần phân biệt khái niệm Port trong mạng máy tính với Port trong phần cứng, port trong phần cứng là đầu kết nối female của thiết bị phần cứng. Với giao thức mạng máy tính, Port được dùng để nhận biết một qui trình đặc biệt hay một dịch vụ mạng nào đó.
+
+Một port thường kết hợp với một địa chỉ IP của một host và dạng giao thức của giao tiếp mạng tương ứng, do đó sẽ hoàn thành việc xác định đich đến của một giao tiếp mạng. Một port sẽ được xác định bằng một số 16 bit, thường được gọi là port number (số port). Ví dụ, các thông tin về một giao thức mạng sẽ là: "Giao thức mạng: TCP, IP: 1.2.3.4, port number: 80", ta có thể viết lại thành 1.2.3.4:80.
+
+Các số thứ tự port được dùng để nhận biết một dịch vụ mạng đặc biệt. Ta có danh sách `1024 port thông dụng`_ được dùng để xác định các dịch vụ đặc biệt trên một host.
+
+
+.. _Client và Server 0:
+
+Client và Server
+~~~~~~~~~~~~~~~~
+
+Client là một nhóm các phần cứng hoặc phần mềm máy tính truy cập vào một dịch vụ cung cấp bởi Server. Server có thể hiểu đơn gỉan là một máy tính chứa dữ liệu hoặc dịch vụ mà Client có thể truy cập tới, tuy nhiên không phải tất cả server đều là máy tính. Client sẽ truy cập vào dịch vụ của server thông qua hệ thống mạng, thường là Internet. Từ đây, ta có mô hình client-server
+
+.. image:: ../_static/wifi/Client-server-model.png
+
+Một ví dụ điển hình của mô hinh client-server là việc truy cập của web browser: các web browser là những client kết nối tới web server để được truy cập vào các trang web. Các ví dụ khác của mô hình client-server có thể kể đến như: Email client nhận email từ mail server; các ứng dụng chat online, game online với mỗi máy khi đó sẽ là một client.
+
+.. _1024 port thông dụng: https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers#Well-known_ports
