@@ -5,10 +5,22 @@
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+var nav = document.getElementsByClassName("wy-nav-side");
+if(nav && nav.length > 0) {
+    nav[0].innerHTML += '<div><a href="http://iota.edu.vn/iot-starter/" target="_blank"><img src="./_static/iot-basic.png" /></a></div>';
+}
 </script>
 <script type="text/javascript">
 try {
 var pageTracker = _gat._getTracker("UA-60470603-9");
 pageTracker._trackPageview();
 } catch(err) {}</script>
+{% endblock %}
+
+{% block extrahead %}
+<style>
+.wy-nav-side {
+    padding-bottom: 100px !important;
+}
+</style>
 {% endblock %}
