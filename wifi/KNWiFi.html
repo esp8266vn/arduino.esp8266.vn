@@ -35,7 +35,13 @@
         <link rel="index" title="Index"
               href="../genindex.html"/>
         <link rel="search" title="Tìm Kiếm" href="../search.html"/>
-    <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/> 
+    <link rel="top" title="Tài liệu Lập trình IoT với ESP8266 Arduino 1.0" href="../index.html"/>
+<style>
+.wy-nav-side {
+    padding-bottom: 100px !important;
+}
+</style>
+
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -603,6 +609,10 @@ Cho đến nay thì giao thức bảo mật WPA2 dùng AES là giao thức bảo
 <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+var nav = document.getElementsByClassName("wy-nav-side");
+if(nav && nav.length > 0) {
+    nav[0].innerHTML += '<div><a href="http://iota.edu.vn/iot-starter/" target="_blank"><img src="./_static/iot-basic.png" /></a></div>';
+}
 </script>
 <script type="text/javascript">
 try {
